@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>me.soilmonitoring.iam</groupId>
+    <artifactId>soilmonitoring-iam</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jakrtaee-api.version>11.0.0</jakrtaee-api.version>
+        <microprofile-config-api.version>3.1</microprofile-config-api.version>
+        <argon2.version>2.11</argon2.version>
+        <jnosql.mongodb.version>1.1.10</jnosql.mongodb.version>
+        <mongodb.driver.version>5.6.0</mongodb.driver.version>
+    </properties>
+
+    <packaging>war</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>${jakrtaee-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile.config</groupId>
+            <artifactId>microprofile-config-api</artifactId>
+            <version>${microprofile-config-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.mkammerer</groupId>
+            <artifactId>argon2-jvm</artifactId>
+            <version>${argon2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jnosql.databases</groupId>
+            <artifactId>jnosql-mongodb</artifactId>
+            <version>${jnosql.mongodb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>${mongodb.driver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>6.0.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>iam-${project.version}</finalName>
+        <testSourceDirectory>src/test</testSourceDirectory>
+    </build>
+
+</project>
