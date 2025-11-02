@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+//TODO: add test file
 
 @Repository
 public interface PredictionRepository extends CrudRepository<Prediction, String> {

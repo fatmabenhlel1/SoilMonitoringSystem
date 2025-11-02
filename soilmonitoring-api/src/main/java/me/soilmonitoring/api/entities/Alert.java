@@ -6,7 +6,7 @@ import jakarta.nosql.Id;
 
 import java.time.LocalDateTime;
 
-
+// TODO: add documentation
 
 @Entity
 public class Alert implements RootEntity<String> {

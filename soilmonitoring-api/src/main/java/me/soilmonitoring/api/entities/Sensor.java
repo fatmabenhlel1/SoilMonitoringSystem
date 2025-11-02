@@ -6,6 +6,10 @@ import jakarta.nosql.Id;
 
 import java.time.LocalDateTime;
 
+
+// TODO: add documentation
+
+
 @Entity
 public class Sensor implements RootEntity<String> {
     @Id

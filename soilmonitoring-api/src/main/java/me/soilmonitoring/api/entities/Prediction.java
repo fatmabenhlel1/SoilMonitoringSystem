@@ -8,6 +8,10 @@ import jakarta.nosql.Id;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
+// TODO: add documentation
+
+
 @Entity
 public class Prediction implements RootEntity<String> {
     @Id

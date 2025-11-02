@@ -9,6 +9,8 @@ import me.soilmonitoring.api.entities.Field;
 
 import java.util.List;
 
+//TODO: add test file
+
 @Repository
 public interface FieldRepository extends CrudRepository<Field, String> {
     /**

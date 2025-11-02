@@ -9,6 +9,7 @@ import me.soilmonitoring.api.entities.Alert;
 
 import java.util.List;
 
+//TODO: add test file
 
 @Repository
 public interface AlertRepository extends CrudRepository<Alert, String> {

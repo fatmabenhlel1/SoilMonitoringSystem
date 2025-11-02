@@ -3,6 +3,10 @@ package me.soilmonitoring.api.entities;
 import jakarta.nosql.Column;
 import jakarta.nosql.Embeddable;
 
+
+// TODO: add documentation
+
+
 @Embeddable
 public class SensorData {
     @Column
