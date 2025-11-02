@@ -16,7 +16,7 @@
         <microprofile-config-api.version>3.1</microprofile-config-api.version>
         <jnosql.mongodb.version>1.1.10</jnosql.mongodb.version>
         <mongodb.driver.version>5.6.0</mongodb.driver.version>
-        <hivemq.version>1.2.1</hivemq.version>
+        <hivemq.version>1.3.9</hivemq.version>
         <junit.version>6.0.1</junit.version>
     </properties>
 
@@ -59,8 +59,8 @@
 
         <!-- HiveMQ MQTT Client -->
         <dependency>
-            <groupId>org.eclipse.paho</groupId>
-            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+            <groupId>com.hivemq</groupId>
+            <artifactId>hivemq-mqtt-client</artifactId>
             <version>${hivemq.version}</version>
         </dependency>
 
