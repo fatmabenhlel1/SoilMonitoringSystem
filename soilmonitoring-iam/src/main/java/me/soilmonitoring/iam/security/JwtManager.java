@@ -46,7 +46,7 @@ public class JwtManager {
         cachedKeyPairs.put(kid, keyPairGenerator.generateKeyPair());
     }
 
-    private Optional<Map.Entry<String, KeyPair>> getKeyPair() {
+    Optional<Map.Entry<String, KeyPair>> getKeyPair() {
         cachedKeyPairs.entrySet().removeIf(e -> isPublicKeyExpired(e.getKey()));
         while(cachedKeyPairs.entrySet().stream().filter(e -> privateKeyHasNotExpired(e.getKey())).count() < maxCacheSize) {
             generateKeyPair();

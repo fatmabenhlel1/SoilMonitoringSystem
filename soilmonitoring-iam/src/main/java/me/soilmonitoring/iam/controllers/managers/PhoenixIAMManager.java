@@ -18,11 +18,11 @@ import java.util.Optional;
 @Singleton
 public class PhoenixIAMManager {
     @Inject
-    private IdentityRepository identityRepository;
+    IdentityRepository identityRepository;
     @Inject
-    private GrantRepository grantRepository;
+    GrantRepository grantRepository;
     @Inject
-    private TenantRepository tenantRepository;
+    TenantRepository tenantRepository;
     public Tenant findTenantByName(String name){
         return tenantRepository.findByName(name).orElseThrow(IllegalArgumentException::new);
     }

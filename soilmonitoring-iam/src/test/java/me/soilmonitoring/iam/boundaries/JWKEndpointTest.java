@@ -1,15 +1,19 @@
 package me.soilmonitoring.iam.boundaries;
 
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
 import jakarta.ws.rs.core.Response;
 import me.soilmonitoring.iam.security.JwtManager;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(MockitoExtension.class)
 class JWKEndpointTest {
@@ -20,10 +24,16 @@ class JWKEndpointTest {
     @InjectMocks
     private JWKEndpoint jwkEndpoint;
 
+
+
+
     @Test
     void getPublicVerificationKey_shouldReturnPublicKeyWhenValidKid() throws Exception {
         String kid = "validKid";
-        String publicKey = "{\"kty\":\"RSA\",\"kid\":\"validKid\"}";
+        JsonObject publicKey = Json.createObjectBuilder()
+                .add("kty", "RSA")
+                .add("kid", kid)
+                .build();
 
         when(jwtManager.getPublicKeyAsJWK(kid)).thenReturn(publicKey);
 
