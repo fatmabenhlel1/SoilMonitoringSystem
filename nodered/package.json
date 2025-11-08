@@ -1,0 +1,15 @@
+{
+  "name": "node-red-project",
+  "description": "initially created for you by Node-RED 4.1.1",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "node-red-contrib-buffer-parser": "^3.2.2",
+    "node-red-contrib-play-audio": "^2.5.0",
+    "node-red-node-pi-gpio": "^2.0.6",
+    "node-red-node-ping": "^0.3.3",
+    "node-red-node-random": "^0.4.1",
+    "node-red-node-serialport": "^2.0.3",
+    "node-red-node-smooth": "^0.1.2"
+  }
+}
