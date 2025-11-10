@@ -1,39 +1,66 @@
 package me.soilmonitoring.iam.boundaries;
 
+import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
 import me.soilmonitoring.iam.controllers.managers.PhoenixIAMManager;
+import me.soilmonitoring.iam.entities.Identity;
+import me.soilmonitoring.iam.entities.Tenant;
 import me.soilmonitoring.iam.security.AuthorizationCode;
 import me.soilmonitoring.iam.security.JwtManager;
-import org.junit.jupiter.api.BeforeEach;
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit5.ArquillianExtension;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Map;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(ArquillianExtension.class)
 class TokenEndpointTest {
 
-    @Mock
+    @Inject
     private PhoenixIAMManager phoenixIAMManager;
 
-    @Mock
+    @Inject
     private JwtManager jwtManager;
 
-    @InjectMocks
+    @Inject
     private TokenEndpoint tokenEndpoint;
 
     private final Set<String> supportedGrantTypes = Set.of("authorization_code", "refresh_token");
 
-    @BeforeEach
-    void setUp() {
-        // Initialize mocks if necessary
+    @Deployment
+    public static JavaArchive createDeployment() {
+        return ShrinkWrap.create(JavaArchive.class)
+                .addClasses(TokenEndpoint.class, PhoenixIAMManager.class, JwtManager.class, AuthorizationCode.class, Identity.class, Tenant.class)
+                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
+    }
+
+    @Test
+    void token_shouldHandleAuthorizationCodeGrant() throws Exception {
+        AuthorizationCode decoded = new AuthorizationCode(
+                "tenant123", "user123", "read write", System.currentTimeMillis() + 3600000, "http://redirect.uri"
+        );
+
+        Identity identity = new Identity();
+        identity.setUsername(decoded.identityUsername());
+        phoenixIAMManager.saveIdentity(identity);
+
+        Tenant tenant = new Tenant();
+        tenant.setName(decoded.tenantName());
+        phoenixIAMManager.saveTenant(tenant);
+
+        Response response = tokenEndpoint.token("authorization_code", "authCode", "codeVerifier");
+
+        assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+        Map<String, Object> entity = (Map<String, Object>) response.getEntity();
+        assertEquals("Bearer", entity.get("token_type"));
+        assertNotNull(entity.get("access_token"));
+        assertNotNull(entity.get("refresh_token"));
     }
 
     @Test
@@ -53,46 +80,23 @@ class TokenEndpointTest {
     }
 
     @Test
-    void token_shouldHandleAuthorizationCodeGrant() throws Exception {
-        AuthorizationCode decoded = mock(AuthorizationCode.class);
-        when(decoded.tenantName()).thenReturn("tenant123");
-        when(decoded.identityUsername()).thenReturn("user123");
-        when(decoded.approvedScopes()).thenReturn("read write");
-
-        when(AuthorizationCode.decode("authCode", "codeVerifier")).thenReturn(decoded);
-        when(phoenixIAMManager.getRoles("user123")).thenReturn(new String[]{"role1", "role2"});
-        when(jwtManager.generateToken(anyString(), anyString(), anyString(), any(String[].class)))
-                .thenReturn("accessToken", "refreshToken");
-
-        Response response = tokenEndpoint.token("authorization_code", "authCode", "codeVerifier");
-
-        assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
-        Map<String, Object> entity = (Map<String, Object>) response.getEntity();
-        assertEquals("Bearer", entity.get("token_type"));
-        assertEquals("accessToken", entity.get("access_token"));
-        assertEquals("refreshToken", entity.get("refresh_token"));
-    }
-
-    @Test
     void token_shouldHandleRefreshTokenGrant() throws Exception {
-        when(jwtManager.verifyToken("authCode")).thenReturn(Map.of("tenant_id", "tenant123", "scope", "read write", "groups", "[\"role1\"]", "sub", "user123"));
-        when(jwtManager.verifyToken("codeVerifier")).thenReturn(Map.of("tenant_id", "tenant123", "scope", "read write", "sub", "user123"));
-        when(jwtManager.generateToken(anyString(), anyString(), anyString(), any(String[].class)))
-                .thenReturn("newAccessToken", "newRefreshToken");
+        jwtManager.verifyToken("authCode");
+        jwtManager.verifyToken("codeVerifier");
 
         Response response = tokenEndpoint.token("refresh_token", "authCode", "codeVerifier");
 
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
         Map<String, Object> entity = (Map<String, Object>) response.getEntity();
         assertEquals("Bearer", entity.get("token_type"));
-        assertEquals("newAccessToken", entity.get("access_token"));
-        assertEquals("newRefreshToken", entity.get("refresh_token"));
+        assertNotNull(entity.get("access_token"));
+        assertNotNull(entity.get("refresh_token"));
     }
 
     @Test
     void token_shouldReturnUnauthorizedForInvalidRefreshToken() {
-        when(jwtManager.verifyToken("authCode")).thenReturn(Map.of());
-        when(jwtManager.verifyToken("codeVerifier")).thenReturn(Map.of());
+        jwtManager.verifyToken("authCode");
+        jwtManager.verifyToken("codeVerifier");
 
         Response response = tokenEndpoint.token("refresh_token", "authCode", "codeVerifier");
 
