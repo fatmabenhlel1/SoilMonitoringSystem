@@ -30,6 +30,9 @@ public class SensorData {
     @Column
     private Double rainfall;
 
+    @Column
+    private Double pH;
+
     public SensorData() {
     }
 
@@ -87,5 +90,13 @@ public class SensorData {
 
     public void setRainfall(Double rainfall) {
         this.rainfall = rainfall;
+    }
+
+    public Double getPh() {
+        return rainfall;
+    }
+
+    public void setPh(Double pH) {
+        this.pH = pH;
     }
 }
