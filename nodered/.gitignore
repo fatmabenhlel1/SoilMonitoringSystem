@@ -1,0 +1,5 @@
+*_cred.json
+.config.*.json
+.sessions.json
+node_modules/
+*.backup

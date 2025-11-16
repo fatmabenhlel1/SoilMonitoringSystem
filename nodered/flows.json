@@ -1,0 +1,310 @@
+[
+    {
+        "id": "35663338d3b3c010",
+        "type": "tab",
+        "label": "Flux 1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5ebd66df6c05ba97",
+        "type": "protobuf-file",
+        "protopath": "/home/fatma/sparkplug/sparkplug_b.proto",
+        "watchFile": true,
+        "keepCase": false
+    },
+    {
+        "id": "6a37a097cc308b96",
+        "type": "mqtt-broker",
+        "name": "HiveMQ cloud",
+        "broker": "0b1fe1fedc0c453db6ea029b69b32f1c.s1.eu.hivemq.cloud",
+        "port": "8883",
+        "tls": "",
+        "clientid": "Raspberrypi",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "52f68897d5e479e3",
+        "type": "inject",
+        "z": "35663338d3b3c010",
+        "name": "timestamp",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "c1af8ef136e7f383"
+            ]
+        ]
+    },
+    {
+        "id": "c1af8ef136e7f383",
+        "type": "rpi-dht22",
+        "z": "35663338d3b3c010",
+        "name": "",
+        "topic": "Read DHT Sensor",
+        "dht": "11",
+        "pintype": "0",
+        "pin": 4,
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "b393ca08c3364dca",
+                "36c52e85636e223b"
+            ]
+        ]
+    },
+    {
+        "id": "b393ca08c3364dca",
+        "type": "function",
+        "z": "35663338d3b3c010",
+        "name": "Temperature Data",
+        "func": "var value = parseFloat(msg.payload);\n\n// Déterminez le statut basé sur la température\nvar status;\nif (value < 10) status = \"Very Cold\";\nelse if (value < 18) status = \"Cold\";\nelse if (value < 25) status = \"Normal\";\nelse if (value < 30) status = \"Warm\";\nelse status = \"Hot\";\n\nmsg.payload = {\n    value: value,\n    temperature: value,\n    unit: \"°C\",\n    status: status,\n    timestamp: new Date().toLocaleString()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 120,
+        "wires": [
+            [
+                "77921e64c99c4a6a",
+                "e6d6e4a2cb353fcc"
+            ]
+        ]
+    },
+    {
+        "id": "36c52e85636e223b",
+        "type": "function",
+        "z": "35663338d3b3c010",
+        "name": "Humidity Data",
+        "func": "var value = parseFloat(msg.humidity);\n\n// Déterminez le statut basé sur l'humidité\nvar status;\nif (value < 20) status = \"Very Dry\";\nelse if (value < 40) status = \"Dry\";\nelse if (value < 60) status = \"Normal\";\nelse if (value < 80) status = \"Humid\";\nelse status = \"Very Humid\";\n\nmsg.payload = {\n    value: value,\n    humidity: value,\n    unit: \"%\",\n    status: status,\n    timestamp: new Date().toLocaleString()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 260,
+        "wires": [
+            [
+                "ba8b1feaf5c34669",
+                "527c56c98d28f2e8"
+            ]
+        ]
+    },
+    {
+        "id": "e6d6e4a2cb353fcc",
+        "type": "mqtt out",
+        "z": "35663338d3b3c010",
+        "name": "Publish to HiveMQ Cloud",
+        "topic": "sensors/temperature",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6a37a097cc308b96",
+        "x": 930,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "527c56c98d28f2e8",
+        "type": "mqtt out",
+        "z": "35663338d3b3c010",
+        "name": "Publish to HiveMQ Cloud",
+        "topic": "sensors/humidity",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6a37a097cc308b96",
+        "x": 890,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "332f81172053ed09",
+        "type": "function",
+        "z": "35663338d3b3c010",
+        "name": "Moisture Data",
+        "func": "var value = parseInt(msg.payload.trim());\nmsg.payload = {\n    value: value,\n    status: value === 1 ? \"Dry\" : \"Wet\",\n    timestamp: new Date().toLocaleString()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "01aae5e00b49d517",
+                "7456b5922e05391b"
+            ]
+        ]
+    },
+    {
+        "id": "01aae5e00b49d517",
+        "type": "mqtt out",
+        "z": "35663338d3b3c010",
+        "name": "Publish to HiveMQ Cloud",
+        "topic": "sensors/moisture",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6a37a097cc308b96",
+        "x": 770,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "77921e64c99c4a6a",
+        "type": "debug",
+        "z": "35663338d3b3c010",
+        "name": "temp",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ba8b1feaf5c34669",
+        "type": "debug",
+        "z": "35663338d3b3c010",
+        "name": "humidity",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7456b5922e05391b",
+        "type": "debug",
+        "z": "35663338d3b3c010",
+        "name": "moist",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b865bbfb2c6ddbdd",
+        "type": "inject",
+        "z": "35663338d3b3c010",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "1cc844ed96e8b5c3"
+            ]
+        ]
+    },
+    {
+        "id": "1cc844ed96e8b5c3",
+        "type": "pythonshell in",
+        "z": "35663338d3b3c010",
+        "name": "moisture read",
+        "pyfile": "/home/fatma/read_moisture.py",
+        "virtualenv": "",
+        "continuous": false,
+        "stdInData": false,
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "332f81172053ed09"
+            ]
+        ]
+    }
+]
