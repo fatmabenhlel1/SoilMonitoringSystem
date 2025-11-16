@@ -1,0 +1,41 @@
+<section class="grid">
+    <div>
+        <div class="card">
+            <h2>Temperature (°C)</h2>
+            <div class="canvas-wrap">
+                <canvas id="tempChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+            <h2>Humidity (%)</h2>
+            <div class="canvas-wrap">
+                <canvas id="humidityChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+            <h2>NPK (index)</h2>
+            <div class="canvas-wrap">
+                <canvas id="npkChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <aside>
+        <div class="card">
+            <h3>Alerts</h3>
+            <ul id="alertList" class="alert-list">
+                <!-- alert items -->
+            </ul>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+            <h3>Quick actions</h3>
+            <button id="btn-refresh">Refresh data</button>
+            <div style="margin-top:.5rem;font-size:.9rem;color:var(--muted)">
+                Last update: <span id="lastUpdate">—</span>
+            </div>
+        </div>
+    </aside>
+</section>
