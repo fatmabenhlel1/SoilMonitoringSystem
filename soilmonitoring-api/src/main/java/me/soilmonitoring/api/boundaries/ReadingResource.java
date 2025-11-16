@@ -2,15 +2,21 @@ package me.soilmonitoring.api.boundaries;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;
+import me.soilmonitoring.api.controllers.repositories.AlertRepository;
 import me.soilmonitoring.api.controllers.repositories.SensorReadingRepository;
 import me.soilmonitoring.api.controllers.repositories.SensorReadingRepository;
+import me.soilmonitoring.api.entities.Alert;
+import me.soilmonitoring.api.entities.SensorData;
 import me.soilmonitoring.api.entities.SensorReading;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
@@ -29,6 +35,9 @@ public class ReadingResource {
 
     @Inject
     private SensorReadingRepository readingRepository;
+
+    @Inject
+    private AlertRepository alertRepository;
 
     @GET
     @Path("/field/{fieldId}")
@@ -109,5 +118,53 @@ public class ReadingResource {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity("Error retrieving latest reading").build();
         }
+    }
+
+
+    @GET
+    @Path("/field/{fieldId}/summary")
+    public Response getFieldSummary(@PathParam("fieldId") String fieldId) {
+        try {
+            // Get latest reading
+            List<SensorReading> readings = manager.getFieldReadings(fieldId);
+            if (readings.isEmpty()) {
+                return Response.status(Response.Status.NOT_FOUND)
+                        .entity("{\"message\":\"No readings found\"}").build();
+            }
+
+            SensorReading latest = readings.stream()
+                    .max(Comparator.comparing(SensorReading::getTimestamp))
+                    .orElseThrow();
+
+            // Get alert count
+
+            List<Alert> unreadAlerts = alertRepository.findByFieldIdAndIsRead(fieldId, false);
+
+            // Build summary response
+            JsonObject summary = Json.createObjectBuilder()
+                    .add("latestReading", buildReadingJson(latest))
+                    .add("unreadAlertCount", unreadAlerts.size())
+                    .add("lastUpdate", latest.getTimestamp().toString())
+                    .build();
+
+            return Response.ok(summary.toString()).build();
+        } catch (Exception e) {
+            logger.severe("Error getting field summary: " + e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    private JsonObject buildReadingJson(SensorReading reading) {
+        SensorData data = reading.getData();
+        return Json.createObjectBuilder()
+                .add("temperature", data.getTemperature() != null ? data.getTemperature() : 0)
+                .add("humidity", data.getHumidity() != null ? data.getHumidity() : 0)
+                .add("nitrogen", data.getNitrogen() != null ? data.getNitrogen() : 0)
+                .add("phosphorus", data.getPhosphorus() != null ? data.getPhosphorus() : 0)
+                .add("potassium", data.getPotassium() != null ? data.getPotassium() : 0)
+                .add("soilMoisture", data.getSoilMoisture() != null ? data.getSoilMoisture() : 0)
+                .add("pH", data.getPh() != null ? data.getPh() : 0)
+                .add("rainfall", data.getRainfall() != null ? data.getRainfall() : 0)
+                .build();
     }
 }

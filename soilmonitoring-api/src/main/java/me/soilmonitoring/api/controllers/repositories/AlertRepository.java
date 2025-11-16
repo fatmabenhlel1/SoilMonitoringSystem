@@ -52,4 +52,11 @@ public interface AlertRepository extends CrudRepository<Alert, String> {
      */
     @Find
     List<Alert> findByFieldId(@By("fieldId") String fieldId);
+
+
+    @Find
+    List<Alert> findByFieldIdAndIsRead(
+            @By("fieldId") String fieldId,
+            @By("isRead") Boolean isRead
+    );
 }
