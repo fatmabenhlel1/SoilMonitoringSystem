@@ -9,6 +9,8 @@ import me.soilmonitoring.iam.entities.Grant;
 import me.soilmonitoring.iam.entities.Identity;
 import me.soilmonitoring.iam.entities.Tenant;
 import me.soilmonitoring.iam.entities.GrantPK;
+
+import java.util.List;
 import java.util.Optional;
 @Singleton
 public class PhoenixIAMManager {
@@ -39,6 +41,11 @@ public class PhoenixIAMManager {
 
     public Identity findIdentityByUsername(String username) {
         return identityRepository.findByUsername(username).orElseThrow(IllegalArgumentException::new);
+    }
+    public List<String> getRoles(String username) {
+        // Remplacez cette logique par celle qui correspond à votre application
+        // Par exemple, interrogez une base de données ou utilisez une liste prédéfinie
+        return List.of("role1", "role2"); // Exemple de rôles
     }
 
     public Optional<Grant> findGrant(String tenantName, String identityId) {

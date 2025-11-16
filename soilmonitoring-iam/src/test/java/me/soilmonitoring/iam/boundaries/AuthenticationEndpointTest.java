@@ -2,7 +2,6 @@ package me.soilmonitoring.iam.boundaries;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Cookie;
-import jakarta.ws.rs.core.MultivaluedHashMap;
 import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
@@ -17,8 +16,10 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(ArquillianExtension.class)
 class AuthenticationEndpointTest {
@@ -39,7 +40,8 @@ class AuthenticationEndpointTest {
 
     @Test
     void authorize_whenClientIdIsMissing_returnsBadRequest() {
-        UriInfo uriInfo = new TestUriInfo(new MultivaluedHashMap<>());
+        UriInfo uriInfo = mock(UriInfo.class);
+        when(uriInfo.getQueryParameters()).thenReturn(Mockito.mock(MultivaluedMap.class));
 
         Response response = endpoint.authorize(uriInfo);
 
@@ -49,9 +51,11 @@ class AuthenticationEndpointTest {
 
     @Test
     void authorize_whenTenantNotFound_returnsBadRequest() {
-        MultivaluedMap<String, String> params = new MultivaluedHashMap<>();
-        params.putSingle("client_id", "unknown-client");
-        UriInfo uriInfo = new TestUriInfo(params);
+        MultivaluedMap<String, String> params = mock(MultivaluedMap.class);
+        when(params.getFirst("client_id")).thenReturn("unknown-client");
+
+        UriInfo uriInfo = mock(UriInfo.class);
+        when(uriInfo.getQueryParameters()).thenReturn(params);
 
         Response response = endpoint.authorize(uriInfo);
 
@@ -67,12 +71,14 @@ class AuthenticationEndpointTest {
         tenant.setRedirectUri("https://client.example/callback");
         phoenixIAMManager.saveTenant(tenant);
 
-        MultivaluedMap<String, String> params = new MultivaluedHashMap<>();
-        params.putSingle("client_id", tenant.getName());
-        params.putSingle("redirect_uri", tenant.getRedirectUri());
-        params.putSingle("response_type", "code");
-        params.putSingle("code_challenge_method", "plain");
-        UriInfo uriInfo = new TestUriInfo(params);
+        MultivaluedMap<String, String> params = mock(MultivaluedMap.class);
+        when(params.getFirst("client_id")).thenReturn(tenant.getName());
+        when(params.getFirst("redirect_uri")).thenReturn(tenant.getRedirectUri());
+        when(params.getFirst("response_type")).thenReturn("code");
+        when(params.getFirst("code_challenge_method")).thenReturn("plain");
+
+        UriInfo uriInfo = mock(UriInfo.class);
+        when(uriInfo.getQueryParameters()).thenReturn(params);
 
         Response response = endpoint.authorize(uriInfo);
 
@@ -98,11 +104,13 @@ class AuthenticationEndpointTest {
         String cookieValue = "my-client#read$https://client.example/callback";
         Cookie cookie = new Cookie(AuthenticationEndpoint.CHALLENGE_RESPONSE_COOKIE_ID, cookieValue);
 
-        MultivaluedMap<String, String> params = new MultivaluedHashMap<>();
-        params.putSingle("response_type", "code");
-        params.putSingle("code_challenge", "aCodeChallenge");
-        params.putSingle("state", "XYZ");
-        UriInfo uriInfo = new TestUriInfo(params);
+        MultivaluedMap<String, String> params = mock(MultivaluedMap.class);
+        when(params.getFirst("response_type")).thenReturn("code");
+        when(params.getFirst("code_challenge")).thenReturn("aCodeChallenge");
+        when(params.getFirst("state")).thenReturn("XYZ");
+
+        UriInfo uriInfo = mock(UriInfo.class);
+        when(uriInfo.getQueryParameters()).thenReturn(params);
 
         Response response = endpoint.login(cookie, "alice", "password", uriInfo);
 
@@ -125,21 +133,5 @@ class AuthenticationEndpointTest {
         Object location = response.getMetadata().getFirst("Location");
         assertNotNull(location);
         assertTrue(location.toString().contains("error"));
-    }
-
-    // Helper class for UriInfo
-    private static class TestUriInfo implements UriInfo {
-        private MultivaluedMap<String, String> queryParameters = new MultivaluedHashMap<>();
-
-        public TestUriInfo(MultivaluedMap<String, String> queryParameters) {
-            this.queryParameters = queryParameters;
-        }
-
-        @Override
-        public MultivaluedMap<String, String> getQueryParameters() {
-            return queryParameters;
-        }
-
-        // Implement other methods as needed (return null or empty values for unused methods)
     }
 }

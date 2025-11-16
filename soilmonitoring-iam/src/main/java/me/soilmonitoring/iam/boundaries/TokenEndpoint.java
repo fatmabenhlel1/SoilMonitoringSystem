@@ -83,7 +83,8 @@ public class TokenEndpoint {
             AuthorizationCode decoded  = AuthorizationCode.decode(authCode,codeVerifier); /*first time*/
             assert decoded!=null;
             String tenantName = decoded.tenantName();
-            String accessToken = jwtManager.generateToken(tenantName, decoded.identityUsername(), decoded.approvedScopes(), phoenixIAMManager.getRoles(decoded.identityUsername()));
+            String[] rolesArray = phoenixIAMManager.getRoles(decoded.identityUsername()).toArray(new String[0]);
+            String accessToken = jwtManager.generateToken(tenantName, decoded.identityUsername(), decoded.approvedScopes(), rolesArray);
             String refreshToken = jwtManager.generateToken(tenantName, decoded.identityUsername(), decoded.approvedScopes(),new String[]{"refresh_role"});
             return Response.ok(Json.createObjectBuilder()
                             .add("token_type", "Bearer")
