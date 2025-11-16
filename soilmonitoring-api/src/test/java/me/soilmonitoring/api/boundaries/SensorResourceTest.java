@@ -3,15 +3,17 @@ package me.soilmonitoring.api.boundaries;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
 import me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;
-import me.soilmonitoring.api.controllers.repositories.SensorRepository;
-import me.soilmonitoring.api.entities.Sensor;
+import me.soilmonitoring.api.controllers.repositories.AlertRepository;
+import me.soilmonitoring.api.entities.Alert;
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.jboss.arquillian.junit5.ArquillianExtension;
+
+
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,7 +21,8 @@ import java.util.UUID;
 
 import static org.junit.Assert.*;
 
-@RunWith(Arquillian.class)
+
+@ExtendWith(ArquillianExtension.class)
 public class SensorResourceTest {
 
     @Deployment
