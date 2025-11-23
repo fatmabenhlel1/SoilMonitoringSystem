@@ -42,43 +42,6 @@
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Demo users database
-    const users = {
-        'admin': {
-            password: 'admin',
-            role: 'Administrator',
-            name: 'Administrator',
-            redirect: 'pages/admin.html'
-        },
-        'user': {
-            password: 'user',
-            role: 'User',
-            name: 'John Farmer',
-            redirect: 'pages/user.html'
-        }
-    };
-
-    // Login button
-    document.getElementById('signin')?.addEventListener('click', function() {
-        window.location.href = 'pages/login.html';
-    });
-
-    // Signup button
-    document.getElementById('signup')?.addEventListener('click', function() {
-        window.location.href = 'pages/signup.html';
-    });
-
-    // Check if already logged in
-    window.addEventListener('load', function() {
-        const currentUser = sessionStorage.getItem('currentUser') || localStorage.getItem('currentUser');
-
-        if (currentUser) {
-            const user = JSON.parse(currentUser);
-            const redirectPage = user.role === 'Administrator' ? 'pages/admin.html' : 'pages/user.html';
-            window.location.href = redirectPage;
-        }
-    });
-</script>
+<script src="scripts/main.js"></script>
 </body>
 </html>
