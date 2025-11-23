@@ -3,14 +3,15 @@ package me.soilmonitoring.iam.security;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.core.HttpHeaders;
 import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.config.Config;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import jakarta.ws.rs.core.SecurityContext;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+
 import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -19,12 +20,24 @@ class AuthenticationFilterTest {
     @Mock
     private ContainerRequestContext requestContext;
 
+    @Mock
+    private Config config;
+
+    @Mock
+    private JwtManager jwtManager;
+
     private AuthenticationFilter filter;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        filter = new AuthenticationFilter();
+
+        // Mock configuration values
+        when(config.getValue("mp.jwt.realm", String.class)).thenReturn("test-realm");
+        when(config.getValue("jwt.claim.roles", String.class)).thenReturn("roles");
+
+        // Initialize the filter with mocked dependencies
+        filter = new AuthenticationFilter(config, jwtManager);
     }
 
     @Test
@@ -46,9 +59,6 @@ class AuthenticationFilterTest {
         when(requestContext.getHeaderString(HttpHeaders.AUTHORIZATION)).thenReturn(authorizationHeader);
         when(requestContext.getSecurityContext()).thenReturn(mock(SecurityContext.class));
 
-        InitialContext context = mock(InitialContext.class);
-        JwtManager jwtManager = mock(JwtManager.class);
-        when(context.lookup("java:module/JwtManager")).thenReturn(jwtManager);
         when(jwtManager.verifyToken(token)).thenReturn(Map.of(
                 "sub", "testUser",
                 "roles", "[\"admin\", \"user\"]"
@@ -71,10 +81,7 @@ class AuthenticationFilterTest {
 
         when(requestContext.getHeaderString(HttpHeaders.AUTHORIZATION)).thenReturn(authorizationHeader);
 
-        InitialContext context = mock(InitialContext.class);
-        JwtManager jwtManager = mock(JwtManager.class);
-        when(context.lookup("java:module/JwtManager")).thenReturn(jwtManager);
-        when(jwtManager.verifyToken(token)).thenThrow(new NamingException());
+        when(jwtManager.verifyToken(token)).thenThrow(new RuntimeException("Invalid token"));
 
         filter.filter(requestContext);
 

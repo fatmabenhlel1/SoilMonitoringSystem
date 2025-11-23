@@ -16,7 +16,6 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -30,6 +29,9 @@ class AuthenticationEndpointTest {
     @Inject
     private PhoenixIAMManager phoenixIAMManager;
 
+    @Inject
+    private Argon2Utility argon2Utility;
+
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
@@ -41,7 +43,8 @@ class AuthenticationEndpointTest {
     @Test
     void authorize_whenClientIdIsMissing_returnsBadRequest() {
         UriInfo uriInfo = mock(UriInfo.class);
-        when(uriInfo.getQueryParameters()).thenReturn(Mockito.mock(MultivaluedMap.class));
+        MultivaluedMap<String, String> params = mock(MultivaluedMap.class);
+        when(uriInfo.getQueryParameters()).thenReturn(params);
 
         Response response = endpoint.authorize(uriInfo);
 
@@ -94,7 +97,7 @@ class AuthenticationEndpointTest {
 
         Identity identity = new Identity();
         identity.setUsername("alice");
-        identity.setPassword(Argon2Utility.hash("password".toCharArray()));
+        identity.setPassword(argon2Utility.hash("password".toCharArray()));
         phoenixIAMManager.saveIdentity(identity);
 
         Grant grant = new Grant();
