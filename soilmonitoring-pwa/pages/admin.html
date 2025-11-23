@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - AgroMonitor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="../images/icons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../images/icons/apple-touch-icon.png">
+    <link href="../pwa.webmanifest" rel="manifest"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+    <link href="../styles/main.css" rel="stylesheet">
+</head>
+
+<body>
+<header class="header">
+    <nav class="navbar navbar-expand-lg w-100">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <div class="logo-text">
+                    <i class="fas fa-seedling"></i>
+                    <span>AgroMonitor</span>
+                </div>
+            </div>
+
+            <div class="right-content" id="profile">
+                <div class="profile-section">
+                    <!-- Notifications -->
+                    <div class="dropdown">
+                        <div class="notification-badge" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell fs-5 text-muted"></i>
+                            <div class="notification-dot"></div>
+                        </div>
+                        <div class="dropdown-menu dropdown-menu-end notification-dropdown">
+                            <div class="notification-header fw-bold">Notifications</div>
+                            <div class="notification-item d-flex gap-3">
+                                <div class="notification-icon alert">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-semibold">Critical NPK Level</div>
+                                    <div class="small text-muted">Zone A - Nitrogen below threshold</div>
+                                    <div class="small text-muted">5 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="notification-item d-flex gap-3">
+                                <div class="notification-icon info">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-semibold">Humidity Alert</div>
+                                    <div class="small text-muted">Zone B - High soil moisture detected</div>
+                                    <div class="small text-muted">20 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="notification-item d-flex gap-3">
+                                <div class="notification-icon success">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-semibold">Optimal Conditions</div>
+                                    <div class="small text-muted">All parameters normal</div>
+                                    <div class="small text-muted">1 hour ago</div>
+                                </div>
+                            </div>
+                            <a href="#" class="view-all">View All Notifications</a>
+                        </div>
+                    </div>
+
+                    <!-- Profile Dropdown -->
+                    <div class="dropdown">
+                        <a class="dropdown-toggle d-flex align-items-center text-decoration-none" role="button" data-bs-toggle="dropdown">
+                            <div class="profile-img">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span class="ms-2 me-1 text-dark" id="user-name">Administrator</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-map-marked-alt me-2"></i> Manage Zones</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-users me-2"></i> User Management</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-microchip me-2"></i> Device Management</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Settings</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button id="signout" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main id="mainElem">
+    <div class="dashboard-content">
+        <div class="dashboard-container">
+
+            <!-- ADMIN PANEL -->
+            <div class="card admin-panel">
+                <h3 class="mb-3"><i class="fas fa-user-shield me-2"></i>Administrator Controls</h3>
+                <div class="admin-actions">
+                    <button class="admin-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Add User
+                    </button>
+                    <button class="admin-btn">
+                        <i class="fas fa-user-minus"></i>
+                        Remove User
+                    </button>
+                    <button class="admin-btn">
+                        <i class="fas fa-map-marked-alt"></i>
+                        Add Zone
+                    </button>
+                    <button class="admin-btn">
+                        <i class="fas fa-trash-alt"></i>
+                        Remove Zone
+                    </button>
+                    <button class="admin-btn">
+                        <i class="fas fa-microchip"></i>
+                        Manage Devices
+                    </button>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Agricultural Zones -->
+                <div class="col-lg-8">
+                    <h3 class="mb-4 text-dark fw-bold">
+                        <i class="fas fa-map-marked-alt me-2"></i>Agricultural Zones
+                    </h3>
+
+                    <!-- Zone A -->
+                    <div class="card zone-card">
+                        <div class="zone-header">
+                            <div class="zone-title">
+                                <i class="fas fa-map-marker-alt me-2"></i>Zone A - North Field
+                            </div>
+                            <span class="zone-status active">Active</span>
+                        </div>
+                        <div class="small text-muted mb-3">
+                            <i class="fas fa-map-pin me-2"></i>Location: 36.8065° N, 10.1815° E
+                        </div>
+                        <div class="sensor-grid">
+                            <div class="sensor-box">
+                                <div class="sensor-icon temp">
+                                    <i class="fas fa-thermometer-half"></i>
+                                </div>
+                                <div class="sensor-value">24.5°C</div>
+                                <div class="sensor-label">Temperature</div>
+                            </div>
+                            <div class="sensor-box">
+                                <div class="sensor-icon humidity">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="sensor-value">65%</div>
+                                <div class="sensor-label">Humidity</div>
+                            </div>
+                            <div class="sensor-box">
+                                <div class="sensor-icon npk">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <div class="sensor-value">N: 45</div>
+                                <div class="sensor-label">Nitrogen</div>
+                            </div>
+                            <div class="sensor-box">
+                                <div class="sensor-icon npk">
+                                    <i class="fas fa-vial"></i>
+                                </div>
+                                <div class="sensor-value">P: 38</div>
+                                <div class="sensor-label">Phosphorus</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Zone B -->
+                    <div class="card zone-card">
+                        <div class="zone-header">
+                            <div class="zone-title">
+                                <i class="fas fa-map-marker-alt me-2"></i>Zone B - South Field
+                            </div>
+                            <span class="zone-status warning">Warning</span>
+                        </div>
+                        <div class="small text-muted mb-3">
+                            <i class="fas fa-map-pin me-2"></i>Location: 36.8055° N, 10.1825° E
+                        </div>
+                        <div class="sensor-grid">
+                            <div class="sensor-box">
+                                <div class="sensor-icon temp">
+                                    <i class="fas fa-thermometer-half"></i>
+                                </div>
+                                <div class="sensor-value">28.2°C</div>
+                                <div class="sensor-label">Temperature</div>
+                            </div>
+                            <div class="sensor-box">
+                                <div class="sensor-icon humidity">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="sensor-value">82%</div>
+                                <div class="sensor-label">Humidity</div>
+                            </div>
+                            <div class="sensor-box">
+                                <div class="sensor-icon npk">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <div class="sensor-value">N: 32</div>
+                                <div class="sensor-label">Nitrogen</div>
+                            </div>
+                            <div class="sensor-box">
+                                <div class="sensor-icon npk">
+                                    <i class="fas fa-vial"></i>
+                                </div>
+                                <div class="sensor-value">P: 41</div>
+                                <div class="sensor-label">Phosphorus</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendations & Alerts -->
+                <div class="col-lg-4">
+                    <h3 class="mb-4 text-dark fw-bold">
+                        <i class="fas fa-lightbulb me-2"></i>Recommendations
+                    </h3>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div>
+                                <div class="recommendation-title">Irrigation Needed</div>
+                                <small class="text-muted">Zone A</small>
+                            </div>
+                        </div>
+                        <p class="mb-0 small">Soil moisture is optimal but temperature rising. Consider evening irrigation.</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div>
+                                <div class="recommendation-title">Nutrient Application</div>
+                                <small class="text-muted">Zone B</small>
+                            </div>
+                        </div>
+                        <p class="mb-0 small">Nitrogen levels below threshold. Apply nitrogen-rich fertilizer within 48 hours.</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <div class="recommendation-title">Monitoring Update</div>
+                                <small class="text-muted">All Zones</small>
+                            </div>
+                        </div>
+                        <p class="mb-0 small">Weekly soil analysis shows improved nutrient retention. Current practices effective.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<!-- Link to external JS -->
+<script src="scripts/admin.js"></script>
+</body>
+</html>
