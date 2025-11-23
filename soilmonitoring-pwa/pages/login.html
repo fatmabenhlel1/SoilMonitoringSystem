@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AgroMonitor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="../images/icons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../images/icons/apple-touch-icon.png">
+    <link href="../styles/main.css" rel="stylesheet">
+</head>
+<body class="login-page">
+<a href="../index.html" class="back-home">
+    <i class="fas fa-arrow-left"></i> Back to Home
+</a>
+
+<div class="login-container">
+    <div class="login-card">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <i class="fas fa-seedling"></i>
+            </div>
+            <h1 class="login-title">Welcome Back</h1>
+            <p class="login-subtitle">Sign in to access your dashboard</p>
+        </div>
+
+        <!-- Alert Message -->
+        <div class="alert d-none" id="alertMessage"></div>
+
+        <form id="loginForm" onsubmit="return false;">
+            <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <div class="input-icon">
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <div class="input-icon">
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+            </div>
+
+            <div class="remember-forgot">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-login">
+                <i class="fas fa-sign-in-alt me-2"></i> Sign In
+            </button>
+        </form>
+
+        <div class="signup-link">
+            Don't have an account? <a href="signup.html">Sign Up</a>
+        </div>
+    </div>
+</div>
+
+<!-- CORRECTION DU CHEMIN DU SCRIPT -->
+<script src="../scripts/login.js"></script>
+</body>
+</html>
