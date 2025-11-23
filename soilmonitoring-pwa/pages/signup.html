@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - AgroMonitor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="../images/icons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../images/icons/apple-touch-icon.png">
+    <link href="../styles/main.css" rel="stylesheet">
+</head>
+<body class="signup-page">
+<a href="../index.html" class="back-home">
+    <i class="fas fa-arrow-left"></i> Back to Home
+</a>
+
+<div class="signup-container">
+    <div class="signup-card">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <i class="fas fa-seedling"></i>
+            </div>
+            <h1 class="signup-title">Create Account</h1>
+            <p class="signup-subtitle">Join AgroMonitor today</p>
+        </div>
+
+        <div class="alert d-none" id="alertMessage"></div>
+
+        <form id="signupForm">
+            <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <div class="input-icon">
+                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <div class="input-icon">
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <div class="input-icon">
+                    <input type="password" class="form-control" id="password" placeholder="Create a password" minlength="6" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <small class="text-muted">Minimum 6 characters</small>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Confirm Password</label>
+                <div class="input-icon">
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Account Type</label>
+                <select class="form-select" id="accountType" required>
+                    <option value="">Select account type</option>
+                    <option value="User">Farmer / User</option>
+                    <option value="Administrator">Administrator</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                    <label class="form-check-label terms-check" for="agreeTerms">
+                        I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-signup">
+                <i class="fas fa-user-plus me-2"></i> Create Account
+            </button>
+        </form>
+
+        <div class="login-link">
+            Already have an account? <a href="login.html">Sign In</a>
+        </div>
+    </div>
+</div>
+
+<script src="../scripts/signup.js"></script>
+</body>
+</html>
