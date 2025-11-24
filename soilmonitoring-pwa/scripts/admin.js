@@ -11,7 +11,7 @@ console.log('📡 API Integration: Active');
 // =====================================================
 
 const CONFIG = {
-    userId: 'test-user-001', // TODO: Replace with real userId from IAM
+    userId: '6912504d2900a86edfa65db5', // TODO: Replace with real userId from IAM
     refreshInterval: 30000,  // 30 seconds auto-refresh
     notificationSound: true
 };
@@ -41,8 +41,7 @@ window.addEventListener('load', async function() {
     // Initialize dashboard
     await initializeDashboard();
 
-    // Setup auto-refresh
-    setupAutoRefresh();
+
 
     // Setup logout handler
     setupLogoutHandler();
@@ -115,29 +114,7 @@ async function checkAPIHealth() {
     console.log('✅ API Status:', health.status);
 }
 
-async function loadAllData() {
-    console.log('📥 Loading dashboard data...');
 
-    // Load fields
-    console.log('📍 Loading fields...');
-    STATE.fields = await ApiService.getFieldsByUser(CONFIG.userId);
-    console.log(`✅ Loaded ${STATE.fields.length} fields`);
-    displayFields(STATE.fields);
-    updateFieldsCount(STATE.fields.length);
-
-    // Load alerts
-    console.log('🔔 Loading alerts...');
-    STATE.alerts = await ApiService.getAlertsByUser(CONFIG.userId);
-    console.log(`✅ Loaded ${STATE.alerts.length} alerts`);
-    displayAlerts(STATE.alerts);
-    updateNotificationBadge(STATE.alerts);
-
-    // Load sensor data for each field
-    if (STATE.fields.length > 0) {
-        STATE.selectedFieldId = STATE.fields[0].id;
-        await loadFieldsSensorData();
-    }
-}
 
 async function loadFieldsSensorData() {
     console.log('🔌 Loading sensor data for all fields...');
@@ -264,6 +241,21 @@ function updateFieldSensorData(fieldId, reading) {
             <div class="sensor-label">Humidity</div>
         </div>
         <div class="sensor-box">
+            <div class="sensor-icon moisture">
+                <i class="fas fa-water"></i>
+            </div>
+            <div class="sensor-value">${data.soilMoisture}%</div>
+            <div class="sensor-label">Soil Moisture</div>
+        </div>
+        <div class="sensor-box">
+            <div class="sensor-icon rainfall">
+                <i class="fas fa-cloud-rain"></i>
+            </div>
+            <div class="sensor-value">${data.rainfall} mm</div>
+            <div class="sensor-label">Rainfall</div>
+        </div>
+
+        <div class="sensor-box">
             <div class="sensor-icon npk">
                 <i class="fas fa-flask"></i>
             </div>
@@ -288,7 +280,7 @@ function updateFieldSensorData(fieldId, reading) {
             <div class="sensor-icon">
                 <i class="fas fa-balance-scale"></i>
             </div>
-            <div class="sensor-value">${data.ph.toFixed(1)}</div>
+            <div class="sensor-value">${data.pH}</div>
             <div class="sensor-label">pH Level</div>
         </div>
     `;
@@ -301,7 +293,7 @@ function checkDataHealth(data) {
         data.nitrogen >= 20 && data.nitrogen <= 100 &&
         data.phosphorus >= 10 && data.phosphorus <= 80 &&
         data.potassium >= 50 && data.potassium <= 200 &&
-        data.ph >= 5.5 && data.ph <= 7.5
+        data.pH >= 5.5 && data.pH <= 7.5
     );
 }
 
@@ -428,7 +420,7 @@ function displayPrediction(prediction) {
     const container = document.getElementById('predictionsContainer');
 
     const details = prediction.result.details || [];
-    const confidence = (prediction.confidence * 100).toFixed(1);
+    const confidence = (prediction.confidence * 100);
 
     container.innerHTML = `
         <div class="card p-3 border-success">
@@ -594,7 +586,7 @@ async function getPredictionForField(fieldId) {
             potassium: reading.data.potassium,
             temperature: reading.data.temperature,
             humidity: reading.data.humidity,
-            ph: reading.data.ph,
+            pH: reading.data.pH,
             rainfall: reading.data.rainfall || 0
         });
 
@@ -627,7 +619,7 @@ async function refreshDashboard() {
 }
 
 // =====================================================
-// WEBSOCKET REAL-TIME UPDATES
+// WEBSOCKET REAL-TIME UPDATES - FIXED VERSION
 // =====================================================
 
 function initializeWebSocket() {
@@ -640,40 +632,274 @@ function initializeWebSocket() {
     wsManager.connect();
     STATE.wsConnected = true;
 
-    // Sensor data updates
-    wsManager.on('SENSOR_DATA', async (data) => {
-        console.log('🔄 Real-time sensor update received');
-        if (data.fieldId) {
-            const reading = await ApiService.getLatestReading(data.fieldId);
-            updateFieldSensorData(data.fieldId, reading);
+    // ✅ FIX 1: Handle SENSOR_DATA correctly
+    wsManager.on('SENSOR_DATA', (wsData) => {
+        console.log('🔄 Real-time sensor update received:', wsData);
+
+        if (!wsData || !wsData.fieldId) {
+            console.warn('⚠️ Invalid sensor data received:', wsData);
+            return;
         }
+
+        // ✅ Transform WebSocket data to match the expected format
+        const reading = {
+            fieldId: wsData.fieldId,
+            data: {
+                temperature: wsData.temperature,
+                humidity: wsData.humidity,
+                soilMoisture: wsData.soilMoisture,
+                rainfall: wsData.rainfall || 0,
+                nitrogen: wsData.nitrogen,
+                phosphorus: wsData.phosphorus,
+                potassium: wsData.potassium,
+                pH: wsData.pH
+            },
+            timestamp: wsData.timestamp || new Date().toISOString()
+        };
+
+        // Update the field display in real-time
+        updateFieldSensorData(wsData.fieldId, reading);
+
+        // Show notification for significant changes
+        showSensorUpdateNotification(wsData.fieldId, reading.data);
     });
 
-    // New alerts
-    wsManager.on('ALERT', async (alert) => {
-        console.log('🔔 New alert received:', alert.message);
+    // ✅ FIX 2: Handle ALERT without reloading everything
+    wsManager.on('ALERT', (alert) => {
+        console.log('🔔 New alert received:', alert);
 
-        STATE.alerts = await ApiService.getAlertsByUser(CONFIG.userId);
+        // Add the new alert to the beginning of the array
+        STATE.alerts.unshift(alert);
+
+        // Re-display alerts (newest first)
         displayAlerts(STATE.alerts);
         updateNotificationBadge(STATE.alerts);
 
         // Show browser notification
+        showAlertNotification(alert);
+
+        // Play sound if enabled
+        if (CONFIG.notificationSound) {
+            playNotificationSound();
+        }
+    });
+
+    // ✅ FIX 3: Handle PREDICTION in real-time
+    wsManager.on('PREDICTION', (prediction) => {
+        console.log('🤖 New prediction received:', prediction);
+
+        displayPrediction(prediction);
+        showSuccess(`New crop prediction for ${getFieldName(prediction.fieldId)}: ${prediction.result.recommendation}`);
+
+        // Show browser notification
         if (Notification.permission === 'granted') {
-            new Notification('🚨 Soil Alert', {
-                body: alert.message,
-                icon: '../images/icons/icon-192x192.png',
-                requireInteraction: alert.severity === 'high'
+            new Notification('🌱 Crop Prediction Ready', {
+                body: `Recommended: ${prediction.result.recommendation}`,
+                icon: '../images/icons/icon-192x192.png'
             });
         }
     });
 
-    // New predictions
-    wsManager.on('PREDICTION', (prediction) => {
-        console.log('🤖 New prediction received');
-        displayPrediction(prediction);
-        showSuccess('New crop prediction available!');
+    // ✅ Handle WebSocket connection status
+    wsManager.on('connected', () => {
+        console.log('✅ WebSocket connected');
+        STATE.wsConnected = true;
+        updateConnectionStatus(true);
+    });
+
+    wsManager.on('disconnected', () => {
+        console.log('❌ WebSocket disconnected');
+        STATE.wsConnected = false;
+        updateConnectionStatus(false);
+    });
+
+    wsManager.on('error', (error) => {
+        console.error('❌ WebSocket error:', error);
+        showError('Real-time connection error. Retrying...');
     });
 }
+// =====================================================
+// HELPER FUNCTIONS FOR WEBSOCKET
+// =====================================================
+
+function showSensorUpdateNotification(fieldId, data) {
+    const fieldName = getFieldName(fieldId);
+    const isWarning = !checkDataHealth(data);
+
+    if (isWarning) {
+        showWarning(`⚠️ Unusual readings detected in ${fieldName}`);
+    } else {
+        // Show a subtle success indicator
+        const statusBadge = document.getElementById(`status-${fieldId}`);
+        if (statusBadge) {
+            statusBadge.classList.add('pulse-animation');
+            setTimeout(() => statusBadge.classList.remove('pulse-animation'), 1000);
+        }
+    }
+}
+
+function showAlertNotification(alert) {
+    const fieldName = getFieldName(alert.fieldId);
+
+    // Show browser notification
+    if (Notification.permission === 'granted') {
+        const config = getSeverityConfig(alert.severity);
+        const title = alert.severity === 'high' ? '🚨 Urgent Alert' :
+            alert.severity === 'medium' ? '⚠️ Warning' : 'ℹ️ Notice';
+
+        new Notification(title, {
+            body: `${fieldName}: ${alert.message}`,
+            icon: '../images/icons/icon-192x192.png',
+            requireInteraction: alert.severity === 'high',
+            tag: alert.id // Prevent duplicate notifications
+        });
+    }
+
+    // Show in-app toast notification
+    showToast(alert.message, alert.severity);
+}
+
+function showToast(message, severity = 'info') {
+    const colors = {
+        high: 'danger',
+        medium: 'warning',
+        low: 'info',
+        info: 'info',
+        success: 'success'
+    };
+
+    const color = colors[severity] || 'info';
+
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = `toast-notification bg-${color}`;
+    toast.innerHTML = `
+        <div class="d-flex align-items-center">
+            <i class="fas fa-bell me-2"></i>
+            <span>${escapeHtml(message)}</span>
+        </div>
+    `;
+
+    // Add to page
+    document.body.appendChild(toast);
+
+    // Animate in
+    setTimeout(() => toast.classList.add('show'), 100);
+
+    // Remove after 5 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 5000);
+}
+
+function showWarning(message) {
+    showToast(message, 'medium');
+}
+
+function playNotificationSound() {
+    // Simple beep using Web Audio API
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        oscillator.frequency.value = 800;
+        oscillator.type = 'sine';
+
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.5);
+    } catch (error) {
+        console.warn('Could not play notification sound:', error);
+    }
+}
+
+function updateConnectionStatus(connected) {
+    // Add a connection indicator in the header
+    let indicator = document.getElementById('ws-connection-indicator');
+
+    if (!indicator) {
+        indicator = document.createElement('div');
+        indicator.id = 'ws-connection-indicator';
+        indicator.className = 'ws-indicator';
+        document.querySelector('.header-actions')?.prepend(indicator);
+    }
+
+    if (connected) {
+        indicator.innerHTML = '<i class="fas fa-circle text-success"></i> <span class="small">Live</span>';
+        indicator.className = 'ws-indicator connected';
+    } else {
+        indicator.innerHTML = '<i class="fas fa-circle text-danger"></i> <span class="small">Offline</span>';
+        indicator.className = 'ws-indicator disconnected';
+    }
+}
+
+// =====================================================
+// UPDATE THE LOAD FUNCTION TO AVOID CONFLICTS
+// =====================================================
+
+async function loadAllData() {
+    console.log('📥 Loading dashboard data...');
+
+    // Load fields
+    console.log('📍 Loading fields...');
+    STATE.fields = await ApiService.getFieldsByUser(CONFIG.userId);
+    console.log(`✅ Loaded ${STATE.fields.length} fields`);
+    displayFields(STATE.fields);
+    updateFieldsCount(STATE.fields.length);
+
+    // Load alerts
+    console.log('🔔 Loading alerts...');
+    STATE.alerts = await ApiService.getAlertsByUser(CONFIG.userId);
+    console.log(`✅ Loaded ${STATE.alerts.length} alerts`);
+    displayAlerts(STATE.alerts);
+    updateNotificationBadge(STATE.alerts);
+
+    // Load sensor data for each field ONLY if WebSocket is not connected
+    // Once WS is connected, it will handle updates automatically
+    if (STATE.fields.length > 0 && !STATE.wsConnected) {
+        STATE.selectedFieldId = STATE.fields[0].id;
+        await loadFieldsSensorData();
+    }
+}
+
+// =====================================================
+// REDUCE AUTO-REFRESH WHEN WEBSOCKET IS ACTIVE
+// =====================================================
+
+function setupAutoRefresh() {
+    setInterval(async () => {
+        // If WebSocket is connected, only refresh alerts and fields (not sensor data)
+        // Sensor data comes in real-time via WebSocket
+        if (STATE.wsConnected) {
+            console.log('🔄 Auto-refresh (WS active): alerts & fields only');
+
+            // Refresh alerts (in case some were missed)
+            STATE.alerts = await ApiService.getAlertsByUser(CONFIG.userId);
+            displayAlerts(STATE.alerts);
+            updateNotificationBadge(STATE.alerts);
+
+            // Refresh fields list (in case new fields were added)
+            const newFields = await ApiService.getFieldsByUser(CONFIG.userId);
+            if (newFields.length !== STATE.fields.length) {
+                STATE.fields = newFields;
+                displayFields(STATE.fields);
+                updateFieldsCount(STATE.fields.length);
+            }
+        } else {
+            // If WebSocket is not connected, do full refresh
+            console.log('🔄 Auto-refresh (WS inactive): full reload');
+            await loadAllData();
+        }
+    }, CONFIG.refreshInterval);
+}
+
 
 // =====================================================
 // UTILITY FUNCTIONS
@@ -775,6 +1001,66 @@ function logout() {
 
     window.location.href = '../index.html';
 }
+
+// =====================================================
+// ADD CSS FOR TOAST NOTIFICATIONS
+// =====================================================
+
+const style = document.createElement('style');
+style.textContent = `
+    .toast-notification {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        color: white;
+        font-size: 14px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 9999;
+        opacity: 0;
+        transform: translateX(400px);
+        transition: all 0.3s ease;
+    }
+    
+    .toast-notification.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .ws-indicator {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 12px;
+        border-radius: 20px;
+        background: rgba(0,0,0,0.05);
+        font-size: 12px;
+        transition: all 0.3s;
+    }
+    
+    .ws-indicator.connected {
+        background: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+    }
+    
+    .ws-indicator.disconnected {
+        background: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+    }
+    
+    .pulse-animation {
+        animation: pulse 0.5s ease-in-out;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+`;
+document.head.appendChild(style);
+
+console.log('✅ WebSocket real-time updates configured');
 
 // =====================================================
 // PLACEHOLDER FUNCTIONS (TO IMPLEMENT)
