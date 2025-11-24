@@ -5,6 +5,7 @@ import jakarta.ws.rs.core.Response;
 import me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;
 import me.soilmonitoring.api.controllers.repositories.AlertRepository;
 import me.soilmonitoring.api.entities.Alert;
+import me.soilmonitoring.api.entities.Alert;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
@@ -18,8 +19,7 @@ import org.jboss.arquillian.junit5.ArquillianExtension;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
-
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(ArquillianExtension.class)
 public class AlertResourceTest {
@@ -45,7 +45,7 @@ public class AlertResourceTest {
         Alert alert = new Alert();
         alert.setUserId("user123");
         alert.setMessage("Low moisture detected");
-        alert.setType("MOISTURE");
+        alert.setAlertType("MOISTURE");
         alert.setCreatedAt(LocalDateTime.now());
         alert.setIsRead(false);
 
@@ -63,7 +63,7 @@ public class AlertResourceTest {
         alert.setId(UUID.randomUUID().toString());
         alert.setUserId("user456");
         alert.setMessage("High temperature");
-        alert.setType("TEMPERATURE");
+        alert.setAlertType("TEMPERATURE");
         alert.setCreatedAt(LocalDateTime.now());
         alert.setIsRead(false);
         alertRepository.save(alert);
@@ -81,7 +81,7 @@ public class AlertResourceTest {
         alert.setId(UUID.randomUUID().toString());
         alert.setUserId("user789");
         alert.setMessage("NPK imbalance");
-        alert.setType("NPK");
+        alert.setAlertType("NPK");
         alert.setCreatedAt(LocalDateTime.now());
         alert.setIsRead(false);
         alertRepository.save(alert);
@@ -99,7 +99,7 @@ public class AlertResourceTest {
         alert.setId(UUID.randomUUID().toString());
         alert.setUserId("user999");
         alert.setMessage("Test delete");
-        alert.setType("TEST");
+        alert.setAlertType("TEST");
         alert.setCreatedAt(LocalDateTime.now());
         alert.setIsRead(false);
         alertRepository.save(alert);
@@ -116,7 +116,7 @@ public class AlertResourceTest {
         alert.setId(UUID.randomUUID().toString());
         alert.setUserId("user321");
         alert.setMessage("Humidity warning");
-        alert.setType("MOISTURE");
+        alert.setAlertType("MOISTURE");
         alert.setCreatedAt(LocalDateTime.now());
         alert.setIsRead(false);
         alertRepository.save(alert);
