@@ -11,7 +11,7 @@ console.log('📡 API Integration: Active');
 // =====================================================
 
 const CONFIG = {
-    userId: 'test-user-001', // TODO: Replace with real userId from IAM
+    userId: '6912504d2900a86edfa65db5', // TODO: Replace with real userId from IAM
     refreshInterval: 30000,  // 30 seconds auto-refresh
     notificationSound: true
 };
@@ -263,6 +263,21 @@ function updateFieldSensorData(fieldId, reading) {
             <div class="sensor-value">${data.humidity}%</div>
             <div class="sensor-label">Humidity</div>
         </div>
+        <div class="sensor-box">
+            <div class="sensor-icon moisture">
+                <i class="fas fa-water"></i>
+            </div>
+            <div class="sensor-value">${data.soilMoisture}%</div>
+            <div class="sensor-label">Soil Moisture</div>
+        </div>
+        <div class="sensor-box">
+            <div class="sensor-icon rainfall">
+                <i class="fas fa-cloud-rain"></i>
+            </div>
+            <div class="sensor-value">${data.rainfall} mm</div>
+            <div class="sensor-label">Rainfall</div>
+        </div>
+
         <div class="sensor-box">
             <div class="sensor-icon npk">
                 <i class="fas fa-flask"></i>
@@ -640,12 +655,13 @@ function initializeWebSocket() {
     wsManager.connect();
     STATE.wsConnected = true;
 
-    // Sensor data updates
-    wsManager.on('SENSOR_DATA', async (data) => {
-        console.log('🔄 Real-time sensor update received');
+    wsManager.on('SENSOR_DATA', (data) => {
+        console.log('🔄 Real-time sensor update received', data);
+
         if (data.fieldId) {
-            const reading = await ApiService.getLatestReading(data.fieldId);
-            updateFieldSensorData(data.fieldId, reading);
+            // Pass the WS payload directly to updateFieldSensorData
+            // Wrap it in an object with `data` because your function expects reading.data
+            updateFieldSensorData(data.fieldId, { data });
         }
     });
 
