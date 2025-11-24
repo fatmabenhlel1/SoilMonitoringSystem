@@ -41,8 +41,7 @@ window.addEventListener('load', async function() {
     // Initialize dashboard
     await initializeDashboard();
 
-    // Setup auto-refresh
-    setupAutoRefresh();
+
 
     // Setup logout handler
     setupLogoutHandler();
@@ -115,29 +114,7 @@ async function checkAPIHealth() {
     console.log('✅ API Status:', health.status);
 }
 
-async function loadAllData() {
-    console.log('📥 Loading dashboard data...');
 
-    // Load fields
-    console.log('📍 Loading fields...');
-    STATE.fields = await ApiService.getFieldsByUser(CONFIG.userId);
-    console.log(`✅ Loaded ${STATE.fields.length} fields`);
-    displayFields(STATE.fields);
-    updateFieldsCount(STATE.fields.length);
-
-    // Load alerts
-    console.log('🔔 Loading alerts...');
-    STATE.alerts = await ApiService.getAlertsByUser(CONFIG.userId);
-    console.log(`✅ Loaded ${STATE.alerts.length} alerts`);
-    displayAlerts(STATE.alerts);
-    updateNotificationBadge(STATE.alerts);
-
-    // Load sensor data for each field
-    if (STATE.fields.length > 0) {
-        STATE.selectedFieldId = STATE.fields[0].id;
-        await loadFieldsSensorData();
-    }
-}
 
 async function loadFieldsSensorData() {
     console.log('🔌 Loading sensor data for all fields...');
@@ -303,7 +280,7 @@ function updateFieldSensorData(fieldId, reading) {
             <div class="sensor-icon">
                 <i class="fas fa-balance-scale"></i>
             </div>
-            <div class="sensor-value">${data.ph.toFixed(1)}</div>
+            <div class="sensor-value">${data.pH}</div>
             <div class="sensor-label">pH Level</div>
         </div>
     `;
@@ -316,7 +293,7 @@ function checkDataHealth(data) {
         data.nitrogen >= 20 && data.nitrogen <= 100 &&
         data.phosphorus >= 10 && data.phosphorus <= 80 &&
         data.potassium >= 50 && data.potassium <= 200 &&
-        data.ph >= 5.5 && data.ph <= 7.5
+        data.pH >= 5.5 && data.pH <= 7.5
     );
 }
 
@@ -443,7 +420,7 @@ function displayPrediction(prediction) {
     const container = document.getElementById('predictionsContainer');
 
     const details = prediction.result.details || [];
-    const confidence = (prediction.confidence * 100).toFixed(1);
+    const confidence = (prediction.confidence * 100);
 
     container.innerHTML = `
         <div class="card p-3 border-success">
@@ -609,7 +586,7 @@ async function getPredictionForField(fieldId) {
             potassium: reading.data.potassium,
             temperature: reading.data.temperature,
             humidity: reading.data.humidity,
-            ph: reading.data.ph,
+            pH: reading.data.pH,
             rainfall: reading.data.rainfall || 0
         });
 
@@ -675,7 +652,7 @@ function initializeWebSocket() {
                 nitrogen: wsData.nitrogen,
                 phosphorus: wsData.phosphorus,
                 potassium: wsData.potassium,
-                ph: wsData.ph
+                pH: wsData.pH
             },
             timestamp: wsData.timestamp || new Date().toISOString()
         };
