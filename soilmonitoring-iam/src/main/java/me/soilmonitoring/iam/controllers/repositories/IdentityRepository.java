@@ -14,4 +14,7 @@ import java.util.Optional;
 public interface IdentityRepository extends CrudRepository<Identity, String> {
     @Find
     Optional<Identity> findByUsername (@By("username") String username);
+    Optional<Identity> findByEmail(String email);
 }
+
+

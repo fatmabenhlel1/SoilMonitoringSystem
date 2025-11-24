@@ -25,6 +25,8 @@ import java.util.UUID;
 import java.util.logging.Logger;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import jakarta.enterprise.event.Event;
+import me.soilmonitoring.api.events.SensorReadingEvent;
 
 @Singleton
 @Startup
@@ -63,6 +65,9 @@ public class MQTTService {
     private Boolean useTls;
 
     private Mqtt5AsyncClient mqttClient;
+
+    @Inject
+    private Event<SensorReadingEvent> sensorReadingEvent;
 
     @PostConstruct
     public void init() {
@@ -197,6 +202,9 @@ public class MQTTService {
                 sensor.setStatus("active");
                 sensorRepository.save(sensor);
             }
+            // Fire CDI event asynchronously
+            sensorReadingEvent.fireAsync(new SensorReadingEvent(reading, "MQTT"));
+            logger.info("🔥 Fired SensorReadingEvent for reading: " + reading.getId());
 
         } catch (Exception e) {
             logger.severe("❌ Failed to save reading: " + e.getMessage());

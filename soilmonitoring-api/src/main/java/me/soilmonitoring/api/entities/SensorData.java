@@ -93,7 +93,7 @@ public class SensorData {
     }
 
     public Double getPh() {
-        return rainfall;
+        return pH;
     }
 
     public void setPh(Double pH) {
