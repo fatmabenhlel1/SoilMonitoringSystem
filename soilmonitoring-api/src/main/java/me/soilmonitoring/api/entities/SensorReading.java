@@ -37,6 +37,8 @@ public class SensorReading implements RootEntity<String> {
 
     @Override
     public void setId(String id) {
+
+
         this.id = id;
     }
 

@@ -5,7 +5,9 @@ import jakarta.enterprise.event.Event;
 import jakarta.enterprise.event.ObservesAsync;
 import jakarta.inject.Inject;
 import me.soilmonitoring.api.controllers.repositories.AlertRepository;
+import me.soilmonitoring.api.controllers.repositories.FieldRepository;
 import me.soilmonitoring.api.entities.Alert;
+import me.soilmonitoring.api.entities.Field;
 import me.soilmonitoring.api.entities.SensorData;
 import me.soilmonitoring.api.events.AlertTriggeredEvent;
 import me.soilmonitoring.api.events.SensorReadingEvent;
@@ -25,6 +27,9 @@ public class AlertObserver {
 
     @Inject
     private Event<AlertTriggeredEvent> alertEvent;
+
+    @Inject
+    private FieldRepository fieldRepository;
 
     /**
      * Listen for sensor readings and check thresholds asynchronously
@@ -104,6 +109,11 @@ public class AlertObserver {
             alert.setId(UUID.randomUUID().toString());
             alert.setFieldId(fieldId);
             alert.setAlertType(type);
+            // Get userId from field
+            Field field = fieldRepository.findById(fieldId).orElse(null);
+            if (field != null) {
+                alert.setUserId(field.getUserId());
+            }
             alert.setSeverity(severity);
             alert.setMessage(message);
             alert.setIsRead(false);
