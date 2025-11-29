@@ -148,6 +148,15 @@ public class Prediction implements RootEntity<String> {
         @Column
         private String cropType; // For fertilizer model
 
+        // Additional inputs for fertilizer recommendation
+        @Column
+        private Double pH; // For fertilizer model
+
+        @Column
+        private Double rainfall; // For fertilizer model
+
+
+
         // Getters and Setters
         public Double getNitrogen() { return nitrogen; }
         public void setNitrogen(Double nitrogen) { this.nitrogen = nitrogen; }
@@ -172,6 +181,13 @@ public class Prediction implements RootEntity<String> {
 
         public String getCropType() { return cropType; }
         public void setCropType(String cropType) { this.cropType = cropType; }
+
+        public Double getpH() { return pH; }
+        public void setpH(Double pH) { this.pH = pH; }
+
+
+        public Double getRainfall() { return rainfall; }
+        public void setRainfall(Double rainfall) { this.rainfall = rainfall; }
     }
 
     @Embeddable

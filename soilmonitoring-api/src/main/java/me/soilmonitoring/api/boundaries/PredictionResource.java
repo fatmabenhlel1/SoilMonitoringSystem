@@ -8,8 +8,10 @@ import jakarta.ws.rs.core.Response;
 import me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;
 import me.soilmonitoring.api.controllers.repositories.PredictionRepository;
 import me.soilmonitoring.api.entities.Prediction;
+import me.soilmonitoring.api.services.SageMakerService;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
@@ -28,6 +30,9 @@ public class PredictionResource {
 
     @Inject
     private PredictionRepository predictionRepository;
+
+    @Inject
+    private SageMakerService sageMakerService;
 
     @GET
     @Path("/field/{fieldId}")
@@ -71,10 +76,32 @@ public class PredictionResource {
         try {
             prediction.setId(UUID.randomUUID().toString());
             prediction.setPredictionType("crop");
-            prediction.setModelUsed("CatBoost");
+            prediction.setModelUsed("XGBoost");
             prediction.setCreatedAt(LocalDateTime.now());
 
-            // TODO: Call ML model here and set prediction.setResult(...)
+            // Call SageMaker ML model
+            Prediction.PredictionInput input = prediction.getInputData();
+            SageMakerService.CropPrediction sageMakerResult = sageMakerService.predictCrop(
+                    input.getNitrogen(),
+                    input.getPhosphorus(),
+                    input.getPotassium(),
+                    input.getTemperature(),
+                    input.getHumidity(),
+                    input.getpH(), // This should be pH
+                    input.getRainfall() != null ? input.getRainfall() : 0.0
+            );
+
+            // Set result
+            Prediction.PredictionResult result = new Prediction.PredictionResult();
+            result.setRecommendation(sageMakerResult.cropName);
+            result.setDetails(Arrays.asList(
+                    "Optimal conditions detected for " + sageMakerResult.cropName,
+                    String.format("Confidence: %.1f%%", sageMakerResult.confidence * 100)
+            ));
+
+
+            prediction.setResult(result);
+            prediction.setConfidence(sageMakerResult.confidence);
 
             Prediction savedPrediction = predictionRepository.save(prediction);
             logger.info("Crop prediction created: " + savedPrediction.getId());
@@ -92,10 +119,34 @@ public class PredictionResource {
         try {
             prediction.setId(UUID.randomUUID().toString());
             prediction.setPredictionType("fertilizer");
-            prediction.setModelUsed("RandomForest");
+            prediction.setModelUsed("XGBoost");
             prediction.setCreatedAt(LocalDateTime.now());
 
-            // TODO: Call ML model here and set prediction.setResult(...)
+            // Call SageMaker ML model
+            Prediction.PredictionInput input = prediction.getInputData();
+            SageMakerService.FertilizerPrediction sageMakerResult = sageMakerService.predictFertilizer(
+                    input.getTemperature(),
+                    input.getHumidity(),
+                    input.getSoilMoisture(),
+                    input.getSoilType(),
+                    input.getCropType(),
+                    input.getNitrogen().intValue(),
+                    input.getPotassium().intValue(),
+                    input.getPhosphorus().intValue()
+            );
+
+            // Set result
+            Prediction.PredictionResult result = new Prediction.PredictionResult();
+            result.setRecommendation(sageMakerResult.fertilizerType);
+            result.setDosage(sageMakerResult.dosage);
+            result.setDetails(Arrays.asList(
+                    "Recommended: " + sageMakerResult.fertilizerType,
+                    "Application rate: " + sageMakerResult.dosage,
+                    String.format("Confidence: %.1f%%", sageMakerResult.confidence * 100)
+            ));
+
+            prediction.setResult(result);
+            prediction.setConfidence(sageMakerResult.confidence);
 
             Prediction savedPrediction = predictionRepository.save(prediction);
             logger.info("Fertilizer prediction created: " + savedPrediction.getId());

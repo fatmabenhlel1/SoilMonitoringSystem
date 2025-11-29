@@ -23,7 +23,7 @@ public class SageMakerService {
 
     // TODO: Replace with your actual endpoint names
     private static final String CROP_ENDPOINT = "xgboost-crop-endpoint";
-    private static final String FERTILIZER_ENDPOINT = "xgboost-fertilizer-endpoint"; // UPDATE THIS!
+    private static final String FERTILIZER_ENDPOINT = "fertilizer-recommendation-endpoint";
     private static final String AWS_REGION = "us-east-1";
 
     // Crop label mapping (22 crops - matches your label encoder)
