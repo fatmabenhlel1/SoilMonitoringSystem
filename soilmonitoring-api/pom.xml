@@ -42,6 +42,13 @@
             <version>${jakartaee-api.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!-- Nimbus JOSE + JWT (for JWT verification, JWK, RSASSA, ECDSA, Ed25519, etc.) -->
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>9.37</version> <!-- stable version -->
+        </dependency>
+
         <!-- MicroProfile Config -->
         <dependency>
             <groupId>org.eclipse.microprofile.config</groupId>
