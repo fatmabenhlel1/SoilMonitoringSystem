@@ -9,9 +9,7 @@ let installButton;
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         // ✅ Chemin correct depuis pages/
-        const swPath = window.location.pathname.includes('/pages/')
-            ? '../sw.js'
-            : './sw.js';
+        const swPath = './sw.js';
 
         navigator.serviceWorker.register(swPath)
             .then(reg => {
