@@ -248,17 +248,114 @@
     </div>
 </div>
 
+<!-- CHARTS SECTION -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="fas fa-chart-line me-2"></i>Sensor Data Analytics - Last 24 Hours</h5>
+                    <button class="btn btn-light btn-sm" onclick="refreshChartsData()">
+                        <i class="fas fa-sync-alt me-1"></i>Refresh Charts
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <!-- Temperature & Humidity Row -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="chart-container">
+                            <h6 class="text-center mb-3">
+                                <i class="fas fa-thermometer-half text-danger me-2"></i>
+                                Temperature History
+                            </h6>
+                            <canvas id="temperatureChart" height="80"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="chart-container">
+                            <h6 class="text-center mb-3">
+                                <i class="fas fa-tint text-primary me-2"></i>
+                                Humidity History
+                            </h6>
+                            <canvas id="humidityChart" height="80"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NPK Bar Chart (Full Width) -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="chart-container">
+                            <h6 class="text-center mb-3">
+                                <i class="fas fa-flask text-success me-2"></i>
+                                NPK Nutrient Levels (Latest Reading)
+                            </h6>
+                            <canvas id="npkChart" height="60"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soil Moisture & pH Row -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="chart-container">
+                            <h6 class="text-center mb-3">
+                                <i class="fas fa-water text-info me-2"></i>
+                                Soil Moisture History
+                            </h6>
+                            <canvas id="moistureChart" height="80"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="chart-container">
+                            <h6 class="text-center mb-3">
+                                <i class="fas fa-balance-scale text-warning me-2"></i>
+                                pH Level History
+                            </h6>
+                            <canvas id="phChart" height="80"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rainfall Chart -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="chart-container">
+                            <h6 class="text-center mb-3">
+                                <i class="fas fa-cloud-rain text-secondary me-2"></i>
+                                Rainfall History
+                            </h6>
+                            <canvas id="rainfallChart" height="60"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No Data Message -->
+                <div id="noChartsData" class="text-center py-4" style="display: none;">
+                    <i class="fas fa-chart-bar fa-3x text-muted mb-3"></i>
+                    <p class="text-muted">No historical data available for charts</p>
+                    <p class="small text-muted">Charts will populate automatically as sensor data is collected</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Historical Data Modal -->
-<div class="modal fade" id="historicalDataModal" tabindex="-1">
+
+<div class="modal fade" id="historyModal" tabindex="-1">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title"><i class="fas fa-chart-line me-2"></i>Historical Data</h5>
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title"><i class="fas fa-history me-2"></i>Historical Data</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body" id="historicalDataContent">
+            <div class="modal-body" id="historyModalContent">
                 <div class="text-center py-5">
-                    <div class="spinner-border text-primary" role="status"></div>
+                    <div class="spinner-border text-warning" role="status"></div>
                 </div>
             </div>
         </div>
@@ -272,7 +369,7 @@
 <script src="../scripts/api-service.js"></script>
 <script src="../scripts/user.js"></script>
 <!-- PWA Installer -->
-<script src="./scripts/pwa-installer.js"></script>
+<script src="../scripts/pwa-installer.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cb57a1e0-aaf0-419a-a157-eb62500ba532" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/pages/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/pages/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/pages/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/pages/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/scripts/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/scripts/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/styles/main.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mariemhadjkacem&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/fatmabenhlel1/SoilMonitoringSystem.git&quot;,
+    &quot;accountId&quot;: &quot;76393852-2483-4afe-9efc-3628497dccdb&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="35WYPc53ahgzZx6rWz3eDEFLF98" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.soilmonitoring-iam [clean].executor": "Run",
+    "Maven.soilmonitoring-iam [install].executor": "Run",
+    "Maven.soilmonitoring-iam [package].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Utilisateur/SoilMonitoringSystem/soilmonitoring-pwa",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Utilisateur\SoilMonitoringSystem\soilmonitoring-pwa\images\icons" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb57a1e0-aaf0-419a-a157-eb62500ba532" name="Changes" comment="" />
+      <created>1763227273851</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763227273851</updated>
+      <workItem from="1763227275361" duration="895000" />
+      <workItem from="1763228216097" duration="43727000" />
+      <workItem from="1764503252070" duration="14797000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

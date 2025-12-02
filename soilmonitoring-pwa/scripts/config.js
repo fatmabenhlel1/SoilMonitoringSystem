@@ -203,6 +203,3 @@ class WebSocketManager {
         }
     }
 }
-
-// Create global WebSocket instance
-const wsManager = new WebSocketManager();

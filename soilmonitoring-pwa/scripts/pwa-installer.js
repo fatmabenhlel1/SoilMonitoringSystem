@@ -8,8 +8,28 @@ let installButton;
 // Register Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-            .then(reg => console.log('✅ SW registered:', reg.scope))
+        // ✅ Chemin correct depuis pages/
+        const swPath = window.location.pathname.includes('/pages/')
+            ? '../sw.js'
+            : './sw.js';
+
+        navigator.serviceWorker.register(swPath)
+            .then(reg => {
+                console.log('✅ SW registered:', reg.scope);
+
+                // Check for updates
+                reg.addEventListener('updatefound', () => {
+                    const newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            console.log('🔄 New version available!');
+                            if (confirm('New version available! Reload to update?')) {
+                                window.location.reload();
+                            }
+                        }
+                    });
+                });
+            })
             .catch(err => console.error('❌ SW registration failed:', err));
     });
 }
@@ -27,12 +47,23 @@ function showInstallButton() {
     // Check if button already exists
     if (document.getElementById('pwa-install-btn')) return;
 
+    // Check if already installed
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        console.log('✅ Already installed');
+        return;
+    }
+
+    // ✅ Chemin correct pour l'icône
+    const iconPath = window.location.pathname.includes('/pages/')
+        ? '../images/icons/icon-192x192.png'
+        : './images/icons/icon-192x192.png';
+
     // Create install button
     installButton = document.createElement('button');
     installButton.id = 'pwa-install-btn';
     installButton.className = 'pwa-install-button';
     installButton.innerHTML = `
-        <img src="./images/icons/icon-192x192.png" alt="AgroMonitor" class="install-icon">
+        <img src="${iconPath}" alt="AgroMonitor" class="install-icon">
         <span>Install App</span>
     `;
     installButton.onclick = installPWA;
@@ -42,7 +73,10 @@ function showInstallButton() {
 
 // Install PWA
 async function installPWA() {
-    if (!deferredPrompt) return;
+    if (!deferredPrompt) {
+        console.warn('⚠️ Install prompt not available');
+        return;
+    }
 
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
@@ -50,7 +84,10 @@ async function installPWA() {
     console.log(`Install: ${outcome}`);
 
     if (outcome === 'accepted') {
+        console.log('✅ User accepted installation');
         hideInstallButton();
+    } else {
+        console.log('❌ User dismissed installation');
     }
 
     deferredPrompt = null;
@@ -69,11 +106,6 @@ window.addEventListener('appinstalled', () => {
     console.log('🎉 AgroMonitor installed!');
     hideInstallButton();
 });
-
-// Hide if already installed
-if (window.matchMedia('(display-mode: standalone)').matches) {
-    console.log('✅ Already installed');
-}
 
 // =====================================================
 // STYLES FOR INSTALL BUTTON

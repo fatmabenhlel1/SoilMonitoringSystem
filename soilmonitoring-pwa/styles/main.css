@@ -900,4 +900,10 @@ body.login-page {
     background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 100%);
     margin: 0;
 }
-
+.chart-container {
+    position: relative;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
