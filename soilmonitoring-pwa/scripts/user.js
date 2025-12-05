@@ -577,7 +577,7 @@ function requestNotificationPermission() {
 
 async function initializeDashboard() {
     try {
-        showLoading(true);
+
 
         // Step 1: Check API health
         await checkAPIHealth();
@@ -599,13 +599,13 @@ async function initializeDashboard() {
         // Step 4: Setup auto-refresh for static data
         setupAutoRefresh();
 
-        showLoading(false);
+
         showSuccess('Dashboard loaded - Real-time monitoring active! 🔴');
 
     } catch (error) {
         console.error('❌ Dashboard initialization failed:', error);
         showError('Failed to load dashboard. Please ensure the API is running on http://localhost:8080');
-        showLoading(false);
+
     }
 }
 
@@ -1064,29 +1064,6 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
-function showLoading(show) {
-    // Create loading overlay if it doesn't exist
-    let overlay = document.getElementById('loadingOverlay');
-    if (!overlay && show) {
-        overlay = document.createElement('div');
-        overlay.id = 'loadingOverlay';
-        overlay.className = 'position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center';
-        overlay.style.cssText = 'background: rgba(255,255,255,0.9); z-index: 9999;';
-        overlay.innerHTML = `
-            <div class="text-center">
-                <div class="spinner-border text-success" style="width: 4rem; height: 4rem;" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <p class="mt-3 fw-bold text-success">Loading Dashboard...</p>
-            </div>
-        `;
-        document.body.appendChild(overlay);
-    }
-
-    if (overlay) {
-        overlay.style.display = show ? 'flex' : 'none';
-    }
-}
 
 function showError(message) {
     const alert = document.getElementById('errorAlert');
@@ -1291,7 +1268,7 @@ async function viewHistoricalData(fieldId) {
 
 async function getPredictionForField(fieldId) {
     try {
-        showLoading(true);
+
 
         const reading = await ApiService.getLatestReading(fieldId);
 
@@ -1300,23 +1277,23 @@ async function getPredictionForField(fieldId) {
         }
 
         const prediction = await ApiService.predictCrop(fieldId, {
-            nitrogen: reading.data.nitrogen,
-            phosphorus: reading.data.phosphorus,
-            potassium: reading.data.potassium,
+            n: reading.data.nitrogen,
+            p: reading.data.phosphorus,
+            k: reading.data.potassium,
             temperature: reading.data.temperature,
             humidity: reading.data.humidity,
-            pH: reading.data.pH,
+            ph: reading.data.pH,
             rainfall: reading.data.rainfall || 0
         });
 
         console.log('✅ Prediction generated:', prediction);
         displayPrediction(prediction);
         showSuccess('Crop prediction generated successfully!');
-        showLoading(false);
+
     } catch (error) {
         console.error('❌ Error getting prediction:', error);
         showError('Failed to generate prediction: ' + error.message);
-        showLoading(false);
+
     }
 }
 

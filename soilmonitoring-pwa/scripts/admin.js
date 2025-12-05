@@ -632,12 +632,12 @@ async function getPredictionForField(fieldId) {
         }
 
         const prediction = await ApiService.predictCrop(fieldId, {
-            nitrogen: reading.data.nitrogen,
-            phosphorus: reading.data.phosphorus,
-            potassium: reading.data.potassium,
+            n: reading.data.nitrogen,
+            p: reading.data.phosphorus,
+            k: reading.data.potassium,
             temperature: reading.data.temperature,
             humidity: reading.data.humidity,
-            pH: reading.data.pH,
+            ph: reading.data.pH,
             rainfall: reading.data.rainfall || 0
         });
 
