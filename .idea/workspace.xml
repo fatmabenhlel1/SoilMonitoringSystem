@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb57a1e0-aaf0-419a-a157-eb62500ba532" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/structure_exports/test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/pages/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/pages/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/pages/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/pages/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/scripts/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/scripts/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/sw.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +60,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -85,7 +86,7 @@
       <updated>1763227273851</updated>
       <workItem from="1763227275361" duration="895000" />
       <workItem from="1763228216097" duration="43727000" />
-      <workItem from="1764503252070" duration="14797000" />
+      <workItem from="1764503252070" duration="16589000" />
     </task>
     <servers />
   </component>
@@ -102,5 +103,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/soilmonitoring-pwa/sw.js</url>
+          <line>7</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -727,9 +727,14 @@ function displayFields(fields) {
                 <button class="btn btn-sm btn-primary" onclick="viewFieldDetails('${field.id}')">
                     <i class="fas fa-chart-line me-1"></i>View Details
                 </button>
-                <button class="btn btn-sm btn-success" onclick="getPredictionForField('${field.id}')">
-                    <i class="fas fa-brain me-1"></i>Get Prediction
-                </button>
+                <div class="btn-group btn-group-sm" role="group">
+                    <button class="btn btn-success" onclick="getPredictionForField('${field.id}')" title="Crop Recommendation">
+                        <i class="fas fa-seedling me-1"></i>Crop
+                    </button>
+                    <button class="btn btn-warning" onclick="getFertilizerPredictionForField('${field.id}')" title="Fertilizer Recommendation">
+                        <i class="fas fa-flask me-1"></i>Fertilizer
+                    </button>
+                </div>
                 <button class="btn btn-sm btn-info" onclick="viewFieldSensors('${field.id}')">
                     <i class="fas fa-microchip me-1"></i>Sensors
                 </button>
@@ -1029,7 +1034,65 @@ function displayPrediction(prediction) {
         </div>
     `;
 }
+// Display Fertilizer Prediction
+function displayFertilizerPrediction(prediction) {
+    const container = document.getElementById('predictionsContainer');
 
+    const details = prediction.result.details || [];
+    const confidence = (prediction.confidence * 100).toFixed(1);
+
+    container.innerHTML = `
+        <div class="card p-3 border-warning">
+            <div class="d-flex align-items-center mb-3">
+                <i class="fas fa-flask fa-2x text-warning me-3"></i>
+                <div>
+                    <h6 class="mb-0">Recommended Fertilizer</h6>
+                    <h5 class="mb-0 text-warning fw-bold">${escapeHtml(prediction.result.recommendation)}</h5>
+                </div>
+            </div>
+            
+            ${prediction.result.dosage ? `
+                <div class="alert alert-info mb-2">
+                    <i class="fas fa-weight me-2"></i>
+                    <strong>Dosage:</strong> ${escapeHtml(prediction.result.dosage)}
+                </div>
+            ` : ''}
+            
+            <div class="mb-2">
+                <small class="text-muted">Confidence Score</small>
+                <div class="progress" style="height: 20px;">
+                    <div class="progress-bar bg-warning" role="progressbar" 
+                         style="width: ${confidence}%" 
+                         aria-valuenow="${confidence}" aria-valuemin="0" aria-valuemax="100">
+                        ${confidence}%
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="mb-2">
+                <small class="text-muted"><i class="fas fa-robot me-1"></i>Model: ${escapeHtml(prediction.modelUsed)}</small>
+            </div>
+            
+            ${details.length > 0 ? `
+                <div class="mt-2">
+                    <strong class="small">Analysis Details:</strong>
+                    <ul class="small mb-0 mt-1">
+                        ${details.map(detail => `<li>${escapeHtml(detail)}</li>`).join('')}
+                    </ul>
+                </div>
+            ` : ''}
+            
+            <div class="mt-3 text-end">
+                <small class="text-muted">
+                    <i class="far fa-clock me-1"></i>
+                    ${formatTimeAgo(prediction.createdAt)}
+                </small>
+            </div>
+        </div>
+    `;
+}
 // =====================================================
 // UTILITY FUNCTIONS
 // =====================================================
@@ -1305,7 +1368,59 @@ async function getPredictionForField(fieldId) {
 
     }
 }
+// Get Fertilizer Prediction for Field
+async function getFertilizerPredictionForField(fieldId) {
+    try {
+        const reading = await ApiService.getLatestReading(fieldId);
 
+        if (!reading || !reading.data) {
+            throw new Error('No sensor data available for prediction');
+        }
+
+        const field = await ApiService.getFieldById(fieldId);
+
+        console.log("Sending fertilizer prediction payload:", {
+            temperature: reading.data.temperature,
+            humidity: reading.data.humidity,
+            soilMoisture: reading.data.soilMoisture,
+            soilType: field.soilType,
+            cropType: field.currentCrop || 'rice',
+            nitrogen: reading.data.nitrogen,
+            phosphorus: reading.data.phosphorus,
+            potassium: reading.data.potassium
+        });
+
+        const prediction = await ApiService.predictFertilizer(fieldId, {
+            temperature: reading.data.temperature,
+            humidity: reading.data.humidity,
+            soilMoisture: reading.data.soilMoisture,
+            soilType: field.soilType,
+            cropType: field.currentCrop || 'rice',
+            nitrogen: reading.data.nitrogen,
+            phosphorus: reading.data.phosphorus,
+            potassium: reading.data.potassium
+        });
+
+        console.log('✅ Fertilizer prediction generated:', prediction);
+        displayFertilizerPrediction(prediction);
+        showSuccess('Fertilizer recommendation generated successfully!');
+
+    } catch (error) {
+        console.error('❌ Error getting fertilizer prediction:', error);
+        showError('Failed to generate fertilizer recommendation: ' + error.message);
+    }
+}
+
+// Request Fertilizer Prediction (triggered by button)
+async function requestFertilizerPrediction() {
+    if (STATE.fields.length === 0) {
+        showError('No fields available. Contact your administrator to add fields.');
+        return;
+    }
+
+    const fieldId = STATE.selectedFieldId || STATE.fields[0].id;
+    await getFertilizerPredictionForField(fieldId);
+}
 // =====================================================
 // WEBSOCKET REAL-TIME UPDATES
 // =====================================================
@@ -1382,24 +1497,29 @@ function initializeWebSocket() {
     wsManager.on('PREDICTION', (prediction) => {
         console.log('🤖 New prediction received:', prediction);
 
-        // Check if this prediction is for current user's fields
         const userField = STATE.fields.find(f => f.id === prediction.fieldId);
         if (!userField) {
-            return; // Not our field, ignore
+            return;
         }
 
-        displayPrediction(prediction);
-        showSuccess(`New crop prediction for ${getFieldName(prediction.fieldId)}: ${prediction.result.recommendation}`);
+        // Display selon le type de prédiction
+        if (prediction.predictionType === 'fertilizer') {
+            displayFertilizerPrediction(prediction);
+            showSuccess(`New fertilizer recommendation for ${getFieldName(prediction.fieldId)}: ${prediction.result.recommendation}`);
+        } else {
+            displayPrediction(prediction);
+            showSuccess(`New crop prediction for ${getFieldName(prediction.fieldId)}: ${prediction.result.recommendation}`);
+        }
 
         // Show browser notification
         if (Notification.permission === 'granted') {
-            new Notification('🌱 Crop Prediction Ready', {
+            const title = prediction.predictionType === 'fertilizer' ? '🧪 Fertilizer Recommendation' : '🌱 Crop Prediction Ready';
+            new Notification(title, {
                 body: `Recommended: ${prediction.result.recommendation}`,
                 icon: '../images/icons/icon-192x192.png'
             });
         }
     });
-
     // Handle WebSocket connection status
     wsManager.on('connected', () => {
         console.log('✅ WebSocket connected');
