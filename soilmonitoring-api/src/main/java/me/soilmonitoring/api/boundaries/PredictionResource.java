@@ -8,6 +8,7 @@ import jakarta.ws.rs.core.Response;
 import me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;
 import me.soilmonitoring.api.controllers.repositories.PredictionRepository;
 import me.soilmonitoring.api.entities.Prediction;
+import me.soilmonitoring.api.security.Secured;
 import me.soilmonitoring.api.services.SageMakerService;
 
 import java.time.LocalDateTime;
@@ -17,6 +18,7 @@ import java.util.UUID;
 import java.util.logging.Logger;
 
 @Path("/predictions")
+
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

@@ -10,12 +10,14 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;
 import me.soilmonitoring.api.entities.SensorReading;
+import me.soilmonitoring.api.security.Secured;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.logging.Logger;
 
 @Path("/statistics")
+
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
 public class StatisticsResource {

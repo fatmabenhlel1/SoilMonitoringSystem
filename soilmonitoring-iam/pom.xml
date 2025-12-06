@@ -14,9 +14,11 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
+        <wildfly.version>5.1.5.Final</wildfly.version>
         <resteasy.version>6.2.3.Final</resteasy.version>
         <smallrye.config.version>3.7.1</smallrye.config.version>
+        <jnosql.mongodb.version>1.1.10</jnosql.mongodb.version>
+        <mongodb.driver.version>5.6.0</mongodb.driver.version>
     </properties>
 
     <dependencies>
@@ -64,12 +66,16 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-core</artifactId>
             <version>${resteasy.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-core-spi</artifactId>
             <version>${resteasy.version}</version>
+            <scope>provided</scope>
         </dependency>
+
+
 
         <!-- Argon2 -->
         <dependency>
@@ -85,24 +91,9 @@
             <version>3.12.0</version>
         </dependency>
 
-        <!-- MongoDB -->
-        <dependency>
-            <groupId>org.eclipse.jnosql.databases</groupId>
-            <artifactId>jnosql-mongodb</artifactId>
-            <version>1.1.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver-sync</artifactId>
-            <version>5.6.0</version>
-        </dependency>
 
-        <!-- JSON-P -->
-        <dependency>
-            <groupId>org.eclipse.parsson</groupId>
-            <artifactId>parsson</artifactId>
-            <version>1.1.1</version>
-        </dependency>
+
+
 
         <!-- Testing -->
         <dependency>
@@ -133,17 +124,64 @@
             <version>1.2.6</version>
         </dependency>
 
+        <!-- JWT Validation -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>4.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>9.37.3</version>
+        </dependency>
+
+        <!-- Jakarta Data API -->
+        <dependency>
+            <groupId>jakarta.data</groupId>
+            <artifactId>jakarta.data-api</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <!-- JNoSQL MongoDB -->
+        <dependency>
+            <groupId>org.eclipse.jnosql.databases</groupId>
+            <artifactId>jnosql-mongodb</artifactId>
+            <version>${jnosql.mongodb.version}</version>
+        </dependency>
+        <!-- MongoDB Driver -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>${mongodb.driver.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
+            <artifactId>jnosql-mapping-core</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+
+
+
+
+
     </dependencies>
 
     <build>
         <finalName>iam-${project.version}</finalName>
         <testSourceDirectory>src/test</testSourceDirectory>
-
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.2</version>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>${wildfly.version}</version>
+                <configuration>
+                    <hostname>localhost</hostname>
+                    <port>9990</port>
+                    <username>fatma</username>
+                    <password>25112002</password>
+                </configuration>
             </plugin>
         </plugins>
     </build>
