@@ -8,6 +8,7 @@ import jakarta.ws.rs.core.Response;
 import me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;
 import me.soilmonitoring.api.controllers.repositories.FieldRepository;
 import me.soilmonitoring.api.entities.Field;
+import me.soilmonitoring.api.security.Secured;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.UUID;
 import java.util.logging.Logger;
 
 @Path("/fields")
+
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

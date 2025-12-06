@@ -14,6 +14,7 @@ import me.soilmonitoring.api.controllers.repositories.SensorReadingRepository;
 import me.soilmonitoring.api.entities.Alert;
 import me.soilmonitoring.api.entities.SensorData;
 import me.soilmonitoring.api.entities.SensorReading;
+import me.soilmonitoring.api.security.Secured;
 
 import java.time.LocalDateTime;
 import java.util.Comparator;
@@ -22,6 +23,7 @@ import java.util.UUID;
 import java.util.logging.Logger;
 
 @Path("/readings")
+
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

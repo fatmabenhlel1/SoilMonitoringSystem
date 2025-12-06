@@ -45,7 +45,7 @@ public class PhoenixIAMManager {
     public List<String> getRoles(String username) {
         // Remplacez cette logique par celle qui correspond à votre application
         // Par exemple, interrogez une base de données ou utilisez une liste prédéfinie
-        return List.of("role1", "role2"); // Exemple de rôles
+        return List.of("Admin", "Farmer"); // Exemple de rôles
     }
 
     public Optional<Grant> findGrant(String tenantName, String identityId) {

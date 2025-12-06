@@ -11,10 +11,16 @@ import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Logger;
 
-@ApplicationPath("/rest-iam")
+@ApplicationPath("/iam")
 public class IamApplication extends Application {
+    @Override
+    public Set<Class<?>> getClasses() {
+        return new HashSet<>();  // Empty set enables auto-scanning
+    }
     @ApplicationScoped
     public static final class CDIConfigurator {  /*pour configurer l'application*/
         @Inject
