@@ -35,7 +35,7 @@ const wsManager = {
 
     connect() {
         console.log('🔌 Connecting to WebSocket...');
-        this.ws = new WebSocket('ws://localhost:8080/ws/sensor-data');
+        this.ws = new WebSocket('ws://api.soilmonitoring.me:8080/ws/sensor-data');
 
         this.ws.onopen = () => {
             console.log('✅ WebSocket Connected');
@@ -604,7 +604,7 @@ async function initializeDashboard() {
 
     } catch (error) {
         console.error('❌ Dashboard initialization failed:', error);
-        showError('Failed to load dashboard. Please ensure the API is running on http://localhost:8080');
+        showError('Failed to load dashboard. Please ensure the API is running on http://api.soilmonitoring.me:8080');
 
     }
 }
@@ -1275,16 +1275,25 @@ async function getPredictionForField(fieldId) {
         if (!reading || !reading.data) {
             throw new Error('No sensor data available for prediction');
         }
-
-        const prediction = await ApiService.predictCrop(fieldId, {
-            n: reading.data.nitrogen,
-            p: reading.data.phosphorus,
-            k: reading.data.potassium,
+        console.log("Sending crop prediction payload:", {
+            nitrogen: reading.data.nitrogen,
+            phosphorus: reading.data.phosphorus,
+            potassium: reading.data.potassium,
             temperature: reading.data.temperature,
             humidity: reading.data.humidity,
-            ph: reading.data.pH,
+            pH: reading.data.pH || 0,
             rainfall: reading.data.rainfall || 0
         });
+        const prediction = await ApiService.predictCrop(fieldId, {
+            nitrogen: reading.data.nitrogen,
+            phosphorus: reading.data.phosphorus,
+            potassium: reading.data.potassium,
+            temperature: reading.data.temperature,
+            humidity: reading.data.humidity,
+            pH: reading.data.pH || 0,
+            rainfall: reading.data.rainfall || 0
+        });
+
 
         console.log('✅ Prediction generated:', prediction);
         displayPrediction(prediction);
