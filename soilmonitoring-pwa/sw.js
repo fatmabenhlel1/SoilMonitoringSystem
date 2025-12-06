@@ -1,107 +1,72 @@
-const CACHE_NAME = 'soil-pwa-v2'; // ← Version changée pour forcer la mise à jour
-const ASSETS = [
-    './',
-    './index.html',
-    './pwa.webmanifest',
+// =====================================================
+// SERVICE WORKER - MODE DÉVELOPPEMENT
+// =====================================================
 
-    // Pages
-    './pages/login.html',
-    './pages/admin.html',
-    './pages/user.html',
-    './pages/signup.html',
+const CACHE_NAME = 'agromonitor-dev-v1';
 
-    // Scripts
-    './scripts/main.js',
-    './scripts/login.js',
-    './scripts/admin.js',
-    './scripts/user.js',
-    './scripts/signup.js',
+console.log('[SW] 🔧 Service Worker en MODE DÉVELOPPEMENT');
+console.log('[SW] ⚠️ Pas de cache - Toutes les requêtes passent par le réseau');
 
-    // Styles
-    './styles/main.css',
-
-    // CDN Libraries (optionnel, mais recommandé)
-    'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
-];
-
-// Install : mettre en cache les assets essentiels
+// =====================================================
+// INSTALL - Activation immédiate sans cache
+// =====================================================
 self.addEventListener('install', event => {
-    console.log('[SW] Installing Service Worker v2...');
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => {
-                console.log('[SW] Caching app shell');
-                return cache.addAll(ASSETS);
-            })
-            .catch(err => console.error('[SW] Cache failed:', err))
-    );
+    console.log('[SW] ✅ Installing Service Worker (No Cache)...');
     self.skipWaiting();
 });
 
-// Activate : nettoyage des anciens caches
+// =====================================================
+// ACTIVATE - Nettoyage de tous les caches existants
+// =====================================================
 self.addEventListener('activate', event => {
-    console.log('[SW] Activating new Service Worker...');
+    console.log('[SW] 🧹 Activating and clearing ALL caches...');
+
     event.waitUntil(
-        caches.keys().then(keys => {
+        caches.keys().then(cacheNames => {
             return Promise.all(
-                keys.filter(k => k !== CACHE_NAME)
-                    .map(k => {
-                        console.log('[SW] Deleting old cache:', k);
-                        return caches.delete(k);
-                    })
+                cacheNames.map(cacheName => {
+                    console.log('[SW] 🗑️ Deleting cache:', cacheName);
+                    return caches.delete(cacheName);
+                })
             );
         })
     );
+
     self.clients.claim();
 });
 
-// Fetch : stratégie cache-first pour assets, network-first pour API
+// =====================================================
+// FETCH - TOUJOURS LE RÉSEAU (pas de cache)
+// =====================================================
 self.addEventListener('fetch', event => {
-    const req = event.request;
-    const url = new URL(req.url);
+    const { request } = event;
 
-    // Ignorer les requêtes non-HTTP (chrome-extension://, etc.)
-    if (!req.url.startsWith('http')) {
+    // Ignorer les requêtes non-HTTP
+    if (!request.url.startsWith('http')) {
         return;
     }
 
-    // Network-first pour les API et WebSocket
-    if (url.pathname.includes('/api/') || url.pathname.includes('/ws/')) {
-        event.respondWith(
-            fetch(req)
-                .catch(() => caches.match('./pages/login.html'))
-        );
-        return;
-    }
-
-    // Cache-first pour les assets statiques
+    // ⚠️ TOUTES LES REQUÊTES → RÉSEAU DIRECT (pas de cache)
     event.respondWith(
-        caches.match(req)
-            .then(cached => {
-                if (cached) {
-                    console.log('[SW] Cache hit:', req.url);
-                    return cached;
+        fetch(request)
+            .then(response => {
+                console.log('[SW] 🌐 Network:', request.url);
+                return response;
+            })
+            .catch(error => {
+                console.error('[SW] ❌ Fetch failed:', request.url, error);
+
+                // Fallback basique pour la navigation
+                if (request.mode === 'navigate') {
+                    return new Response(
+                        '<h1>Offline</h1><p>Impossible de charger la page sans connexion.</p>',
+                        { headers: { 'Content-Type': 'text/html' } }
+                    );
                 }
 
-                console.log('[SW] Fetching:', req.url);
-                return fetch(req).then(response => {
-                    // Mettre en cache les réponses GET valides
-                    if (req.method === 'GET' && response && response.status === 200) {
-                        const clone = response.clone();
-                        caches.open(CACHE_NAME).then(cache => {
-                            cache.put(req, clone);
-                        });
-                    }
-                    return response;
-                });
-            })
-            .catch(err => {
-                console.error('[SW] Fetch failed:', err);
-                // Fallback vers index.html pour navigation
-                if (req.mode === 'navigate') {
-                    return caches.match('./index.html');
-                }
+                return new Response('Network error', { status: 503 });
             })
     );
 });
+
+console.log('[SW] 🚀 Service Worker ready (NO CACHE MODE)');
