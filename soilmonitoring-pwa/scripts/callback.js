@@ -63,7 +63,9 @@ async function exchangeCodeForTokens(authCode, codeVerifier) {
             body: new URLSearchParams({
                 grant_type: 'authorization_code',
                 code: authCode,
-                code_verifier: codeVerifier
+                code_verifier: codeVerifier,
+                client_id: 'soil-monitoring-pwa',
+                redirect_uri: window.location.origin + '/pages/callback.html'
             })
         });
 
@@ -73,26 +75,18 @@ async function exchangeCodeForTokens(authCode, codeVerifier) {
         }
 
         const tokens = await response.json();
-        console.log('✅ Tokens received:', tokens);
+        console.log('Tokens received:', tokens);
 
-        // Store tokens securely
         sessionStorage.setItem('access_token', tokens.access_token);
         sessionStorage.setItem('refresh_token', tokens.refresh_token);
         sessionStorage.setItem('token_expiry', Date.now() + (tokens.expires_in * 1000));
 
-        // Clean up OAuth state
+        // Cleanup
         sessionStorage.removeItem('oauth_state');
         sessionStorage.removeItem('code_verifier');
         sessionStorage.removeItem('code_challenge');
 
-        document.getElementById('status').textContent = 'Success! Redirecting...';
-
-        // Decode token to get user info
-        const payload = parseJWT(tokens.access_token);
-        console.log('User info:', payload);
-
-        // Redirect based on role
-        redirectToApp(payload);
+        redirectToApp(parseJWT(tokens.access_token));
 
     } catch (error) {
         console.error('Token exchange error:', error);
@@ -102,6 +96,7 @@ async function exchangeCodeForTokens(authCode, codeVerifier) {
         document.getElementById('error').textContent = 'Failed to complete login: ' + error.message;
     }
 }
+
 
 function parseJWT(token) {
     try {
@@ -121,9 +116,9 @@ function redirectToApp(userPayload) {
     setTimeout(() => {
         // Check if user has admin role
         if (userPayload.groups && userPayload.groups.includes('admin')) {
-            window.location.href = '../sw.js/pages/admin.html';
+            window.location.href = '../pages/admin.html';
         } else {
-            window.location.href = '../sw.js/pages/user.html';
+            window.location.href = '../pages/user.html';
         }
     }, 1000);
 }

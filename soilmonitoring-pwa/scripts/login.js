@@ -2,7 +2,7 @@
 const OAUTH_CONFIG = {
     clientId: 'soil-monitoring-pwa',
     authorizationEndpoint: 'http://iam.soilmonitoring.me:8080/iam/authorize',
-    redirectUri: window.location.origin + '/sw.js/pages/callback.html',
+    redirectUri: window.location.origin + '/pages/callback.html',
     scope: 'openid profile email fields',
     responseType: 'code'
 };
@@ -134,13 +134,13 @@ function redirectToDashboard() {
 
         // Check user role
         if (payload.groups && payload.groups.includes('admin')) {
-            window.location.href = './sw.js/pages/admin.html';
+            window.location.href = '../pages/admin.html';
         } else {
-            window.location.href = './sw.js/pages/user.html';
+            window.location.href = '../pages/user.html';
         }
     } catch (error) {
         console.error('Failed to parse token:', error);
-        window.location.href = './sw.js/pages/user.html';
+        window.location.href = '../pages/user.html';
     }
 }
 
