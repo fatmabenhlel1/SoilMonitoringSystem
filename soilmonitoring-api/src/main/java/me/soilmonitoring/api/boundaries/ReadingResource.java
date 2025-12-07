@@ -23,7 +23,7 @@ import java.util.UUID;
 import java.util.logging.Logger;
 
 @Path("/readings")
-
+@Secured
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

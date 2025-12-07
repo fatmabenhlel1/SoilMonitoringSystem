@@ -208,25 +208,37 @@ public class AuthenticationEndpoint {
 
     private Response redirectToLogin(String clientId, String redirectUri, String scope,
                                      String codeChallenge, String state, String error) {
-        URI location = UriBuilder.fromUri("/iam/authorize")
-                .queryParam("error", error)
-                .queryParam("client_id", clientId)
-                .queryParam("redirect_uri", redirectUri)
-                .queryParam("response_type", "code")
-                .queryParam("scope", scope)
-                .queryParam("code_challenge", codeChallenge)
-                .queryParam("code_challenge_method", "S256")
-                .queryParam("state", state)
-                .build();
-        return Response.seeOther(location).build();
+        try {
+            URI location = new URI("http://iam.soilmonitoring.me:8080/iam/authorize" +
+                    "?error=" + error +
+                    "&client_id=" + clientId +
+                    "&redirect_uri=" + java.net.URLEncoder.encode(redirectUri, "UTF-8") +
+                    "&response_type=code" +
+                    "&scope=" + java.net.URLEncoder.encode(scope, "UTF-8") +
+                    "&code_challenge=" + codeChallenge +
+                    "&code_challenge_method=S256" +
+                    "&state=" + state);
+            return Response.seeOther(location).build();
+        } catch (Exception e) {
+            logger.severe("Failed to build redirect URL: " + e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(htmlService.buildErrorPage("Server Error", "Failed to redirect"))
+                    .build();
+        }
     }
 
     private Response redirectWithError(String redirectUri, String state, String error, String description) {
-        URI location = UriBuilder.fromUri(redirectUri)
-                .queryParam("error", error)
-                .queryParam("error_description", description)
-                .queryParam("state", state)
-                .build();
-        return Response.seeOther(location).build();
+        try {
+            URI location = new URI(redirectUri +
+                    "?error=" + java.net.URLEncoder.encode(error, "UTF-8") +
+                    "&error_description=" + java.net.URLEncoder.encode(description, "UTF-8") +
+                    "&state=" + state);
+            return Response.seeOther(location).build();
+        } catch (Exception e) {
+            logger.severe("Failed to build error redirect: " + e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(htmlService.buildErrorPage("Server Error", e.getMessage()))
+                    .build();
+        }
     }
 }

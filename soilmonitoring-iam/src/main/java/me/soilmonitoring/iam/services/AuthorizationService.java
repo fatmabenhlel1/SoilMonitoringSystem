@@ -103,6 +103,14 @@ public class AuthorizationService {
         if (codeChallenge == null || !"S256".equals(codeChallengeMethod)) {
             throw new IllegalArgumentException("PKCE with S256 is required");
         }
+        logger.info("Checking client exists for clientId: " + clientId);
+        Tenant client = manager.findTenantByName(clientId);
+        logger.info("Comparing redirectUri: " + redirectUri + " vs registered: " + client.getRedirectUri());
+        logger.info("Validating responseType: " + responseType);
+        logger.info("Validating codeChallengeMethod: " + codeChallengeMethod);
+
+        logger.info("Raw code challenge: " + codeChallenge);
+
 
         // Validate client exists
         try {

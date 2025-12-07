@@ -1,8 +1,6 @@
 package me.soilmonitoring.iam.entities;
 
-
 import jakarta.nosql.Column;
-
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
 
@@ -10,14 +8,19 @@ import java.time.LocalDateTime;
 
 @Entity
 public class Grant implements RootEntity<GrantPK> {
+
     @Id
-    private GrantPK id;
+    @Column("_id")
+    private String id;  // Composite key as string: "tenantId:identityId"
+
     @Column
-    private long version=0L;
+    private long version = 0L;
+
     @Column
-    private Tenant tenant;
+    private String tenantId;
+
     @Column
-    private Identity identity;
+    private String identityId;
 
     @Column
     private String approvedScopes;
@@ -25,14 +28,25 @@ public class Grant implements RootEntity<GrantPK> {
     @Column
     private LocalDateTime issuanceDateTime;
 
+    // Implement RootEntity interface
     @Override
     public GrantPK getId() {
-        return id;
+        if (tenantId == null || identityId == null) {
+            return null;
+        }
+        GrantPK pk = new GrantPK();
+        pk.setTenantId(tenantId);
+        pk.setIdentityId(identityId);
+        return pk;
     }
 
     @Override
-    public void setId(GrantPK id) {
-        this.id = id;
+    public void setId(GrantPK pk) {
+        if (pk != null) {
+            this.id = pk.getTenantId() + ":" + pk.getIdentityId();
+            this.tenantId = pk.getTenantId();
+            this.identityId = pk.getIdentityId();
+        }
     }
 
     @Override
@@ -42,28 +56,28 @@ public class Grant implements RootEntity<GrantPK> {
 
     @Override
     public void setVersion(long version) {
-        if (this.version !=version ){
+        if (this.version != version) {
             throw new IllegalStateException();
-
         }
-
         ++this.version;
     }
 
-    public Tenant getTenant() {
-        return tenant;
+    // Additional getters/setters
+
+    public String getTenantId() {
+        return tenantId;
     }
 
-    public void setTenant(Tenant tenant) {
-        this.tenant = tenant;
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
     }
 
-    public Identity getIdentity() {
-        return identity;
+    public String getIdentityId() {
+        return identityId;
     }
 
-    public void setIdentity(Identity identity) {
-        this.identity = identity;
+    public void setIdentityId(String identityId) {
+        this.identityId = identityId;
     }
 
     public String getApprovedScopes() {

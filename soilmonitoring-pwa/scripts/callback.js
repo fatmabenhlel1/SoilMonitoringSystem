@@ -13,7 +13,7 @@ if (error) {
     showError(error, errorDescription);
     // Redirect back to login after 3 seconds
     setTimeout(() => {
-        window.location.href = '/login.html';
+        window.location.href = '../pages/login.html';
     }, 3000);
 } else if (!code) {
     showError('No authorization code received', 'Please try logging in again');
