@@ -3,8 +3,10 @@ package me.soilmonitoring.api.boundaries;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.SecurityContext;
 import me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;
 import me.soilmonitoring.api.controllers.repositories.FieldRepository;
 import me.soilmonitoring.api.entities.Field;
@@ -61,12 +63,17 @@ public class FieldResource {
     }
 
     @POST
-    public Response createField(Field field) {
+    public Response createField(Field field, @Context SecurityContext securityContext) {
         try {
             field.setId(UUID.randomUUID().toString());
+
+            // ✅ ADD THIS: Get username from JWT token
+            String username = securityContext.getUserPrincipal().getName();
+            field.setUserId(username);  // Set username as userId
+
             field.setCreatedAt(LocalDateTime.now());
             Field savedField = fieldRepository.save(field);
-            logger.info("Field created: " + savedField.getId());
+            logger.info("Field created: " + savedField.getId() + " for user: " + username);
             return Response.status(Response.Status.CREATED).entity(savedField).build();
         } catch (Exception e) {
             logger.severe("Error creating field: " + e.getMessage());

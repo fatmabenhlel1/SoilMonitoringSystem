@@ -11,7 +11,7 @@ console.log('📡 Real-Time Updates: Active');
 // =====================================================
 
 const CONFIG = {
-    userId: '6912504d2900a86edfa65db5',
+    userId: null,
     refreshInterval: 300000,  // 5 minutes (reduced because WebSocket handles real-time)
     notificationSound: true,
     chartUpdateInterval: 60000 // Update charts every minute
@@ -537,30 +537,83 @@ window.addEventListener('load', async function() {
 });
 
 function checkAuthentication() {
-    const userStr = sessionStorage.getItem('currentUser') || localStorage.getItem('currentUser');
-
-    if (!userStr) {
-        console.warn('⚠️ No user session found. Redirecting to home...');
-        window.location.href = '../index.html';
+    // Check for JWT token (OAuth flow)
+    const accessToken = sessionStorage.getItem('access_token');
+    
+    if (!accessToken) {
+        console.warn('⚠️ No authentication token found. Redirecting to login...');
+        window.location.href = '../pages/login.html';
         return false;
     }
 
-    STATE.currentUser = JSON.parse(userStr);
-
-    // Check if user is NOT Administrator (regular user)
-    if (STATE.currentUser.role === 'Administrator') {
-        console.warn('⚠️ User is Administrator. Redirecting to admin panel...');
-        window.location.href = 'admin.html';
+    // Check if token is expired
+    const expiry = sessionStorage.getItem('token_expiry');
+    if (expiry && Date.now() > parseInt(expiry)) {
+        console.warn('⚠️ Token expired. Redirecting to login...');
+        sessionStorage.clear();
+        window.location.href = '../pages/login.html';
         return false;
     }
 
-    console.log('👤 User:', STATE.currentUser.name, '| Role:', STATE.currentUser.role);
+    // Parse JWT to get user info
+    try {
+        const payload = parseJWT(accessToken);
+        
+        // Create user object from JWT payload
+        STATE.currentUser = {
+            id: payload.sub || payload.upn,  // username
+            name: payload.sub || payload.upn,
+            email: payload.email || `${payload.sub}@soilmonitoring.com`,
+            role: payload.groups && payload.groups.includes('Admin') ? 'Administrator' : 'User',
+            groups: payload.groups || []
+        };
 
-    // Update UI with user name
-    document.getElementById('user-name').textContent = STATE.currentUser.name;
-    document.getElementById('welcome-name').textContent = STATE.currentUser.name;
+        // ✅ Set userId as username for API calls
+        CONFIG.userId = STATE.currentUser.id;  // This will be "test" for your test user
 
-    return true;
+        console.log('✅ Using userId:', CONFIG.userId);
+
+        // Check if user is Admin - redirect to admin panel
+        if (STATE.currentUser.role === 'Administrator') {
+            console.warn('⚠️ User is Administrator. Redirecting to admin panel...');
+            window.location.href = 'admin.html';
+            return false;
+        }
+
+        console.log('👤 User:', STATE.currentUser.name, '| Role:', STATE.currentUser.role);
+        console.log('🔑 Groups:', STATE.currentUser.groups);
+
+        // Update UI with user name
+        document.getElementById('user-name').textContent = STATE.currentUser.name;
+        document.getElementById('welcome-name').textContent = STATE.currentUser.name;
+
+        return true;
+    } catch (error) {
+        console.error('❌ Failed to parse token:', error);
+        sessionStorage.clear();
+        window.location.href = '../pages/login.html';
+        return false;
+    }
+}
+
+/**
+ * Parse JWT token to get payload
+ */
+function parseJWT(token) {
+    try {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(
+            atob(base64)
+                .split('')
+                .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+                .join('')
+        );
+        return JSON.parse(jsonPayload);
+    } catch (e) {
+        console.error('Failed to parse JWT:', e);
+        throw e;
+    }
 }
 
 function requestNotificationPermission() {
@@ -569,6 +622,29 @@ function requestNotificationPermission() {
             console.log('🔔 Notification permission:', permission);
         });
     }
+}
+
+// =====================================================
+// LOGOUT HANDLER
+// =====================================================
+
+function setupLogoutHandler() {
+    document.getElementById('signout')?.addEventListener('click', logout);
+}
+
+function logout() {
+    console.log('👋 Logging out...');
+
+    // Clear all session data
+    sessionStorage.clear();
+    localStorage.clear();
+
+    if (STATE.wsConnected) {
+        wsManager.disconnect();
+    }
+
+    // Redirect to login page
+    window.location.href = '../pages/login.html';
 }
 
 // =====================================================

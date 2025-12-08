@@ -55,48 +55,101 @@ async function exchangeCodeForTokens(authCode, codeVerifier) {
     try {
         document.getElementById('status').textContent = 'Exchanging code for tokens...';
 
+        console.log('🔄 Exchanging authorization code for tokens...');
+        console.log('📝 Auth code:', authCode.substring(0, 30) + '...');
+        console.log('🔑 Code verifier:', codeVerifier.substring(0, 20) + '...');
+
+        const requestBody = new URLSearchParams({
+            grant_type: 'authorization_code',
+            code: authCode,
+            code_verifier: codeVerifier
+        });
+
+        console.log('📤 Request details:');
+        console.log('  URL:', IAM_TOKEN_URL);
+        console.log('  Body:', requestBody.toString());
+
         const response = await fetch(IAM_TOKEN_URL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
             },
-            body: new URLSearchParams({
-                grant_type: 'authorization_code',
-                code: authCode,
-                code_verifier: codeVerifier,
-                client_id: 'soil-monitoring-pwa',
-                redirect_uri: window.location.origin + '/pages/callback.html'
-            })
+            body: requestBody
         });
 
+        console.log('📡 Response status:', response.status);
+        console.log('📡 Response headers:', Object.fromEntries(response.headers.entries()));
+
+        // Get response text first to see what we received
+        const responseText = await response.text();
+        console.log('📄 Response body:', responseText);
+
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error_description || 'Token exchange failed');
+            let errorMessage = `HTTP ${response.status}`;
+            try {
+                const errorData = JSON.parse(responseText);
+                errorMessage = errorData.error_description || errorData.error || errorMessage;
+            } catch (e) {
+                errorMessage = responseText || response.statusText;
+            }
+            throw new Error(errorMessage);
         }
 
-        const tokens = await response.json();
-        console.log('Tokens received:', tokens);
+        // Parse JSON response
+        let tokens;
+        try {
+            tokens = JSON.parse(responseText);
+        } catch (e) {
+            console.error('❌ Failed to parse response as JSON');
+            throw new Error('Invalid response format from server');
+        }
 
+        console.log('✅ Tokens received successfully');
+        console.log('Token type:', tokens.token_type);
+        console.log('Expires in:', tokens.expires_in, 'seconds');
+        console.log('Scope:', tokens.scope);
+
+        // Validate tokens
+        if (!tokens.access_token) {
+            throw new Error('No access token in response');
+        }
+
+        // Store tokens in sessionStorage
         sessionStorage.setItem('access_token', tokens.access_token);
-        sessionStorage.setItem('refresh_token', tokens.refresh_token);
-        sessionStorage.setItem('token_expiry', Date.now() + (tokens.expires_in * 1000));
+        if (tokens.refresh_token) {
+            sessionStorage.setItem('refresh_token', tokens.refresh_token);
+        }
+        if (tokens.expires_in) {
+            sessionStorage.setItem('token_expiry', Date.now() + (tokens.expires_in * 1000));
+        }
 
-        // Cleanup
+        // Cleanup OAuth session data
         sessionStorage.removeItem('oauth_state');
         sessionStorage.removeItem('code_verifier');
         sessionStorage.removeItem('code_challenge');
 
-        redirectToApp(parseJWT(tokens.access_token));
+        console.log('✅ Tokens stored in sessionStorage');
+
+        // Parse JWT and redirect
+        const userPayload = parseJWT(tokens.access_token);
+        console.log('👤 User payload:', userPayload);
+        
+        redirectToApp(userPayload);
 
     } catch (error) {
-        console.error('Token exchange error:', error);
+        console.error('❌ Token exchange error:', error);
         document.getElementById('status').style.display = 'none';
         document.querySelector('.spinner').style.display = 'none';
         document.getElementById('error').style.display = 'block';
         document.getElementById('error').textContent = 'Failed to complete login: ' + error.message;
+        
+        // Redirect to login after 3 seconds
+        setTimeout(() => {
+            window.location.href = '../pages/login.html';
+        }, 3000);
     }
 }
-
 
 function parseJWT(token) {
     try {
@@ -113,9 +166,11 @@ function parseJWT(token) {
 }
 
 function redirectToApp(userPayload) {
+    document.getElementById('status').textContent = 'Login successful! Redirecting...';
+    
     setTimeout(() => {
         // Check if user has admin role
-        if (userPayload.groups && userPayload.groups.includes('admin')) {
+        if (userPayload.groups && (userPayload.groups.includes('admin') || userPayload.groups.includes('Admin'))) {
             window.location.href = '../pages/admin.html';
         } else {
             window.location.href = '../pages/user.html';

@@ -9,6 +9,7 @@ import jakarta.json.JsonObject;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
+import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.UUID;
@@ -19,7 +20,7 @@ public record AuthorizationCode(String tenantName, String identityUsername,
 
     private static final SecretKey key;
     private static final String codePrefix = "urn:phoenix:code";
-    private static final String SEPARATOR = "."; // safe separator
+    private static final String SEPARATOR = ".";
 
     static {
         try {
@@ -29,6 +30,10 @@ public record AuthorizationCode(String tenantName, String identityUsername,
         }
     }
 
+    /**
+     * Generate authorization code with PKCE
+     * @param codeChallenge The SHA-256 hash of the code_verifier (base64url encoded)
+     */
     public String getCode(String codeChallenge) throws Exception {
         String codeId = UUID.randomUUID().toString();
 
@@ -43,6 +48,7 @@ public record AuthorizationCode(String tenantName, String identityUsername,
         String payloadB64 = Base64.getUrlEncoder().withoutPadding()
                 .encodeToString(payloadJson.toString().getBytes(StandardCharsets.UTF_8));
 
+        // Encrypt the code_challenge (NOT the code_verifier)
         byte[] encryptedChallenge = ChaCha20Poly1305.encrypt(
                 codeChallenge.getBytes(StandardCharsets.UTF_8), key
         );
@@ -52,20 +58,32 @@ public record AuthorizationCode(String tenantName, String identityUsername,
         return codePrefix + SEPARATOR + codeId + SEPARATOR + payloadB64 + SEPARATOR + encryptedChallengeB64;
     }
 
+    /**
+     * Decode and validate authorization code with PKCE
+     * @param authorizationCode The authorization code
+     * @param codeVerifier The original code_verifier (unhashed)
+     */
     public static AuthorizationCode decode(String authorizationCode, String codeVerifier) throws Exception {
         String[] parts = authorizationCode.split("\\Q" + SEPARATOR + "\\E");
         if (parts.length != 4) {
             throw new IllegalArgumentException("Invalid encoded code format");
         }
 
+        // Decrypt the stored code_challenge
         String encryptedChallengeB64 = parts[3];
-        byte[] decryptedChallenge = ChaCha20Poly1305.decrypt(Base64.getUrlDecoder().decode(encryptedChallengeB64), key);
-        String decryptedChallengeStr = new String(decryptedChallenge, StandardCharsets.UTF_8);
+        byte[] decryptedChallenge = ChaCha20Poly1305.decrypt(
+                Base64.getUrlDecoder().decode(encryptedChallengeB64), key);
+        String storedCodeChallenge = new String(decryptedChallenge, StandardCharsets.UTF_8);
 
-        if (!decryptedChallengeStr.equals(codeVerifier)) {
+        // Hash the provided code_verifier using SHA-256
+        String computedCodeChallenge = computeCodeChallenge(codeVerifier);
+
+        // Compare the computed challenge with the stored challenge
+        if (!storedCodeChallenge.equals(computedCodeChallenge)) {
             throw new IllegalArgumentException("Code verifier does not match the code challenge");
         }
 
+        // Decode the payload
         String payloadB64 = parts[2];
         String payloadJsonStr = new String(Base64.getUrlDecoder().decode(payloadB64), StandardCharsets.UTF_8);
         JsonObject payload = Json.createReader(new java.io.StringReader(payloadJsonStr)).readObject();
@@ -77,6 +95,15 @@ public record AuthorizationCode(String tenantName, String identityUsername,
                 payload.getJsonNumber("expirationDate").longValue(),
                 payload.getString("redirectUri")
         );
+    }
+
+    /**
+     * Compute SHA-256 code challenge from code verifier (S256 method)
+     */
+    private static String computeCodeChallenge(String codeVerifier) throws Exception {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hash = digest.digest(codeVerifier.getBytes(StandardCharsets.UTF_8));
+        return Base64.getUrlEncoder().withoutPadding().encodeToString(hash);
     }
 
     private static class ChaCha20Poly1305 {
