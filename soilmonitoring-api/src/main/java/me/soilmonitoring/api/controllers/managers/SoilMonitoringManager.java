@@ -7,8 +7,7 @@ import me.soilmonitoring.api.entities.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
-
+import java.util.UUID;
 
 //TODO: add test file
 
@@ -159,6 +158,40 @@ public class SoilMonitoringManager {
 
     /* *****treatments******
     */
+
+    /**
+     * Creates an alert and automatically attaches the field's location.
+     *
+     * @param userId the ID of the user to notify
+     * @param fieldId the ID of the field where the issue occurred
+     * @param alertType the type of alert
+     * @param severity the severity level
+     * @param message the alert message
+     * @return the created Alert entity
+     */
+    public Alert createAlertWithLocation(String userId, String fieldId, String alertType,
+                                         String severity, String message) {
+        Alert alert = new Alert();
+        alert.setUserId(userId);
+        alert.setFieldId(fieldId);
+        alert.setAlertType(alertType);
+        alert.setSeverity(severity);
+        alert.setMessage(message);
+        alert.setIsRead(false);
+        alert.setCreatedAt(LocalDateTime.now());
+
+        // Attach field location to alert
+        try {
+            Field field = fieldRepository.findById(fieldId).orElse(null);
+            if (field != null && field.getLocation() != null) {
+                alert.setLocation(field.getLocation());
+            }
+        } catch (Exception e) {
+            // Log but don't fail - location is optional
+        }
+
+        return alertRepository.save(alert);
+    }
 
     /**
      * Gets all treatments applied to a specific field.

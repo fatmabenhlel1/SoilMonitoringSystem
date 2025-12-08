@@ -233,17 +233,26 @@ function displayFields(fields) {
             </div>
             
             <!-- Action Buttons -->
-            <div class="mt-3 d-flex gap-2 flex-wrap">
-                <button class="btn btn-sm btn-primary" onclick="viewFieldDetails('${field.id}')">
-                    <i class="fas fa-chart-line me-1"></i>View Details
-                </button>
-                <button class="btn btn-sm btn-success" onclick="getPredictionForField('${field.id}')">
-                    <i class="fas fa-brain me-1"></i>Crop Prediction
-                </button>
-                <button class="btn btn-sm btn-info" onclick="viewFieldSensors('${field.id}')">
-                    <i class="fas fa-microchip me-1"></i>View Sensors
-                </button>
-            </div>
+<div class="mt-3 d-flex gap-2 flex-wrap">
+    <button class="btn btn-sm btn-primary" onclick="viewFieldDetails('${field.id}')">
+        <i class="fas fa-chart-line me-1"></i>View Details
+    </button>
+    <button class="btn btn-sm btn-success" onclick="getPredictionForField('${field.id}')">
+        <i class="fas fa-brain me-1"></i>Crop Prediction
+    </button>
+    <button class="btn btn-sm btn-info" onclick="viewFieldSensors('${field.id}')">
+        <i class="fas fa-microchip me-1"></i>View Sensors
+    </button>
+    <!-- ADD THESE NAVIGATION BUTTONS -->
+    ${field.location && field.location.latitude ? `
+        <button class="btn btn-sm btn-outline-primary" onclick="navigateToField('${field.id}')">
+            <i class="fas fa-map me-1"></i>Maps
+        </button>
+        <button class="btn btn-sm btn-primary" onclick="navigateToFieldWithTracking('${field.id}')">
+            <i class="fas fa-location-arrow me-1"></i>Track
+        </button>
+    ` : ''}
+</div>
         </div>
     `).join('');
 }
@@ -400,15 +409,24 @@ function displayAlerts(alerts) {
                     </div>
                 </div>
                 <p class="mb-2 small">${escapeHtml(alert.message)}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <small class="text-muted"><i class="far fa-clock me-1"></i>${timeAgo}</small>
-                    ${!alert.isRead ? `
-                        <button class="btn btn-sm btn-link p-0 text-decoration-none" 
-                                onclick="markAlertAsRead('${alert.id}')">
-                            <i class="fas fa-check me-1"></i>Mark as read
-                        </button>
-                    ` : '<small class="text-muted"><i class="fas fa-check-circle me-1"></i>Read</small>'}
-                </div>
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <small class="text-muted"><i class="far fa-clock me-1"></i>${timeAgo}</small>
+    <div class="d-flex gap-2 align-items-center">
+        ${!alert.isRead ? `
+            <button class="btn btn-sm btn-link p-0 text-decoration-none" 
+                    onclick="markAlertAsRead('${alert.id}')">
+                <i class="fas fa-check me-1"></i>Mark as read
+            </button>
+        ` : '<small class="text-muted"><i class="fas fa-check-circle me-1"></i>Read</small>'}
+        ${alert.location && alert.location.latitude ? `
+            <button class="btn btn-sm btn-primary" 
+                    onclick="navigateToAlert('${alert.id}')"
+                    title="Navigate to field location">
+                <i class="fas fa-location-arrow me-1"></i>Navigate
+            </button>
+        ` : ''}
+    </div>
+</div>
             </div>
         `;
     }).join('');
@@ -1117,8 +1135,283 @@ console.log('✅ WebSocket real-time updates configured');
 // PLACEHOLDER FUNCTIONS (TO IMPLEMENT)
 // =====================================================
 
+// =====================================================
+// FIELD MANAGEMENT - ADD/EDIT FIELDS
+// =====================================================
+
 function showAddFieldModal() {
-    showError('Add Field functionality - Coming soon!');
+    const modalHTML = `
+        <div class="modal fade" id="addFieldModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title">
+                            <i class="fas fa-plus-circle me-2"></i>Add New Field
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addFieldForm">
+                            <!-- Basic Information -->
+                            <div class="mb-3">
+                                <label class="form-label">Field Name *</label>
+                                <input type="text" class="form-control" id="fieldName" 
+                                       placeholder="e.g., North Field" required>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Area (hectares) *</label>
+                                    <input type="number" step="0.1" class="form-control" id="fieldArea" 
+                                           placeholder="e.g., 5.2" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Soil Type *</label>
+                                    <select class="form-control" id="fieldSoilType" required>
+                                        <option value="">Select Soil Type</option>
+                                        <option value="Sandy">Sandy</option>
+                                        <option value="Loamy">Loamy</option>
+                                        <option value="Clay">Clay</option>
+                                        <option value="Silty">Silty</option>
+                                        <option value="Peaty">Peaty</option>
+                                        <option value="Chalky">Chalky</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Current Crop (Optional)</label>
+                                <input type="text" class="form-control" id="fieldCrop" 
+                                       placeholder="e.g., Wheat, Rice, Corn">
+                            </div>
+
+                            <hr class="my-4">
+
+                            <!-- Location Information -->
+                            <h6 class="mb-3">
+                                <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                                Raspberry Pi Location (GPS Coordinates)
+                            </h6>
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Important:</strong> Enter the GPS coordinates where the Raspberry Pi sensor is physically installed.
+                                Use your smartphone's GPS or Google Maps to get accurate coordinates.
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Latitude *</label>
+                                    <input type="number" step="any" class="form-control" id="fieldLatitude" 
+                                           placeholder="e.g., 36.8065" required>
+                                    <small class="text-muted">Example: 36.8065 (North/South position)</small>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Longitude *</label>
+                                    <input type="number" step="any" class="form-control" id="fieldLongitude" 
+                                           placeholder="e.g., 10.1815" required>
+                                    <small class="text-muted">Example: 10.1815 (East/West position)</small>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Address/Description *</label>
+                                <input type="text" class="form-control" id="fieldAddress" 
+                                       placeholder="e.g., North Field, Section A, Tunis" required>
+                                <small class="text-muted">Describe the field location for easy identification</small>
+                            </div>
+
+                            <!-- Helper Tools -->
+                            <div class="card bg-light mb-3">
+                                <div class="card-body">
+                                    <h6 class="mb-2">
+                                        <i class="fas fa-tools me-2"></i>Quick Tools
+                                    </h6>
+                                    <div class="d-flex gap-2 flex-wrap">
+                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="getCurrentLocation()">
+                                            <i class="fas fa-crosshairs me-1"></i>Use My Current Location
+                                        </button>
+                                        <a href="https://www.google.com/maps" target="_blank" class="btn btn-sm btn-outline-secondary">
+                                            <i class="fas fa-external-link-alt me-1"></i>Open Google Maps
+                                        </a>
+                                        <button type="button" class="btn btn-sm btn-outline-info" onclick="testLocation()">
+                                            <i class="fas fa-map-pin me-1"></i>Test Location
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <!-- User Assignment -->
+                            <div class="mb-3">
+                                <label class="form-label">Assign to User *</label>
+                                <input type="text" class="form-control" id="fieldUserId" 
+                                       value="${CONFIG.userId}" required>
+                                <small class="text-muted">User ID who will manage this field</small>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <i class="fas fa-times me-1"></i>Cancel
+                        </button>
+                        <button type="button" class="btn btn-success" onclick="submitAddField()">
+                            <i class="fas fa-save me-1"></i>Create Field
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Remove existing modal if any
+    const existingModal = document.getElementById('addFieldModal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+
+    // Add modal to page
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    // Show modal
+    const modal = new bootstrap.Modal(document.getElementById('addFieldModal'));
+    modal.show();
+}
+
+/**
+ * Get user's current location and fill in the form
+ */
+async function getCurrentLocation() {
+    if (!navigator.geolocation) {
+        showError('Geolocation is not supported by your browser');
+        return;
+    }
+
+    showSuccess('Getting your current location...');
+
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            document.getElementById('fieldLatitude').value = position.coords.latitude.toFixed(6);
+            document.getElementById('fieldLongitude').value = position.coords.longitude.toFixed(6);
+            showSuccess('Location captured! Update the address field.');
+        },
+        (error) => {
+            showError('Could not get your location: ' + error.message);
+        },
+        {
+            enableHighAccuracy: true,
+            timeout: 10000
+        }
+    );
+}
+
+/**
+ * Test if the entered location is valid
+ */
+function testLocation() {
+    const lat = parseFloat(document.getElementById('fieldLatitude').value);
+    const lon = parseFloat(document.getElementById('fieldLongitude').value);
+
+    if (isNaN(lat) || isNaN(lon)) {
+        showError('Please enter valid latitude and longitude values');
+        return;
+    }
+
+    if (lat < -90 || lat > 90) {
+        showError('Latitude must be between -90 and 90');
+        return;
+    }
+
+    if (lon < -180 || lon > 180) {
+        showError('Longitude must be between -180 and 180');
+        return;
+    }
+
+    // Open in Google Maps
+    const url = `https://www.google.com/maps?q=${lat},${lon}`;
+    window.open(url, '_blank');
+    showSuccess('Location opened in Google Maps!');
+}
+
+/**
+ * Submit the add field form
+ */
+async function submitAddField() {
+    try {
+        // Get form values
+        const name = document.getElementById('fieldName').value.trim();
+        const area = parseFloat(document.getElementById('fieldArea').value);
+        const soilType = document.getElementById('fieldSoilType').value;
+        const currentCrop = document.getElementById('fieldCrop').value.trim();
+        const latitude = parseFloat(document.getElementById('fieldLatitude').value);
+        const longitude = parseFloat(document.getElementById('fieldLongitude').value);
+        const address = document.getElementById('fieldAddress').value.trim();
+        const userId = document.getElementById('fieldUserId').value.trim();
+
+        // Validation
+        if (!name || !area || !soilType || !userId) {
+            showError('Please fill in all required fields');
+            return;
+        }
+
+        if (isNaN(latitude) || isNaN(longitude)) {
+            showError('Please enter valid GPS coordinates');
+            return;
+        }
+
+        if (latitude < -90 || latitude > 90) {
+            showError('Latitude must be between -90 and 90');
+            return;
+        }
+
+        if (longitude < -180 || longitude > 180) {
+            showError('Longitude must be between -180 and 180');
+            return;
+        }
+
+        if (!address) {
+            showError('Please enter a location address/description');
+            return;
+        }
+
+        showLoading(true);
+
+        // Create field data object
+        const fieldData = {
+            userId: userId,
+            name: name,
+            area: area,
+            soilType: soilType,
+            currentCrop: currentCrop || null,
+            location: {
+                latitude: latitude,
+                longitude: longitude,
+                address: address
+            }
+        };
+
+        console.log('📤 Creating field:', fieldData);
+
+        // Call API to create field
+        const createdField = await ApiService.createField(fieldData);
+
+        console.log('✅ Field created:', createdField);
+
+        // Close modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('addFieldModal'));
+        modal.hide();
+
+        // Reload dashboard
+        await loadAllData();
+
+        showSuccess(`Field "${name}" created successfully with GPS location!`);
+        showLoading(false);
+
+    } catch (error) {
+        console.error('❌ Error creating field:', error);
+        showError('Failed to create field: ' + error.message);
+        showLoading(false);
+    }
 }
 
 function showAddSensorModal() {
@@ -1133,7 +1426,258 @@ function viewAllNotifications(event) {
 function exportData() {
     showError('Export Data functionality - Coming soon!');
 }
+// =====================================================
+// GEOLOCATION & NAVIGATION (Same as user.js)
+// =====================================================
 
+let navigationState = {
+    isNavigating: false,
+    targetLocation: null,
+    targetFieldId: null
+};
+
+async function navigateToFieldWithTracking(fieldId) {
+    try {
+        const location = await ApiService.getFieldLocation(fieldId);
+
+        if (!location || !location.latitude || !location.longitude) {
+            showError('Location not available for this field');
+            return;
+        }
+
+        if (!GeolocationService.isSupported()) {
+            showError('Geolocation is not supported on your device');
+            return;
+        }
+
+        const hasPermission = await GeolocationService.requestPermission();
+        if (!hasPermission) {
+            showError('Location permission is required for navigation');
+            return;
+        }
+
+        navigationState.targetLocation = location;
+        navigationState.targetFieldId = fieldId;
+        navigationState.isNavigating = true;
+
+        showNavigationModal(fieldId, location);
+
+        GeolocationService.startWatchingPosition(
+            (position) => updateNavigationInfo(position),
+            (error) => {
+                showError(error);
+                stopNavigation();
+            }
+        );
+
+    } catch (error) {
+        console.error('Error starting navigation:', error);
+        showError('Failed to start navigation');
+    }
+}
+
+function updateNavigationInfo(currentPosition) {
+    if (!navigationState.isNavigating || !navigationState.targetLocation) {
+        return;
+    }
+
+    const target = navigationState.targetLocation;
+
+    const distance = GeolocationService.calculateDistance(
+        currentPosition.latitude,
+        currentPosition.longitude,
+        target.latitude,
+        target.longitude
+    );
+
+    const bearing = GeolocationService.calculateBearing(
+        currentPosition.latitude,
+        currentPosition.longitude,
+        target.latitude,
+        target.longitude
+    );
+
+    const distanceEl = document.getElementById('navDistance');
+    const bearingEl = document.getElementById('navBearing');
+    const accuracyEl = document.getElementById('navAccuracy');
+    const currentLatEl = document.getElementById('currentLat');
+    const currentLonEl = document.getElementById('currentLon');
+
+    if (distanceEl) distanceEl.textContent = GeolocationService.formatDistance(distance);
+    if (bearingEl) bearingEl.textContent = `${Math.round(bearing)}° ${GeolocationService.getDirectionLabel(bearing)}`;
+    if (accuracyEl) accuracyEl.textContent = `±${Math.round(currentPosition.accuracy)}m`;
+    if (currentLatEl) currentLatEl.textContent = currentPosition.latitude.toFixed(6);
+    if (currentLonEl) currentLonEl.textContent = currentPosition.longitude.toFixed(6);
+
+    if (distance < 50) {
+        showSuccess('You have arrived at the field location!');
+        stopNavigation();
+    }
+}
+
+function stopNavigation() {
+    GeolocationService.stopWatchingPosition();
+    navigationState.isNavigating = false;
+    navigationState.targetLocation = null;
+    navigationState.targetFieldId = null;
+
+    const modalEl = document.getElementById('navigationModal');
+    if (modalEl) {
+        const modal = bootstrap.Modal.getInstance(modalEl);
+        if (modal) modal.hide();
+    }
+}
+
+function showNavigationModal(fieldId, location) {
+    const fieldName = getFieldName(fieldId);
+
+    const modalContent = `
+        <div class="p-4">
+            <div class="text-center mb-4">
+                <div class="navigation-compass mb-3">
+                    <i class="fas fa-compass fa-4x text-primary"></i>
+                </div>
+                <h5 class="mb-1">Navigating to Field</h5>
+                <p class="text-muted">${escapeHtml(fieldName)}</p>
+                <small class="text-muted">${escapeHtml(location.address || 'Field Location')}</small>
+            </div>
+
+            <div class="card bg-light mb-3">
+                <div class="card-body text-center">
+                    <div class="row">
+                        <div class="col-4">
+                            <i class="fas fa-route text-success fa-2x mb-2"></i>
+                            <h4 id="navDistance" class="mb-0">Calculating...</h4>
+                            <small class="text-muted">Distance</small>
+                        </div>
+                        <div class="col-4">
+                            <i class="fas fa-compass text-info fa-2x mb-2"></i>
+                            <h4 id="navBearing" class="mb-0">---</h4>
+                            <small class="text-muted">Direction</small>
+                        </div>
+                        <div class="col-4">
+                            <i class="fas fa-crosshairs text-warning fa-2x mb-2"></i>
+                            <h4 id="navAccuracy" class="mb-0">---</h4>
+                            <small class="text-muted">Accuracy</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-white">
+                    <i class="fas fa-map-marker-alt me-2"></i>Your Location
+                </div>
+                <div class="card-body">
+                    <p class="mb-1"><strong>Latitude:</strong> <span id="currentLat">Detecting...</span></p>
+                    <p class="mb-0"><strong>Longitude:</strong> <span id="currentLon">Detecting...</span></p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header bg-success text-white">
+                    <i class="fas fa-flag-checkered me-2"></i>Destination (Raspberry Pi)
+                </div>
+                <div class="card-body">
+                    <p class="mb-1"><strong>Latitude:</strong> ${location.latitude}</p>
+                    <p class="mb-0"><strong>Longitude:</strong> ${location.longitude}</p>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button class="btn btn-success" onclick="openInMapsApp('${location.latitude}', '${location.longitude}')">
+                    <i class="fas fa-external-link-alt me-2"></i>Open in Maps App
+                </button>
+                <button class="btn btn-danger" onclick="stopNavigation()">
+                    <i class="fas fa-stop me-2"></i>Stop Navigation
+                </button>
+            </div>
+
+            <div class="alert alert-info mt-3 mb-0">
+                <i class="fas fa-info-circle me-2"></i>
+                <small>Keep this page open to track your progress.</small>
+            </div>
+        </div>
+    `;
+
+    let modalElement = document.getElementById('navigationModal');
+    if (!modalElement) {
+        const modalHTML = `
+            <div class="modal fade" id="navigationModal" tabindex="-1" data-bs-backdrop="static">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title">
+                                <i class="fas fa-location-arrow me-2"></i>Real-Time Navigation
+                            </h5>
+                            <button type="button" class="btn-close btn-close-white" onclick="stopNavigation()"></button>
+                        </div>
+                        <div class="modal-body" id="navigationModalContent"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        modalElement = document.getElementById('navigationModal');
+    }
+
+    document.getElementById('navigationModalContent').innerHTML = modalContent;
+    const modal = new bootstrap.Modal(modalElement);
+    modal.show();
+}
+
+function openInMapsApp(latitude, longitude) {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    let url;
+
+    if (/iPad|iPhone|iPod/.test(userAgent)) {
+        url = `maps://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
+    } else if (/android/i.test(userAgent)) {
+        url = `google.navigation:q=${latitude},${longitude}`;
+    } else {
+        url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
+    }
+
+    window.open(url, '_blank');
+}
+
+async function navigateToField(fieldId) {
+    try {
+        const location = await ApiService.getFieldLocation(fieldId);
+
+        if (!location || !location.latitude || !location.longitude) {
+            showError('Location not available for this field');
+            return;
+        }
+
+        openInMapsApp(location.latitude, location.longitude);
+
+    } catch (error) {
+        console.error('Error navigating to field:', error);
+        showError('Failed to open navigation');
+    }
+}
+
+async function navigateToAlert(alertId) {
+    try {
+        const alert = await ApiService.getAlertById(alertId);
+
+        if (!alert.location || !alert.location.latitude || !alert.location.longitude) {
+            showError('Location not available for this alert');
+            return;
+        }
+
+        if (alert.fieldId) {
+            navigateToFieldWithTracking(alert.fieldId);
+        } else {
+            openInMapsApp(alert.location.latitude, alert.location.longitude);
+        }
+
+    } catch (error) {
+        console.error('Error navigating to alert:', error);
+        showError('Failed to open navigation');
+    }
+}
 // =====================================================
 // END OF ADMIN DASHBOARD
 // =====================================================

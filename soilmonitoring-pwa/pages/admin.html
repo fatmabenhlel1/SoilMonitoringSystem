@@ -10,6 +10,7 @@
     <link rel="apple-touch-icon" href="../images/icons/apple-touch-icon.png">
     <link href="../pwa.webmanifest" rel="manifest"/>
     <link href="../styles/main.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -227,10 +228,32 @@
     </div>
 </div>
 
+<!-- Navigation Modal -->
+<div class="modal fade" id="navigationModal" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-location-arrow me-2"></i>Real-Time Navigation
+                </h5>
+                <button type="button" class="btn-close btn-close-white" onclick="stopNavigation()"></button>
+            </div>
+            <div class="modal-body" id="navigationModalContent">
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- ===================== SCRIPTS ===================== -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 <script src="../scripts/config.js"></script>
 <script src="../scripts/api-service.js"></script>
+<script src="../scripts/geolocation-service.js"></script>  <!-- MOVE THIS AFTER api-service.js -->
 <script src="../scripts/admin.js"></script>
 <script src="../scripts/pwa-installer.js"></script>
 </body>

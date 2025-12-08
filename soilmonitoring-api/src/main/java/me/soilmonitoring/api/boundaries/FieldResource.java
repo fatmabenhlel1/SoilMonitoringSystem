@@ -8,7 +8,7 @@ import jakarta.ws.rs.core.Response;
 import me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;
 import me.soilmonitoring.api.controllers.repositories.FieldRepository;
 import me.soilmonitoring.api.entities.Field;
-import me.soilmonitoring.api.security.Secured;
+import me.soilmonitoring.api.entities.Location;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -106,6 +106,54 @@ public class FieldResource {
             logger.severe("Error deleting field: " + e.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity("Error deleting field").build();
+        }
+    }
+    @GET
+    @Path("/{fieldId}/location")
+    public Response getFieldLocation(@PathParam("fieldId") String fieldId) {
+        try {
+            Field field = manager.findFieldById(fieldId);
+
+            Location location = field.getLocation();
+            if (location == null || location.getLatitude() == null || location.getLongitude() == null) {
+                return Response.status(Response.Status.NOT_FOUND)
+                        .entity("Location not set for this field").build();
+            }
+
+            return Response.ok(location).build();
+        } catch (IllegalArgumentException e) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Field not found").build();
+        } catch (Exception e) {
+            logger.severe("Error getting field location: " + e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("Error retrieving location").build();
+        }
+    }
+
+    @PUT
+    @Path("/{fieldId}/location")
+    public Response updateFieldLocation(@PathParam("fieldId") String fieldId, Location location) {
+        try {
+            Field field = manager.findFieldById(fieldId);
+
+            if (location.getLatitude() == null || location.getLongitude() == null) {
+                return Response.status(Response.Status.BAD_REQUEST)
+                        .entity("Latitude and longitude are required").build();
+            }
+
+            field.setLocation(location);
+            Field updatedField = fieldRepository.save(field);
+
+            logger.info("Location updated for field: " + fieldId);
+            return Response.ok(updatedField).build();
+        } catch (IllegalArgumentException e) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Field not found").build();
+        } catch (Exception e) {
+            logger.severe("Error updating field location: " + e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("Error updating location").build();
         }
     }
 }

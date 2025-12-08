@@ -71,9 +71,16 @@ public class AlertResource {
     public Response createAlert(Alert alert) {
         try {
             alert.setId(UUID.randomUUID().toString());
-            alert.setCreatedAt(LocalDateTime.now());
-            alert.setIsRead(false);
-            Alert savedAlert = alertRepository.save(alert);
+
+            // Use manager to create alert with location
+            Alert savedAlert = manager.createAlertWithLocation(
+                    alert.getUserId(),
+                    alert.getFieldId(),
+                    alert.getAlertType(),
+                    alert.getSeverity(),
+                    alert.getMessage()
+            );
+
             logger.info("Alert created: " + savedAlert.getId());
             return Response.status(Response.Status.CREATED).entity(savedAlert).build();
         } catch (Exception e) {
@@ -114,6 +121,28 @@ public class AlertResource {
             logger.severe("Error deleting alert: " + e.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity("Error deleting alert").build();
+        }
+    }
+    @GET
+    @Path("/{alertId}/location")
+    public Response getAlertLocation(@PathParam("alertId") String alertId) {
+        try {
+            Alert alert = alertRepository.findById(alertId)
+                    .orElseThrow(() -> new IllegalArgumentException("Alert not found"));
+
+            if (alert.getLocation() == null) {
+                return Response.status(Response.Status.NOT_FOUND)
+                        .entity("Location not available for this alert").build();
+            }
+
+            return Response.ok(alert.getLocation()).build();
+        } catch (IllegalArgumentException e) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity(e.getMessage()).build();
+        } catch (Exception e) {
+            logger.severe("Error getting alert location: " + e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("Error retrieving location").build();
         }
     }
 }

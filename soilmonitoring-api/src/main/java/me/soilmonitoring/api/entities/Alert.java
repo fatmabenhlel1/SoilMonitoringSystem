@@ -37,6 +37,9 @@ public class Alert implements RootEntity<String> {
     @Column
     private LocalDateTime createdAt;
 
+    @Column
+    private Location location;
+
     @Override
     public String getId() {
         return id;
@@ -114,5 +117,14 @@ public class Alert implements RootEntity<String> {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }

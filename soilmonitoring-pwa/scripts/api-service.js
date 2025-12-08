@@ -148,12 +148,29 @@ const ApiService = {
             inputData: sensorData
         });
     },
+    // ===================== LOCATION SERVICES =====================
+
+// Get field location
+    async getFieldLocation(fieldId) {
+        return await API.get(`${API_CONFIG.ENDPOINTS.FIELDS}/${fieldId}/location`);
+    },
+
+// Update field location
+    async updateFieldLocation(fieldId, locationData) {
+        return await API.put(`${API_CONFIG.ENDPOINTS.FIELDS}/${fieldId}/location`, locationData);
+    },
+
+// Get alert location
+    async getAlertLocation(alertId) {
+        return await API.get(`${API_CONFIG.ENDPOINTS.ALERTS}/${alertId}/location`);
+    },
 
     // ===================== HEALTH CHECK =====================
 
     async checkHealth() {
         return await API.get(API_CONFIG.ENDPOINTS.TEST);
     }
+
 };
 
 // ===================== Example Usage =====================

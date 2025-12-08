@@ -5,15 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb57a1e0-aaf0-419a-a157-eb62500ba532" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/structure_exports/test.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/SoilMonitoringSystem.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/soilmonitoring-api/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-api/src/main/java/me/soilmonitoring/api/boundaries/AlertResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-api/src/main/java/me/soilmonitoring/api/boundaries/AlertResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-api/src/main/java/me/soilmonitoring/api/boundaries/FieldResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-api/src/main/java/me/soilmonitoring/api/boundaries/FieldResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-api/src/main/java/me/soilmonitoring/api/controllers/managers/SoilMonitoringManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-api/src/main/java/me/soilmonitoring/api/controllers/managers/SoilMonitoringManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-api/src/main/java/me/soilmonitoring/api/entities/Alert.java" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-api/src/main/java/me/soilmonitoring/api/entities/Alert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/pages/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/pages/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/sw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/pages/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/pages/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/scripts/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/scripts/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/scripts/api-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/scripts/api-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soilmonitoring-pwa/scripts/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/soilmonitoring-pwa/scripts/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,31 +54,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.soilmonitoring-iam [clean].executor": "Run",
-    "Maven.soilmonitoring-iam [install].executor": "Run",
-    "Maven.soilmonitoring-iam [package].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Utilisateur/SoilMonitoringSystem/soilmonitoring-pwa",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.soilmonitoring-iam [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.soilmonitoring-iam [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.soilmonitoring-iam [package].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Utilisateur/SoilMonitoringSystem/soilmonitoring-pwa&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Utilisateur\SoilMonitoringSystem\soilmonitoring-pwa\images\icons" />
@@ -72,11 +88,12 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cb57a1e0-aaf0-419a-a157-eb62500ba532" name="Changes" comment="" />
@@ -87,6 +104,8 @@
       <workItem from="1763227275361" duration="895000" />
       <workItem from="1763228216097" duration="43727000" />
       <workItem from="1764503252070" duration="16589000" />
+      <workItem from="1765113007554" duration="2383000" />
+      <workItem from="1765193894231" duration="477000" />
     </task>
     <servers />
   </component>
@@ -110,7 +129,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/soilmonitoring-pwa/sw.js</url>
           <line>7</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

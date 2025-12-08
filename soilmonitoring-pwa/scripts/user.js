@@ -722,26 +722,36 @@ function displayFields(fields) {
                 </div>
             </div>
             
-            <!-- Action Buttons -->
-            <div class="mt-3 d-flex gap-2 flex-wrap">
-                <button class="btn btn-sm btn-primary" onclick="viewFieldDetails('${field.id}')">
-                    <i class="fas fa-chart-line me-1"></i>View Details
-                </button>
-                <div class="btn-group btn-group-sm" role="group">
-                    <button class="btn btn-success" onclick="getPredictionForField('${field.id}')" title="Crop Recommendation">
-                        <i class="fas fa-seedling me-1"></i>Crop
-                    </button>
-                    <button class="btn btn-warning" onclick="getFertilizerPredictionForField('${field.id}')" title="Fertilizer Recommendation">
-                        <i class="fas fa-flask me-1"></i>Fertilizer
-                    </button>
-                </div>
-                <button class="btn btn-sm btn-info" onclick="viewFieldSensors('${field.id}')">
-                    <i class="fas fa-microchip me-1"></i>Sensors
-                </button>
-                <button class="btn btn-sm btn-warning" onclick="viewHistoricalData('${field.id}')">
-                    <i class="fas fa-history me-1"></i>History
-                </button>
-            </div>
+            // Find this part in the displayFields function:
+<!-- Action Buttons -->
+<div class="mt-3 d-flex gap-2 flex-wrap">
+    <button class="btn btn-sm btn-primary" onclick="viewFieldDetails('${field.id}')">
+        <i class="fas fa-chart-line me-1"></i>View Details
+    </button>
+    <div class="btn-group btn-group-sm" role="group">
+        <button class="btn btn-success" onclick="getPredictionForField('${field.id}')" title="Crop Recommendation">
+            <i class="fas fa-seedling me-1"></i>Crop
+        </button>
+        <button class="btn btn-warning" onclick="getFertilizerPredictionForField('${field.id}')" title="Fertilizer Recommendation">
+            <i class="fas fa-flask me-1"></i>Fertilizer
+        </button>
+    </div>
+    <button class="btn btn-sm btn-info" onclick="viewFieldSensors('${field.id}')">
+        <i class="fas fa-microchip me-1"></i>Sensors
+    </button>
+    <button class="btn btn-sm btn-warning" onclick="viewHistoricalData('${field.id}')">
+        <i class="fas fa-history me-1"></i>History
+    </button>
+    <!-- ADD THESE TWO NAVIGATION BUTTONS -->
+    ${field.location && field.location.latitude ? `
+        <button class="btn btn-sm btn-outline-primary" onclick="navigateToField('${field.id}')">
+            <i class="fas fa-map me-1"></i>Maps
+        </button>
+        <button class="btn btn-sm btn-primary" onclick="navigateToFieldWithTracking('${field.id}')">
+            <i class="fas fa-location-arrow me-1"></i>Track
+        </button>
+    ` : ''}
+</div>
         </div>
     `).join('');
 }
@@ -872,6 +882,7 @@ function updateStatistics() {
 }
 
 // =====================================================
+// =====================================================
 // DISPLAY FUNCTIONS - ALERTS
 // =====================================================
 
@@ -913,17 +924,31 @@ function displayAlerts(alerts) {
                             ${escapeHtml(alert.alertType.replace(/_/g, ' ').toUpperCase())}
                         </div>
                         <small class="text-muted">${escapeHtml(fieldName)}</small>
+                        ${alert.location && alert.location.address ? `
+                            <br><small class="text-muted">
+                                <i class="fas fa-map-marker-alt me-1"></i>${escapeHtml(alert.location.address)}
+                            </small>
+                        ` : ''}
                     </div>
                 </div>
                 <p class="mb-2 small">${escapeHtml(alert.message)}</p>
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                     <small class="text-muted"><i class="far fa-clock me-1"></i>${timeAgo}</small>
-                    ${!alert.isRead ? `
-                        <button class="btn btn-sm btn-link p-0 text-decoration-none" 
-                                onclick="markAlertAsRead('${alert.id}')">
-                            <i class="fas fa-check me-1"></i>Mark as read
-                        </button>
-                    ` : '<small class="text-muted"><i class="fas fa-check-circle me-1"></i>Read</small>'}
+                    <div class="d-flex gap-2 align-items-center">
+                        ${!alert.isRead ? `
+                            <button class="btn btn-sm btn-link p-0 text-decoration-none" 
+                                    onclick="markAlertAsRead('${alert.id}')">
+                                <i class="fas fa-check me-1"></i>Mark as read
+                            </button>
+                        ` : '<small class="text-muted"><i class="fas fa-check-circle me-1"></i>Read</small>'}
+                        ${alert.location && alert.location.latitude ? `
+                            <button class="btn btn-sm btn-primary" 
+                                    onclick="navigateToAlert('${alert.id}')"
+                                    title="Navigate to field location">
+                                <i class="fas fa-location-arrow me-1"></i>Navigate
+                            </button>
+                        ` : ''}
+                    </div>
                 </div>
             </div>
         `;
@@ -1768,7 +1793,281 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+// =====================================================
+// GEOLOCATION & NAVIGATION
+// =====================================================
 
+// Track user position when navigating to field
+let navigationState = {
+    isNavigating: false,
+    targetLocation: null,
+    targetFieldId: null
+};
+
+/**
+ * Navigate to field with real-time tracking
+ */
+async function navigateToFieldWithTracking(fieldId) {
+    try {
+        // Get field location
+        const location = await ApiService.getFieldLocation(fieldId);
+
+        if (!location || !location.latitude || !location.longitude) {
+            showError('Location not available for this field');
+            return;
+        }
+
+        // Check geolocation support
+        if (!GeolocationService.isSupported()) {
+            showError('Geolocation is not supported on your device');
+            return;
+        }
+
+        // Request permission and get initial position
+        const hasPermission = await GeolocationService.requestPermission();
+        if (!hasPermission) {
+            showError('Location permission is required for navigation');
+            return;
+        }
+
+        // Set navigation target
+        navigationState.targetLocation = location;
+        navigationState.targetFieldId = fieldId;
+        navigationState.isNavigating = true;
+
+        // Show navigation modal
+        showNavigationModal(fieldId, location);
+
+        // Start watching position
+        GeolocationService.startWatchingPosition(
+            (position) => updateNavigationInfo(position),
+            (error) => {
+                showError(error);
+                stopNavigation();
+            }
+        );
+
+    } catch (error) {
+        console.error('Error starting navigation:', error);
+        showError('Failed to start navigation');
+    }
+}
+
+/**
+ * Update navigation information in real-time
+ */
+function updateNavigationInfo(currentPosition) {
+    if (!navigationState.isNavigating || !navigationState.targetLocation) {
+        return;
+    }
+
+    const target = navigationState.targetLocation;
+
+    // Calculate distance
+    const distance = GeolocationService.calculateDistance(
+        currentPosition.latitude,
+        currentPosition.longitude,
+        target.latitude,
+        target.longitude
+    );
+
+    // Calculate bearing
+    const bearing = GeolocationService.calculateBearing(
+        currentPosition.latitude,
+        currentPosition.longitude,
+        target.latitude,
+        target.longitude
+    );
+
+    // Update UI
+    const distanceEl = document.getElementById('navDistance');
+    const bearingEl = document.getElementById('navBearing');
+    const accuracyEl = document.getElementById('navAccuracy');
+    const currentLatEl = document.getElementById('currentLat');
+    const currentLonEl = document.getElementById('currentLon');
+
+    if (distanceEl) distanceEl.textContent = GeolocationService.formatDistance(distance);
+    if (bearingEl) bearingEl.textContent = `${Math.round(bearing)}° ${GeolocationService.getDirectionLabel(bearing)}`;
+    if (accuracyEl) accuracyEl.textContent = `±${Math.round(currentPosition.accuracy)}m`;
+    if (currentLatEl) currentLatEl.textContent = currentPosition.latitude.toFixed(6);
+    if (currentLonEl) currentLonEl.textContent = currentPosition.longitude.toFixed(6);
+
+    // Check if arrived (within 50 meters)
+    if (distance < 50) {
+        showSuccess('You have arrived at the field location!');
+        stopNavigation();
+    }
+}
+
+/**
+ * Stop navigation tracking
+ */
+function stopNavigation() {
+    GeolocationService.stopWatchingPosition();
+    navigationState.isNavigating = false;
+    navigationState.targetLocation = null;
+    navigationState.targetFieldId = null;
+
+    // Close modal
+    const modalEl = document.getElementById('navigationModal');
+    if (modalEl) {
+        const modal = bootstrap.Modal.getInstance(modalEl);
+        if (modal) modal.hide();
+    }
+}
+
+/**
+ * Show navigation modal with real-time info
+ */
+function showNavigationModal(fieldId, location) {
+    const fieldName = getFieldName(fieldId);
+
+    const modalContent = `
+        <div class="p-4">
+            <div class="text-center mb-4">
+                <div class="navigation-compass mb-3">
+                    <i class="fas fa-compass fa-4x text-primary"></i>
+                </div>
+                <h5 class="mb-1">Navigating to Field</h5>
+                <p class="text-muted">${escapeHtml(fieldName)}</p>
+                <small class="text-muted">${escapeHtml(location.address || 'Field Location')}</small>
+            </div>
+
+            <!-- Distance & Direction -->
+            <div class="card bg-light mb-3">
+                <div class="card-body text-center">
+                    <div class="row">
+                        <div class="col-4">
+                            <i class="fas fa-route text-success fa-2x mb-2"></i>
+                            <h4 id="navDistance" class="mb-0">Calculating...</h4>
+                            <small class="text-muted">Distance</small>
+                        </div>
+                        <div class="col-4">
+                            <i class="fas fa-compass text-info fa-2x mb-2"></i>
+                            <h4 id="navBearing" class="mb-0">---</h4>
+                            <small class="text-muted">Direction</small>
+                        </div>
+                        <div class="col-4">
+                            <i class="fas fa-crosshairs text-warning fa-2x mb-2"></i>
+                            <h4 id="navAccuracy" class="mb-0">---</h4>
+                            <small class="text-muted">Accuracy</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Position -->
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-white">
+                    <i class="fas fa-map-marker-alt me-2"></i>Your Location
+                </div>
+                <div class="card-body">
+                    <p class="mb-1"><strong>Latitude:</strong> <span id="currentLat">Detecting...</span></p>
+                    <p class="mb-0"><strong>Longitude:</strong> <span id="currentLon">Detecting...</span></p>
+                </div>
+            </div>
+
+            <!-- Target Location -->
+            <div class="card mb-3">
+                <div class="card-header bg-success text-white">
+                    <i class="fas fa-flag-checkered me-2"></i>Destination (Raspberry Pi)
+                </div>
+                <div class="card-body">
+                    <p class="mb-1"><strong>Latitude:</strong> ${location.latitude}</p>
+                    <p class="mb-0"><strong>Longitude:</strong> ${location.longitude}</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-grid gap-2">
+                <button class="btn btn-success" onclick="openInMapsApp('${location.latitude}', '${location.longitude}')">
+                    <i class="fas fa-external-link-alt me-2"></i>Open in Maps App
+                </button>
+                <button class="btn btn-danger" onclick="stopNavigation()">
+                    <i class="fas fa-stop me-2"></i>Stop Navigation
+                </button>
+            </div>
+
+            <div class="alert alert-info mt-3 mb-0">
+                <i class="fas fa-info-circle me-2"></i>
+                <small>Keep this page open to track your progress. Navigation will stop automatically when you arrive.</small>
+            </div>
+        </div>
+    `;
+
+    document.getElementById('navigationModalContent').innerHTML = modalContent;
+    const modal = new bootstrap.Modal(document.getElementById('navigationModal'));
+    modal.show();
+}
+
+/**
+ * Open native maps app for navigation
+ */
+function openInMapsApp(latitude, longitude) {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    let url;
+
+    // iOS
+    if (/iPad|iPhone|iPod/.test(userAgent)) {
+        url = `maps://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
+    }
+    // Android
+    else if (/android/i.test(userAgent)) {
+        url = `google.navigation:q=${latitude},${longitude}`;
+    }
+    // Fallback to Google Maps web
+    else {
+        url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
+    }
+
+    window.open(url, '_blank');
+}
+
+/**
+ * Simple navigation (just open maps app)
+ */
+async function navigateToField(fieldId) {
+    try {
+        const location = await ApiService.getFieldLocation(fieldId);
+
+        if (!location || !location.latitude || !location.longitude) {
+            showError('Location not available for this field');
+            return;
+        }
+
+        openInMapsApp(location.latitude, location.longitude);
+
+    } catch (error) {
+        console.error('Error navigating to field:', error);
+        showError('Failed to open navigation');
+    }
+}
+
+/**
+ * Navigate to alert location
+ */
+async function navigateToAlert(alertId) {
+    try {
+        const alert = await ApiService.getAlertById(alertId);
+
+        if (!alert.location || !alert.location.latitude || !alert.location.longitude) {
+            showError('Location not available for this alert');
+            return;
+        }
+
+        // If field ID is available, use full tracking
+        if (alert.fieldId) {
+            navigateToFieldWithTracking(alert.fieldId);
+        } else {
+            // Just open in maps
+            openInMapsApp(alert.location.latitude, alert.location.longitude);
+        }
+
+    } catch (error) {
+        console.error('Error navigating to alert:', error);
+        showError('Failed to open navigation');
+    }
+}
 // =====================================================
 // END OF USER DASHBOARD
 // =====================================================
