@@ -11,7 +11,7 @@ console.log('📡 API Integration: Active');
 // =====================================================
 
 const CONFIG = {
-    userId: '6912504d2900a86edfa65db5', // TODO: Replace with real userId from IAM
+    userId: null, // TODO: Replace with real userId from IAM
     refreshInterval: 30000,  // 30 seconds auto-refresh
     notificationSound: true
 };
@@ -77,58 +77,147 @@ const wsManager = {
     }
 };
 // =====================================================
-// AUTHENTICATION & INITIALIZATION
+// ADMIN AUTHENTICATION - FIXED VERSION
 // =====================================================
 
 window.addEventListener('load', async function() {
-    console.log('🚀 Initializing dashboard...');
+    console.log('🚀 Initializing admin dashboard...');
 
     // Check authentication
-    if (!checkAuthentication()) return;
+    if (!checkAdminAuthentication()) return;
 
-    // Request notification permission
-    requestNotificationPermission();
-
-    // Initialize dashboard
-    await initializeDashboard();
-
-
+    // Initialize admin dashboard
+    await initializeAdminDashboard();
 
     // Setup logout handler
     setupLogoutHandler();
 });
 
-function checkAuthentication() {
-    const userStr = sessionStorage.getItem('currentUser') || localStorage.getItem('currentUser');
-
-    if (!userStr) {
-        console.warn('⚠️ No user session found. Redirecting to home...');
-        window.location.href = '../index.html';
+function checkAdminAuthentication() {
+    console.log('🔍 ADMIN.HTML: Checking authentication...');
+    
+    // Check for JWT token (OAuth flow)
+    const accessToken = sessionStorage.getItem('access_token');
+    console.log('🔑 Access token found:', accessToken ? 'YES' : 'NO');
+    
+    if (!accessToken) {
+        console.warn('⚠️ No authentication token found. Redirecting to login...');
+        window.location.href = '../pages/login.html';
         return false;
     }
 
-    STATE.currentUser = JSON.parse(userStr);
-
-    // Check if user is Administrator
-    if (STATE.currentUser.role !== 'Administrator') {
-        console.warn('⚠️ User is not an Administrator. Redirecting...');
-        window.location.href = 'user.html';
+    // Check if token is expired
+    const expiry = sessionStorage.getItem('token_expiry');
+    if (expiry && Date.now() > parseInt(expiry)) {
+        console.warn('⚠️ Token expired. Redirecting to login...');
+        sessionStorage.clear();
+        window.location.href = '../pages/login.html';
         return false;
     }
 
-    console.log('👤 User:', STATE.currentUser.name, '| Role:', STATE.currentUser.role);
+    // Parse JWT to get user info
+    try {
+        const payload = parseJWT(accessToken);
+        console.log('📦 JWT Payload:', payload);
+        
+        // Create user object from JWT payload
+        const currentUser = {
+            id: payload.sub || payload.upn,
+            name: payload.sub || payload.upn,
+            email: payload.email || `${payload.sub}@soilmonitoring.com`,
+            groups: payload.groups || []
+        };
 
-    // Update UI with user name
-    document.getElementById('user-name').textContent = STATE.currentUser.name;
+        // ✅ FIXED: Check if user has Admin role
+        const isAdmin = currentUser.groups.some(g => 
+            g.toLowerCase() === 'admin' || g.toLowerCase() === 'administrator'
+        );
+        
+        console.log('👤 User:', currentUser.name);
+        console.log('🔑 Groups:', currentUser.groups);
+        console.log('🛡️ Is Admin?', isAdmin);
 
-    return true;
+        // ✅ CRITICAL FIX: If user is NOT Admin, redirect to user.html ONLY ONCE
+        if (!isAdmin) {
+            console.warn('⚠️ User is not Administrator. Redirecting to user dashboard...');
+            // Add a flag to prevent infinite redirects
+            if (!sessionStorage.getItem('redirect_attempted')) {
+                sessionStorage.setItem('redirect_attempted', 'true');
+                window.location.replace('user.html');  // Use replace() to avoid back button issues
+            }
+            return false;
+        }
+
+        // User IS admin - continue loading admin dashboard
+        currentUser.role = 'Administrator';
+        
+        // Store in global scope if you have a STATE object
+        if (typeof STATE !== 'undefined') {
+            STATE.currentUser = currentUser;
+            CONFIG.userId = currentUser.id;
+        }
+        
+        console.log('✅ Admin access granted');
+
+        // Update UI with user name
+        const userNameEl = document.getElementById('user-name') || document.getElementById('admin-name');
+        if (userNameEl) userNameEl.textContent = currentUser.name;
+
+        // Clear redirect flag since we're staying on this page
+        sessionStorage.removeItem('redirect_attempted');
+
+        return true;
+        
+    } catch (error) {
+        console.error('❌ Failed to parse token:', error);
+        sessionStorage.clear();
+        window.location.href = '../pages/login.html';
+        return false;
+    }
 }
 
-function requestNotificationPermission() {
-    if ('Notification' in window && Notification.permission === 'default') {
-        Notification.requestPermission().then(permission => {
-            console.log('🔔 Notification permission:', permission);
-        });
+/**
+ * Parse JWT token to get payload
+ */
+function parseJWT(token) {
+    try {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(
+            atob(base64)
+                .split('')
+                .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+                .join('')
+        );
+        return JSON.parse(jsonPayload);
+    } catch (e) {
+        console.error('Failed to parse JWT:', e);
+        throw e;
+    }
+}
+
+function setupLogoutHandler() {
+    const logoutBtn = document.getElementById('signout') || document.getElementById('logout');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', logout);
+    }
+}
+
+function logout() {
+    console.log('👋 Logging out...');
+
+    // Clear all session data
+    sessionStorage.clear();
+    localStorage.clear();
+
+    // Redirect to login page
+    window.location.href = '../pages/login.html';
+}
+
+// Placeholder for initializeAdminDashboard if it doesn't exist
+if (typeof initializeAdminDashboard === 'undefined') {
+    function initializeAdminDashboard() {
+        console.log('✅ Admin dashboard initialized');
     }
 }
 

@@ -517,7 +517,7 @@ async function refreshChartsData() {
 }
 
 // =====================================================
-// AUTHENTICATION & INITIALIZATION
+// AUTHENTICATION & INITIALIZATION - FIXED VERSION
 // =====================================================
 
 window.addEventListener('load', async function() {
@@ -537,8 +537,11 @@ window.addEventListener('load', async function() {
 });
 
 function checkAuthentication() {
+    console.log('🔍 USER.HTML: Checking authentication...');
+    
     // Check for JWT token (OAuth flow)
     const accessToken = sessionStorage.getItem('access_token');
+    console.log('🔑 Access token found:', accessToken ? 'YES' : 'NO');
     
     if (!accessToken) {
         console.warn('⚠️ No authentication token found. Redirecting to login...');
@@ -558,36 +561,52 @@ function checkAuthentication() {
     // Parse JWT to get user info
     try {
         const payload = parseJWT(accessToken);
+        console.log('📦 JWT Payload:', payload);
         
         // Create user object from JWT payload
         STATE.currentUser = {
-            id: payload.sub || payload.upn,  // username
+            id: payload.sub || payload.upn,
             name: payload.sub || payload.upn,
             email: payload.email || `${payload.sub}@soilmonitoring.com`,
-            role: payload.groups && payload.groups.includes('Admin') ? 'Administrator' : 'User',
             groups: payload.groups || []
         };
 
-        // ✅ Set userId as username for API calls
-        CONFIG.userId = STATE.currentUser.id;  // This will be "test" for your test user
+        // ✅ FIXED: Check if user has Admin role
+        const isAdmin = STATE.currentUser.groups.some(g => 
+            g.toLowerCase() === 'admin' || g.toLowerCase() === 'administrator'
+        );
+        
+        console.log('👤 User:', STATE.currentUser.name);
+        console.log('🔑 Groups:', STATE.currentUser.groups);
+        console.log('🛡️ Is Admin?', isAdmin);
 
-        console.log('✅ Using userId:', CONFIG.userId);
-
-        // Check if user is Admin - redirect to admin panel
-        if (STATE.currentUser.role === 'Administrator') {
+        // ✅ CRITICAL FIX: If user is Admin, redirect to admin.html ONLY ONCE
+        if (isAdmin) {
             console.warn('⚠️ User is Administrator. Redirecting to admin panel...');
-            window.location.href = 'admin.html';
+            // Add a flag to prevent infinite redirects
+            if (!sessionStorage.getItem('redirect_attempted')) {
+                sessionStorage.setItem('redirect_attempted', 'true');
+                window.location.replace('admin.html');  // Use replace() to avoid back button issues
+            }
             return false;
         }
 
-        console.log('👤 User:', STATE.currentUser.name, '| Role:', STATE.currentUser.role);
-        console.log('🔑 Groups:', STATE.currentUser.groups);
+        // User is NOT admin - continue loading user dashboard
+        STATE.currentUser.role = 'User';
+        
+        // Set userId for API calls
+        CONFIG.userId = STATE.currentUser.id;
+        console.log('✅ Using userId:', CONFIG.userId);
 
         // Update UI with user name
         document.getElementById('user-name').textContent = STATE.currentUser.name;
         document.getElementById('welcome-name').textContent = STATE.currentUser.name;
 
+        // Clear redirect flag since we're staying on this page
+        sessionStorage.removeItem('redirect_attempted');
+
         return true;
+        
     } catch (error) {
         console.error('❌ Failed to parse token:', error);
         sessionStorage.clear();

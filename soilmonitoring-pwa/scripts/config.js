@@ -37,7 +37,22 @@ const API_CONFIG = {
         PREDICT_FERTILIZER: '/predictions/fertilizer' // POST
     }
 };
+// ===================== AUTH TOKEN HANDLER =====================
+function getAuthHeaders() {
+    const token = sessionStorage.getItem("access_token"); // or sessionStorage
 
+    // If no token, return only content-type
+    if (!token) {
+        return {
+            "Content-Type": "application/json"
+        };
+    }
+
+    return {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+    };
+}
 // ===================== API Helper Functions =====================
 const API = {
     // Generic GET request
@@ -48,9 +63,7 @@ const API = {
         try {
             const response = await fetch(url, {
                 method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                headers: getAuthHeaders()
             });
 
             if (!response.ok) {
@@ -69,9 +82,7 @@ const API = {
         try {
             const response = await fetch(`${API_CONFIG.BASE_URL}${endpoint}`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: getAuthHeaders(),
                 body: JSON.stringify(data)
             });
 
@@ -91,9 +102,7 @@ const API = {
         try {
             const response = await fetch(`${API_CONFIG.BASE_URL}${endpoint}`, {
                 method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: getAuthHeaders(),
                 body: JSON.stringify(data)
             });
 
@@ -113,9 +122,7 @@ const API = {
         try {
             const response = await fetch(`${API_CONFIG.BASE_URL}${endpoint}`, {
                 method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                headers: getAuthHeaders(),
             });
 
             if (!response.ok && response.status !== 204) {
