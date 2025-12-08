@@ -16,7 +16,7 @@ import java.util.UUID;
 import java.util.logging.Logger;
 
 @Path("/sensors")
-@Secured
+
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

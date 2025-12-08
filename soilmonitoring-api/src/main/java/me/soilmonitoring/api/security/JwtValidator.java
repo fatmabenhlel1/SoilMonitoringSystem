@@ -1,7 +1,5 @@
 package me.soilmonitoring.api.security;
 
-import com.nimbusds.jose.JWSVerifier;
-import com.nimbusds.jose.crypto.Ed25519Verifier;
 import com.nimbusds.jose.jwk.OctetKeyPair;
 import com.nimbusds.jwt.SignedJWT;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -13,6 +11,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Instant;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -38,20 +37,22 @@ public class JwtValidator {
         try {
             SignedJWT signedJWT = SignedJWT.parse(token);
 
-            // Get key ID from token header
+            // Extract Key ID from token header
             String kid = signedJWT.getHeader().getKeyID();
+            if (kid == null) {
+                logger.warning("JWT missing kid header");
+                return null;
+            }
 
-            // Get public key from IAM service
+            // Get public key from IAM service (or cache)
             OctetKeyPair jwk = getPublicKey(kid);
 
             // Verify signature
-            JWSVerifier verifier = new Ed25519Verifier(jwk);
-            if (!signedJWT.verify(verifier)) {
+            if (!signedJWT.verify(new com.nimbusds.jose.crypto.Ed25519Verifier(jwk))) {
                 logger.warning("JWT signature verification failed");
                 return null;
             }
 
-            // Verify claims
             var claims = signedJWT.getJWTClaimsSet();
 
             // Check expiration
@@ -66,7 +67,7 @@ public class JwtValidator {
                 return null;
             }
 
-            // Return claims as map
+            // Build claims map
             Map<String, Object> result = new HashMap<>();
             result.put("sub", claims.getSubject());
             result.put("tenant-id", claims.getStringClaim("tenant-id"));
@@ -88,7 +89,7 @@ public class JwtValidator {
             return keyCache.get(kid);
         }
 
-        // Fetch from IAM service
+        // Fetch JWK from IAM
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(jwkUrl + "?kid=" + kid))
                 .GET()
@@ -101,12 +102,11 @@ public class JwtValidator {
             throw new Exception("Failed to fetch JWK: " + response.statusCode());
         }
 
-        // Parse JWK
+        // Parse OctetKeyPair
         OctetKeyPair jwk = OctetKeyPair.parse(response.body());
 
         // Cache it
         keyCache.put(kid, jwk);
-
         return jwk;
     }
 }

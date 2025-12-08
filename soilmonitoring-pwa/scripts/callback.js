@@ -169,11 +169,8 @@ function redirectToApp(userPayload) {
     document.getElementById('status').textContent = 'Login successful! Redirecting...';
     
     setTimeout(() => {
-        // Check if user has admin role
-        if (userPayload.groups && (userPayload.groups.includes('admin') || userPayload.groups.includes('Admin'))) {
-            window.location.href = '../pages/admin.html';
-        } else {
-            window.location.href = '../pages/user.html';
-        }
+        // ✅ ALWAYS redirect to user.html first
+        // user.html will check roles and redirect to admin.html if needed
+        window.location.href = '../pages/user.html';
     }, 1000);
 }
