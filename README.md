@@ -387,8 +387,8 @@ cp soilmonitoring-iam/target/iam-1.0.war /path/to/wildfly/standalone/deployments
 ```
 
 Access:
-- API: http://localhost:8080/api-1.0/api/
-- IAM: http://localhost:8080/iam-1.0/iam/
+- API: http://localhost:8080/api/
+- IAM: http://localhost:8080/iam/
 
 #### Option B: Separate Instances (Recommended)
 
@@ -978,10 +978,9 @@ SOFTWARE.
 
 ## 📧 Contact
 
-**Project Maintainer**: [Your Name]  
-**Email**: admin@soilmonitoring.me  
-**GitHub**: [@yourusername](https://github.com/yourusername)  
-**LinkedIn**: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+**Project Maintainer**: fatma ezzahra ben helal 
+**Email**: fatmaezzahra.benhelal@supcom.tn
+**GitHub**: fatmabenhlel1
 
 ---
 
@@ -1002,40 +1001,7 @@ SOFTWARE.
 - ✅ **Core Features**: Complete
 - ✅ **Production Deployment**: Live
 - ✅ **SSL/TLS**: A+ Rating
-- 🚧 **Mobile App**: Planned
-- 🚧 **Machine Learning**: Planned (predictive analytics)
-- 🚧 **Multi-language Support**: Planned
 
----
-
-## 🗺️ Roadmap
-
-### Phase 1: Core Platform ✅ (Completed)
-- [x] User authentication (OAuth 2.0)
-- [x] Field management
-- [x] Sensor registration
-- [x] Real-time data streaming
-- [x] Alert system
-- [x] Production deployment
-
-### Phase 2: Enhanced Features 🚧 (In Progress)
-- [ ] Advanced analytics dashboard
-- [ ] Historical data trends
-- [ ] Export data (CSV, PDF)
-- [ ] Sensor calibration UI
-- [ ] Bulk sensor import
-
-### Phase 3: Intelligence 📋 (Planned)
-- [ ] Machine learning for crop recommendations
-- [ ] Predictive analytics
-- [ ] Weather integration
-- [ ] Irrigation automation recommendations
-
-### Phase 4: Mobile & Expansion 📋 (Planned)
-- [ ] Native mobile apps (iOS, Android)
-- [ ] Multi-language support
-- [ ] Marketplace for sensor vendors
-- [ ] API for third-party integrations
 
 ---
 
