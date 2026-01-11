@@ -10,7 +10,7 @@ import me.soilmonitoring.api.security.Secured;
 
 
 @Path("/test")
-
+@Secured
 @RequestScoped
 public class TestResource {
 

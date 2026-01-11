@@ -1,0 +1,794 @@
+{
+  "project_info": {
+    "name": "main",
+    "path": "D:\\SoilMonitoringSystem\\soilmonitoring-api\\src\\main",
+    "generated_at": "2026-01-07T16:13:48.209604",
+    "total_files": 39,
+    "total_size": 119152
+  },
+  "structure": {
+    "java": {
+      "me": {
+        "soilmonitoring": {
+          "api": {
+            "ApiApplication.java": {
+              "type": "file",
+              "info": {
+                "size": 881,
+                "last_modified": "2026-01-07T16:13:47.931477",
+                "mime_type": "text/x-java-source",
+                "extension": ".java"
+              }
+            },
+            "boundaries": {
+              "AlertResource.java": {
+                "type": "file",
+                "info": {
+                  "size": 4515,
+                  "last_modified": "2026-01-07T16:13:47.9730256",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "FieldResource.java": {
+                "type": "file",
+                "info": {
+                  "size": 4525,
+                  "last_modified": "2026-01-07T16:13:47.9781745",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "PredictionResource.java": {
+                "type": "file",
+                "info": {
+                  "size": 6858,
+                  "last_modified": "2026-01-07T16:13:47.983987",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "ReadingResource.java": {
+                "type": "file",
+                "info": {
+                  "size": 7239,
+                  "last_modified": "2026-01-07T16:13:47.9895852",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "SensorResource.java": {
+                "type": "file",
+                "info": {
+                  "size": 5190,
+                  "last_modified": "2026-01-07T16:13:47.9942",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "StatisticsResource.java": {
+                "type": "file",
+                "info": {
+                  "size": 5761,
+                  "last_modified": "2026-01-07T16:13:47.9999162",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "TestResource.java": {
+                "type": "file",
+                "info": {
+                  "size": 768,
+                  "last_modified": "2026-01-07T16:13:48.0049317",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "controllers": {
+              "managers": {
+                "SoilMonitoringManager.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 4696,
+                    "last_modified": "2026-01-07T16:13:48.0114945",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                }
+              },
+              "repositories": {
+                "AlertRepository.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 1843,
+                    "last_modified": "2026-01-07T16:13:48.017818",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                },
+                "FieldRepository.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 598,
+                    "last_modified": "2026-01-07T16:13:48.0227037",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                },
+                "PredictionRepository.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 2806,
+                    "last_modified": "2026-01-07T16:13:48.0280518",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                },
+                "SensorReadingRepository.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 2191,
+                    "last_modified": "2026-01-07T16:13:48.0319316",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                },
+                "SensorRepository.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 1986,
+                    "last_modified": "2026-01-07T16:13:48.03743",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                },
+                "TreatmentRepository.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 1649,
+                    "last_modified": "2026-01-07T16:13:48.0430181",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                },
+                "UserRepository.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 1312,
+                    "last_modified": "2026-01-07T16:13:48.0480233",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                }
+              }
+            },
+            "entities": {
+              "Alert.java": {
+                "type": "file",
+                "info": {
+                  "size": 2298,
+                  "last_modified": "2026-01-07T16:13:48.0565432",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "Field.java": {
+                "type": "file",
+                "info": {
+                  "size": 2225,
+                  "last_modified": "2026-01-07T16:13:48.0610488",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "Location.java": {
+                "type": "file",
+                "info": {
+                  "size": 1023,
+                  "last_modified": "2026-01-07T16:13:48.0660692",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "Prediction.java": {
+                "type": "file",
+                "info": {
+                  "size": 5560,
+                  "last_modified": "2026-01-07T16:13:48.0700688",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "RootEntity.java": {
+                "type": "file",
+                "info": {
+                  "size": 290,
+                  "last_modified": "2026-01-07T16:13:48.0755891",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "Sensor.java": {
+                "type": "file",
+                "info": {
+                  "size": 2191,
+                  "last_modified": "2026-01-07T16:13:48.0795905",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "SensorData.java": {
+                "type": "file",
+                "info": {
+                  "size": 1902,
+                  "last_modified": "2026-01-07T16:13:48.0851166",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "SensorReading.java": {
+                "type": "file",
+                "info": {
+                  "size": 1618,
+                  "last_modified": "2026-01-07T16:13:48.0891166",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "Treatment.java": {
+                "type": "file",
+                "info": {
+                  "size": 2340,
+                  "last_modified": "2026-01-07T16:13:48.0936304",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "User.java": {
+                "type": "file",
+                "info": {
+                  "size": 1807,
+                  "last_modified": "2026-01-07T16:13:48.0986299",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "events": {
+              "AlertTriggeredEvent.java": {
+                "type": "file",
+                "info": {
+                  "size": 306,
+                  "last_modified": "2026-01-07T16:13:48.1051537",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "SensorReadingEvent.java": {
+                "type": "file",
+                "info": {
+                  "size": 494,
+                  "last_modified": "2026-01-07T16:13:48.1091542",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "filters": {
+              "CorsFilter.java": {
+                "type": "file",
+                "info": {
+                  "size": 1396,
+                  "last_modified": "2026-01-07T16:13:48.1156783",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "mqtt": {
+              "MQTTService.java": {
+                "type": "file",
+                "info": {
+                  "size": 9084,
+                  "last_modified": "2026-01-07T16:13:48.1211871",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "observers": {
+              "AlertObserver.java": {
+                "type": "file",
+                "info": {
+                  "size": 5528,
+                  "last_modified": "2026-01-07T16:13:48.1272036",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "WebSocketObserver.java": {
+                "type": "file",
+                "info": {
+                  "size": 3837,
+                  "last_modified": "2026-01-07T16:13:48.1317112",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "security": {
+              "JwtValidator.java": {
+                "type": "file",
+                "info": {
+                  "size": 3654,
+                  "last_modified": "2026-01-07T16:13:48.1377265",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "Secured.java": {
+                "type": "file",
+                "info": {
+                  "size": 420,
+                  "last_modified": "2026-01-07T16:13:48.1431535",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "services": {
+              "SageMakerService.java": {
+                "type": "file",
+                "info": {
+                  "size": 15735,
+                  "last_modified": "2026-01-07T16:13:48.1483655",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "websocket": {
+              "SensorDataWebSocket.java": {
+                "type": "file",
+                "info": {
+                  "size": 3274,
+                  "last_modified": "2026-01-07T16:13:48.1546333",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "resources": {
+      "META-INF": {
+        "microprofile-config.properties": {
+          "type": "file",
+          "info": {
+            "size": 787,
+            "last_modified": "2026-01-07T16:13:48.164215",
+            "mime_type": "text/x-java-properties",
+            "extension": ".properties"
+          }
+        }
+      }
+    },
+    "webapp": {
+      "WEB-INF": {
+        "beans.xml": {
+          "type": "file",
+          "info": {
+            "size": 314,
+            "last_modified": "2026-01-07T16:13:48.1712351",
+            "mime_type": "application/xml",
+            "extension": ".xml"
+          }
+        },
+        "jboss-web.xml": {
+          "type": "file",
+          "info": {
+            "size": 251,
+            "last_modified": "2026-01-07T16:13:48.2009557",
+            "mime_type": "application/xml",
+            "extension": ".xml"
+          }
+        }
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "java\\me\\soilmonitoring\\api\\ApiApplication.java",
+      "content": "package me.soilmonitoring.api;\r\n\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\nimport jakarta.enterprise.context.Dependent;\r\nimport jakarta.enterprise.inject.Disposes;\r\nimport jakarta.enterprise.inject.Produces;\r\nimport jakarta.enterprise.inject.spi.InjectionPoint;\r\nimport jakarta.ws.rs.ApplicationPath;\r\nimport jakarta.ws.rs.core.Application;\r\n\r\nimport java.util.logging.Logger;\r\n\r\n@ApplicationPath(\"/api\")\r\npublic class ApiApplication extends Application {\r\n\r\n    @ApplicationScoped\r\n    public static final class CDIConfigurator {\r\n\r\n        @Produces\r\n        @Dependent\r\n        public Logger getLogger(InjectionPoint injectionPoint) {\r\n            return Logger.getLogger(injectionPoint.getBean().getBeanClass().getName());\r\n        }\r\n\r\n        public void disposeLogger(@Disposes Logger logger) {\r\n            logger.info(\"logger disposed!\");\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 881,
+        "last_modified": "2026-01-07T16:13:47.931477",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\boundaries\\AlertResource.java",
+      "content": "package me.soilmonitoring.api.boundaries;\r\n\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.ws.rs.*;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\nimport me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;\r\nimport me.soilmonitoring.api.controllers.repositories.AlertRepository;\r\nimport me.soilmonitoring.api.entities.Alert;\r\nimport me.soilmonitoring.api.security.Secured;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.List;\r\nimport java.util.UUID;\r\nimport java.util.logging.Logger;\r\n\r\n@Path(\"/alerts\")\r\n\r\n@RequestScoped\r\n@Produces(MediaType.APPLICATION_JSON)\r\n@Consumes(MediaType.APPLICATION_JSON)\r\npublic class AlertResource {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    @Inject\r\n    private SoilMonitoringManager manager;\r\n\r\n    @Inject\r\n    private AlertRepository alertRepository;\r\n\r\n    @GET\r\n    @Path(\"/user/{userId}\")\r\n    public Response getUserAlerts(@PathParam(\"userId\") String userId,\r\n                                  @QueryParam(\"unread\") Boolean unreadOnly) {\r\n        try {\r\n            List<Alert> alerts;\r\n            if (unreadOnly != null && unreadOnly) {\r\n                alerts = manager.getUnreadAlerts(userId);\r\n            } else {\r\n                alerts = alertRepository.findByUserId(userId);\r\n            }\r\n            return Response.ok(alerts).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting user alerts: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving alerts\").build();\r\n        }\r\n    }\r\n\r\n    @GET\r\n    @Path(\"/{alertId}\")\r\n    public Response getAlertById(@PathParam(\"alertId\") String alertId) {\r\n        try {\r\n            Alert alert = alertRepository.findById(alertId)\r\n                    .orElseThrow(IllegalArgumentException::new);\r\n            return Response.ok(alert).build();\r\n        } catch (IllegalArgumentException e) {\r\n            return Response.status(Response.Status.NOT_FOUND)\r\n                    .entity(\"Alert not found\").build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting alert: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving alert\").build();\r\n        }\r\n    }\r\n\r\n    @POST\r\n    public Response createAlert(Alert alert) {\r\n        try {\r\n            alert.setId(UUID.randomUUID().toString());\r\n            alert.setCreatedAt(LocalDateTime.now());\r\n            alert.setIsRead(false);\r\n            Alert savedAlert = alertRepository.save(alert);\r\n            logger.info(\"Alert created: \" + savedAlert.getId());\r\n            return Response.status(Response.Status.CREATED).entity(savedAlert).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error creating alert: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error creating alert\").build();\r\n        }\r\n    }\r\n\r\n    @PUT\r\n    @Path(\"/{alertId}/read\")\r\n    public Response markAlertAsRead(@PathParam(\"alertId\") String alertId) {\r\n        try {\r\n            Alert alert = alertRepository.findById(alertId)\r\n                    .orElseThrow(IllegalArgumentException::new);\r\n            alert.setIsRead(true);\r\n            alertRepository.save(alert);\r\n            logger.info(\"Alert marked as read: \" + alertId);\r\n            return Response.ok(alert).build();\r\n        } catch (IllegalArgumentException e) {\r\n            return Response.status(Response.Status.NOT_FOUND)\r\n                    .entity(\"Alert not found\").build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error marking alert as read: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error updating alert\").build();\r\n        }\r\n    }\r\n\r\n    @DELETE\r\n    @Path(\"/{alertId}\")\r\n    public Response deleteAlert(@PathParam(\"alertId\") String alertId) {\r\n        try {\r\n            alertRepository.deleteById(alertId);\r\n            logger.info(\"Alert deleted: \" + alertId);\r\n            return Response.noContent().build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error deleting alert: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error deleting alert\").build();\r\n        }\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 4515,
+        "last_modified": "2026-01-07T16:13:47.9730256",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\boundaries\\FieldResource.java",
+      "content": "package me.soilmonitoring.api.boundaries;\r\n\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.ws.rs.*;\r\nimport jakarta.ws.rs.core.Context;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\nimport jakarta.ws.rs.core.SecurityContext;\r\nimport me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;\r\nimport me.soilmonitoring.api.controllers.repositories.FieldRepository;\r\nimport me.soilmonitoring.api.entities.Field;\r\nimport me.soilmonitoring.api.security.Secured;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.List;\r\nimport java.util.UUID;\r\nimport java.util.logging.Logger;\r\n\r\n@Path(\"/fields\")\r\n\r\n@RequestScoped\r\n@Produces(MediaType.APPLICATION_JSON)\r\n@Consumes(MediaType.APPLICATION_JSON)\r\npublic class FieldResource {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    @Inject\r\n    private SoilMonitoringManager manager;\r\n\r\n    @Inject\r\n    private FieldRepository fieldRepository;\r\n\r\n    @GET\r\n    @Path(\"/user/{userId}\")\r\n    public Response getUserFields(@PathParam(\"userId\") String userId) {\r\n        try {\r\n            List<Field> fields = manager.getUserFields(userId);\r\n            return Response.ok(fields).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting user fields: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving fields\").build();\r\n        }\r\n    }\r\n\r\n    @GET\r\n    @Path(\"/{fieldId}\")\r\n    public Response getFieldById(@PathParam(\"fieldId\") String fieldId) {\r\n        try {\r\n            Field field = manager.findFieldById(fieldId);\r\n            return Response.ok(field).build();\r\n        } catch (IllegalArgumentException e) {\r\n            return Response.status(Response.Status.NOT_FOUND)\r\n                    .entity(\"Field not found\").build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting field: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving field\").build();\r\n        }\r\n    }\r\n\r\n    @POST\r\n    public Response createField(Field field, @Context SecurityContext securityContext) {\r\n        try {\r\n            field.setId(UUID.randomUUID().toString());\r\n\r\n            // ✅ ADD THIS: Get username from JWT token\r\n            String username = securityContext.getUserPrincipal().getName();\r\n            field.setUserId(username);  // Set username as userId\r\n\r\n            field.setCreatedAt(LocalDateTime.now());\r\n            Field savedField = fieldRepository.save(field);\r\n            logger.info(\"Field created: \" + savedField.getId() + \" for user: \" + username);\r\n            return Response.status(Response.Status.CREATED).entity(savedField).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error creating field: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error creating field\").build();\r\n        }\r\n    }\r\n\r\n    @PUT\r\n    @Path(\"/{fieldId}\")\r\n    public Response updateField(@PathParam(\"fieldId\") String fieldId, Field field) {\r\n        try {\r\n            Field existingField = manager.findFieldById(fieldId);\r\n            field.setId(fieldId);\r\n            field.setCreatedAt(existingField.getCreatedAt());\r\n            Field updatedField = fieldRepository.save(field);\r\n            logger.info(\"Field updated: \" + fieldId);\r\n            return Response.ok(updatedField).build();\r\n        } catch (IllegalArgumentException e) {\r\n            return Response.status(Response.Status.NOT_FOUND)\r\n                    .entity(\"Field not found\").build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error updating field: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error updating field\").build();\r\n        }\r\n    }\r\n\r\n    @DELETE\r\n    @Path(\"/{fieldId}\")\r\n    public Response deleteField(@PathParam(\"fieldId\") String fieldId) {\r\n        try {\r\n            fieldRepository.deleteById(fieldId);\r\n            logger.info(\"Field deleted: \" + fieldId);\r\n            return Response.noContent().build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error deleting field: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error deleting field\").build();\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 4525,
+        "last_modified": "2026-01-07T16:13:47.9781745",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\boundaries\\PredictionResource.java",
+      "content": "package me.soilmonitoring.api.boundaries;\r\n\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.ws.rs.*;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\nimport me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;\r\nimport me.soilmonitoring.api.controllers.repositories.PredictionRepository;\r\nimport me.soilmonitoring.api.entities.Prediction;\r\nimport me.soilmonitoring.api.security.Secured;\r\nimport me.soilmonitoring.api.services.SageMakerService;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.Arrays;\r\nimport java.util.List;\r\nimport java.util.UUID;\r\nimport java.util.logging.Logger;\r\n\r\n@Path(\"/predictions\")\r\n\r\n@RequestScoped\r\n@Produces(MediaType.APPLICATION_JSON)\r\n@Consumes(MediaType.APPLICATION_JSON)\r\npublic class PredictionResource {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    @Inject\r\n    private SoilMonitoringManager manager;\r\n\r\n    @Inject\r\n    private PredictionRepository predictionRepository;\r\n\r\n    @Inject\r\n    private SageMakerService sageMakerService;\r\n\r\n    @GET\r\n    @Path(\"/field/{fieldId}\")\r\n    public Response getFieldPredictions(@PathParam(\"fieldId\") String fieldId,\r\n                                        @QueryParam(\"type\") String predictionType) {\r\n        try {\r\n            List<Prediction> predictions;\r\n            if (predictionType != null && !predictionType.isEmpty()) {\r\n                predictions = manager.getFieldPredictions(fieldId, predictionType);\r\n            } else {\r\n                predictions = predictionRepository.findByFieldId(fieldId);\r\n            }\r\n            return Response.ok(predictions).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting field predictions: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving predictions\").build();\r\n        }\r\n    }\r\n\r\n    @GET\r\n    @Path(\"/{predictionId}\")\r\n    public Response getPredictionById(@PathParam(\"predictionId\") String predictionId) {\r\n        try {\r\n            Prediction prediction = predictionRepository.findById(predictionId)\r\n                    .orElseThrow(IllegalArgumentException::new);\r\n            return Response.ok(prediction).build();\r\n        } catch (IllegalArgumentException e) {\r\n            return Response.status(Response.Status.NOT_FOUND)\r\n                    .entity(\"Prediction not found\").build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting prediction: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving prediction\").build();\r\n        }\r\n    }\r\n\r\n    @POST\r\n    @Path(\"/crop\")\r\n    public Response createCropPrediction(Prediction prediction) {\r\n        try {\r\n            prediction.setId(UUID.randomUUID().toString());\r\n            prediction.setPredictionType(\"crop\");\r\n            prediction.setModelUsed(\"XGBoost\");\r\n            prediction.setCreatedAt(LocalDateTime.now());\r\n\r\n            // Call SageMaker ML model\r\n            Prediction.PredictionInput input = prediction.getInputData();\r\n            SageMakerService.CropPrediction sageMakerResult = sageMakerService.predictCrop(\r\n                    input.getNitrogen(),\r\n                    input.getPhosphorus(),\r\n                    input.getPotassium(),\r\n                    input.getTemperature(),\r\n                    input.getHumidity(),\r\n                    input.getpH(), // This should be pH\r\n                    input.getRainfall() != null ? input.getRainfall() : 0.0\r\n            );\r\n\r\n            // Set result\r\n            Prediction.PredictionResult result = new Prediction.PredictionResult();\r\n            result.setRecommendation(sageMakerResult.cropName);\r\n            result.setDetails(Arrays.asList(\r\n                    \"Optimal conditions detected for \" + sageMakerResult.cropName,\r\n                    String.format(\"Confidence: %.1f%%\", sageMakerResult.confidence * 100)\r\n            ));\r\n\r\n\r\n            prediction.setResult(result);\r\n            prediction.setConfidence(sageMakerResult.confidence);\r\n\r\n            Prediction savedPrediction = predictionRepository.save(prediction);\r\n            logger.info(\"Crop prediction created: \" + savedPrediction.getId());\r\n            return Response.status(Response.Status.CREATED).entity(savedPrediction).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error creating crop prediction: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error creating prediction\").build();\r\n        }\r\n    }\r\n\r\n    @POST\r\n    @Path(\"/fertilizer\")\r\n    public Response createFertilizerPrediction(Prediction prediction) {\r\n        try {\r\n            prediction.setId(UUID.randomUUID().toString());\r\n            prediction.setPredictionType(\"fertilizer\");\r\n            prediction.setModelUsed(\"XGBoost\");\r\n            prediction.setCreatedAt(LocalDateTime.now());\r\n\r\n            // Call SageMaker ML model\r\n            Prediction.PredictionInput input = prediction.getInputData();\r\n            SageMakerService.FertilizerPrediction sageMakerResult = sageMakerService.predictFertilizer(\r\n                    input.getTemperature(),\r\n                    input.getHumidity(),\r\n                    input.getSoilMoisture(),\r\n                    input.getSoilType(),\r\n                    input.getCropType(),\r\n                    input.getNitrogen().intValue(),\r\n                    input.getPotassium().intValue(),\r\n                    input.getPhosphorus().intValue()\r\n            );\r\n\r\n            // Set result\r\n            Prediction.PredictionResult result = new Prediction.PredictionResult();\r\n            result.setRecommendation(sageMakerResult.fertilizerType);\r\n            result.setDosage(sageMakerResult.dosage);\r\n            result.setDetails(Arrays.asList(\r\n                    \"Recommended: \" + sageMakerResult.fertilizerType,\r\n                    \"Application rate: \" + sageMakerResult.dosage,\r\n                    String.format(\"Confidence: %.1f%%\", sageMakerResult.confidence * 100)\r\n            ));\r\n\r\n            prediction.setResult(result);\r\n            prediction.setConfidence(sageMakerResult.confidence);\r\n\r\n            Prediction savedPrediction = predictionRepository.save(prediction);\r\n            logger.info(\"Fertilizer prediction created: \" + savedPrediction.getId());\r\n            return Response.status(Response.Status.CREATED).entity(savedPrediction).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error creating fertilizer prediction: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error creating prediction\").build();\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 6858,
+        "last_modified": "2026-01-07T16:13:47.983987",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\boundaries\\ReadingResource.java",
+      "content": "package me.soilmonitoring.api.boundaries;\r\n\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.json.Json;\r\nimport jakarta.json.JsonObject;\r\nimport jakarta.ws.rs.*;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\nimport me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;\r\nimport me.soilmonitoring.api.controllers.repositories.AlertRepository;\r\nimport me.soilmonitoring.api.controllers.repositories.SensorReadingRepository;\r\nimport me.soilmonitoring.api.controllers.repositories.SensorReadingRepository;\r\nimport me.soilmonitoring.api.entities.Alert;\r\nimport me.soilmonitoring.api.entities.SensorData;\r\nimport me.soilmonitoring.api.entities.SensorReading;\r\nimport me.soilmonitoring.api.security.Secured;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.Comparator;\r\nimport java.util.List;\r\nimport java.util.UUID;\r\nimport java.util.logging.Logger;\r\n\r\n@Path(\"/readings\")\r\n\r\n@RequestScoped\r\n@Produces(MediaType.APPLICATION_JSON)\r\n@Consumes(MediaType.APPLICATION_JSON)\r\npublic class ReadingResource {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    @Inject\r\n    private SoilMonitoringManager manager;\r\n\r\n    @Inject\r\n    private SensorReadingRepository readingRepository;\r\n\r\n    @Inject\r\n    private AlertRepository alertRepository;\r\n\r\n    @GET\r\n    @Path(\"/field/{fieldId}\")\r\n    public Response getFieldReadings(@PathParam(\"fieldId\") String fieldId) {\r\n        try {\r\n            List<SensorReading> readings = manager.getFieldReadings(fieldId);\r\n            return Response.ok(readings).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting field readings: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving readings\").build();\r\n        }\r\n    }\r\n\r\n    @GET\r\n    @Path(\"/field/{fieldId}/range\")\r\n    public Response getFieldReadingsByTimeRange(\r\n            @PathParam(\"fieldId\") String fieldId,\r\n            @QueryParam(\"from\") String from,\r\n            @QueryParam(\"to\") String to) {\r\n        try {\r\n            LocalDateTime fromDate = LocalDateTime.parse(from);\r\n            LocalDateTime toDate = LocalDateTime.parse(to);\r\n            List<SensorReading> readings = manager.getFieldReadingsByTimeRange(fieldId, fromDate, toDate);\r\n            return Response.ok(readings).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting field readings by time range: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving readings\").build();\r\n        }\r\n    }\r\n\r\n    @GET\r\n    @Path(\"/{readingId}\")\r\n    public Response getReadingById(@PathParam(\"readingId\") String readingId) {\r\n        try {\r\n            SensorReading reading = readingRepository.findById(readingId)\r\n                    .orElseThrow(IllegalArgumentException::new);\r\n            return Response.ok(reading).build();\r\n        } catch (IllegalArgumentException e) {\r\n            return Response.status(Response.Status.NOT_FOUND)\r\n                    .entity(\"Reading not found\").build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting reading: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving reading\").build();\r\n        }\r\n    }\r\n\r\n    @POST\r\n    public Response createReading(SensorReading reading) {\r\n        try {\r\n            reading.setId(UUID.randomUUID().toString());\r\n            reading.setTimestamp(LocalDateTime.now());\r\n            SensorReading savedReading = readingRepository.save(reading);\r\n            logger.info(\"Sensor reading created: \" + savedReading.getId());\r\n            return Response.status(Response.Status.CREATED).entity(savedReading).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error creating reading: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error creating reading\").build();\r\n        }\r\n    }\r\n\r\n    @GET\r\n    @Path(\"/field/{fieldId}/latest\")\r\n    public Response getLatestReading(@PathParam(\"fieldId\") String fieldId) {\r\n        try {\r\n            List<SensorReading> readings = manager.getFieldReadings(fieldId);\r\n            if (readings.isEmpty()) {\r\n                return Response.status(Response.Status.NOT_FOUND)\r\n                        .entity(\"No readings found\").build();\r\n            }\r\n            SensorReading latest = readings.get(readings.size() - 1);\r\n            return Response.ok(latest).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting latest reading: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving latest reading\").build();\r\n        }\r\n    }\r\n\r\n\r\n    @GET\r\n    @Path(\"/field/{fieldId}/summary\")\r\n    public Response getFieldSummary(@PathParam(\"fieldId\") String fieldId) {\r\n        try {\r\n            // Get latest reading\r\n            List<SensorReading> readings = manager.getFieldReadings(fieldId);\r\n            if (readings.isEmpty()) {\r\n                return Response.status(Response.Status.NOT_FOUND)\r\n                        .entity(\"{\\\"message\\\":\\\"No readings found\\\"}\").build();\r\n            }\r\n\r\n            SensorReading latest = readings.stream()\r\n                    .max(Comparator.comparing(SensorReading::getTimestamp))\r\n                    .orElseThrow();\r\n\r\n            // Get alert count\r\n\r\n            List<Alert> unreadAlerts = alertRepository.findByFieldIdAndIsRead(fieldId, false);\r\n\r\n            // Build summary response\r\n            JsonObject summary = Json.createObjectBuilder()\r\n                    .add(\"latestReading\", buildReadingJson(latest))\r\n                    .add(\"unreadAlertCount\", unreadAlerts.size())\r\n                    .add(\"lastUpdate\", latest.getTimestamp().toString())\r\n                    .build();\r\n\r\n            return Response.ok(summary.toString()).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting field summary: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();\r\n        }\r\n    }\r\n\r\n    private JsonObject buildReadingJson(SensorReading reading) {\r\n        SensorData data = reading.getData();\r\n        return Json.createObjectBuilder()\r\n                .add(\"temperature\", data.getTemperature() != null ? data.getTemperature() : 0)\r\n                .add(\"humidity\", data.getHumidity() != null ? data.getHumidity() : 0)\r\n                .add(\"nitrogen\", data.getNitrogen() != null ? data.getNitrogen() : 0)\r\n                .add(\"phosphorus\", data.getPhosphorus() != null ? data.getPhosphorus() : 0)\r\n                .add(\"potassium\", data.getPotassium() != null ? data.getPotassium() : 0)\r\n                .add(\"soilMoisture\", data.getSoilMoisture() != null ? data.getSoilMoisture() : 0)\r\n                .add(\"pH\", data.getPh() != null ? data.getPh() : 0)\r\n                .add(\"rainfall\", data.getRainfall() != null ? data.getRainfall() : 0)\r\n                .build();\r\n    }\r\n}",
+      "info": {
+        "size": 7239,
+        "last_modified": "2026-01-07T16:13:47.9895852",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\boundaries\\SensorResource.java",
+      "content": "package me.soilmonitoring.api.boundaries;\r\n\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.ws.rs.*;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\nimport me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;\r\nimport me.soilmonitoring.api.controllers.repositories.SensorRepository;\r\nimport me.soilmonitoring.api.entities.Sensor;\r\nimport me.soilmonitoring.api.security.Secured;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.List;\r\nimport java.util.UUID;\r\nimport java.util.logging.Logger;\r\n\r\n@Path(\"/sensors\")\r\n\r\n@RequestScoped\r\n@Produces(MediaType.APPLICATION_JSON)\r\n@Consumes(MediaType.APPLICATION_JSON)\r\npublic class SensorResource {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    @Inject\r\n    private SoilMonitoringManager manager;\r\n\r\n    @Inject\r\n    private SensorRepository sensorRepository;\r\n\r\n    @GET\r\n    @Path(\"/field/{fieldId}\")\r\n    public Response getFieldSensors(@PathParam(\"fieldId\") String fieldId) {\r\n        try {\r\n            List<Sensor> sensors = manager.getFieldSensors(fieldId);\r\n            return Response.ok(sensors).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting field sensors: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving sensors\").build();\r\n        }\r\n    }\r\n\r\n    @GET\r\n    @Path(\"/{sensorId}\")\r\n    public Response getSensorById(@PathParam(\"sensorId\") String sensorId) {\r\n        try {\r\n            Sensor sensor = sensorRepository.findById(sensorId)\r\n                    .orElseThrow(IllegalArgumentException::new);\r\n            return Response.ok(sensor).build();\r\n        } catch (IllegalArgumentException e) {\r\n            return Response.status(Response.Status.NOT_FOUND)\r\n                    .entity(\"Sensor not found\").build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting sensor: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving sensor\").build();\r\n        }\r\n    }\r\n\r\n    @GET\r\n    @Path(\"/device/{deviceId}\")\r\n    public Response getSensorByDeviceId(@PathParam(\"deviceId\") String deviceId) {\r\n        try {\r\n            Sensor sensor = manager.findSensorByDeviceId(deviceId);\r\n            return Response.ok(sensor).build();\r\n        } catch (IllegalArgumentException e) {\r\n            return Response.status(Response.Status.NOT_FOUND)\r\n                    .entity(\"Sensor not found\").build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting sensor by device ID: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error retrieving sensor\").build();\r\n        }\r\n    }\r\n\r\n    @POST\r\n    public Response createSensor(Sensor sensor) {\r\n        try {\r\n            sensor.setId(UUID.randomUUID().toString());\r\n            sensor.setInstalledAt(LocalDateTime.now());\r\n            sensor.setStatus(\"active\");\r\n            Sensor savedSensor = sensorRepository.save(sensor);\r\n            logger.info(\"Sensor created: \" + savedSensor.getId());\r\n            return Response.status(Response.Status.CREATED).entity(savedSensor).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error creating sensor: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error creating sensor\").build();\r\n        }\r\n    }\r\n\r\n    @PUT\r\n    @Path(\"/{sensorId}/status\")\r\n    public Response updateSensorStatus(@PathParam(\"sensorId\") String sensorId,\r\n                                       @QueryParam(\"status\") String status) {\r\n        try {\r\n            Sensor sensor = sensorRepository.findById(sensorId)\r\n                    .orElseThrow(IllegalArgumentException::new);\r\n            sensor.setStatus(status);\r\n            sensor.setLastConnection(LocalDateTime.now());\r\n            sensorRepository.save(sensor);\r\n            logger.info(\"Sensor status updated: \" + sensorId);\r\n            return Response.ok(sensor).build();\r\n        } catch (IllegalArgumentException e) {\r\n            return Response.status(Response.Status.NOT_FOUND)\r\n                    .entity(\"Sensor not found\").build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error updating sensor status: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error updating sensor status\").build();\r\n        }\r\n    }\r\n\r\n    @DELETE\r\n    @Path(\"/{sensorId}\")\r\n    public Response deleteSensor(@PathParam(\"sensorId\") String sensorId) {\r\n        try {\r\n            sensorRepository.deleteById(sensorId);\r\n            logger.info(\"Sensor deleted: \" + sensorId);\r\n            return Response.noContent().build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error deleting sensor: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"Error deleting sensor\").build();\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 5190,
+        "last_modified": "2026-01-07T16:13:47.9942",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\boundaries\\StatisticsResource.java",
+      "content": "package me.soilmonitoring.api.boundaries;\r\n\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.json.Json;\r\nimport jakarta.json.JsonArrayBuilder;\r\nimport jakarta.json.JsonObject;\r\nimport jakarta.ws.rs.*;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\nimport me.soilmonitoring.api.controllers.managers.SoilMonitoringManager;\r\nimport me.soilmonitoring.api.entities.SensorReading;\r\nimport me.soilmonitoring.api.security.Secured;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.List;\r\nimport java.util.logging.Logger;\r\n\r\n@Path(\"/statistics\")\r\n\r\n@RequestScoped\r\n@Produces(MediaType.APPLICATION_JSON)\r\npublic class StatisticsResource {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    @Inject\r\n    private SoilMonitoringManager manager;\r\n\r\n    /**\r\n     * Get hourly averages for the last 24 hours\r\n     */\r\n    @GET\r\n    @Path(\"/field/{fieldId}/hourly\")\r\n    public Response getHourlyStatistics(@PathParam(\"fieldId\") String fieldId) {\r\n        try {\r\n            LocalDateTime now = LocalDateTime.now();\r\n            LocalDateTime yesterday = now.minusHours(24);\r\n\r\n            List<SensorReading> readings = manager.getFieldReadingsByTimeRange(\r\n                    fieldId, yesterday, now\r\n            );\r\n\r\n            if (readings.isEmpty()) {\r\n                return Response.ok(\"[]\").build();\r\n            }\r\n\r\n            // Group by hour and calculate averages\r\n            JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();\r\n\r\n            for (int i = 0; i < 24; i++) {\r\n                LocalDateTime hourStart = yesterday.plusHours(i);\r\n                LocalDateTime hourEnd = hourStart.plusHours(1);\r\n\r\n                List<SensorReading> hourReadings = readings.stream()\r\n                        .filter(r -> r.getTimestamp().isAfter(hourStart) &&\r\n                                r.getTimestamp().isBefore(hourEnd))\r\n                        .toList();\r\n\r\n                if (!hourReadings.isEmpty()) {\r\n                    double avgTemp = hourReadings.stream()\r\n                            .mapToDouble(r -> r.getData().getTemperature() != null ?\r\n                                    r.getData().getTemperature() : 0)\r\n                            .average().orElse(0);\r\n\r\n                    double avgHumidity = hourReadings.stream()\r\n                            .mapToDouble(r -> r.getData().getHumidity() != null ?\r\n                                    r.getData().getHumidity() : 0)\r\n                            .average().orElse(0);\r\n\r\n                    double avgMoisture = hourReadings.stream()\r\n                            .mapToDouble(r -> r.getData().getSoilMoisture() != null ?\r\n                                    r.getData().getSoilMoisture() : 0)\r\n                            .average().orElse(0);\r\n\r\n                    arrayBuilder.add(Json.createObjectBuilder()\r\n                            .add(\"timestamp\", hourStart.toString())\r\n                            .add(\"temperature\", avgTemp)\r\n                            .add(\"humidity\", avgHumidity)\r\n                            .add(\"soilMoisture\", avgMoisture)\r\n                            .add(\"count\", hourReadings.size())\r\n                    );\r\n                }\r\n            }\r\n\r\n            return Response.ok(arrayBuilder.build().toString()).build();\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting hourly statistics: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Get daily summary for dashboard\r\n     */\r\n    @GET\r\n    @Path(\"/field/{fieldId}/today\")\r\n    public Response getTodaySummary(@PathParam(\"fieldId\") String fieldId) {\r\n        try {\r\n            LocalDateTime startOfDay = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0);\r\n            LocalDateTime now = LocalDateTime.now();\r\n\r\n            List<SensorReading> readings = manager.getFieldReadingsByTimeRange(\r\n                    fieldId, startOfDay, now\r\n            );\r\n\r\n            if (readings.isEmpty()) {\r\n                return Response.status(Response.Status.NOT_FOUND)\r\n                        .entity(\"{\\\"message\\\":\\\"No readings for today\\\"}\").build();\r\n            }\r\n\r\n            // Calculate min, max, avg\r\n            double minTemp = readings.stream()\r\n                    .mapToDouble(r -> r.getData().getTemperature() != null ?\r\n                            r.getData().getTemperature() : Double.MAX_VALUE)\r\n                    .min().orElse(0);\r\n\r\n            double maxTemp = readings.stream()\r\n                    .mapToDouble(r -> r.getData().getTemperature() != null ?\r\n                            r.getData().getTemperature() : Double.MIN_VALUE)\r\n                    .max().orElse(0);\r\n\r\n            double avgTemp = readings.stream()\r\n                    .mapToDouble(r -> r.getData().getTemperature() != null ?\r\n                            r.getData().getTemperature() : 0)\r\n                    .average().orElse(0);\r\n\r\n            JsonObject summary = Json.createObjectBuilder()\r\n                    .add(\"date\", startOfDay.toLocalDate().toString())\r\n                    .add(\"readingCount\", readings.size())\r\n                    .add(\"temperature\", Json.createObjectBuilder()\r\n                            .add(\"min\", minTemp)\r\n                            .add(\"max\", maxTemp)\r\n                            .add(\"avg\", avgTemp)\r\n                    )\r\n                    .build();\r\n\r\n            return Response.ok(summary.toString()).build();\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error getting today's summary: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 5761,
+        "last_modified": "2026-01-07T16:13:47.9999162",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\boundaries\\TestResource.java",
+      "content": "package me.soilmonitoring.api.boundaries;\r\n\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.ws.rs.GET;\r\nimport jakarta.ws.rs.Path;\r\nimport jakarta.ws.rs.Produces;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\nimport me.soilmonitoring.api.security.Secured;\r\n\r\n\r\n@Path(\"/test\")\r\n\r\n@RequestScoped\r\npublic class TestResource {\r\n\r\n    @GET\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public Response test() {\r\n        return Response.ok(\"{\\\"status\\\":\\\"API is working!\\\",\\\"message\\\":\\\"Soil Monitoring API is running\\\"}\").build();\r\n    }\r\n\r\n    @GET\r\n    @Path(\"/health\")\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public Response health() {\r\n        return Response.ok(\"{\\\"status\\\":\\\"healthy\\\"}\").build();\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 768,
+        "last_modified": "2026-01-07T16:13:48.0049317",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\controllers\\managers\\SoilMonitoringManager.java",
+      "content": "package me.soilmonitoring.api.controllers.managers;\r\n\r\nimport jakarta.inject.Inject;\r\nimport jakarta.inject.Singleton;\r\nimport me.soilmonitoring.api.controllers.repositories.*;\r\nimport me.soilmonitoring.api.entities.*;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.List;\r\nimport java.util.Optional;\r\n\r\n\r\n//TODO: add test file\r\n\r\n\r\n@Singleton\r\npublic class SoilMonitoringManager {\r\n\r\n    @Inject\r\n    private UserRepository userRepository;\r\n\r\n    @Inject\r\n    private FieldRepository fieldRepository;\r\n\r\n    @Inject\r\n    private SensorRepository sensorRepository;\r\n\r\n    @Inject\r\n    private SensorReadingRepository sensorReadingRepository;\r\n\r\n    @Inject\r\n    private PredictionRepository predictionRepository;\r\n\r\n    @Inject\r\n    private AlertRepository alertRepository;\r\n\r\n    @Inject\r\n    private TreatmentRepository treatmentRepository;\r\n\r\n    /* ******* user *********\r\n    */\r\n\r\n    /**\r\n     * Finds a user by their username.\r\n     *\r\n     * @param username the username of the user\r\n     * @return the User entity\r\n     * @throws IllegalArgumentException if no user is found\r\n     */\r\n\r\n    public User findUserByUsername(String username) {\r\n        return userRepository.findByUsername(username).orElseThrow(IllegalArgumentException::new);\r\n    }\r\n\r\n\r\n    /* ****** field *********\r\n     */\r\n\r\n    /**\r\n     * Finds a field by its ID.\r\n     *\r\n     * @param fieldId the ID of the field\r\n     * @return the Field entity\r\n     * @throws IllegalArgumentException if no field is found\r\n     */\r\n    public Field findFieldById(String fieldId) {\r\n        return fieldRepository.findById(fieldId).orElseThrow(IllegalArgumentException::new);\r\n    }\r\n\r\n\r\n    /**\r\n     * Gets all fields owned by a specific user.\r\n     *\r\n     * @param userId the ID of the user\r\n     * @return a list of fields owned by the user\r\n     */\r\n    public List<Field> getUserFields(String userId) {\r\n        return fieldRepository.findByUserId(userId);\r\n    }\r\n\r\n\r\n    /*  ***sensors******\r\n     */\r\n\r\n    /**\r\n     * Finds a sensor by its unique device ID.\r\n     *\r\n     * @param deviceId the device ID of the sensor\r\n     * @return the Sensor entity\r\n     * @throws IllegalArgumentException if no sensor is found\r\n     */\r\n    public Sensor findSensorByDeviceId(String deviceId) {\r\n        return sensorRepository.findByDeviceId(deviceId).orElseThrow(IllegalArgumentException::new);\r\n    }\r\n\r\n    /**\r\n     * Gets all sensors installed in a specific field.\r\n     *\r\n     * @param fieldId the ID of the field\r\n     * @return a list of sensors\r\n     */\r\n    public List<Sensor> getFieldSensors(String fieldId) {\r\n        return sensorRepository.findByFieldId(fieldId);\r\n    }\r\n\r\n\r\n    /* *****sensor reading ******\r\n    */\r\n\r\n\r\n    /**\r\n     * Gets all sensor readings for a specific field.\r\n     *\r\n     * @param fieldId the ID of the field\r\n     * @return a list of sensor readings\r\n     */\r\n    public List<SensorReading> getFieldReadings(String fieldId) {\r\n        return sensorReadingRepository.findByFieldId(fieldId);\r\n    }\r\n\r\n    /**\r\n     * Gets sensor readings for a specific field within a time range.\r\n     *\r\n     * @param fieldId the ID of the field\r\n     * @param from    the start of the time range\r\n     * @param to      the end of the time range\r\n     * @return a list of sensor readings\r\n     */\r\n    public List<SensorReading> getFieldReadingsByTimeRange(String fieldId, LocalDateTime from, LocalDateTime to) {\r\n        return sensorReadingRepository.findByFieldIdAndTimestampBetween(fieldId, from, to);\r\n    }\r\n\r\n    /* ******predictions******\r\n    */\r\n\r\n    /**\r\n     * Gets predictions for a specific field filtered by prediction type.\r\n     *\r\n     * @param fieldId        the ID of the field\r\n     * @param predictionType the type of prediction (\"crop\", \"fertilizer\")\r\n     * @return a list of predictions\r\n     */\r\n    public List<Prediction> getFieldPredictions(String fieldId, String predictionType) {\r\n        return predictionRepository.findByFieldIdAndPredictionType(fieldId, predictionType);\r\n    }\r\n\r\n    /* *******alerts******\r\n    */\r\n\r\n    /**\r\n     * Gets all unread alerts for a specific user.\r\n     *\r\n     * @param userId the ID of the user\r\n     * @return a list of unread alerts\r\n     */\r\n    public List<Alert> getUnreadAlerts(String userId) {\r\n        return alertRepository.findByUserIdAndIsRead(userId, false);\r\n    }\r\n\r\n    /* *****treatments******\r\n    */\r\n\r\n    /**\r\n     * Gets all treatments applied to a specific field.\r\n     *\r\n     * @param fieldId the ID of the field\r\n     * @return a list of treatments\r\n     */\r\n    public List<Treatment> getFieldTreatments(String fieldId) {\r\n        return treatmentRepository.findByFieldId(fieldId);\r\n    }\r\n\r\n\r\n\r\n\r\n}",
+      "info": {
+        "size": 4696,
+        "last_modified": "2026-01-07T16:13:48.0114945",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\controllers\\repositories\\AlertRepository.java",
+      "content": "package me.soilmonitoring.api.controllers.repositories;\r\n\r\nimport jakarta.data.repository.By;\r\nimport jakarta.data.repository.CrudRepository;\r\nimport jakarta.data.repository.Find;\r\nimport jakarta.data.repository.Repository;\r\nimport me.soilmonitoring.api.entities.Alert;\r\n\r\n\r\nimport java.util.List;\r\n\r\n//TODO: add test file\r\n\r\n@Repository\r\npublic interface AlertRepository extends CrudRepository<Alert, String> {\r\n\r\n    /**\r\n     * Finds all alerts belonging to a specific user.\r\n     *\r\n     * @param userId the ID of the user whose alerts are being retrieved\r\n     * @return a list of {@link Alert} objects associated with the specified user\r\n     */\r\n    @Find\r\n    List<Alert> findByUserId(@By(\"userId\") String userId);\r\n\r\n\r\n\r\n    /**\r\n     * Finds all alerts for a user filtered by their read status.\r\n     *\r\n     * @param userId the ID of the user whose alerts are being retrieved\r\n     * @param isRead a boolean value indicating whether to retrieve read or unread alerts\r\n     * @return a list of {@link Alert} objects matching the given criteria\r\n     */\r\n    @Find\r\n    List<Alert> findByUserIdAndIsRead(\r\n            @By(\"userId\") String userId,\r\n            @By(\"isRead\") Boolean isRead\r\n    );\r\n\r\n\r\n\r\n    /**\r\n     * Finds all alerts related to a specific field.\r\n     *\r\n     * This is useful when displaying alerts related to a given agricultural field\r\n     * in the PWA’s prediction or monitoring dashboard.\r\n     *\r\n     *\r\n     * @param fieldId the ID of the field for which alerts are being retrieved\r\n     * @return a list of {@link Alert} objects associated with the specified field\r\n     */\r\n    @Find\r\n    List<Alert> findByFieldId(@By(\"fieldId\") String fieldId);\r\n\r\n\r\n    @Find\r\n    List<Alert> findByFieldIdAndIsRead(\r\n            @By(\"fieldId\") String fieldId,\r\n            @By(\"isRead\") Boolean isRead\r\n    );\r\n}\r\n",
+      "info": {
+        "size": 1843,
+        "last_modified": "2026-01-07T16:13:48.017818",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\controllers\\repositories\\FieldRepository.java",
+      "content": "\r\npackage me.soilmonitoring.api.controllers.repositories;\r\n\r\nimport jakarta.data.repository.By;\r\nimport jakarta.data.repository.CrudRepository;\r\nimport jakarta.data.repository.Find;\r\nimport jakarta.data.repository.Repository;\r\nimport me.soilmonitoring.api.entities.Field;\r\n\r\nimport java.util.List;\r\n\r\n//TODO: add test file\r\n\r\n@Repository\r\npublic interface FieldRepository extends CrudRepository<Field, String> {\r\n    /**\r\n     * Find all fields for a user\r\n     * @param userId\r\n     * @return all fields for a user\r\n     */\r\n    @Find\r\n    List<Field> findByUserId(@By(\"userId\") String userId);\r\n}",
+      "info": {
+        "size": 598,
+        "last_modified": "2026-01-07T16:13:48.0227037",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\controllers\\repositories\\PredictionRepository.java",
+      "content": "package me.soilmonitoring.api.controllers.repositories;\r\n\r\nimport jakarta.data.repository.By;\r\nimport jakarta.data.repository.CrudRepository;\r\nimport jakarta.data.repository.Find;\r\nimport jakarta.data.repository.Repository;\r\nimport me.soilmonitoring.api.entities.Prediction;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.List;\r\nimport java.util.Optional;\r\n\r\n//TODO: add test file\r\n\r\n@Repository\r\npublic interface PredictionRepository extends CrudRepository<Prediction, String> {\r\n\r\n    /**\r\n     * Finds all predictions associated with a specific field.\r\n     *\r\n     * @param fieldId the unique identifier of the field\r\n     * @return a list of all predictions related to that field\r\n     */\r\n    @Find\r\n    List<Prediction> findByFieldId(@By(\"fieldId\") String fieldId);\r\n\r\n\r\n    /**\r\n     * Finds all predictions for a given field and a specific prediction type\r\n     * (e.g., \"crop\" or \"fertilizer\").\r\n     *\r\n     * @param fieldId the field's unique identifier\r\n     * @param predictionType the type of prediction\r\n     * @return a list of predictions matching both field and type\r\n     */\r\n    @Find\r\n    List<Prediction> findByFieldIdAndPredictionType(\r\n            @By(\"fieldId\") String fieldId,\r\n            @By(\"predictionType\") String predictionType\r\n    );\r\n\r\n\r\n    /**\r\n     * Finds the latest prediction for a given field, based on creation timestamp.\r\n     *\r\n     * This is especially useful for real-time dashboards where the PWA needs\r\n     * to show the most recent prediction result (e.g., next irrigation time or best crop).\r\n     *\r\n     * @param fieldId the field's unique identifier\r\n     * @return the latest Prediction object if found\r\n     */\r\n    @Find\r\n    Optional<Prediction> findTopByFieldIdOrderByTimestampDesc(@By(\"fieldId\") String fieldId);\r\n\r\n\r\n    /**\r\n     * Finds all predictions for a specific field that were created after a certain timestamp.\r\n     *\r\n     * Useful for showing trends or prediction history (for example,\r\n     * all predictions generated in the last week or month).\r\n     *\r\n     * @param fieldId the field's unique identifier\r\n     * @param since the timestamp after which predictions should be retrieved\r\n     * @return a list of recent predictions for that field\r\n     */\r\n    @Find\r\n    List<Prediction> findByFieldIdAndTimestampAfter(\r\n            @By(\"fieldId\") String fieldId,\r\n            @By(\"timestamp\") LocalDateTime since\r\n    );\r\n\r\n\r\n    /**\r\n     * Counts how many predictions exist for a specific field.\r\n     *\r\n     * Useful for analytics or usage statistics in your PWA (e.g.,\r\n     * \"X predictions generated for Field A this week\").\r\n     *\r\n     * @param fieldId the field's unique identifier\r\n     * @return the number of predictions for that field\r\n     */\r\n    long countByFieldId(@By(\"fieldId\") String fieldId);\r\n}\r\n",
+      "info": {
+        "size": 2806,
+        "last_modified": "2026-01-07T16:13:48.0280518",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\controllers\\repositories\\SensorReadingRepository.java",
+      "content": "package me.soilmonitoring.api.controllers.repositories;\r\n\r\nimport jakarta.data.repository.By;\r\nimport jakarta.data.repository.CrudRepository;\r\nimport jakarta.data.repository.Find;\r\nimport jakarta.data.repository.Repository;\r\nimport me.soilmonitoring.api.entities.SensorReading;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.List;\r\n\r\n//TODO: add test file\r\n\r\n\r\n@Repository\r\npublic interface SensorReadingRepository extends CrudRepository<SensorReading, String> {\r\n\r\n    /**\r\n     * Retrieves all sensor readings associated with a specific field.\r\n     *\r\n     * This is typically used to display aggregated or historical data for\r\n     * all sensors in a given agricultural field.\r\n     *\r\n     *\r\n     * @param fieldId the unique identifier of the field\r\n     * @return a list of {@link SensorReading} objects linked to the specified field\r\n     */\r\n    @Find\r\n    List<SensorReading> findByFieldId(@By(\"fieldId\") String fieldId);\r\n\r\n    /**\r\n     * Retrieves all readings collected from a specific sensor.\r\n     *\r\n     * This allows the system to analyze or visualize time-series data\r\n     * for a single device, such as temperature, moisture, or pH readings.\r\n     *\r\n     *\r\n     * @param sensorId the unique identifier of the sensor\r\n     * @return a list of {@link SensorReading} objects recorded by the specified sensor\r\n     */\r\n    @Find\r\n    List<SensorReading> findBySensorId(@By(\"sensorId\") String sensorId);\r\n\r\n    /**\r\n     * Retrieves all readings for a specific field within a given time range.\r\n     *\r\n     * This query is useful for time-based analysis — for example, generating\r\n     * charts or predictions based on readings collected between two dates.\r\n     *\r\n     *\r\n     * @param fieldId the unique identifier of the field\r\n     * @param from    the start of the time interval\r\n     * @param to      the end of the time interval\r\n     * @return a list of {@link SensorReading} objects collected during the specified period\r\n     */\r\n    @Find\r\n    List<SensorReading> findByFieldIdAndTimestampBetween(\r\n            @By(\"fieldId\") String fieldId,\r\n            @By(\"timestamp\") LocalDateTime from,\r\n            @By(\"timestamp\") LocalDateTime to\r\n    );\r\n}\r\n",
+      "info": {
+        "size": 2191,
+        "last_modified": "2026-01-07T16:13:48.0319316",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\controllers\\repositories\\SensorRepository.java",
+      "content": "package me.soilmonitoring.api.controllers.repositories;\r\n\r\nimport jakarta.data.repository.By;\r\nimport jakarta.data.repository.CrudRepository;\r\nimport jakarta.data.repository.Find;\r\nimport jakarta.data.repository.Repository;\r\nimport me.soilmonitoring.api.entities.Sensor;\r\n\r\nimport java.util.List;\r\nimport java.util.Optional;\r\n\r\n//TODO: add test file\r\n\r\n@Repository\r\npublic interface SensorRepository extends CrudRepository<Sensor, String> {\r\n\r\n    /**\r\n     * Retrieves all sensors associated with a specific field.\r\n     *\r\n     * This is typically used to fetch all sensors deployed in a particular\r\n     * agricultural field to display their readings or statuses in the PWA dashboard.\r\n     *\r\n     *\r\n     * @param fieldId the unique identifier of the field\r\n     * @return a list of {@link Sensor} objects linked to the specified field\r\n     */\r\n    @Find\r\n    List<Sensor> findByFieldId(@By(\"fieldId\") String fieldId);\r\n\r\n\r\n\r\n    /**\r\n     * Retrieves a sensor based on its unique device ID.\r\n     *\r\n     * This method is useful for checking whether a sensor device is already registered\r\n     * in the system or when processing incoming data from IoT devices.\r\n     *\r\n     *\r\n     * @param deviceId the unique hardware or network identifier of the sensor device\r\n     * @return an {@link Optional} containing the {@link Sensor} if found, or empty if not found\r\n     */\r\n    @Find\r\n    Optional<Sensor> findByDeviceId(@By(\"deviceId\") String deviceId);\r\n\r\n\r\n\r\n    /**\r\n     * Retrieves all sensors that match a given operational status.\r\n     *\r\n     * The status may represent conditions such as \"ACTIVE\", \"INACTIVE\",\r\n     * \"FAULTY\", or \"DISCONNECTED\", allowing system administrators or automated\r\n     * services to monitor sensor health.\r\n     *\r\n     *\r\n     * @param status the operational status of the sensors\r\n     * @return a list of {@link Sensor} objects with the specified status\r\n     */\r\n    @Find\r\n    List<Sensor> findByStatus(@By(\"status\") String status);\r\n}\r\n",
+      "info": {
+        "size": 1986,
+        "last_modified": "2026-01-07T16:13:48.03743",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\controllers\\repositories\\TreatmentRepository.java",
+      "content": "package me.soilmonitoring.api.controllers.repositories;\r\n\r\nimport jakarta.data.repository.By;\r\nimport jakarta.data.repository.CrudRepository;\r\nimport jakarta.data.repository.Find;\r\nimport jakarta.data.repository.Repository;\r\nimport me.soilmonitoring.api.entities.Treatment;\r\n\r\nimport java.util.List;\r\n\r\n//TODO: add test file\r\n\r\n@Repository\r\npublic interface TreatmentRepository extends CrudRepository<Treatment, String> {\r\n\r\n    /**\r\n     * Retrieves all treatments applied to a specific field.\r\n     *\r\n     * This method allows the platform to display the complete treatment history\r\n     * for a given field, which can be useful for monitoring crop care and\r\n     * evaluating productivity over time.\r\n     *\r\n     *\r\n     * @param fieldId the unique identifier of the field\r\n     * @return a list of {@link Treatment} entities associated with the specified field\r\n     */\r\n    @Find\r\n    List<Treatment> findByFieldId(@By(\"fieldId\") String fieldId);\r\n\r\n    /**\r\n     * Retrieves treatments of a specific type applied to a particular field.\r\n     *\r\n     * This query is useful when filtering treatment records, for instance,\r\n     * to show only irrigation or fertilization actions within a certain field.\r\n     *\r\n     *\r\n     * @param fieldId        the unique identifier of the field\r\n     * @param treatmentType  the type of treatment (e.g., \"irrigation\", \"fertilization\")\r\n     * @return a list of {@link Treatment} entities matching the specified criteria\r\n     */\r\n    @Find\r\n    List<Treatment> findByFieldIdAndTreatmentType(\r\n            @By(\"fieldId\") String fieldId,\r\n            @By(\"treatmentType\") String treatmentType\r\n    );\r\n}\r\n",
+      "info": {
+        "size": 1649,
+        "last_modified": "2026-01-07T16:13:48.0430181",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\controllers\\repositories\\UserRepository.java",
+      "content": "package me.soilmonitoring.api.controllers.repositories;\r\n\r\nimport jakarta.data.repository.By;\r\nimport jakarta.data.repository.CrudRepository;\r\nimport jakarta.data.repository.Find;\r\nimport jakarta.data.repository.Repository;\r\nimport me.soilmonitoring.api.entities.User;\r\n\r\nimport java.util.Optional;\r\n\r\n//TODO: add test file\r\n\r\n@Repository\r\npublic interface UserRepository extends CrudRepository<User, String> {\r\n\r\n    /**\r\n     * Retrieves a user by their unique username.\r\n     *\r\n     * This method is commonly used during authentication or when checking\r\n     * for duplicate usernames during registration.\r\n     *\r\n     *\r\n     * @param username the username of the user\r\n     * @return an {@link Optional} containing the {@link User} if found, or empty if not found\r\n     */\r\n    @Find\r\n    Optional<User> findByUsername(@By(\"username\") String username);\r\n\r\n    /**\r\n     * Retrieves a user by their unique email address.\r\n     *\r\n     * This method is useful for authentication, password recovery,\r\n     * or checking if an email is already registered in the system.\r\n     *\r\n     *\r\n     * @param email the email of the user\r\n     * @return an {@link Optional} containing the {@link User} if found, or empty if not found\r\n     */\r\n    @Find\r\n    Optional<User> findByEmail(@By(\"email\") String email);\r\n}\r\n",
+      "info": {
+        "size": 1312,
+        "last_modified": "2026-01-07T16:13:48.0480233",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\entities\\Alert.java",
+      "content": "package me.soilmonitoring.api.entities;\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Entity;\r\nimport jakarta.nosql.Id;\r\n\r\nimport java.time.LocalDateTime;\r\n\r\n// TODO: add documentation\r\n\r\n@Entity\r\npublic class Alert implements RootEntity<String> {\r\n    @Id\r\n    private String id;\r\n\r\n    @Column\r\n    private long version = 0L;\r\n\r\n    @Column\r\n    private String userId;\r\n\r\n    @Column\r\n    private String fieldId;\r\n\r\n    @Column\r\n    private String alertType; // \"temperature\", \"humidity\", \"npk_deficiency\", \"moisture\"\r\n\r\n    @Column\r\n    private String severity; // \"low\", \"medium\", \"high\"\r\n\r\n    @Column\r\n    private String message;\r\n\r\n    @Column\r\n    private Boolean isRead;\r\n\r\n    @Column\r\n    private LocalDateTime createdAt;\r\n\r\n    @Override\r\n    public String getId() {\r\n        return id;\r\n    }\r\n\r\n    @Override\r\n    public void setId(String id) {\r\n        this.id = id;\r\n    }\r\n\r\n    @Override\r\n    public long getVersion() {\r\n        return version;\r\n    }\r\n\r\n    @Override\r\n    public void setVersion(long version) {\r\n        if (this.version != version) {\r\n            throw new IllegalStateException();\r\n        }\r\n        ++this.version;\r\n    }\r\n\r\n    public String getUserId() {\r\n        return userId;\r\n    }\r\n\r\n    public void setUserId(String userId) {\r\n        this.userId = userId;\r\n    }\r\n\r\n    public String getFieldId() {\r\n        return fieldId;\r\n    }\r\n\r\n    public void setFieldId(String fieldId) {\r\n        this.fieldId = fieldId;\r\n    }\r\n\r\n    public String getAlertType() {\r\n        return alertType;\r\n    }\r\n\r\n    public void setAlertType(String alertType) {\r\n        this.alertType = alertType;\r\n    }\r\n\r\n    public String getSeverity() {\r\n        return severity;\r\n    }\r\n\r\n    public void setSeverity(String severity) {\r\n        this.severity = severity;\r\n    }\r\n\r\n    public String getMessage() {\r\n        return message;\r\n    }\r\n\r\n    public void setMessage(String message) {\r\n        this.message = message;\r\n    }\r\n\r\n    public Boolean getIsRead() {\r\n        return isRead;\r\n    }\r\n\r\n    public void setIsRead(Boolean isRead) {\r\n        this.isRead = isRead;\r\n    }\r\n\r\n    public LocalDateTime getCreatedAt() {\r\n        return createdAt;\r\n    }\r\n\r\n    public void setCreatedAt(LocalDateTime createdAt) {\r\n        this.createdAt = createdAt;\r\n    }\r\n}",
+      "info": {
+        "size": 2298,
+        "last_modified": "2026-01-07T16:13:48.0565432",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\entities\\Field.java",
+      "content": "package me.soilmonitoring.api.entities;\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Entity;\r\nimport jakarta.nosql.Id;\r\n\r\nimport java.time.LocalDateTime;\r\n\r\n// TODO: add documentation\r\n\r\n@Entity\r\npublic class Field implements RootEntity<String> {\r\n    @Id\r\n    private String id;\r\n\r\n    @Column\r\n    private long version = 0L;\r\n\r\n    @Column\r\n    private String userId; // Owner\r\n\r\n    @Column\r\n    private String name;\r\n\r\n    @Column\r\n    private Location location;\r\n\r\n    @Column\r\n    private Double area; // in hectares\r\n\r\n    @Column\r\n    private String currentCrop;\r\n\r\n    @Column\r\n    private String soilType;\r\n\r\n    @Column\r\n    private LocalDateTime createdAt;\r\n\r\n    @Override\r\n    public String getId() {\r\n        return id;\r\n    }\r\n\r\n    @Override\r\n    public void setId(String id) {\r\n        this.id = id;\r\n    }\r\n\r\n    @Override\r\n    public long getVersion() {\r\n        return version;\r\n    }\r\n\r\n    @Override\r\n    public void setVersion(long version) {\r\n        if (this.version != version) {\r\n            throw new IllegalStateException();\r\n        }\r\n        ++this.version;\r\n    }\r\n\r\n    public String getUserId() {\r\n        return userId;\r\n    }\r\n\r\n    public void setUserId(String userId) {\r\n        this.userId = userId;\r\n    }\r\n\r\n    public String getName() {\r\n        return name;\r\n    }\r\n\r\n    public void setName(String name) {\r\n        this.name = name;\r\n    }\r\n\r\n    public Location getLocation() {\r\n        return location;\r\n    }\r\n\r\n    public void setLocation(Location location) {\r\n        this.location = location;\r\n    }\r\n\r\n    public Double getArea() {\r\n        return area;\r\n    }\r\n\r\n    public void setArea(Double area) {\r\n        this.area = area;\r\n    }\r\n\r\n    public String getCurrentCrop() {\r\n        return currentCrop;\r\n    }\r\n\r\n    public void setCurrentCrop(String currentCrop) {\r\n        this.currentCrop = currentCrop;\r\n    }\r\n\r\n    public String getSoilType() {\r\n        return soilType;\r\n    }\r\n\r\n    public void setSoilType(String soilType) {\r\n        this.soilType = soilType;\r\n    }\r\n\r\n    public LocalDateTime getCreatedAt() {\r\n        return createdAt;\r\n    }\r\n\r\n    public void setCreatedAt(LocalDateTime createdAt) {\r\n        this.createdAt = createdAt;\r\n    }\r\n}",
+      "info": {
+        "size": 2225,
+        "last_modified": "2026-01-07T16:13:48.0610488",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\entities\\Location.java",
+      "content": "package me.soilmonitoring.api.entities;\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Embeddable;\r\n\r\n\r\n// TODO: add documentation\r\n\r\n@Embeddable\r\npublic class Location {\r\n    @Column\r\n    private Double latitude;\r\n\r\n    @Column\r\n    private Double longitude;\r\n\r\n    @Column\r\n    private String address;\r\n\r\n    public Location() {\r\n    }\r\n\r\n    public Location(Double latitude, Double longitude, String address) {\r\n        this.latitude = latitude;\r\n        this.longitude = longitude;\r\n        this.address = address;\r\n    }\r\n\r\n    public Double getLatitude() {\r\n        return latitude;\r\n    }\r\n\r\n    public void setLatitude(Double latitude) {\r\n        this.latitude = latitude;\r\n    }\r\n\r\n    public Double getLongitude() {\r\n        return longitude;\r\n    }\r\n\r\n    public void setLongitude(Double longitude) {\r\n        this.longitude = longitude;\r\n    }\r\n\r\n    public String getAddress() {\r\n        return address;\r\n    }\r\n\r\n    public void setAddress(String address) {\r\n        this.address = address;\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 1023,
+        "last_modified": "2026-01-07T16:13:48.0660692",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\entities\\Prediction.java",
+      "content": "package me.soilmonitoring.api.entities;\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Embeddable;\r\nimport jakarta.nosql.Entity;\r\nimport jakarta.nosql.Id;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.List;\r\n\r\n\r\n// TODO: add documentation\r\n\r\n\r\n@Entity\r\npublic class Prediction implements RootEntity<String> {\r\n    @Id\r\n    private String id;\r\n\r\n    @Column\r\n    private long version = 0L;\r\n\r\n    @Column\r\n    private String fieldId;\r\n\r\n    @Column\r\n    private String predictionType; // \"crop\", \"fertilizer\"\r\n\r\n    @Column\r\n    private String modelUsed; // \"CatBoost\", \"RandomForest\"\r\n\r\n    @Column\r\n    private PredictionInput inputData;\r\n\r\n    @Column\r\n    private PredictionResult result;\r\n\r\n    @Column\r\n    private Double confidence;\r\n\r\n    @Column\r\n    private LocalDateTime createdAt;\r\n\r\n    @Override\r\n    public String getId() {\r\n        return id;\r\n    }\r\n\r\n    @Override\r\n    public void setId(String id) {\r\n        this.id = id;\r\n    }\r\n\r\n    @Override\r\n    public long getVersion() {\r\n        return version;\r\n    }\r\n\r\n    @Override\r\n    public void setVersion(long version) {\r\n        if (this.version != version) {\r\n            throw new IllegalStateException();\r\n        }\r\n        ++this.version;\r\n    }\r\n\r\n    public String getFieldId() {\r\n        return fieldId;\r\n    }\r\n\r\n    public void setFieldId(String fieldId) {\r\n        this.fieldId = fieldId;\r\n    }\r\n\r\n    public String getPredictionType() {\r\n        return predictionType;\r\n    }\r\n\r\n    public void setPredictionType(String predictionType) {\r\n        this.predictionType = predictionType;\r\n    }\r\n\r\n    public String getModelUsed() {\r\n        return modelUsed;\r\n    }\r\n\r\n    public void setModelUsed(String modelUsed) {\r\n        this.modelUsed = modelUsed;\r\n    }\r\n\r\n    public PredictionInput getInputData() {\r\n        return inputData;\r\n    }\r\n\r\n    public void setInputData(PredictionInput inputData) {\r\n        this.inputData = inputData;\r\n    }\r\n\r\n    public PredictionResult getResult() {\r\n        return result;\r\n    }\r\n\r\n    public void setResult(PredictionResult result) {\r\n        this.result = result;\r\n    }\r\n\r\n    public Double getConfidence() {\r\n        return confidence;\r\n    }\r\n\r\n    public void setConfidence(Double confidence) {\r\n        this.confidence = confidence;\r\n    }\r\n\r\n    public LocalDateTime getCreatedAt() {\r\n        return createdAt;\r\n    }\r\n\r\n    public void setCreatedAt(LocalDateTime createdAt) {\r\n        this.createdAt = createdAt;\r\n    }\r\n\r\n    @Embeddable\r\n    public static class PredictionInput {\r\n        // Common inputs for both models\r\n        @Column\r\n        private Double nitrogen;\r\n\r\n        @Column\r\n        private Double phosphorus;\r\n\r\n        @Column\r\n        private Double potassium;\r\n\r\n        @Column\r\n        private Double temperature;\r\n\r\n        @Column\r\n        private Double humidity;\r\n\r\n        @Column\r\n        private Double soilMoisture;\r\n\r\n        // Additional inputs for fertilizer recommendation\r\n        @Column\r\n        private String soilType; // For fertilizer model\r\n\r\n        @Column\r\n        private String cropType; // For fertilizer model\r\n\r\n        // Additional inputs for fertilizer recommendation\r\n        @Column\r\n        private Double pH; // For fertilizer model\r\n\r\n        @Column\r\n        private Double rainfall; // For fertilizer model\r\n\r\n\r\n\r\n        // Getters and Setters\r\n        public Double getNitrogen() { return nitrogen; }\r\n        public void setNitrogen(Double nitrogen) { this.nitrogen = nitrogen; }\r\n\r\n        public Double getPhosphorus() { return phosphorus; }\r\n        public void setPhosphorus(Double phosphorus) { this.phosphorus = phosphorus; }\r\n\r\n        public Double getPotassium() { return potassium; }\r\n        public void setPotassium(Double potassium) { this.potassium = potassium; }\r\n\r\n        public Double getTemperature() { return temperature; }\r\n        public void setTemperature(Double temperature) { this.temperature = temperature; }\r\n\r\n        public Double getHumidity() { return humidity; }\r\n        public void setHumidity(Double humidity) { this.humidity = humidity; }\r\n\r\n        public Double getSoilMoisture() { return soilMoisture; }\r\n        public void setSoilMoisture(Double soilMoisture) { this.soilMoisture = soilMoisture; }\r\n\r\n        public String getSoilType() { return soilType; }\r\n        public void setSoilType(String soilType) { this.soilType = soilType; }\r\n\r\n        public String getCropType() { return cropType; }\r\n        public void setCropType(String cropType) { this.cropType = cropType; }\r\n\r\n        public Double getpH() { return pH; }\r\n        public void setpH(Double pH) { this.pH = pH; }\r\n\r\n\r\n        public Double getRainfall() { return rainfall; }\r\n        public void setRainfall(Double rainfall) { this.rainfall = rainfall; }\r\n    }\r\n\r\n    @Embeddable\r\n    public static class PredictionResult {\r\n        @Column\r\n        private String recommendation; // Crop name or fertilizer type\r\n\r\n        @Column\r\n        private String dosage; // For fertilizer\r\n\r\n        @Column\r\n        private List<String> details;\r\n\r\n        // Getters and Setters\r\n        public String getRecommendation() { return recommendation; }\r\n        public void setRecommendation(String recommendation) { this.recommendation = recommendation; }\r\n\r\n        public String getDosage() { return dosage; }\r\n        public void setDosage(String dosage) { this.dosage = dosage; }\r\n\r\n        public List<String> getDetails() { return details; }\r\n        public void setDetails(List<String> details) { this.details = details; }\r\n    }\r\n}",
+      "info": {
+        "size": 5560,
+        "last_modified": "2026-01-07T16:13:48.0700688",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\entities\\RootEntity.java",
+      "content": "package me.soilmonitoring.api.entities;\r\n\r\nimport java.io.Serializable;\r\n\r\n\r\n// TODO: add documentation\r\n\r\n\r\npublic interface RootEntity<ID extends Serializable> extends Serializable {\r\n    ID getId();\r\n    void setId(ID id);\r\n    long getVersion();\r\n    void setVersion(long version);\r\n}\r\n",
+      "info": {
+        "size": 290,
+        "last_modified": "2026-01-07T16:13:48.0755891",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\entities\\Sensor.java",
+      "content": "package me.soilmonitoring.api.entities;\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Entity;\r\nimport jakarta.nosql.Id;\r\n\r\nimport java.time.LocalDateTime;\r\n\r\n\r\n// TODO: add documentation\r\n\r\n\r\n@Entity\r\npublic class Sensor implements RootEntity<String> {\r\n    @Id\r\n    private String id;\r\n\r\n    @Column\r\n    private long version = 0L;\r\n\r\n    @Column\r\n    private String fieldId;\r\n\r\n    @Column\r\n    private String sensorType; // \"DHT22\", \"NPK\"\r\n\r\n    @Column\r\n    private String deviceId; // Raspberry Pi unique ID\r\n\r\n    @Column\r\n    private String status; // \"active\", \"inactive\", \"error\"\r\n\r\n    @Column\r\n    private LocalDateTime lastConnection;\r\n\r\n    @Column\r\n    private LocalDateTime installedAt;\r\n\r\n    @Override\r\n    public String getId() {\r\n        return id;\r\n    }\r\n\r\n    @Override\r\n    public void setId(String id) {\r\n        this.id = id;\r\n    }\r\n\r\n    @Override\r\n    public long getVersion() {\r\n        return version;\r\n    }\r\n\r\n    @Override\r\n    public void setVersion(long version) {\r\n        if (this.version != version) {\r\n            throw new IllegalStateException();\r\n        }\r\n        ++this.version;\r\n    }\r\n\r\n    public String getFieldId() {\r\n        return fieldId;\r\n    }\r\n\r\n    public void setFieldId(String fieldId) {\r\n        this.fieldId = fieldId;\r\n    }\r\n\r\n    public String getSensorType() {\r\n        return sensorType;\r\n    }\r\n\r\n    public void setSensorType(String sensorType) {\r\n        this.sensorType = sensorType;\r\n    }\r\n\r\n    public String getDeviceId() {\r\n        return deviceId;\r\n    }\r\n\r\n    public void setDeviceId(String deviceId) {\r\n        this.deviceId = deviceId;\r\n    }\r\n\r\n    public String getStatus() {\r\n        return status;\r\n    }\r\n\r\n    public void setStatus(String status) {\r\n        this.status = status;\r\n    }\r\n\r\n    public LocalDateTime getLastConnection() {\r\n        return lastConnection;\r\n    }\r\n\r\n    public void setLastConnection(LocalDateTime lastConnection) {\r\n        this.lastConnection = lastConnection;\r\n    }\r\n\r\n    public LocalDateTime getInstalledAt() {\r\n        return installedAt;\r\n    }\r\n\r\n    public void setInstalledAt(LocalDateTime installedAt) {\r\n        this.installedAt = installedAt;\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 2191,
+        "last_modified": "2026-01-07T16:13:48.0795905",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\entities\\SensorData.java",
+      "content": "package me.soilmonitoring.api.entities;\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Embeddable;\r\n\r\n\r\n// TODO: add documentation\r\n\r\n\r\n@Embeddable\r\npublic class SensorData {\r\n    @Column\r\n    private Double temperature;\r\n\r\n    @Column\r\n    private Double humidity;\r\n\r\n    @Column\r\n    private Double nitrogen;\r\n\r\n    @Column\r\n    private Double phosphorus;\r\n\r\n    @Column\r\n    private Double potassium;\r\n\r\n    @Column\r\n    private Double soilMoisture;\r\n\r\n    @Column\r\n    private Double rainfall;\r\n\r\n    @Column\r\n    private Double pH;\r\n\r\n    public SensorData() {\r\n    }\r\n\r\n    public Double getTemperature() {\r\n        return temperature;\r\n    }\r\n\r\n    public void setTemperature(Double temperature) {\r\n        this.temperature = temperature;\r\n    }\r\n\r\n    public Double getHumidity() {\r\n        return humidity;\r\n    }\r\n\r\n    public void setHumidity(Double humidity) {\r\n        this.humidity = humidity;\r\n    }\r\n\r\n    public Double getNitrogen() {\r\n        return nitrogen;\r\n    }\r\n\r\n    public void setNitrogen(Double nitrogen) {\r\n        this.nitrogen = nitrogen;\r\n    }\r\n\r\n    public Double getPhosphorus() {\r\n        return phosphorus;\r\n    }\r\n\r\n    public void setPhosphorus(Double phosphorus) {\r\n        this.phosphorus = phosphorus;\r\n    }\r\n\r\n    public Double getPotassium() {\r\n        return potassium;\r\n    }\r\n\r\n    public void setPotassium(Double potassium) {\r\n        this.potassium = potassium;\r\n    }\r\n\r\n    public Double getSoilMoisture() {\r\n        return soilMoisture;\r\n    }\r\n\r\n    public void setSoilMoisture(Double soilMoisture) {\r\n        this.soilMoisture = soilMoisture;\r\n    }\r\n\r\n    public Double getRainfall() {\r\n        return rainfall;\r\n    }\r\n\r\n    public void setRainfall(Double rainfall) {\r\n        this.rainfall = rainfall;\r\n    }\r\n\r\n    public Double getPh() {\r\n        return pH;\r\n    }\r\n\r\n    public void setPh(Double pH) {\r\n        this.pH = pH;\r\n    }\r\n}",
+      "info": {
+        "size": 1902,
+        "last_modified": "2026-01-07T16:13:48.0851166",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\entities\\SensorReading.java",
+      "content": "package me.soilmonitoring.api.entities;\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Entity;\r\nimport jakarta.nosql.Id;\r\n\r\nimport java.time.LocalDateTime;\r\n\r\n\r\n// TODO: add documentation\r\n\r\n\r\n@Entity\r\npublic class SensorReading implements RootEntity<String> {\r\n    @Id\r\n    private String id;\r\n\r\n    @Column\r\n    private long version = 0L;\r\n\r\n    @Column\r\n    private String sensorId;\r\n\r\n    @Column\r\n    private String fieldId;\r\n\r\n    @Column\r\n    private LocalDateTime timestamp;\r\n\r\n    @Column\r\n    private SensorData data;\r\n\r\n    @Override\r\n    public String getId() {\r\n        return id;\r\n    }\r\n\r\n    @Override\r\n    public void setId(String id) {\r\n\r\n\r\n        this.id = id;\r\n    }\r\n\r\n    @Override\r\n    public long getVersion() {\r\n        return version;\r\n    }\r\n\r\n    @Override\r\n    public void setVersion(long version) {\r\n        if (this.version != version) {\r\n            throw new IllegalStateException();\r\n        }\r\n        ++this.version;\r\n    }\r\n\r\n    public String getSensorId() {\r\n        return sensorId;\r\n    }\r\n\r\n    public void setSensorId(String sensorId) {\r\n        this.sensorId = sensorId;\r\n    }\r\n\r\n    public String getFieldId() {\r\n        return fieldId;\r\n    }\r\n\r\n    public void setFieldId(String fieldId) {\r\n        this.fieldId = fieldId;\r\n    }\r\n\r\n    public LocalDateTime getTimestamp() {\r\n        return timestamp;\r\n    }\r\n\r\n    public void setTimestamp(LocalDateTime timestamp) {\r\n        this.timestamp = timestamp;\r\n    }\r\n\r\n    public SensorData getData() {\r\n        return data;\r\n    }\r\n\r\n    public void setData(SensorData data) {\r\n        this.data = data;\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 1618,
+        "last_modified": "2026-01-07T16:13:48.0891166",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\entities\\Treatment.java",
+      "content": "package me.soilmonitoring.api.entities;\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Entity;\r\nimport jakarta.nosql.Id;\r\n\r\nimport java.time.LocalDateTime;\r\n\r\n\r\n// TODO: add documentation\r\n\r\n\r\n@Entity\r\npublic class Treatment implements RootEntity<String> {\r\n    @Id\r\n    private String id;\r\n\r\n    @Column\r\n    private long version = 0L;\r\n\r\n    @Column\r\n    private String fieldId;\r\n\r\n    @Column\r\n    private String treatmentType; // \"fertilizer\", \"pesticide\", \"irrigation\"\r\n\r\n    @Column\r\n    private String productName;\r\n\r\n    @Column\r\n    private String quantity;\r\n\r\n    @Column\r\n    private LocalDateTime appliedAt;\r\n\r\n    @Column\r\n    private String appliedBy; // userId\r\n\r\n    @Column\r\n    private String notes;\r\n\r\n    @Override\r\n    public String getId() {\r\n        return id;\r\n    }\r\n\r\n    @Override\r\n    public void setId(String id) {\r\n        this.id = id;\r\n    }\r\n\r\n    @Override\r\n    public long getVersion() {\r\n        return version;\r\n    }\r\n\r\n    @Override\r\n    public void setVersion(long version) {\r\n        if (this.version != version) {\r\n            throw new IllegalStateException();\r\n        }\r\n        ++this.version;\r\n    }\r\n\r\n    public String getFieldId() {\r\n        return fieldId;\r\n    }\r\n\r\n    public void setFieldId(String fieldId) {\r\n        this.fieldId = fieldId;\r\n    }\r\n\r\n    public String getTreatmentType() {\r\n        return treatmentType;\r\n    }\r\n\r\n    public void setTreatmentType(String treatmentType) {\r\n        this.treatmentType = treatmentType;\r\n    }\r\n\r\n    public String getProductName() {\r\n        return productName;\r\n    }\r\n\r\n    public void setProductName(String productName) {\r\n        this.productName = productName;\r\n    }\r\n\r\n    public String getQuantity() {\r\n        return quantity;\r\n    }\r\n\r\n    public void setQuantity(String quantity) {\r\n        this.quantity = quantity;\r\n    }\r\n\r\n    public LocalDateTime getAppliedAt() {\r\n        return appliedAt;\r\n    }\r\n\r\n    public void setAppliedAt(LocalDateTime appliedAt) {\r\n        this.appliedAt = appliedAt;\r\n    }\r\n\r\n    public String getAppliedBy() {\r\n        return appliedBy;\r\n    }\r\n\r\n    public void setAppliedBy(String appliedBy) {\r\n        this.appliedBy = appliedBy;\r\n    }\r\n\r\n    public String getNotes() {\r\n        return notes;\r\n    }\r\n\r\n    public void setNotes(String notes) {\r\n        this.notes = notes;\r\n    }\r\n}",
+      "info": {
+        "size": 2340,
+        "last_modified": "2026-01-07T16:13:48.0936304",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\entities\\User.java",
+      "content": "package me.soilmonitoring.api.entities;\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Entity;\r\nimport jakarta.nosql.Id;\r\n\r\nimport java.time.LocalDateTime;\r\n\r\n\r\n\r\n// TODO: add documentation\r\n\r\n\r\n@Entity\r\npublic class User implements RootEntity<String> {\r\n    @Id\r\n    private String id;\r\n\r\n    @Column\r\n    private long version = 0L;\r\n\r\n    @Column\r\n    private String username;\r\n\r\n    @Column\r\n    private String email;\r\n\r\n    @Column\r\n    private String fullName;\r\n\r\n    @Column\r\n    private String role; // \"farmer\", \"admin\"\r\n\r\n    @Column\r\n    private LocalDateTime createdAt;\r\n\r\n    @Override\r\n    public String getId() {\r\n        return id;\r\n    }\r\n\r\n    @Override\r\n    public void setId(String id) {\r\n        this.id = id;\r\n    }\r\n\r\n    @Override\r\n    public long getVersion() {\r\n        return version;\r\n    }\r\n\r\n    @Override\r\n    public void setVersion(long version) {\r\n        if (this.version != version) {\r\n            throw new IllegalStateException();\r\n        }\r\n        ++this.version;\r\n    }\r\n\r\n    public String getUsername() {\r\n        return username;\r\n    }\r\n\r\n    public void setUsername(String username) {\r\n        this.username = username;\r\n    }\r\n\r\n    public String getEmail() {\r\n        return email;\r\n    }\r\n\r\n    public void setEmail(String email) {\r\n        this.email = email;\r\n    }\r\n\r\n    public String getFullName() {\r\n        return fullName;\r\n    }\r\n\r\n    public void setFullName(String fullName) {\r\n        this.fullName = fullName;\r\n    }\r\n\r\n    public String getRole() {\r\n        return role;\r\n    }\r\n\r\n    public void setRole(String role) {\r\n        this.role = role;\r\n    }\r\n\r\n    public LocalDateTime getCreatedAt() {\r\n        return createdAt;\r\n    }\r\n\r\n    public void setCreatedAt(LocalDateTime createdAt) {\r\n        this.createdAt = createdAt;\r\n    }\r\n}",
+      "info": {
+        "size": 1807,
+        "last_modified": "2026-01-07T16:13:48.0986299",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\events\\AlertTriggeredEvent.java",
+      "content": "package me.soilmonitoring.api.events;\r\n\r\nimport me.soilmonitoring.api.entities.Alert;\r\n\r\npublic class AlertTriggeredEvent {\r\n    private final Alert alert;\r\n\r\n    public AlertTriggeredEvent(Alert alert) {\r\n        this.alert = alert;\r\n    }\r\n\r\n    public Alert getAlert() {\r\n        return alert;\r\n    }\r\n}",
+      "info": {
+        "size": 306,
+        "last_modified": "2026-01-07T16:13:48.1051537",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\events\\SensorReadingEvent.java",
+      "content": "package me.soilmonitoring.api.events;\r\n\r\nimport me.soilmonitoring.api.entities.SensorReading;\r\n\r\npublic class SensorReadingEvent {\r\n    private final SensorReading reading;\r\n    private final String source;\r\n\r\n    public SensorReadingEvent(SensorReading reading, String source) {\r\n        this.reading = reading;\r\n        this.source = source;\r\n    }\r\n\r\n    public SensorReading getReading() {\r\n        return reading;\r\n    }\r\n\r\n    public String getSource() {\r\n        return source;\r\n    }\r\n}",
+      "info": {
+        "size": 494,
+        "last_modified": "2026-01-07T16:13:48.1091542",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\filters\\CorsFilter.java",
+      "content": "package me.soilmonitoring.api.filters;\r\n\r\nimport jakarta.ws.rs.container.ContainerRequestContext;\r\nimport jakarta.ws.rs.container.ContainerRequestFilter;\r\nimport jakarta.ws.rs.container.ContainerResponseContext;\r\nimport jakarta.ws.rs.container.ContainerResponseFilter;\r\nimport jakarta.ws.rs.core.Response;\r\nimport jakarta.ws.rs.ext.Provider;\r\n\r\n@Provider\r\npublic class CorsFilter implements ContainerRequestFilter, ContainerResponseFilter {\r\n\r\n    @Override\r\n    public void filter(ContainerRequestContext requestContext) {\r\n        // Handle preflight OPTIONS requests\r\n        if (\"OPTIONS\".equalsIgnoreCase(requestContext.getMethod())) {\r\n            requestContext.abortWith(Response.ok().build());\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void filter(ContainerRequestContext requestContext,\r\n                       ContainerResponseContext responseContext) {\r\n        responseContext.getHeaders().add(\"Access-Control-Allow-Origin\", \"*\");\r\n        responseContext.getHeaders().add(\"Access-Control-Allow-Methods\",\r\n                \"GET, POST, PUT, DELETE, OPTIONS, HEAD\");\r\n        responseContext.getHeaders().add(\"Access-Control-Allow-Headers\",\r\n                \"Content-Type, Authorization, X-Requested-With\");\r\n        responseContext.getHeaders().add(\"Access-Control-Max-Age\", \"3600\");\r\n        responseContext.getHeaders().add(\"Access-Control-Allow-Credentials\", \"true\");\r\n    }\r\n}",
+      "info": {
+        "size": 1396,
+        "last_modified": "2026-01-07T16:13:48.1156783",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\mqtt\\MQTTService.java",
+      "content": "package me.soilmonitoring.api.mqtt;\r\n\r\nimport com.hivemq.client.mqtt.MqttClient;\r\nimport com.hivemq.client.mqtt.mqtt5.Mqtt5AsyncClient;\r\nimport com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5Publish;\r\nimport jakarta.annotation.PostConstruct;\r\nimport jakarta.annotation.PreDestroy;\r\nimport jakarta.ejb.Singleton;\r\nimport jakarta.ejb.Startup;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.json.Json;\r\nimport jakarta.json.JsonObject;\r\nimport jakarta.json.JsonReader;\r\nimport me.soilmonitoring.api.controllers.repositories.SensorReadingRepository;\r\nimport me.soilmonitoring.api.controllers.repositories.SensorRepository;\r\nimport me.soilmonitoring.api.entities.Sensor;\r\nimport me.soilmonitoring.api.entities.SensorData;\r\nimport me.soilmonitoring.api.entities.SensorReading;\r\nimport org.eclipse.microprofile.config.inject.ConfigProperty;\r\n\r\nimport java.io.StringReader;\r\nimport java.nio.charset.StandardCharsets;\r\nimport java.time.LocalDateTime;\r\nimport java.util.UUID;\r\nimport java.util.logging.Logger;\r\n\r\nimport static java.nio.charset.StandardCharsets.UTF_8;\r\nimport jakarta.enterprise.event.Event;\r\nimport me.soilmonitoring.api.events.SensorReadingEvent;\r\n\r\n@Singleton\r\n@Startup\r\npublic class MQTTService {\r\n\r\n    private static final Logger logger = Logger.getLogger(MQTTService.class.getName());\r\n\r\n    @Inject\r\n    private SensorRepository sensorRepository;\r\n\r\n    @Inject\r\n    private SensorReadingRepository readingRepository;\r\n\r\n    @Inject\r\n    @ConfigProperty(name = \"mqtt.broker.url\")\r\n    private String brokerUrl;\r\n\r\n    @Inject\r\n    @ConfigProperty(name = \"mqtt.broker.port\")\r\n    private Integer brokerPort;\r\n\r\n    @Inject\r\n    @ConfigProperty(name = \"mqtt.username\")\r\n    private String username;\r\n\r\n    @Inject\r\n    @ConfigProperty(name = \"mqtt.password\")\r\n    private String password;\r\n\r\n    @Inject\r\n    @ConfigProperty(name = \"mqtt.client.id\")\r\n    private String clientId;\r\n\r\n    @Inject\r\n    @ConfigProperty(name = \"mqtt.use.tls\", defaultValue = \"true\")\r\n    private Boolean useTls;\r\n\r\n    private Mqtt5AsyncClient mqttClient;\r\n\r\n    @Inject\r\n    private Event<SensorReadingEvent> sensorReadingEvent;\r\n\r\n    @PostConstruct\r\n    public void init() {\r\n        try {\r\n            logger.info(\"🚀 Initializing MQTT 5 connection to HiveMQ Cloud...\");\r\n\r\n            // Build MQTT 5 client\r\n            var clientBuilder = MqttClient.builder()\r\n                    .useMqttVersion5()\r\n                    .identifier(clientId + \"-\" + UUID.randomUUID())\r\n                    .serverHost(brokerUrl)\r\n                    .serverPort(brokerPort);\r\n\r\n            if (useTls) {\r\n                clientBuilder.sslWithDefaultConfig();\r\n            }\r\n\r\n            mqttClient = clientBuilder.buildAsync();\r\n\r\n            // Connect with credentials\r\n            mqttClient.connectWith()\r\n                    .simpleAuth()\r\n                    .username(username)\r\n                    .password(UTF_8.encode(password))\r\n                    .applySimpleAuth()\r\n                    .send()\r\n                    .whenComplete((connAck, throwable) -> {\r\n                        if (throwable != null) {\r\n                            logger.severe(\"❌ Failed to connect to MQTT broker: \" + throwable.getMessage());\r\n                        } else {\r\n                            logger.info(\"✅ Connected to HiveMQ Cloud successfully!\");\r\n                            subscribeToSensorData();\r\n                        }\r\n                    });\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"Error initializing MQTT service: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Subscribe to the combined topic from Node-RED\r\n     */\r\n    private void subscribeToSensorData() {\r\n        String topic = \"sensor/data\";\r\n\r\n        mqttClient.subscribeWith()\r\n                .topicFilter(topic)\r\n                .callback(this::handleSensorData)\r\n                .send()\r\n                .whenComplete((subAck, throwable) -> {\r\n                    if (throwable != null) {\r\n                        logger.severe(\"❌ Failed to subscribe to topic '\" + topic + \"': \" + throwable.getMessage());\r\n                    } else {\r\n                        logger.info(\"📡 Subscribed to topic: \" + topic);\r\n                    }\r\n                });\r\n    }\r\n\r\n    /**\r\n     * Handle incoming full sensor data payload\r\n     */\r\n    private void handleSensorData(Mqtt5Publish publish) {\r\n        try {\r\n            String payload = new String(publish.getPayloadAsBytes(), StandardCharsets.UTF_8);\r\n            logger.info(\"📥 Received payload: \" + payload);\r\n\r\n            JsonReader reader = Json.createReader(new StringReader(payload));\r\n            JsonObject json = reader.readObject();\r\n\r\n            // Parse all fields\r\n            String deviceId = json.getString(\"deviceId\", \"unknown-device\");\r\n            String fieldId = json.getString(\"fieldId\", \"default-field\");\r\n\r\n            SensorData data = new SensorData();\r\n            if (json.containsKey(\"temperature\"))\r\n                data.setTemperature(json.getJsonNumber(\"temperature\").doubleValue());\r\n            if (json.containsKey(\"humidity\"))\r\n                data.setHumidity(json.getJsonNumber(\"humidity\").doubleValue());\r\n            if (json.containsKey(\"soil_moisture\"))\r\n                data.setSoilMoisture(json.getJsonNumber(\"soil_moisture\").doubleValue());\r\n            if (json.containsKey(\"nitrogen\"))\r\n                data.setNitrogen(json.getJsonNumber(\"nitrogen\").doubleValue());\r\n            if (json.containsKey(\"phosphorus\"))\r\n                data.setPhosphorus(json.getJsonNumber(\"phosphorus\").doubleValue());\r\n            if (json.containsKey(\"potassium\"))\r\n                data.setPotassium(json.getJsonNumber(\"potassium\").doubleValue());\r\n            if (json.containsKey(\"pH\"))\r\n                data.setPh(json.getJsonNumber(\"pH\").doubleValue());\r\n            if (json.containsKey(\"rainfall\"))\r\n                data.setRainfall(json.getJsonNumber(\"rainfall\").doubleValue());\r\n\r\n\r\n            saveReading(deviceId, fieldId, data);\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"❌ Error processing sensor/data message: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Save reading in DB\r\n     */\r\n    private void saveReading(String deviceId, String fieldId, SensorData data) {\r\n        try {\r\n            Sensor sensor = null;\r\n            try {\r\n                sensor = sensorRepository.findByDeviceId(deviceId).orElse(null);\r\n            } catch (Exception e) {\r\n                logger.warning(\"⚠️ Sensor not found for deviceId: \" + deviceId);\r\n            }\r\n\r\n            SensorReading reading = new SensorReading();\r\n            reading.setId(UUID.randomUUID().toString());\r\n            reading.setSensorId(sensor != null ? sensor.getId() : deviceId);\r\n            reading.setFieldId(fieldId);\r\n            reading.setTimestamp(LocalDateTime.now());\r\n            reading.setData(data);\r\n\r\n            readingRepository.save(reading);\r\n            logger.info(\"✅ Saved reading for device \" + deviceId +\r\n                    \" | Temp: \" + data.getTemperature() +\r\n                    \"°C | Hum: \" + data.getHumidity() +\r\n                    \"% | Moisture: \" + data.getSoilMoisture() +\r\n                    \"% | NPK: \" + data.getNitrogen() + \"/\" +\r\n                    data.getPhosphorus() + \"/\" + data.getPotassium());\r\n\r\n            if (sensor != null) {\r\n                sensor.setLastConnection(LocalDateTime.now());\r\n                sensor.setStatus(\"active\");\r\n                sensorRepository.save(sensor);\r\n            }\r\n            // Fire CDI event asynchronously\r\n            sensorReadingEvent.fireAsync(new SensorReadingEvent(reading, \"MQTT\"));\r\n            logger.info(\"🔥 Fired SensorReadingEvent for reading: \" + reading.getId());\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"❌ Failed to save reading: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void publishMessage(String topic, String message) {\r\n        if (mqttClient != null && mqttClient.getState().isConnected()) {\r\n            mqttClient.publishWith()\r\n                    .topic(topic)\r\n                    .payload(message.getBytes(StandardCharsets.UTF_8))\r\n                    .send()\r\n                    .whenComplete((ack, throwable) -> {\r\n                        if (throwable != null) {\r\n                            logger.severe(\"❌ Failed to publish message: \" + throwable.getMessage());\r\n                        } else {\r\n                            logger.info(\"📤 Published message to topic: \" + topic);\r\n                        }\r\n                    });\r\n        } else {\r\n            logger.warning(\"⚠️ MQTT client not connected; message not sent\");\r\n        }\r\n    }\r\n\r\n    @PreDestroy\r\n    public void cleanup() {\r\n        if (mqttClient != null && mqttClient.getState().isConnected()) {\r\n            mqttClient.disconnect();\r\n            logger.info(\"🛑 Disconnected from MQTT broker\");\r\n        }\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 9084,
+        "last_modified": "2026-01-07T16:13:48.1211871",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\observers\\AlertObserver.java",
+      "content": "package me.soilmonitoring.api.observers;\r\n\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\nimport jakarta.enterprise.event.Event;\r\nimport jakarta.enterprise.event.ObservesAsync;\r\nimport jakarta.inject.Inject;\r\nimport me.soilmonitoring.api.controllers.repositories.AlertRepository;\r\nimport me.soilmonitoring.api.controllers.repositories.FieldRepository;\r\nimport me.soilmonitoring.api.entities.Alert;\r\nimport me.soilmonitoring.api.entities.Field;\r\nimport me.soilmonitoring.api.entities.SensorData;\r\nimport me.soilmonitoring.api.events.AlertTriggeredEvent;\r\nimport me.soilmonitoring.api.events.SensorReadingEvent;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.UUID;\r\nimport java.util.logging.Logger;\r\n\r\n@ApplicationScoped\r\npublic class AlertObserver {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    @Inject\r\n    private AlertRepository alertRepository;\r\n\r\n    @Inject\r\n    private Event<AlertTriggeredEvent> alertEvent;\r\n\r\n    @Inject\r\n    private FieldRepository fieldRepository;\r\n\r\n    /**\r\n     * Listen for sensor readings and check thresholds asynchronously\r\n     */\r\n    public void onSensorReading(@ObservesAsync SensorReadingEvent event) {\r\n        logger.info(\"🔍 AlertObserver: Checking thresholds for reading \" + event.getReading().getId());\r\n\r\n        SensorData data = event.getReading().getData();\r\n        String fieldId = event.getReading().getFieldId();\r\n\r\n        // Temperature checks\r\n        if (data.getTemperature() != null) {\r\n            if (data.getTemperature() < 15) {\r\n                createAndFireAlert(fieldId, \"temperature\", \"high\",\r\n                        \"Temperature critically low: \" + String.format(\"%.1f\", data.getTemperature()) + \"°C\");\r\n            } else if (data.getTemperature() > 35) {\r\n                createAndFireAlert(fieldId, \"temperature\", \"high\",\r\n                        \"Temperature critically high: \" + String.format(\"%.1f\", data.getTemperature()) + \"°C\");\r\n            } else if (data.getTemperature() < 18 || data.getTemperature() > 32) {\r\n                createAndFireAlert(fieldId, \"temperature\", \"medium\",\r\n                        \"Temperature approaching limits: \" + String.format(\"%.1f\", data.getTemperature()) + \"°C\");\r\n            }\r\n        }\r\n\r\n        // Nitrogen check\r\n        if (data.getNitrogen() != null && data.getNitrogen() < 30) {\r\n            createAndFireAlert(fieldId, \"npk_deficiency\", \"high\",\r\n                    \"Low nitrogen levels detected: \" + String.format(\"%.1f\", data.getNitrogen()) + \" mg/kg\");\r\n        }\r\n\r\n        // Phosphorus check\r\n        if (data.getPhosphorus() != null && data.getPhosphorus() < 15) {\r\n            createAndFireAlert(fieldId, \"npk_deficiency\", \"medium\",\r\n                    \"Low phosphorus levels detected: \" + String.format(\"%.1f\", data.getPhosphorus()) + \" mg/kg\");\r\n        }\r\n\r\n        // Potassium check\r\n        if (data.getPotassium() != null && data.getPotassium() < 100) {\r\n            createAndFireAlert(fieldId, \"npk_deficiency\", \"medium\",\r\n                    \"Low potassium levels detected: \" + String.format(\"%.1f\", data.getPotassium()) + \" mg/kg\");\r\n        }\r\n\r\n        // Humidity check\r\n        if (data.getHumidity() != null) {\r\n            if (data.getHumidity() < 40) {\r\n                createAndFireAlert(fieldId, \"humidity\", \"medium\",\r\n                        \"Low humidity: \" + String.format(\"%.1f\", data.getHumidity()) + \"%\");\r\n            } else if (data.getHumidity() > 80) {\r\n                createAndFireAlert(fieldId, \"humidity\", \"medium\",\r\n                        \"High humidity: \" + String.format(\"%.1f\", data.getHumidity()) + \"%\");\r\n            }\r\n        }\r\n\r\n        // Soil moisture check\r\n        if (data.getSoilMoisture() != null) {\r\n            if (data.getSoilMoisture() < 20) {\r\n                createAndFireAlert(fieldId, \"moisture\", \"high\",\r\n                        \"Low soil moisture: \" + String.format(\"%.1f\", data.getSoilMoisture()) + \"%\");\r\n            } else if (data.getSoilMoisture() > 60) {\r\n                createAndFireAlert(fieldId, \"moisture\", \"medium\",\r\n                        \"High soil moisture: \" + String.format(\"%.1f\", data.getSoilMoisture()) + \"%\");\r\n            }\r\n        }\r\n\r\n        // pH check\r\n        if (data.getPh() != null) {\r\n            if (data.getPh() < 6.0 || data.getPh() > 7.5) {\r\n                createAndFireAlert(fieldId, \"ph\", \"medium\",\r\n                        \"pH out of optimal range: \" + String.format(\"%.2f\", data.getPh()));\r\n            }\r\n        }\r\n    }\r\n\r\n    private void createAndFireAlert(String fieldId, String type, String severity, String message) {\r\n        try {\r\n            Alert alert = new Alert();\r\n            alert.setId(UUID.randomUUID().toString());\r\n            alert.setFieldId(fieldId);\r\n            alert.setAlertType(type);\r\n            // Get userId from field\r\n            Field field = fieldRepository.findById(fieldId).orElse(null);\r\n            if (field != null) {\r\n                alert.setUserId(field.getUserId());\r\n            }\r\n            alert.setSeverity(severity);\r\n            alert.setMessage(message);\r\n            alert.setIsRead(false);\r\n            alert.setCreatedAt(LocalDateTime.now());\r\n\r\n            alertRepository.save(alert);\r\n            logger.info(\"⚠️ Alert created: \" + message);\r\n\r\n            // Fire alert event for WebSocket broadcasting\r\n            alertEvent.fireAsync(new AlertTriggeredEvent(alert));\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"Failed to create alert: \" + e.getMessage());\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 5528,
+        "last_modified": "2026-01-07T16:13:48.1272036",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\observers\\WebSocketObserver.java",
+      "content": "package me.soilmonitoring.api.observers;\r\n\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\nimport jakarta.enterprise.event.ObservesAsync;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.json.Json;\r\nimport jakarta.json.JsonObject;\r\nimport me.soilmonitoring.api.entities.SensorData;\r\nimport me.soilmonitoring.api.events.AlertTriggeredEvent;\r\nimport me.soilmonitoring.api.events.SensorReadingEvent;\r\nimport me.soilmonitoring.api.websocket.SensorDataWebSocket;\r\n\r\nimport java.util.logging.Logger;\r\n\r\n@ApplicationScoped\r\npublic class WebSocketObserver {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    /**\r\n     * Broadcast sensor readings to connected WebSocket clients\r\n     */\r\n    public void onSensorReading(@ObservesAsync SensorReadingEvent event) {\r\n        try {\r\n            SensorData data = event.getReading().getData();\r\n\r\n            JsonObject message = Json.createObjectBuilder()\r\n                    .add(\"type\", \"SENSOR_DATA\")\r\n                    .add(\"payload\", Json.createObjectBuilder()\r\n                            .add(\"id\", event.getReading().getId())\r\n                            .add(\"fieldId\", event.getReading().getFieldId())\r\n                            .add(\"sensorId\", event.getReading().getSensorId())\r\n                            .add(\"temperature\", data.getTemperature() != null ? data.getTemperature() : 0.0)\r\n                            .add(\"humidity\", data.getHumidity() != null ? data.getHumidity() : 0.0)\r\n                            .add(\"nitrogen\", data.getNitrogen() != null ? data.getNitrogen() : 0.0)\r\n                            .add(\"phosphorus\", data.getPhosphorus() != null ? data.getPhosphorus() : 0.0)\r\n                            .add(\"potassium\", data.getPotassium() != null ? data.getPotassium() : 0.0)\r\n                            .add(\"soilMoisture\", data.getSoilMoisture() != null ? data.getSoilMoisture() : 0.0)\r\n                            .add(\"pH\", data.getPh() != null ? data.getPh() : 0.0)\r\n                            .add(\"rainfall\", data.getRainfall() != null ? data.getRainfall() : 0.0)\r\n                            .add(\"timestamp\", event.getReading().getTimestamp().toString())\r\n                    )\r\n                    .build();\r\n\r\n            SensorDataWebSocket.broadcast(message.toString());\r\n            logger.info(\"📡 WebSocketObserver: Broadcast sensor data to \" +\r\n                    SensorDataWebSocket.getConnectedClientsCount() + \" clients\");\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"Failed to broadcast sensor data: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Broadcast alerts to connected WebSocket clients\r\n     */\r\n    public void onAlert(@ObservesAsync AlertTriggeredEvent event) {\r\n        try {\r\n            JsonObject message = Json.createObjectBuilder()\r\n                    .add(\"type\", \"ALERT\")\r\n                    .add(\"payload\", Json.createObjectBuilder()\r\n                            .add(\"id\", event.getAlert().getId())\r\n                            .add(\"fieldId\", event.getAlert().getFieldId())\r\n                            .add(\"message\", event.getAlert().getMessage())\r\n                            .add(\"severity\", event.getAlert().getSeverity())\r\n                            .add(\"alertType\", event.getAlert().getAlertType())\r\n                            .add(\"timestamp\", event.getAlert().getCreatedAt().toString())\r\n                    )\r\n                    .build();\r\n\r\n            SensorDataWebSocket.broadcast(message.toString());\r\n            logger.info(\"🚨 WebSocketObserver: Broadcast alert to \" +\r\n                    SensorDataWebSocket.getConnectedClientsCount() + \" clients\");\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"Failed to broadcast alert: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 3837,
+        "last_modified": "2026-01-07T16:13:48.1317112",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\security\\JwtValidator.java",
+      "content": "package me.soilmonitoring.api.security;\r\n\r\nimport com.nimbusds.jose.jwk.OctetKeyPair;\r\nimport com.nimbusds.jwt.SignedJWT;\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\nimport jakarta.inject.Inject;\r\nimport org.eclipse.microprofile.config.inject.ConfigProperty;\r\n\r\nimport java.net.URI;\r\nimport java.net.http.HttpClient;\r\nimport java.net.http.HttpRequest;\r\nimport java.net.http.HttpResponse;\r\nimport java.time.Instant;\r\nimport java.util.Collections;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\nimport java.util.logging.Logger;\r\n\r\n@ApplicationScoped\r\npublic class JwtValidator {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    @Inject\r\n    @ConfigProperty(name = \"iam.jwk.url\")\r\n    private String jwkUrl;\r\n\r\n    @Inject\r\n    @ConfigProperty(name = \"iam.issuer\")\r\n    private String expectedIssuer;\r\n\r\n    private final Map<String, OctetKeyPair> keyCache = new HashMap<>();\r\n    private final HttpClient httpClient = HttpClient.newHttpClient();\r\n\r\n    public Map<String, Object> validateToken(String token) {\r\n        try {\r\n            SignedJWT signedJWT = SignedJWT.parse(token);\r\n\r\n            // Extract Key ID from token header\r\n            String kid = signedJWT.getHeader().getKeyID();\r\n            if (kid == null) {\r\n                logger.warning(\"JWT missing kid header\");\r\n                return null;\r\n            }\r\n\r\n            // Get public key from IAM service (or cache)\r\n            OctetKeyPair jwk = getPublicKey(kid);\r\n\r\n            // Verify signature\r\n            if (!signedJWT.verify(new com.nimbusds.jose.crypto.Ed25519Verifier(jwk))) {\r\n                logger.warning(\"JWT signature verification failed\");\r\n                return null;\r\n            }\r\n\r\n            var claims = signedJWT.getJWTClaimsSet();\r\n\r\n            // Check expiration\r\n            if (claims.getExpirationTime().before(java.util.Date.from(Instant.now()))) {\r\n                logger.warning(\"JWT token expired\");\r\n                return null;\r\n            }\r\n\r\n            // Check issuer\r\n            if (!expectedIssuer.equals(claims.getIssuer())) {\r\n                logger.warning(\"Invalid issuer: \" + claims.getIssuer());\r\n                return null;\r\n            }\r\n\r\n            // Build claims map\r\n            Map<String, Object> result = new HashMap<>();\r\n            result.put(\"sub\", claims.getSubject());\r\n            result.put(\"tenant-id\", claims.getStringClaim(\"tenant-id\"));\r\n            result.put(\"scope\", claims.getStringClaim(\"scope\"));\r\n            result.put(\"groups\", claims.getStringListClaim(\"groups\"));\r\n\r\n            logger.info(\"✅ Token validated for user: \" + claims.getSubject());\r\n            return result;\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"JWT validation error: \" + e.getMessage());\r\n            return null;\r\n        }\r\n    }\r\n\r\n    private OctetKeyPair getPublicKey(String kid) throws Exception {\r\n        // Check cache first\r\n        if (keyCache.containsKey(kid)) {\r\n            return keyCache.get(kid);\r\n        }\r\n\r\n        // Fetch JWK from IAM\r\n        HttpRequest request = HttpRequest.newBuilder()\r\n                .uri(URI.create(jwkUrl + \"?kid=\" + kid))\r\n                .GET()\r\n                .build();\r\n\r\n        HttpResponse<String> response = httpClient.send(request,\r\n                HttpResponse.BodyHandlers.ofString());\r\n\r\n        if (response.statusCode() != 200) {\r\n            throw new Exception(\"Failed to fetch JWK: \" + response.statusCode());\r\n        }\r\n\r\n        // Parse OctetKeyPair\r\n        OctetKeyPair jwk = OctetKeyPair.parse(response.body());\r\n\r\n        // Cache it\r\n        keyCache.put(kid, jwk);\r\n        return jwk;\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 3654,
+        "last_modified": "2026-01-07T16:13:48.1377265",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\security\\Secured.java",
+      "content": "package me.soilmonitoring.api.security;\r\n\r\nimport jakarta.ws.rs.NameBinding;\r\nimport java.lang.annotation.Retention;\r\nimport java.lang.annotation.Target;\r\n\r\nimport static java.lang.annotation.ElementType.METHOD;\r\nimport static java.lang.annotation.ElementType.TYPE;\r\nimport static java.lang.annotation.RetentionPolicy.RUNTIME;\r\n\r\n@NameBinding\r\n@Retention(RUNTIME)\r\n@Target({TYPE, METHOD})\r\npublic @interface Secured {\r\n}",
+      "info": {
+        "size": 420,
+        "last_modified": "2026-01-07T16:13:48.1431535",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\services\\SageMakerService.java",
+      "content": "package me.soilmonitoring.api.services;\r\nimport software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;\r\nimport software.amazon.awssdk.core.SdkBytes;\r\nimport software.amazon.awssdk.regions.Region;\r\nimport software.amazon.awssdk.services.sagemakerruntime.SageMakerRuntimeClient;\r\nimport software.amazon.awssdk.services.sagemakerruntime.model.InvokeEndpointRequest;\r\nimport software.amazon.awssdk.services.sagemakerruntime.model.InvokeEndpointResponse;\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\nimport java.nio.charset.StandardCharsets;\r\nimport java.util.logging.Logger;\r\nimport java.util.logging.Level;\r\n\r\n/**\r\n * Service for integrating with AWS SageMaker ML models\r\n * Handles crop and fertilizer recommendations\r\n */\r\n@ApplicationScoped\r\npublic class SageMakerService {\r\n\r\n    private static final Logger LOGGER = Logger.getLogger(SageMakerService.class.getName());\r\n\r\n    private final SageMakerRuntimeClient sageMakerClient;\r\n\r\n    // TODO: Replace with your actual endpoint names\r\n    private static final String CROP_ENDPOINT = \"xgboost-crop-endpoint\";\r\n    private static final String FERTILIZER_ENDPOINT = \"fertilizer-recommendation-endpoint\";\r\n    private static final String AWS_REGION = \"us-east-1\";\r\n\r\n    // Crop label mapping (22 crops - matches your label encoder)\r\n    private static final String[] CROP_LABELS = {\r\n            \"apple\", \"banana\", \"blackgram\", \"chickpea\", \"coconut\",\r\n            \"coffee\", \"cotton\", \"grapes\", \"jute\", \"kidneybeans\",\r\n            \"lentil\", \"maize\", \"mango\", \"mothbeans\", \"mungbean\",\r\n            \"muskmelon\", \"orange\", \"papaya\", \"pigeonpeas\", \"pomegranate\",\r\n            \"rice\", \"watermelon\"\r\n    };\r\n\r\n    // Fertilizer labels from your encoder (alphabetically sorted by sklearn)\r\n    private static final String[] FERTILIZER_LABELS = {\r\n            \"10-26-26\", \"14-35-14\", \"17-17-17\", \"20-20\",\r\n            \"28-28\", \"DAP\", \"Urea\"\r\n    };\r\n\r\n    // Soil type labels from your encoder (alphabetically sorted by sklearn)\r\n    private static final String[] SOIL_TYPE_LABELS = {\r\n            \"Black\", \"Clayey\", \"Loamy\", \"Red\", \"Sandy\"\r\n    };\r\n\r\n    // Crop type labels from your encoder (alphabetically sorted by sklearn)\r\n    private static final String[] CROP_TYPE_LABELS = {\r\n            \"Barley\", \"Cotton\", \"Ground Nuts\", \"Maize\", \"Millets\",\r\n            \"Oil seeds\", \"Paddy\", \"Pulses\", \"Sugarcane\", \"Tobacco\", \"Wheat\"\r\n    };\r\n\r\n    /**\r\n     * Constructor - initializes SageMaker client with default credentials\r\n     */\r\n    public SageMakerService() {\r\n        LOGGER.info(\"Initializing SageMaker service...\");\r\n        try {\r\n            this.sageMakerClient = SageMakerRuntimeClient.builder()\r\n                    .region(Region.of(AWS_REGION))\r\n                    .credentialsProvider(DefaultCredentialsProvider.create())\r\n                    .build();\r\n            LOGGER.info(\"SageMaker client initialized successfully\");\r\n        } catch (Exception e) {\r\n            LOGGER.log(Level.SEVERE, \"Failed to initialize SageMaker client\", e);\r\n            throw new RuntimeException(\"Cannot initialize SageMaker service\", e);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Get crop recommendation from SageMaker XGBoost model\r\n     *\r\n     * @param n Nitrogen content (mg/kg): 0-150\r\n     * @param p Phosphorus content (mg/kg): 0-150\r\n     * @param k Potassium content (mg/kg): 0-300\r\n     * @param temperature Temperature (°C): -10 to 50\r\n     * @param humidity Humidity (%): 0-100\r\n     * @param ph pH level: 0-14\r\n     * @param rainfall Rainfall (mm): 0-500\r\n     * @return CropPrediction object with recommended crop and confidence\r\n     * @throws RuntimeException if prediction fails\r\n     */\r\n    public CropPrediction predictCrop(double n, double p, double k,\r\n                                      double temperature, double humidity,\r\n                                      double ph, double rainfall) {\r\n\r\n        LOGGER.info(String.format(\"Predicting crop for: N=%.1f, P=%.1f, K=%.1f, T=%.1f°C, H=%.1f%%, pH=%.1f, R=%.1fmm\",\r\n                n, p, k, temperature, humidity, ph, rainfall));\r\n\r\n        try {\r\n            // Format input as CSV: N,P,K,temperature,humidity,ph,rainfall\r\n            String csvInput = String.format(\"%.1f,%.1f,%.1f,%.1f,%.1f,%.1f,%.1f\",\r\n                    n, p, k, temperature, humidity, ph, rainfall);\r\n\r\n            LOGGER.fine(\"CSV input: \" + csvInput);\r\n\r\n            // Invoke SageMaker endpoint\r\n            InvokeEndpointRequest request = InvokeEndpointRequest.builder()\r\n                    .endpointName(CROP_ENDPOINT)\r\n                    .contentType(\"text/csv\")\r\n                    .accept(\"text/csv\")\r\n                    .body(SdkBytes.fromString(csvInput, StandardCharsets.UTF_8))\r\n                    .build();\r\n\r\n            InvokeEndpointResponse response = sageMakerClient.invokeEndpoint(request);\r\n            String result = response.body().asUtf8String().trim();\r\n\r\n            LOGGER.fine(\"Raw SageMaker response: \" + result);\r\n\r\n            // Parse prediction (returns class index as float)\r\n            int classIndex = (int) Float.parseFloat(result);\r\n\r\n            // Validate class index\r\n            if (classIndex < 0 || classIndex >= CROP_LABELS.length) {\r\n                throw new IllegalStateException(\"Invalid crop class index: \" + classIndex);\r\n            }\r\n\r\n            String cropName = CROP_LABELS[classIndex];\r\n            double confidence = 0.95; // XGBoost doesn't return confidence by default\r\n\r\n            LOGGER.info(String.format(\"Prediction successful: %s (class %d, confidence: %.2f)\",\r\n                    cropName, classIndex, confidence));\r\n\r\n            return new CropPrediction(cropName, classIndex, confidence);\r\n\r\n        } catch (Exception e) {\r\n            LOGGER.log(Level.SEVERE, \"Failed to get crop prediction\", e);\r\n            throw new RuntimeException(\"Failed to get crop prediction: \" + e.getMessage(), e);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Get fertilizer recommendation from SageMaker XGBoost model\r\n     *\r\n     * @param temperature Temperature (°C)\r\n     * @param humidity Humidity (%)\r\n     * @param moisture Soil moisture (%)\r\n     * @param soilType Soil type (e.g., \"Loamy\", \"Sandy\", \"Clayey\")\r\n     * @param cropType Crop type (e.g., \"Rice\", \"Wheat\", \"Maize\")\r\n     * @param nitrogen Nitrogen content\r\n     * @param potassium Potassium content\r\n     * @param phosphorous Phosphorus content\r\n     * @return FertilizerPrediction object with recommended fertilizer\r\n     * @throws RuntimeException if prediction fails\r\n     */\r\n    public FertilizerPrediction predictFertilizer(double temperature, double humidity,\r\n                                                  double moisture, String soilType,\r\n                                                  String cropType, int nitrogen,\r\n                                                  int potassium, int phosphorous) {\r\n\r\n        LOGGER.info(String.format(\"Predicting fertilizer for: T=%.1f°C, H=%.1f%%, M=%.1f%%, Soil=%s, Crop=%s, N=%d, K=%d, P=%d\",\r\n                temperature, humidity, moisture, soilType, cropType, nitrogen, potassium, phosphorous));\r\n\r\n        try {\r\n            // Encode categorical variables\r\n            int soilTypeEncoded = encodeSoilType(soilType);\r\n            int cropTypeEncoded = encodeCropType(cropType);\r\n\r\n            // Format input as CSV\r\n            // Order MUST match training data: Temperature,Humidity,Moisture,Soil Type,Crop Type,Nitrogen,Potassium,Phosphorous\r\n            String csvInput = String.format(\"%.1f,%.1f,%.1f,%d,%d,%d,%d,%d\",\r\n                    temperature, humidity, moisture, soilTypeEncoded, cropTypeEncoded,\r\n                    nitrogen, potassium, phosphorous);\r\n\r\n            LOGGER.fine(\"CSV input: \" + csvInput);\r\n\r\n            // Invoke SageMaker endpoint\r\n            InvokeEndpointRequest request = InvokeEndpointRequest.builder()\r\n                    .endpointName(FERTILIZER_ENDPOINT)\r\n                    .contentType(\"text/csv\")\r\n                    .accept(\"text/csv\")\r\n                    .body(SdkBytes.fromString(csvInput, StandardCharsets.UTF_8))\r\n                    .build();\r\n\r\n            InvokeEndpointResponse response = sageMakerClient.invokeEndpoint(request);\r\n            String result = response.body().asUtf8String().trim();\r\n\r\n            LOGGER.fine(\"Raw SageMaker response: \" + result);\r\n\r\n            int classIndex = (int) Float.parseFloat(result);\r\n\r\n            // Validate class index\r\n            if (classIndex < 0 || classIndex >= FERTILIZER_LABELS.length) {\r\n                throw new IllegalStateException(\"Invalid fertilizer class index: \" + classIndex);\r\n            }\r\n\r\n            String fertilizerType = FERTILIZER_LABELS[classIndex];\r\n            String dosage = calculateDosage(nitrogen, phosphorous, potassium, fertilizerType);\r\n            double confidence = 0.92;\r\n\r\n            LOGGER.info(String.format(\"Prediction successful: %s, %s (class %d, confidence: %.2f)\",\r\n                    fertilizerType, dosage, classIndex, confidence));\r\n\r\n            return new FertilizerPrediction(fertilizerType, dosage, classIndex, confidence);\r\n\r\n        } catch (Exception e) {\r\n            LOGGER.log(Level.SEVERE, \"Failed to get fertilizer prediction\", e);\r\n            throw new RuntimeException(\"Failed to get fertilizer prediction: \" + e.getMessage(), e);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Encode soil type to integer (matches training label encoder)\r\n     * Mapping: Black=0, Clayey=1, Loamy=2, Red=3, Sandy=4\r\n     */\r\n    private int encodeSoilType(String soilType) {\r\n        if (soilType == null || soilType.trim().isEmpty()) {\r\n            LOGGER.warning(\"Null or empty soil type, defaulting to Loamy (2)\");\r\n            return 2; // Default to Loamy\r\n        }\r\n\r\n        String normalized = soilType.trim();\r\n\r\n        // Find exact match (case-insensitive)\r\n        for (int i = 0; i < SOIL_TYPE_LABELS.length; i++) {\r\n            if (SOIL_TYPE_LABELS[i].equalsIgnoreCase(normalized)) {\r\n                LOGGER.fine(String.format(\"Encoded soil type '%s' -> %d\", normalized, i));\r\n                return i;\r\n            }\r\n        }\r\n\r\n        // Fallback mapping for common variations\r\n        switch (normalized.toLowerCase()) {\r\n            case \"clay\":\r\n            case \"clayey\":\r\n                return 1; // Clayey\r\n            case \"loam\":\r\n            case \"loamy\":\r\n                return 2; // Loamy\r\n            case \"sand\":\r\n            case \"sandy\":\r\n                return 4; // Sandy\r\n            case \"black\":\r\n                return 0; // Black\r\n            case \"red\":\r\n                return 3; // Red\r\n            default:\r\n                LOGGER.warning(\"Unknown soil type: \" + soilType + \", defaulting to Loamy (2)\");\r\n                return 2; // Default to Loamy\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Encode crop type to integer (matches training label encoder)\r\n     * Mapping: Barley=0, Cotton=1, Ground Nuts=2, Maize=3, Millets=4,\r\n     *          Oil seeds=5, Paddy=6, Pulses=7, Sugarcane=8, Tobacco=9, Wheat=10\r\n     */\r\n    private int encodeCropType(String cropType) {\r\n        if (cropType == null || cropType.trim().isEmpty()) {\r\n            LOGGER.warning(\"Null or empty crop type, defaulting to Paddy (6)\");\r\n            return 6; // Default to Paddy (rice)\r\n        }\r\n\r\n        String normalized = cropType.trim();\r\n\r\n        // Find exact match (case-insensitive)\r\n        for (int i = 0; i < CROP_TYPE_LABELS.length; i++) {\r\n            if (CROP_TYPE_LABELS[i].equalsIgnoreCase(normalized)) {\r\n                LOGGER.fine(String.format(\"Encoded crop type '%s' -> %d\", normalized, i));\r\n                return i;\r\n            }\r\n        }\r\n\r\n        // Fallback mapping for common variations and aliases\r\n        switch (normalized.toLowerCase()) {\r\n            case \"barley\":\r\n                return 0;\r\n            case \"cotton\":\r\n                return 1;\r\n            case \"groundnuts\":\r\n            case \"ground nuts\":\r\n            case \"peanuts\":\r\n                return 2;\r\n            case \"maize\":\r\n            case \"corn\":\r\n                return 3;\r\n            case \"millets\":\r\n            case \"millet\":\r\n                return 4;\r\n            case \"oilseeds\":\r\n            case \"oil seeds\":\r\n                return 5;\r\n            case \"paddy\":\r\n            case \"rice\":\r\n                return 6;\r\n            case \"pulses\":\r\n            case \"lentils\":\r\n            case \"beans\":\r\n                return 7;\r\n            case \"sugarcane\":\r\n            case \"sugar cane\":\r\n                return 8;\r\n            case \"tobacco\":\r\n                return 9;\r\n            case \"wheat\":\r\n                return 10;\r\n            default:\r\n                LOGGER.warning(\"Unknown crop type: \" + cropType + \", defaulting to Paddy (6)\");\r\n                return 6; // Default to Paddy\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Calculate fertilizer dosage based on nutrient levels\r\n     * This is a simple heuristic - adjust based on agronomic requirements\r\n     */\r\n    private String calculateDosage(int nitrogen, int phosphorous, int potassium, String fertType) {\r\n        double deficiency = 0;\r\n\r\n        // Optimal ranges (adjust based on crop requirements)\r\n        final int OPTIMAL_N = 50;\r\n        final int OPTIMAL_P = 25;\r\n        final int OPTIMAL_K = 110;\r\n\r\n        // Calculate total deficiency\r\n        if (nitrogen < OPTIMAL_N) deficiency += (OPTIMAL_N - nitrogen);\r\n        if (phosphorous < OPTIMAL_P) deficiency += (OPTIMAL_P - phosphorous);\r\n        if (potassium < OPTIMAL_K) deficiency += (OPTIMAL_K - potassium) / 2.0;\r\n\r\n        // Base dosage calculation\r\n        double dosage = Math.max(50, Math.min(200, 100 + deficiency * 1.5));\r\n\r\n        // Adjust based on fertilizer type\r\n        if (fertType.contains(\"Urea\")) {\r\n            dosage *= 0.8; // Urea is concentrated nitrogen\r\n        } else if (fertType.contains(\"DAP\")) {\r\n            dosage *= 0.9; // DAP is concentrated phosphorus\r\n        }\r\n\r\n        return String.format(\"%.0f kg/hectare\", dosage);\r\n    }\r\n\r\n    /**\r\n     * Clean up resources\r\n     */\r\n    public void close() {\r\n        if (sageMakerClient != null) {\r\n            sageMakerClient.close();\r\n            LOGGER.info(\"SageMaker client closed\");\r\n        }\r\n    }\r\n\r\n    // ======================== RESULT CLASSES ========================\r\n\r\n    /**\r\n     * Crop prediction result\r\n     */\r\n    public static class CropPrediction {\r\n        public final String cropName;\r\n        public final int classIndex;\r\n        public final double confidence;\r\n\r\n        public CropPrediction(String cropName, int classIndex, double confidence) {\r\n            this.cropName = cropName;\r\n            this.classIndex = classIndex;\r\n            this.confidence = confidence;\r\n        }\r\n\r\n        @Override\r\n        public String toString() {\r\n            return String.format(\"CropPrediction{crop='%s', class=%d, confidence=%.2f}\",\r\n                    cropName, classIndex, confidence);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Fertilizer prediction result\r\n     */\r\n    public static class FertilizerPrediction {\r\n        public final String fertilizerType;\r\n        public final String dosage;\r\n        public final int classIndex;\r\n        public final double confidence;\r\n\r\n        public FertilizerPrediction(String type, String dosage, int index, double conf) {\r\n            this.fertilizerType = type;\r\n            this.dosage = dosage;\r\n            this.classIndex = index;\r\n            this.confidence = conf;\r\n        }\r\n\r\n        @Override\r\n        public String toString() {\r\n            return String.format(\"FertilizerPrediction{type='%s', dosage='%s', class=%d, confidence=%.2f}\",\r\n                    fertilizerType, dosage, classIndex, confidence);\r\n        }\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 15735,
+        "last_modified": "2026-01-07T16:13:48.1483655",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\api\\websocket\\SensorDataWebSocket.java",
+      "content": "package me.soilmonitoring.api.websocket;\r\n\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\nimport jakarta.websocket.*;\r\nimport jakarta.websocket.server.ServerEndpoint;\r\n\r\nimport java.io.IOException;\r\nimport java.util.Collections;\r\nimport java.util.HashSet;\r\nimport java.util.Set;\r\nimport java.util.logging.Logger;\r\n\r\n@ServerEndpoint(\"/ws/sensor-data\")\r\n@ApplicationScoped\r\npublic class SensorDataWebSocket {\r\n\r\n    private static final Logger logger = Logger.getLogger(SensorDataWebSocket.class.getName());\r\n\r\n    // Thread-safe set to track all connected clients\r\n    private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<>());\r\n\r\n    @OnOpen\r\n    public void onOpen(Session session) {\r\n        sessions.add(session);\r\n        logger.info(\"✅ WebSocket client connected: \" + session.getId() +\r\n                \" | Total clients: \" + sessions.size());\r\n\r\n        // Send welcome message\r\n        try {\r\n            session.getBasicRemote().sendText(\r\n                    \"{\\\"type\\\":\\\"CONNECTION\\\",\\\"message\\\":\\\"Connected to soil monitoring system\\\"}\"\r\n            );\r\n        } catch (IOException e) {\r\n            logger.warning(\"Failed to send welcome message: \" + e.getMessage());\r\n        }\r\n    }\r\n\r\n    @OnClose\r\n    public void onClose(Session session, CloseReason reason) {\r\n        sessions.remove(session);\r\n        logger.info(\"❌ WebSocket client disconnected: \" + session.getId() +\r\n                \" | Reason: \" + reason.getReasonPhrase() +\r\n                \" | Remaining clients: \" + sessions.size());\r\n    }\r\n\r\n    @OnMessage\r\n    public void onMessage(String message, Session session) {\r\n        logger.info(\"📨 Received message from client \" + session.getId() + \": \" + message);\r\n        // Handle client messages if needed (e.g., subscribe to specific field)\r\n    }\r\n\r\n    @OnError\r\n    public void onError(Session session, Throwable throwable) {\r\n        logger.severe(\"❌ WebSocket error for session \" + session.getId() +\r\n                \": \" + throwable.getMessage());\r\n        sessions.remove(session);\r\n    }\r\n\r\n    /**\r\n     * Broadcast message to all connected WebSocket clients\r\n     */\r\n    public static void broadcast(String message) {\r\n        synchronized (sessions) {\r\n            int successCount = 0;\r\n            int failCount = 0;\r\n\r\n            for (Session session : sessions) {\r\n                if (session.isOpen()) {\r\n                    try {\r\n                        session.getBasicRemote().sendText(message);\r\n                        successCount++;\r\n                    } catch (IOException e) {\r\n                        logger.warning(\"Failed to send to session \" + session.getId() +\r\n                                \": \" + e.getMessage());\r\n                        failCount++;\r\n                    }\r\n                } else {\r\n                    failCount++;\r\n                }\r\n            }\r\n\r\n            if (successCount > 0) {\r\n                logger.info(\"📡 Broadcast to \" + successCount + \" clients\" +\r\n                        (failCount > 0 ? \" (\" + failCount + \" failed)\" : \"\"));\r\n            }\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Get number of connected clients\r\n     */\r\n    public static int getConnectedClientsCount() {\r\n        return sessions.size();\r\n    }\r\n}",
+      "info": {
+        "size": 3274,
+        "last_modified": "2026-01-07T16:13:48.1546333",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "resources\\META-INF\\microprofile-config.properties",
+      "content": "# JNoSQL MongoDB Configuration\r\njnosql.document=document\r\njnosql.document.database=soilmonitoring_db\r\njnosql.mongodb.url=${JNOSQL_MONGODB_URL}\r\ndocument.provider=org.eclipse.jnosql.databases.mongodb.communication.MongoDBDocumentConfiguration\r\n\r\n# JNoSQL Logging\r\nlogger.org.jnosql=DEBUG\r\n\r\n# MQTT Configuration (HiveMQ Cloud)\r\nmqtt.broker.url=0b1fe1fedc0c453db6ea029b69b32f1c.s1.eu.hivemq.cloud\r\nmqtt.broker.port=8883\r\nmqtt.username=${MQTT_USERNAME}\r\nmqtt.password=${MQTT_PASSWORD}\r\nmqtt.client.id=soil-monitoring-api\r\nmqtt.use.tls=true\r\n\r\n# Application Configuration\r\napp.name=Soil Monitoring API\r\napp.version=1.0\r\n\r\n# IAM Service Configuration\r\niam.service.url=http://iam.soilmonitoring.me:8080/iam\r\niam.jwk.url=http://iam.soilmonitoring.me:8080/iam/jwk\r\niam.issuer=urn:cot-app-sec:iam",
+      "info": {
+        "size": 787,
+        "last_modified": "2026-01-07T16:13:48.164215",
+        "mime_type": "text/x-java-properties",
+        "extension": ".properties"
+      }
+    },
+    {
+      "path": "webapp\\WEB-INF\\beans.xml",
+      "content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<beans xmlns=\"https://jakarta.ee/xml/ns/jakartaee\"\r\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n       xsi:schemaLocation=\"https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_4_0.xsd\"\r\n       bean-discovery-mode=\"all\">\r\n\r\n</beans>",
+      "info": {
+        "size": 314,
+        "last_modified": "2026-01-07T16:13:48.1712351",
+        "mime_type": "application/xml",
+        "extension": ".xml"
+      }
+    },
+    {
+      "path": "webapp\\WEB-INF\\jboss-web.xml",
+      "content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<jboss-web xmlns=\"http://www.jboss.com/xml/ns/javaee\" version=\"10.0\">\r\n    <context-root>/</context-root>\r\n    <virtual-host>api-host</virtual-host>\r\n    <enable-websockets>true</enable-websockets>\r\n</jboss-web>",
+      "info": {
+        "size": 251,
+        "last_modified": "2026-01-07T16:13:48.2009557",
+        "mime_type": "application/xml",
+        "extension": ".xml"
+      }
+    }
+  ]
+}
