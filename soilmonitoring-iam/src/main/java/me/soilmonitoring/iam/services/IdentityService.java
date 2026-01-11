@@ -80,11 +80,11 @@ public class IdentityService {
     }
 
     private String generateActivationCode() {
-        String characters = "0123456789";
-        StringBuilder codeBuilder = new StringBuilder();
-        SecureRandom secureRandom = new SecureRandom();
-        for (int i = 0; i < 6; i++) {
-            int randomIndex = secureRandom.nextInt(characters.length());
+        var characters = "0123456789";
+        var codeBuilder = new StringBuilder();
+        var secureRandom = new SecureRandom();
+        for (var i = 0; i < 6; i++) {
+            var randomIndex = secureRandom.nextInt(characters.length());
             codeBuilder.append(characters.charAt(randomIndex));
         }
         return codeBuilder.toString();

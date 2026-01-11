@@ -12,7 +12,7 @@ public class CORSFilter implements ContainerResponseFilter {
     public void filter(ContainerRequestContext request,
                        ContainerResponseContext response) {
 
-        response.getHeaders().add("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
+        response.getHeaders().add("Access-Control-Allow-Origin", "https://www.soilmonitoring.me");
         response.getHeaders().add("Access-Control-Allow-Credentials", "true");
         response.getHeaders().add("Access-Control-Allow-Headers", "origin, content-type, accept, authorization");
         response.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");

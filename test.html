@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Test - Soil Monitoring</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 900px; 
+            margin: 30px auto; 
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #2c3e50; margin-top: 0; }
+        .url-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .message { 
+            padding: 12px; 
+            margin: 8px 0; 
+            border-radius: 5px; 
+            border-left: 4px solid #4CAF50;
+            background: #f1f1f1;
+            font-size: 13px;
+        }
+        .sensor-data { 
+            border-left-color: #2196F3; 
+            background: #e3f2fd;
+        }
+        .alert { 
+            border-left-color: #FF9800; 
+            background: #fff3cd; 
+        }
+        .error { 
+            border-left-color: #f44336; 
+            background: #ffebee; 
+        }
+        .connection { 
+            border-left-color: #4CAF50; 
+            background: #e8f5e9; 
+        }
+        #status { 
+            padding: 15px; 
+            margin: 20px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 16px;
+        }
+        .connected { 
+            background: #d4edda; 
+            color: #155724; 
+            border: 2px solid #c3e6cb;
+        }
+        .disconnected { 
+            background: #f8d7da; 
+            color: #721c24; 
+            border: 2px solid #f5c6cb;
+        }
+        .connecting {
+            background: #fff3cd;
+            color: #856404;
+            border: 2px solid #ffeaa7;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 14px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background 0.3s;
+        }
+        button:hover { background: #45a049; }
+        button:disabled { 
+            background: #ccc; 
+            cursor: not-allowed;
+        }
+        .button-disconnect {
+            background: #f44336;
+        }
+        .button-disconnect:hover {
+            background: #da190b;
+        }
+        .button-clear {
+            background: #757575;
+        }
+        .button-clear:hover {
+            background: #616161;
+        }
+        pre { 
+            background: #272822; 
+            color: #f8f8f2; 
+            padding: 10px; 
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 12px;
+            margin: 8px 0 0 0;
+        }
+        .stats {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-box {
+            flex: 1;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        label {
+            font-weight: bold;
+            color: #495057;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌱 Soil Monitoring WebSocket Test</h1>
+        
+        <div class="controls">
+            <label>WebSocket URL:</label>
+            <input type="text" id="wsUrl" class="url-input" 
+                   value="ws://localhost:8080/ws/sensor-data" 
+                   placeholder="Enter WebSocket URL">
+            <small style="color: #6c757d;">Try different URLs if connection fails:
+                <br>• ws://localhost:8080/ws/sensor-data
+                <br>• ws://localhost:8080/soilmonitoring-api/ws/sensor-data
+                <br>• ws://localhost:8080/api/ws/sensor-data
+            </small>
+        </div>
+        
+        <div id="status" class="disconnected">❌ Disconnected</div>
+        
+        <div style="margin: 20px 0;">
+            <button id="connectBtn" onclick="connect()">Connect</button>
+            <button id="disconnectBtn" class="button-disconnect" onclick="disconnect()" disabled>Disconnect</button>
+            <button class="button-clear" onclick="clearMessages()">Clear Messages</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number" id="sensorCount">0</div>
+                <div class="stat-label">Sensor Updates</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="alertCount">0</div>
+                <div class="stat-label">Alerts Received</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="totalMessages">0</div>
+                <div class="stat-label">Total Messages</div>
+            </div>
+        </div>
+
+        <h2>Messages Received:</h2>
+        <div id="messages"></div>
+    </div>
+
+    <script>
+        let ws = null;
+        let messageCount = 0;
+        let sensorCount = 0;
+        let alertCount = 0;
+
+        function updateStatus(status, message, className) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.className = className;
+            statusDiv.textContent = message;
+        }
+
+        function updateButtons(connected) {
+            document.getElementById('connectBtn').disabled = connected;
+            document.getElementById('disconnectBtn').disabled = !connected;
+        }
+
+        function connect() {
+            const wsUrl = document.getElementById('wsUrl').value.trim();
+            
+            if (!wsUrl) {
+                alert('Please enter a WebSocket URL');
+                return;
+            }
+
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                alert('Already connected!');
+                return;
+            }
+            
+            console.log('🔌 Attempting to connect to:', wsUrl);
+            updateStatus('connecting', '🔄 Connecting...', 'connecting');
+            
+            try {
+                ws = new WebSocket(wsUrl);
+
+                ws.onopen = (event) => {
+                    console.log('✅ Connected to WebSocket');
+                    updateStatus('connected', '✅ Connected to WebSocket', 'connected');
+                    updateButtons(true);
+                    addMessage('CONNECTION', { 
+                        message: 'Connected successfully!',
+                        url: wsUrl 
+                    }, 'connection');
+                };
+
+                ws.onmessage = (event) => {
+                    console.log('📨 Received:', event.data);
+                    messageCount++;
+                    document.getElementById('totalMessages').textContent = messageCount;
+                    
+                    try {
+                        const data = JSON.parse(event.data);
+                        
+                        if (data.type === 'SENSOR_DATA') {
+                            sensorCount++;
+                            document.getElementById('sensorCount').textContent = sensorCount;
+                            addMessage('SENSOR DATA #' + sensorCount, data.payload, 'sensor-data');
+                        } else if (data.type === 'ALERT') {
+                            alertCount++;
+                            document.getElementById('alertCount').textContent = alertCount;
+                            addMessage('🚨 ALERT #' + alertCount, data.payload, 'alert');
+                        } else {
+                            addMessage(data.type || 'UNKNOWN', data.payload || data, 'message');
+                        }
+                    } catch (e) {
+                        addMessage('RAW MESSAGE', event.data, 'message');
+                    }
+                };
+
+                ws.onerror = (error) => {
+                    console.error('❌ WebSocket error:', error);
+                    updateStatus('error', '❌ Connection Error', 'disconnected');
+                    addMessage('ERROR', { 
+                        message: 'WebSocket error occurred. Check console for details.',
+                        possibleReasons: [
+                            'Wrong WebSocket URL',
+                            'Server not running on specified port',
+                            'WebSocket not enabled in WildFly',
+                            'CORS or security issues'
+                        ]
+                    }, 'error');
+                };
+
+                ws.onclose = (event) => {
+                    console.log('❌ Disconnected from WebSocket', event);
+                    updateStatus('disconnected', '❌ Disconnected', 'disconnected');
+                    updateButtons(false);
+                    
+                    const reason = event.reason || 'No reason provided';
+                    const wasClean = event.wasClean ? 'Clean close' : 'Abnormal close';
+                    
+                    addMessage('DISCONNECTION', { 
+                        message: 'Disconnected from server',
+                        code: event.code,
+                        reason: reason,
+                        type: wasClean
+                    }, 'error');
+                };
+                
+            } catch (error) {
+                console.error('Failed to create WebSocket:', error);
+                updateStatus('error', '❌ Failed to Connect', 'disconnected');
+                addMessage('ERROR', { 
+                    message: 'Failed to create WebSocket connection: ' + error.message 
+                }, 'error');
+            }
+        }
+
+        function disconnect() {
+            if (ws) {
+                console.log('Disconnecting...');
+                ws.close();
+                ws = null;
+            }
+        }
+
+        function addMessage(type, data, className) {
+            const messagesDiv = document.getElementById('messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message ' + className;
+            
+            const timestamp = new Date().toLocaleTimeString();
+            
+            messageDiv.innerHTML = `
+                <strong>[${timestamp}] ${type}</strong>
+                <pre>${JSON.stringify(data, null, 2)}</pre>
+            `;
+            
+            messagesDiv.insertBefore(messageDiv, messagesDiv.firstChild);
+            
+            // Keep only last 50 messages
+            while (messagesDiv.children.length > 50) {
+                messagesDiv.removeChild(messagesDiv.lastChild);
+            }
+        }
+
+        function clearMessages() {
+            document.getElementById('messages').innerHTML = '';
+            messageCount = 0;
+            sensorCount = 0;
+            alertCount = 0;
+            document.getElementById('totalMessages').textContent = '0';
+            document.getElementById('sensorCount').textContent = '0';
+            document.getElementById('alertCount').textContent = '0';
+        }
+
+        // Try to connect on page load (optional)
+        // window.onload = () => {
+        //     connect();
+        // };
+    </script>
+</body>
+</html>

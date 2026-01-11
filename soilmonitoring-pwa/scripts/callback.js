@@ -6,7 +6,7 @@ const error = urlParams.get('error');
 const errorDescription = urlParams.get('error_description');
 
 // IAM Configuration
-const IAM_TOKEN_URL = 'http://iam.soilmonitoring.me:8080/iam/oauth/token';
+const IAM_TOKEN_URL = 'https://iam.soilmonitoring.me/iam/oauth/token';
 
 // Check for errors from IAM
 if (error) {

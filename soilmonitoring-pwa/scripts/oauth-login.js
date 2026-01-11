@@ -1,7 +1,7 @@
 // OAuth2 Configuration
 const OAUTH_CONFIG = {
     clientId: 'soil-monitoring-pwa',
-    authorizationEndpoint: 'http://iam.soilmonitoring.me:8080/iam/authorize',
+    authorizationEndpoint: 'https://iam.soilmonitoring.me/iam/authorize',
     redirectUri: 'http://127.0.0.1:5500/pages/callback.html',
     scope: 'openid profile email fields',
     responseType: 'code'

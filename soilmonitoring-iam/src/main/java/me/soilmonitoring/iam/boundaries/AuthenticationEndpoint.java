@@ -209,7 +209,7 @@ public class AuthenticationEndpoint {
     private Response redirectToLogin(String clientId, String redirectUri, String scope,
                                      String codeChallenge, String state, String error) {
         try {
-            URI location = new URI("http://iam.soilmonitoring.me:8080/iam/authorize" +
+            URI location = new URI("https://iam.soilmonitoring.me/iam/authorize" +
                     "?error=" + error +
                     "&client_id=" + clientId +
                     "&redirect_uri=" + java.net.URLEncoder.encode(redirectUri, "UTF-8") +

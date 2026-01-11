@@ -1,7 +1,7 @@
 // ===================== API Configuration =====================
 const API_CONFIG = {
-    BASE_URL: 'http://api.soilmonitoring.me:8080/api',
-    WS_URL: 'ws://api.soilmonitoring.me:8080/ws/sensor-data',
+    BASE_URL: 'https://api.soilmonitoring.me/api',
+    WS_URL: 'wss://api.soilmonitoring.me/ws/sensor-data',
     ENDPOINTS: {
         // Health Check
         TEST: '/test',

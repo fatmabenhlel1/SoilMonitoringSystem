@@ -1,0 +1,693 @@
+{
+  "project_info": {
+    "name": "main",
+    "path": "D:\\SoilMonitoringSystem\\soilmonitoring-iam\\src\\main",
+    "generated_at": "2026-01-07T16:14:19.5138752",
+    "total_files": 34,
+    "total_size": 93444
+  },
+  "structure": {
+    "java": {
+      "me": {
+        "soilmonitoring": {
+          "iam": {
+            "boundaries": {
+              "AuthenticationEndpoint.java": {
+                "type": "file",
+                "info": {
+                  "size": 10522,
+                  "last_modified": "2026-01-07T16:14:19.3815803",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "DebugEndpoint.java": {
+                "type": "file",
+                "info": {
+                  "size": 2257,
+                  "last_modified": "2026-01-07T16:14:19.3875904",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "JWKEndpoint.java": {
+                "type": "file",
+                "info": {
+                  "size": 831,
+                  "last_modified": "2026-01-07T16:14:19.3924132",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "TenantManagementEndpoint.java": {
+                "type": "file",
+                "info": {
+                  "size": 2936,
+                  "last_modified": "2026-01-07T16:14:19.3964199",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "Test.java": {
+                "type": "file",
+                "info": {
+                  "size": 708,
+                  "last_modified": "2026-01-07T16:14:19.3994188",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "TokenEndpoint.java": {
+                "type": "file",
+                "info": {
+                  "size": 6129,
+                  "last_modified": "2026-01-07T16:14:19.4029395",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "UserManagementEndpoint.java": {
+                "type": "file",
+                "info": {
+                  "size": 2575,
+                  "last_modified": "2026-01-07T16:14:19.406946",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "config": {
+              "CORSFilter.java": {
+                "type": "file",
+                "info": {
+                  "size": 867,
+                  "last_modified": "2026-01-07T16:14:19.4109454",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "controllers": {
+              "managers": {
+                "PhoenixIAMManager.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 3215,
+                    "last_modified": "2026-01-07T16:14:19.4154669",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                }
+              },
+              "repositories": {
+                "GrantRepository.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 422,
+                    "last_modified": "2026-01-07T16:14:19.4194668",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                },
+                "IdentityRepository.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 546,
+                    "last_modified": "2026-01-07T16:14:19.4229892",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                },
+                "TenantRepository.java": {
+                  "type": "file",
+                  "info": {
+                    "size": 453,
+                    "last_modified": "2026-01-07T16:14:19.4249949",
+                    "mime_type": "text/x-java-source",
+                    "extension": ".java"
+                  }
+                }
+              },
+              "Role.java": {
+                "type": "file",
+                "info": {
+                  "size": 2937,
+                  "last_modified": "2026-01-07T16:14:19.4289942",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "entities": {
+              "Grant.java": {
+                "type": "file",
+                "info": {
+                  "size": 2234,
+                  "last_modified": "2026-01-07T16:14:19.4325068",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "GrantPK.java": {
+                "type": "file",
+                "info": {
+                  "size": 1203,
+                  "last_modified": "2026-01-07T16:14:19.4355117",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "Identity.java": {
+                "type": "file",
+                "info": {
+                  "size": 3344,
+                  "last_modified": "2026-01-07T16:14:19.4385121",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "RootEntity.java": {
+                "type": "file",
+                "info": {
+                  "size": 246,
+                  "last_modified": "2026-01-07T16:14:19.4430437",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "Tenant.java": {
+                "type": "file",
+                "info": {
+                  "size": 2004,
+                  "last_modified": "2026-01-07T16:14:19.4460475",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "enums": {
+              "Role.java": {
+                "type": "file",
+                "info": {
+                  "size": 3163,
+                  "last_modified": "2026-01-07T16:14:19.4515602",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "IamApplication.java": {
+              "type": "file",
+              "info": {
+                "size": 1509,
+                "last_modified": "2026-01-07T16:14:19.4545718",
+                "mime_type": "text/x-java-source",
+                "extension": ".java"
+              }
+            },
+            "security": {
+              "Argon2Utility.java": {
+                "type": "file",
+                "info": {
+                  "size": 2587,
+                  "last_modified": "2026-01-07T16:14:19.4575718",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "AuthenticationFilter.java": {
+                "type": "file",
+                "info": {
+                  "size": 3800,
+                  "last_modified": "2026-01-07T16:14:19.4610782",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "AuthorizationCode.java": {
+                "type": "file",
+                "info": {
+                  "size": 6109,
+                  "last_modified": "2026-01-07T16:14:19.4640831",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "AuthorizationFilter.java": {
+                "type": "file",
+                "info": {
+                  "size": 3311,
+                  "last_modified": "2026-01-07T16:14:19.4685919",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "IdentityUtility.java": {
+                "type": "file",
+                "info": {
+                  "size": 925,
+                  "last_modified": "2026-01-07T16:14:19.4710981",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "JwtManager.java": {
+                "type": "file",
+                "info": {
+                  "size": 7268,
+                  "last_modified": "2026-01-07T16:14:19.4741096",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "Secured.java": {
+                "type": "file",
+                "info": {
+                  "size": 424,
+                  "last_modified": "2026-01-07T16:14:19.4771084",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            },
+            "services": {
+              "AuthorizationService.java": {
+                "type": "file",
+                "info": {
+                  "size": 4641,
+                  "last_modified": "2026-01-07T16:14:19.4811239",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "EmailService.java": {
+                "type": "file",
+                "info": {
+                  "size": 3286,
+                  "last_modified": "2026-01-07T16:14:19.4839117",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              },
+              "HtmlTemplateService.java": {
+                "type": "file",
+                "info": {
+                  "size": 8022,
+                  "last_modified": "2026-01-07T16:14:19.4868743",
+                  "mime_type": "text/html",
+                  "extension": ".java"
+                }
+              },
+              "IdentityService.java": {
+                "type": "file",
+                "info": {
+                  "size": 3749,
+                  "last_modified": "2026-01-07T16:14:19.4932779",
+                  "mime_type": "text/x-java-source",
+                  "extension": ".java"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "resources": {
+      "META-INF": {
+        "microprofile-config.properties": {
+          "type": "file",
+          "info": {
+            "size": 530,
+            "last_modified": "2026-01-07T16:14:19.5013202",
+            "mime_type": "text/x-java-properties",
+            "extension": ".properties"
+          }
+        }
+      }
+    },
+    "webapp": {
+      "WEB-INF": {
+        "beans.xml": {
+          "type": "file",
+          "info": {
+            "size": 433,
+            "last_modified": "2026-01-07T16:14:19.5054432",
+            "mime_type": "application/xml",
+            "extension": ".xml"
+          }
+        },
+        "jboss-web.xml": {
+          "type": "file",
+          "info": {
+            "size": 258,
+            "last_modified": "2026-01-07T16:14:19.5084433",
+            "mime_type": "application/xml",
+            "extension": ".xml"
+          }
+        }
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\boundaries\\AuthenticationEndpoint.java",
+      "content": "package me.soilmonitoring.iam.boundaries;\r\n\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.ws.rs.*;\r\nimport jakarta.ws.rs.core.*;\r\nimport me.soilmonitoring.iam.controllers.managers.PhoenixIAMManager;\r\nimport me.soilmonitoring.iam.entities.Grant;\r\nimport me.soilmonitoring.iam.entities.Identity;\r\nimport me.soilmonitoring.iam.security.Argon2Utility;\r\nimport me.soilmonitoring.iam.services.AuthorizationService;\r\nimport me.soilmonitoring.iam.services.HtmlTemplateService;\r\n\r\nimport java.net.URI;\r\nimport java.util.Optional;\r\nimport java.util.UUID;\r\nimport java.util.logging.Logger;\r\n\r\n@Path(\"/\")\r\n@RequestScoped\r\npublic class AuthenticationEndpoint {\r\n\r\n    public static final String CHALLENGE_RESPONSE_COOKIE_ID = \"signInId\";\r\n\r\n    @Inject private Logger logger;\r\n    @Inject private PhoenixIAMManager phoenixIAMManager;\r\n    @Inject private Argon2Utility argon2Utility;\r\n    @Inject private AuthorizationService authService;\r\n    @Inject private HtmlTemplateService htmlService;\r\n\r\n    /**\r\n     * OAuth2 Authorization Endpoint - Shows login page\r\n     */\r\n    @GET\r\n    @Produces(MediaType.TEXT_HTML)\r\n    @Path(\"/authorize\")\r\n    public Response authorize(@Context UriInfo uriInfo) {\r\n        var params = uriInfo.getQueryParameters();\r\n\r\n        String clientId = params.getFirst(\"client_id\");\r\n        String redirectUri = params.getFirst(\"redirect_uri\");\r\n        String responseType = params.getFirst(\"response_type\");\r\n        String scope = params.getFirst(\"scope\");\r\n        String state = params.getFirst(\"state\");\r\n        String codeChallenge = params.getFirst(\"code_challenge\");\r\n        String codeChallengeMethod = params.getFirst(\"code_challenge_method\");\r\n        String error = params.getFirst(\"error\");\r\n\r\n        try {\r\n            // Validate OAuth2 parameters\r\n            authService.validateAuthorizationRequest(clientId, redirectUri, responseType,\r\n                    codeChallenge, codeChallengeMethod);\r\n\r\n            // Create session cookie\r\n            String cookieValue = String.format(\"%s#%s$%s$%s$%s\",\r\n                    clientId,\r\n                    scope != null ? scope : \"openid profile email\",\r\n                    redirectUri,\r\n                    codeChallenge,\r\n                    state != null ? state : \"\"\r\n            );\r\n\r\n            NewCookie sessionCookie = new NewCookie.Builder(CHALLENGE_RESPONSE_COOKIE_ID)\r\n                    .value(cookieValue)\r\n                    .path(\"/\")\r\n                    .maxAge(600)\r\n                    .httpOnly(true)\r\n                    .secure(false)\r\n                    .build();\r\n\r\n            // Show login page\r\n            String loginHtml = htmlService.buildLoginPage(clientId, scope, error);\r\n            return Response.ok(loginHtml).cookie(sessionCookie).build();\r\n\r\n        } catch (IllegalArgumentException e) {\r\n            logger.warning(\"Authorization validation failed: \" + e.getMessage());\r\n            return Response.status(Response.Status.BAD_REQUEST)\r\n                    .entity(htmlService.buildErrorPage(\"Invalid Request\", e.getMessage()))\r\n                    .build();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Login Form Handler\r\n     */\r\n    @POST\r\n    @Path(\"/login/authorization\")\r\n    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)\r\n    public Response login(@CookieParam(CHALLENGE_RESPONSE_COOKIE_ID) Cookie cookie,\r\n                          @FormParam(\"username\") String username,\r\n                          @FormParam(\"password\") String password) {\r\n\r\n        if (cookie == null || cookie.getValue() == null) {\r\n            return Response.status(Response.Status.BAD_REQUEST)\r\n                    .entity(htmlService.buildErrorPage(\"Session Expired\", \"Please try again\"))\r\n                    .build();\r\n        }\r\n\r\n        // Parse session cookie\r\n        String[] parts = cookie.getValue().split(\"\\\\$\");\r\n        String clientIdAndScope = parts[0];\r\n        String redirectUri = parts[1];\r\n        String codeChallenge = parts[2];\r\n        String state = parts.length > 3 ? parts[3] : \"\";\r\n\r\n        String[] clientParts = clientIdAndScope.split(\"#\");\r\n        String clientId = clientParts[0];\r\n        String scope = clientParts.length > 1 ? clientParts[1] : \"openid profile email\";\r\n\r\n        try {\r\n            // Authenticate user\r\n            Identity identity = phoenixIAMManager.findIdentityByUsername(username);\r\n\r\n            if (!identity.isAccountActivated()) {\r\n                return redirectToLogin(clientId, redirectUri, scope, codeChallenge, state, \"account_not_activated\");\r\n            }\r\n\r\n            if (!argon2Utility.check(identity.getPassword(), password.toCharArray())) {\r\n                logger.info(\"Failed login attempt for: \" + username);\r\n                return redirectToLogin(clientId, redirectUri, scope, codeChallenge, state, \"invalid_credentials\");\r\n            }\r\n\r\n            logger.info(\"✅ Authenticated: \" + username);\r\n\r\n            // Check for existing grant\r\n            Optional<Grant> existingGrant = phoenixIAMManager.findGrant(clientId, identity.getId());\r\n\r\n            if (existingGrant.isPresent()) {\r\n                // Skip consent - generate code directly\r\n                String approvedScopes = authService.filterScopes(\r\n                        existingGrant.get().getApprovedScopes(), scope);\r\n                return redirectWithCode(username, clientId, approvedScopes, codeChallenge, redirectUri, state);\r\n            } else {\r\n                // Show consent screen\r\n                String consentHtml = htmlService.buildConsentPage(clientId, scope, username);\r\n                return Response.ok(consentHtml).build();\r\n            }\r\n\r\n        } catch (IllegalArgumentException e) {\r\n            return redirectToLogin(clientId, redirectUri, scope, codeChallenge, state, \"invalid_credentials\");\r\n        } catch (Exception e) {\r\n            logger.severe(\"Login error: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(htmlService.buildErrorPage(\"Server Error\", e.getMessage()))\r\n                    .build();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Consent Form Handler\r\n     */\r\n    @POST\r\n    @Path(\"/consent\")\r\n    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)\r\n    public Response handleConsent(@CookieParam(CHALLENGE_RESPONSE_COOKIE_ID) Cookie cookie,\r\n                                  @FormParam(\"approved_scope\") String scope,\r\n                                  @FormParam(\"approval_status\") String approvalStatus,\r\n                                  @FormParam(\"username\") String username) {\r\n\r\n        if (cookie == null || cookie.getValue() == null) {\r\n            return Response.status(Response.Status.BAD_REQUEST)\r\n                    .entity(htmlService.buildErrorPage(\"Session Expired\", \"Please try again\"))\r\n                    .build();\r\n        }\r\n\r\n        String[] parts = cookie.getValue().split(\"\\\\$\");\r\n        String clientId = parts[0].split(\"#\")[0];\r\n        String redirectUri = parts[1];\r\n        String codeChallenge = parts[2];\r\n        String state = parts.length > 3 ? parts[3] : \"\";\r\n\r\n        if (\"NO\".equals(approvalStatus)) {\r\n            return redirectWithError(redirectUri, state, \"access_denied\", \"User denied request\");\r\n        }\r\n\r\n        try {\r\n            // Save grant\r\n            authService.saveGrant(clientId, username, scope);\r\n\r\n            // Generate code and redirect\r\n            return redirectWithCode(username, clientId, scope, codeChallenge, redirectUri, state);\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"Consent error: \" + e.getMessage());\r\n            return redirectWithError(redirectUri, state, \"server_error\", \"Failed to process consent\");\r\n        }\r\n    }\r\n\r\n    // Helper methods\r\n\r\n    private Response redirectWithCode(String username, String clientId, String scope,\r\n                                      String codeChallenge, String redirectUri, String state) {\r\n        try {\r\n            String authCode = authService.generateAuthorizationCode(\r\n                    clientId, username, scope, codeChallenge, redirectUri);\r\n\r\n            URI location = UriBuilder.fromUri(redirectUri)\r\n                    .queryParam(\"code\", authCode)\r\n                    .queryParam(\"state\", state)\r\n                    .build();\r\n\r\n            return Response.seeOther(location).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Failed to generate code: \" + e.getMessage());\r\n            return redirectWithError(redirectUri, state, \"server_error\", \"Failed to generate code\");\r\n        }\r\n    }\r\n\r\n    private Response redirectToLogin(String clientId, String redirectUri, String scope,\r\n                                     String codeChallenge, String state, String error) {\r\n        try {\r\n            URI location = new URI(\"http://iam.soilmonitoring.me:8080/iam/authorize\" +\r\n                    \"?error=\" + error +\r\n                    \"&client_id=\" + clientId +\r\n                    \"&redirect_uri=\" + java.net.URLEncoder.encode(redirectUri, \"UTF-8\") +\r\n                    \"&response_type=code\" +\r\n                    \"&scope=\" + java.net.URLEncoder.encode(scope, \"UTF-8\") +\r\n                    \"&code_challenge=\" + codeChallenge +\r\n                    \"&code_challenge_method=S256\" +\r\n                    \"&state=\" + state);\r\n            return Response.seeOther(location).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Failed to build redirect URL: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(htmlService.buildErrorPage(\"Server Error\", \"Failed to redirect\"))\r\n                    .build();\r\n        }\r\n    }\r\n\r\n    private Response redirectWithError(String redirectUri, String state, String error, String description) {\r\n        try {\r\n            URI location = new URI(redirectUri +\r\n                    \"?error=\" + java.net.URLEncoder.encode(error, \"UTF-8\") +\r\n                    \"&error_description=\" + java.net.URLEncoder.encode(description, \"UTF-8\") +\r\n                    \"&state=\" + state);\r\n            return Response.seeOther(location).build();\r\n        } catch (Exception e) {\r\n            logger.severe(\"Failed to build error redirect: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(htmlService.buildErrorPage(\"Server Error\", e.getMessage()))\r\n                    .build();\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 10522,
+        "last_modified": "2026-01-07T16:14:19.3815803",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\boundaries\\DebugEndpoint.java",
+      "content": "package me.soilmonitoring.iam.boundaries;\r\n\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.ws.rs.*;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\nimport me.soilmonitoring.iam.security.AuthorizationCode;\r\n\r\nimport java.util.logging.Logger;\r\n\r\n/**\r\n * Debug endpoint to help diagnose PKCE issues\r\n * REMOVE THIS IN PRODUCTION!\r\n */\r\n@Path(\"/debug\")\r\n@RequestScoped\r\npublic class DebugEndpoint {\r\n\r\n    private static final Logger logger = Logger.getLogger(DebugEndpoint.class.getName());\r\n\r\n    @POST\r\n    @Path(\"/decode-code\")\r\n    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public Response debugDecodeCode(@FormParam(\"code\") String authCode,\r\n                                    @FormParam(\"code_verifier\") String codeVerifier) {\r\n        try {\r\n            logger.info(\"=== DEBUG: Attempting to decode authorization code ===\");\r\n            logger.info(\"Code (first 50 chars): \" + authCode.substring(0, Math.min(50, authCode.length())));\r\n            logger.info(\"Code verifier (first 20 chars): \" + codeVerifier.substring(0, Math.min(20, codeVerifier.length())));\r\n\r\n            AuthorizationCode decoded = AuthorizationCode.decode(authCode, codeVerifier);\r\n\r\n            String result = String.format(\r\n                    \"{\\\"success\\\":true,\\\"tenant\\\":\\\"%s\\\",\\\"user\\\":\\\"%s\\\",\\\"scopes\\\":\\\"%s\\\",\\\"redirectUri\\\":\\\"%s\\\"}\",\r\n                    decoded.tenantName(),\r\n                    decoded.identityUsername(),\r\n                    decoded.approvedScopes(),\r\n                    decoded.redirectUri()\r\n            );\r\n\r\n            logger.info(\"✅ Successfully decoded!\");\r\n            return Response.ok(result).build();\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"❌ Decode failed: \" + e.getClass().getName() + \" - \" + e.getMessage());\r\n            e.printStackTrace();\r\n\r\n            String error = String.format(\r\n                    \"{\\\"success\\\":false,\\\"error\\\":\\\"%s\\\",\\\"message\\\":\\\"%s\\\"}\",\r\n                    e.getClass().getSimpleName(),\r\n                    e.getMessage().replace(\"\\\"\", \"'\")\r\n            );\r\n\r\n            return Response.status(Response.Status.BAD_REQUEST).entity(error).build();\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 2257,
+        "last_modified": "2026-01-07T16:14:19.3875904",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\boundaries\\JWKEndpoint.java",
+      "content": "package me.soilmonitoring.iam.boundaries;\r\n\r\nimport jakarta.ejb.EJB;\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\nimport jakarta.ws.rs.GET;\r\nimport jakarta.ws.rs.Path;\r\nimport jakarta.ws.rs.QueryParam;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\nimport me.soilmonitoring.iam.security.JwtManager;\r\n\r\n@Path(\"jwk\")\r\n@ApplicationScoped\r\npublic class JWKEndpoint {\r\n    @EJB\r\n    private JwtManager jwtManager;\r\n\r\n    @GET\r\n    public Response getPublicVerificationKey(@QueryParam (\"kid\") String kid) throws Exception {\r\n        try {\r\n            return Response.ok(jwtManager.getPublicKeyAsJWK(kid)).type(MediaType.APPLICATION_JSON).build();\r\n        }catch (Throwable t){\r\n            return Response.status(Response.Status.BAD_REQUEST).entity(t.getMessage()).build();\r\n        }\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 831,
+        "last_modified": "2026-01-07T16:14:19.3924132",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\boundaries\\TenantManagementEndpoint.java",
+      "content": "package me.soilmonitoring.iam.boundaries;\r\n\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.ws.rs.*;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\nimport me.soilmonitoring.iam.controllers.managers.PhoenixIAMManager;\r\nimport me.soilmonitoring.iam.entities.Tenant;\r\n\r\nimport java.util.Map;\r\nimport java.util.UUID;\r\nimport java.util.logging.Logger;\r\n\r\n@Path(\"/tenants\")\r\n@RequestScoped\r\n@Produces(MediaType.APPLICATION_JSON)\r\n@Consumes(MediaType.APPLICATION_JSON)\r\npublic class TenantManagementEndpoint {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    @Inject\r\n    private PhoenixIAMManager manager;\r\n\r\n    /**\r\n     * Register a new OAuth2 client (tenant)\r\n     */\r\n    @POST\r\n    @Path(\"/register\")\r\n    public Response registerTenant(Map<String, String> request) {\r\n        try {\r\n            String name = request.get(\"name\");\r\n            String redirectUri = request.get(\"redirectUri\");\r\n            String scopes = request.get(\"scopes\");\r\n\r\n            if (name == null || redirectUri == null) {\r\n                return Response.status(Response.Status.BAD_REQUEST)\r\n                        .entity(\"{\\\"error\\\":\\\"Missing required fields: name, redirectUri\\\"}\")\r\n                        .build();\r\n            }\r\n\r\n            // Create tenant\r\n            Tenant tenant = new Tenant();\r\n            tenant.setId(UUID.randomUUID().toString());\r\n            tenant.setName(name);\r\n            tenant.setSecret(\"not-used-with-pkce\");\r\n            tenant.setRedirectUri(redirectUri);\r\n            tenant.setAllowedRoles(Long.MAX_VALUE); // All roles\r\n            tenant.setRequiredScopes(scopes != null ? scopes : \"openid profile email\");\r\n            tenant.setSupportedGrantTypes(\"authorization_code refresh_token\");\r\n            tenant.setVersion(0L);\r\n\r\n            manager.saveTenant(tenant);\r\n\r\n            logger.info(\"✅ Tenant registered: \" + name);\r\n\r\n            return Response.status(Response.Status.CREATED)\r\n                    .entity(\"{\\\"message\\\":\\\"Tenant registered\\\",\\\"client_id\\\":\\\"\" + name + \"\\\"}\")\r\n                    .build();\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"Tenant registration error: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"{\\\"error\\\":\\\"\" + e.getMessage() + \"\\\"}\")\r\n                    .build();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Get tenant by name\r\n     */\r\n    @GET\r\n    @Path(\"/{name}\")\r\n    public Response getTenant(@PathParam(\"name\") String name) {\r\n        try {\r\n            Tenant tenant = manager.findTenantByName(name);\r\n            return Response.ok(tenant).build();\r\n        } catch (IllegalArgumentException e) {\r\n            return Response.status(Response.Status.NOT_FOUND)\r\n                    .entity(\"{\\\"error\\\":\\\"Tenant not found\\\"}\")\r\n                    .build();\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 2936,
+        "last_modified": "2026-01-07T16:14:19.3964199",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\boundaries\\Test.java",
+      "content": "package me.soilmonitoring.iam.boundaries;\r\n\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.ws.rs.GET;\r\nimport jakarta.ws.rs.Path;\r\nimport jakarta.ws.rs.Produces;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\n\r\n\r\n@Path(\"/test\")\r\n@RequestScoped\r\npublic class Test {\r\n\r\n    @GET\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public Response test() {\r\n        return Response.ok(\"{\\\"status\\\":\\\"API is working!\\\",\\\"message\\\":\\\"Soil Monitoring API is running\\\"}\").build();\r\n    }\r\n\r\n    @GET\r\n    @Path(\"/health\")\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public Response health() {\r\n        return Response.ok(\"{\\\"status\\\":\\\"healthy\\\"}\").build();\r\n    }\r\n}",
+      "info": {
+        "size": 708,
+        "last_modified": "2026-01-07T16:14:19.3994188",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\boundaries\\TokenEndpoint.java",
+      "content": "package me.soilmonitoring.iam.boundaries;\r\n\r\nimport jakarta.ejb.EJB;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.json.Json;\r\nimport jakarta.json.JsonObject;\r\nimport jakarta.json.JsonString;\r\nimport jakarta.ws.rs.Consumes;\r\nimport jakarta.ws.rs.FormParam;\r\nimport jakarta.ws.rs.POST;\r\nimport jakarta.ws.rs.Path;\r\nimport jakarta.ws.rs.Produces;\r\nimport jakarta.ws.rs.WebApplicationException;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\nimport org.eclipse.microprofile.config.ConfigProvider;\r\nimport me.soilmonitoring.iam.controllers.managers.PhoenixIAMManager;\r\nimport me.soilmonitoring.iam.security.AuthorizationCode;\r\nimport me.soilmonitoring.iam.security.JwtManager;\r\n\r\n\r\nimport java.io.StringReader;\r\nimport java.security.GeneralSecurityException;\r\nimport java.util.Set;\r\n\r\n@Path(\"/oauth/token\")\r\npublic class TokenEndpoint {\r\n    private final Set<String> supportedGrantTypes = Set.of(\"authorization_code\", \"refresh_token\");\r\n\r\n    @Inject\r\n    private PhoenixIAMManager phoenixIAMManager;\r\n\r\n    @EJB\r\n    private JwtManager jwtManager;\r\n\r\n    @POST\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)\r\n    public Response token(@FormParam(\"grant_type\")String grantType,\r\n                          @FormParam(\"code\") String authCode,\r\n                          @FormParam(\"code_verifier\")String codeVerifier) {\r\n        if (grantType == null || grantType.isEmpty())\r\n            return responseError(\"Invalid_request\", \"grant_type is required\", Response.Status.BAD_REQUEST);\r\n\r\n        if (!supportedGrantTypes.contains(grantType)) {\r\n            return responseError(\"unsupported_grant_type\", \"grant_type should be one of :\" + supportedGrantTypes, Response.Status.BAD_REQUEST);\r\n        }\r\n        if(\"refresh_token\".equals(grantType)){ /*refreshed*/\r\n            var previousAccessToken = jwtManager.verifyToken(authCode);\r\n            var previousRefreshToken = jwtManager.verifyToken(codeVerifier);\r\n            if(!previousAccessToken.isEmpty() && !previousRefreshToken.isEmpty()){\r\n                try {\r\n                    var tenantId = previousAccessToken.get(\"tenant_id\");\r\n                    var subject = previousRefreshToken.get(\"sub\");\r\n                    var scopes = previousAccessToken.get(\"scope\");\r\n                    var roles = Json.createReader(new StringReader(previousAccessToken.get(\"groups\"))).readArray().getValuesAs(JsonString.class).stream().map(JsonString::getString).toList().toArray(new String[0]);\r\n                    var accessToken = jwtManager.generateToken(tenantId,subject,scopes,roles);\r\n                    var refreshToken = jwtManager.generateToken(tenantId,subject,scopes,new String[]{\"refresh_role\"});\r\n                    var refreshSubject = previousRefreshToken.get(\"sub\");\r\n                    var refreshTenantId = previousRefreshToken.get(\"tenant_id\");\r\n                    var refreshScopes = previousRefreshToken.get(\"scope\");\r\n                    if(refreshScopes.equals(scopes)&&refreshTenantId.equals(tenantId)&&refreshSubject.equals(subject)) {\r\n                        return Response.ok(Json.createObjectBuilder()\r\n                                        .add(\"token_type\", \"Bearer\")\r\n                                        .add(\"access_token\", accessToken)\r\n                                        .add(\"expires_in\", ConfigProvider.getConfig().getValue(\"jwt.lifetime.duration\", Integer.class))\r\n                                        .add(\"scope\", scopes)\r\n                                        .add(\"refresh_token\", refreshToken)\r\n                                        .build())\r\n                                .header(\"Cache-Control\", \"no-store\")\r\n                                .header(\"Pragma\", \"no-cache\")\r\n                                .build();\r\n                    }else {\r\n                        return responseError(\"Invalid_request\", \"Can't get token\", Response.Status.UNAUTHORIZED);\r\n                    }\r\n                } catch (Exception e){\r\n                    throw new WebApplicationException(e);\r\n                }\r\n            }\r\n            return Response.ok().build();\r\n        }\r\n        try {\r\n            AuthorizationCode decoded  = AuthorizationCode.decode(authCode,codeVerifier); /*first time*/\r\n            assert decoded!=null;\r\n            String tenantName = decoded.tenantName();\r\n            String[] rolesArray = phoenixIAMManager.getRoles(decoded.identityUsername()).toArray(new String[0]);\r\n            String accessToken = jwtManager.generateToken(tenantName, decoded.identityUsername(), decoded.approvedScopes(), rolesArray);\r\n            String refreshToken = jwtManager.generateToken(tenantName, decoded.identityUsername(), decoded.approvedScopes(),new String[]{\"refresh_role\"});\r\n            return Response.ok(Json.createObjectBuilder()\r\n                            .add(\"token_type\", \"Bearer\")\r\n                            .add(\"access_token\", accessToken)\r\n                            .add(\"expires_in\", ConfigProvider.getConfig().getValue(\"jwt.lifetime.duration\",Integer.class))\r\n                            .add(\"scope\", decoded.approvedScopes())\r\n                            .add(\"refresh_token\", refreshToken)\r\n                            .build())\r\n                    .header(\"Cache-Control\", \"no-store\")\r\n                    .header(\"Pragma\", \"no-cache\")\r\n                    .build();\r\n        } catch (GeneralSecurityException e) {\r\n            throw new RuntimeException(e);\r\n        } catch (WebApplicationException e) {\r\n            return e.getResponse();\r\n        } catch (Exception e) {\r\n            return responseError(\"Invalid_request\", \"Can't get token\", Response.Status.INTERNAL_SERVER_ERROR);\r\n        }\r\n    }\r\n    private Response responseError(String error, String errorDescription, Response.Status status) {\r\n        JsonObject errorResponse = Json.createObjectBuilder()\r\n                .add(\"error\", error)\r\n                .add(\"error_description\", errorDescription)\r\n                .build();\r\n        return Response.status(status)\r\n                .entity(errorResponse).build();\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 6129,
+        "last_modified": "2026-01-07T16:14:19.4029395",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\boundaries\\UserManagementEndpoint.java",
+      "content": "package me.soilmonitoring.iam.boundaries;\r\n\r\nimport jakarta.inject.Inject;\r\nimport jakarta.ws.rs.*;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.Response;\r\n\r\nimport me.soilmonitoring.iam.services.IdentityService;\r\n\r\nimport java.util.Map;\r\nimport java.util.logging.Logger;\r\n\r\n@Path(\"/users\")\r\n@Produces(MediaType.APPLICATION_JSON)\r\n@Consumes(MediaType.APPLICATION_JSON)\r\npublic class UserManagementEndpoint {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    @Inject\r\n    private IdentityService identityService;\r\n\r\n    @POST\r\n    @Path(\"/register\")\r\n    public Response register(Map<String, String> request) {\r\n        try {\r\n            String username = request.get(\"username\");\r\n            String password = request.get(\"password\");\r\n            String email = request.get(\"email\");\r\n\r\n            if (username == null || password == null || email == null) {\r\n                return Response.status(Response.Status.BAD_REQUEST)\r\n                        .entity(\"{\\\"error\\\":\\\"Missing required fields\\\"}\")\r\n                        .build();\r\n            }\r\n\r\n            identityService.registerIdentity(username, password, email);\r\n\r\n            logger.info(\"✅ User registered: \" + username);\r\n            return Response.status(Response.Status.CREATED)\r\n                    .entity(\"{\\\"message\\\":\\\"User registered successfully. Check email for activation code.\\\"}\")\r\n                    .build();\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"Registration error: \" + e.getMessage());\r\n            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)\r\n                    .entity(\"{\\\"error\\\":\\\"\" + e.getMessage() + \"\\\"}\")\r\n                    .build();\r\n        }\r\n    }\r\n\r\n    @POST\r\n    @Path(\"/activate\")\r\n    public Response activate(Map<String, String> request) {\r\n        try {\r\n            String code = request.get(\"code\");\r\n\r\n            if (code == null) {\r\n                return Response.status(Response.Status.BAD_REQUEST)\r\n                        .entity(\"{\\\"error\\\":\\\"Activation code required\\\"}\")\r\n                        .build();\r\n            }\r\n\r\n            identityService.activateIdentity(code);\r\n\r\n            return Response.ok(\"{\\\"message\\\":\\\"Account activated successfully\\\"}\")\r\n                    .build();\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"Activation error: \" + e.getMessage());\r\n            return Response.status(Response.Status.BAD_REQUEST)\r\n                    .entity(\"{\\\"error\\\":\\\"\" + e.getMessage() + \"\\\"}\")\r\n                    .build();\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 2575,
+        "last_modified": "2026-01-07T16:14:19.406946",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\config\\CORSFilter.java",
+      "content": "package me.soilmonitoring.iam.config;\r\n\r\nimport jakarta.ws.rs.container.ContainerRequestContext;\r\nimport jakarta.ws.rs.container.ContainerResponseContext;\r\nimport jakarta.ws.rs.container.ContainerResponseFilter;\r\nimport jakarta.ws.rs.ext.Provider;\r\n\r\n@Provider\r\npublic class CORSFilter implements ContainerResponseFilter {\r\n\r\n    @Override\r\n    public void filter(ContainerRequestContext request,\r\n                       ContainerResponseContext response) {\r\n\r\n        response.getHeaders().add(\"Access-Control-Allow-Origin\", \"http://127.0.0.1:5500\");\r\n        response.getHeaders().add(\"Access-Control-Allow-Credentials\", \"true\");\r\n        response.getHeaders().add(\"Access-Control-Allow-Headers\", \"origin, content-type, accept, authorization\");\r\n        response.getHeaders().add(\"Access-Control-Allow-Methods\", \"GET, POST, PUT, DELETE, OPTIONS, HEAD\");\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 867,
+        "last_modified": "2026-01-07T16:14:19.4109454",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\controllers\\managers\\PhoenixIAMManager.java",
+      "content": "package me.soilmonitoring.iam.controllers.managers;\r\n\r\nimport jakarta.inject.Inject;\r\nimport jakarta.inject.Singleton;\r\nimport me.soilmonitoring.iam.controllers.repositories.GrantRepository;\r\nimport me.soilmonitoring.iam.controllers.repositories.IdentityRepository;\r\nimport me.soilmonitoring.iam.controllers.repositories.TenantRepository;\r\nimport me.soilmonitoring.iam.entities.Grant;\r\nimport me.soilmonitoring.iam.entities.Identity;\r\nimport me.soilmonitoring.iam.entities.Tenant;\r\nimport me.soilmonitoring.iam.entities.GrantPK;\r\nimport me.soilmonitoring.iam.enums.Role;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Optional;\r\n\r\n@Singleton\r\npublic class PhoenixIAMManager {\r\n    @Inject\r\n    IdentityRepository identityRepository;\r\n\r\n    @Inject\r\n    GrantRepository grantRepository;\r\n\r\n    @Inject\r\n    TenantRepository tenantRepository;\r\n\r\n    public void saveTenant(Tenant tenant) {\r\n        tenantRepository.save(tenant);\r\n    }\r\n\r\n    public void saveIdentity(Identity identity) {\r\n        identityRepository.save(identity);\r\n    }\r\n\r\n    public void saveGrant(Grant grant) {\r\n        grantRepository.save(grant);\r\n    }\r\n\r\n    public Tenant findTenantByName(String name) {\r\n        return tenantRepository.findByName(name).orElseThrow(IllegalArgumentException::new);\r\n    }\r\n\r\n    public Identity findIdentityByUsername(String username) {\r\n        return identityRepository.findByUsername(username).orElseThrow(IllegalArgumentException::new);\r\n    }\r\n\r\n    /**\r\n     * Get roles for a user based on their role bitmask\r\n     * Converts the Long roles bitmask to a list of role names\r\n     */\r\n    public List<String> getRoles(String username) {\r\n        try {\r\n            Identity identity = findIdentityByUsername(username);\r\n            Long rolesBitmask = identity.getRoles();\r\n\r\n            if (rolesBitmask == null) {\r\n                return List.of(\"Farmer\"); // Default role\r\n            }\r\n\r\n            List<String> userRoles = new ArrayList<>();\r\n\r\n            // Check each role bit\r\n            for (Role role : Role.values()) {\r\n                if (role == Role.GUEST) continue; // Skip guest role\r\n\r\n                // Check if this role bit is set\r\n                if ((rolesBitmask & role.getValue()) != 0) {\r\n                    String roleName = role.id();\r\n                    if (roleName != null) {\r\n                        userRoles.add(roleName);\r\n                    }\r\n                }\r\n            }\r\n\r\n            // If no roles found, return default\r\n            if (userRoles.isEmpty()) {\r\n                userRoles.add(\"Farmer\");\r\n            }\r\n\r\n            return userRoles;\r\n\r\n        } catch (Exception e) {\r\n            // If user not found or error, return default role\r\n            return List.of(\"Farmer\");\r\n        }\r\n    }\r\n\r\n    public Optional<Grant> findGrant(String tenantName, String identityId) {\r\n        Tenant tenant = findTenantByName(tenantName);\r\n        if (tenant == null) {\r\n            throw new IllegalArgumentException(\"Invalid Client Id!\");\r\n        }\r\n        var pk = new GrantPK();\r\n        pk.setIdentityId(identityId);\r\n        pk.setTenantId(tenant.getId());\r\n        return grantRepository.findById(pk);\r\n    }\r\n}",
+      "info": {
+        "size": 3215,
+        "last_modified": "2026-01-07T16:14:19.4154669",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\controllers\\repositories\\GrantRepository.java",
+      "content": "// src/main/java/me/soilmonitoring/iam/controllers/repositories/GrantRepository.java\r\npackage me.soilmonitoring.iam.controllers.repositories;\r\n\r\nimport jakarta.data.repository.CrudRepository;\r\nimport jakarta.data.repository.Repository;\r\nimport me.soilmonitoring.iam.entities.Grant;\r\nimport me.soilmonitoring.iam.entities.GrantPK;\r\n\r\n@Repository\r\npublic interface GrantRepository extends CrudRepository<Grant, GrantPK> {\r\n}",
+      "info": {
+        "size": 422,
+        "last_modified": "2026-01-07T16:14:19.4194668",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\controllers\\repositories\\IdentityRepository.java",
+      "content": "package me.soilmonitoring.iam.controllers.repositories;\r\n\r\nimport jakarta.data.repository.By;\r\nimport jakarta.data.repository.CrudRepository;\r\nimport jakarta.data.repository.Find;\r\nimport jakarta.data.repository.Repository;\r\nimport me.soilmonitoring.iam.entities.Identity;\r\n\r\n\r\nimport java.util.Optional;\r\n\r\n\r\n@Repository\r\npublic interface IdentityRepository extends CrudRepository<Identity, String> {\r\n    @Find\r\n    Optional<Identity> findByUsername (@By(\"username\") String username);\r\n    Optional<Identity> findByEmail(String email);\r\n}\r\n\r\n\r\n",
+      "info": {
+        "size": 546,
+        "last_modified": "2026-01-07T16:14:19.4229892",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\controllers\\repositories\\TenantRepository.java",
+      "content": "package me.soilmonitoring.iam.controllers.repositories;\n\nimport jakarta.data.repository.By;\nimport jakarta.data.repository.CrudRepository;\nimport jakarta.data.repository.Find;\nimport jakarta.data.repository.Repository;\nimport me.soilmonitoring.iam.entities.Tenant;\n\nimport java.util.Optional;\n\n@Repository\npublic interface TenantRepository extends CrudRepository<Tenant, String> {\n    @Find\n    Optional <Tenant> findByName (@By(\"name\") String name);\n}\n",
+      "info": {
+        "size": 453,
+        "last_modified": "2026-01-07T16:14:19.4249949",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\controllers\\Role.java",
+      "content": "package me.soilmonitoring.iam.controllers;\r\n\r\nimport org.eclipse.microprofile.config.ConfigProvider;\r\n\r\nimport java.util.LinkedHashMap;\r\nimport java.util.Map;\r\nimport java.util.concurrent.atomic.AtomicInteger;\r\nimport java.util.concurrent.atomic.AtomicLong;\r\nimport java.util.function.Function;\r\nimport java.util.stream.Collectors;\r\n\r\npublic enum Role {\r\n    GUEST(0L),\r\n    R_P00(1L),R_P01(1L<<1L),R_P02(1L<<2L),R_P03(1L<<3L),R_P04(1L<<4L),R_P05(1L<<5L),\r\n    R_P06(1L<<6L),R_P07(1L<<7L),R_P08(1L<<8L),R_P09(1L<<9L),R_P10(1L<<10L),\r\n    R_P11(1L<<11L),R_P12(1L<<12L),R_P13(1L<<13L),R_P14(1L<<14L),R_P15(1L<<15L),\r\n    R_P16(1L<<16L),R_P17(1L<<17L),R_P18(1L<<18L),R_P19(1L<<19L),R_P20(1L<<20L),\r\n    R_P21(1L<<21L),R_P22(1L<<22L),R_P23(1L<<23L),R_P24(1L<<24L),R_P25(1L<<25L),\r\n    R_P26(1L<<26L),R_P27(1L<<27L),R_P28(1L<<28L),R_P29(1L<<29L),R_P30(1L<<30L),\r\n    R_P31(1L<<31L),R_P32(1L<<32L),R_P33(1L<<33L),R_P34(1L<<34L),R_P35(1L<<35L),\r\n    R_P36(1L<<36L),R_P37(1L<<37L),R_P38(1L<<38L),R_P39(1L<<39L),R_P40(1L<<40L),\r\n    R_P41(1L<<41L),R_P42(1L<<42L),R_P43(1L<<43L),R_P44(1L<<44L),R_P45(1L<<45L),\r\n    R_P46(1L<<46L),R_P47(1L<<47L),R_P48(1L<<48L),R_P49(1L<<49L),R_P50(1L<<50L),\r\n    R_P51(1L<<51L),R_P52(1L<<52L),R_P53(1L<<53L),R_P54(1L<<54L),R_P55(1L<<55L),\r\n    R_P56(1L<<56L),R_P57(1L<<57L),R_P58(1L<<58L),R_P59(1L<<59L),R_P60(1L<<60L),\r\n    R_P61(1L<<61L),R_P62(1L<<62L), ROOT(Long.MAX_VALUE);\r\n\r\n    private final long value;\r\n\r\n    Role(long value){\r\n        this.value = value;\r\n    }\r\n\r\n    public long getValue() {\r\n        return value;\r\n    }\r\n\r\n    private static final Map<Long,String> ids = new LinkedHashMap<>();\r\n    private static final Map<String,Role> byIds = new LinkedHashMap<>();\r\n\r\n    static {\r\n        final var id = new AtomicLong(1L);\r\n        var customRoles = ConfigProvider.getConfig().getValues(\"roles\",String.class);\r\n        if(customRoles.stream().anyMatch(r -> r.equalsIgnoreCase(GUEST.name())||r.equalsIgnoreCase(ROOT.name()))\r\n                ||customRoles.size()>62){\r\n            throw new IllegalArgumentException(\"Illegal config value for roles\");\r\n        }\r\n        ids.putAll(customRoles.stream().collect(Collectors.toMap(x -> id.getAndUpdate(y -> 2L*y),Function.identity())));\r\n        ids.put(GUEST.value, GUEST.name().toLowerCase());\r\n        ids.put(ROOT.value, ROOT.name().toLowerCase());\r\n        final AtomicInteger ordinal = new AtomicInteger(1);\r\n        final Role[] values = Role.values();\r\n        byIds.put(GUEST.name().toLowerCase(),GUEST);\r\n        byIds.put(ROOT.name().toLowerCase(),ROOT);\r\n        byIds.putAll(customRoles.stream().collect(Collectors.toMap(Function.identity(),x -> values[ordinal.getAndIncrement()])));\r\n    }\r\n\r\n    public final String id(){\r\n        return ids.get(value);\r\n    }\r\n\r\n    public static String byValue(Long value){\r\n        return ids.get(value);\r\n    }\r\n\r\n    public static Role byId(String id){\r\n        return byIds.get(id);\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 2937,
+        "last_modified": "2026-01-07T16:14:19.4289942",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\entities\\Grant.java",
+      "content": "package me.soilmonitoring.iam.entities;\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Entity;\r\nimport jakarta.nosql.Id;\r\n\r\nimport java.time.LocalDateTime;\r\n\r\n@Entity\r\npublic class Grant implements RootEntity<GrantPK> {\r\n\r\n    @Id\r\n    @Column(\"_id\")\r\n    private String id;  // Composite key as string: \"tenantId:identityId\"\r\n\r\n    @Column\r\n    private long version = 0L;\r\n\r\n    @Column\r\n    private String tenantId;\r\n\r\n    @Column\r\n    private String identityId;\r\n\r\n    @Column\r\n    private String approvedScopes;\r\n\r\n    @Column\r\n    private LocalDateTime issuanceDateTime;\r\n\r\n    // Implement RootEntity interface\r\n    @Override\r\n    public GrantPK getId() {\r\n        if (tenantId == null || identityId == null) {\r\n            return null;\r\n        }\r\n        GrantPK pk = new GrantPK();\r\n        pk.setTenantId(tenantId);\r\n        pk.setIdentityId(identityId);\r\n        return pk;\r\n    }\r\n\r\n    @Override\r\n    public void setId(GrantPK pk) {\r\n        if (pk != null) {\r\n            this.id = pk.getTenantId() + \":\" + pk.getIdentityId();\r\n            this.tenantId = pk.getTenantId();\r\n            this.identityId = pk.getIdentityId();\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public long getVersion() {\r\n        return version;\r\n    }\r\n\r\n    @Override\r\n    public void setVersion(long version) {\r\n        if (this.version != version) {\r\n            throw new IllegalStateException();\r\n        }\r\n        ++this.version;\r\n    }\r\n\r\n    // Additional getters/setters\r\n\r\n    public String getTenantId() {\r\n        return tenantId;\r\n    }\r\n\r\n    public void setTenantId(String tenantId) {\r\n        this.tenantId = tenantId;\r\n    }\r\n\r\n    public String getIdentityId() {\r\n        return identityId;\r\n    }\r\n\r\n    public void setIdentityId(String identityId) {\r\n        this.identityId = identityId;\r\n    }\r\n\r\n    public String getApprovedScopes() {\r\n        return approvedScopes;\r\n    }\r\n\r\n    public void setApprovedScopes(String approvedScopes) {\r\n        this.approvedScopes = approvedScopes;\r\n    }\r\n\r\n    public LocalDateTime getIssuanceDateTime() {\r\n        return issuanceDateTime;\r\n    }\r\n\r\n    public void setIssuanceDateTime(LocalDateTime issuanceDateTime) {\r\n        this.issuanceDateTime = issuanceDateTime;\r\n    }\r\n}",
+      "info": {
+        "size": 2234,
+        "last_modified": "2026-01-07T16:14:19.4325068",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\entities\\GrantPK.java",
+      "content": "package me.soilmonitoring.iam.entities;\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Embeddable;\r\n\r\nimport java.io.Serializable;\r\nimport java.util.Objects;\r\n\r\n@Embeddable\r\npublic class GrantPK implements Serializable {\r\n\r\n    @Column\r\n    private String tenantId;\r\n\r\n    @Column\r\n    private String identityId;\r\n\r\n    // Default constructor\r\n    public GrantPK() {\r\n    }\r\n\r\n    // Getters and setters\r\n    public String getTenantId() {\r\n        return tenantId;\r\n    }\r\n\r\n    public void setTenantId(String tenantId) {\r\n        this.tenantId = tenantId;\r\n    }\r\n\r\n    public String getIdentityId() {\r\n        return identityId;\r\n    }\r\n\r\n    public void setIdentityId(String identityId) {\r\n        this.identityId = identityId;\r\n    }\r\n\r\n    // Override equals method\r\n    @Override\r\n    public boolean equals(Object o) {\r\n        if (this == o) return true;\r\n        if (!(o instanceof GrantPK grantPK)) return false;\r\n        return Objects.equals(tenantId, grantPK.tenantId) &&\r\n                Objects.equals(identityId, grantPK.identityId);\r\n    }\r\n\r\n    // Override hashCode method\r\n    @Override\r\n    public int hashCode() {\r\n        return Objects.hash(tenantId, identityId);\r\n    }\r\n}",
+      "info": {
+        "size": 1203,
+        "last_modified": "2026-01-07T16:14:19.4355117",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\entities\\Identity.java",
+      "content": "package me.soilmonitoring.iam.entities;\r\n\r\n\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Entity;\r\nimport jakarta.nosql.Id;\r\n\r\nimport java.io.Serializable;\r\nimport java.security.Principal;\r\nimport java.util.UUID;\r\nimport me.soilmonitoring.iam.security.Argon2Utility;\r\n\r\n\r\n@Entity\r\npublic class Identity implements Serializable, Principal {    @Id\r\n    @Column(\"_id\")\r\n    private String id;\r\n\r\n    @Column(\"username\")\r\n    private String username;\r\n\r\n    @Column(\"email\")\r\n    private String email;\r\n\r\n    @Column(\"password\")\r\n    private String password;\r\n\r\n    @Column(\"creationDate\")\r\n    private String creationDate;\r\n\r\n    @Column(\"role\")\r\n    private Long roles;\r\n\r\n    @Column(\"scopes\")\r\n    private String scopes;\r\n\r\n    @Column(\"isAccountActivated\")\r\n    private boolean isAccountActivated;\r\n\r\n    // Getters and Setters\r\n    public String getId() {\r\n        return id;\r\n    }\r\n\r\n    public void setId(String id) {\r\n        this.id = id;\r\n    }\r\n\r\n    public String getUsername() {\r\n        return username;\r\n    }\r\n\r\n    public void setUsername(String username) {\r\n        this.username = username;\r\n    }\r\n\r\n    public String getEmail() {\r\n        return email;\r\n    }\r\n\r\n    public void setEmail(String email) {\r\n        this.email = email;\r\n    }\r\n\r\n    public String getPassword() {\r\n        return password;\r\n    }\r\n\r\n    public void setPassword(String password) {\r\n        this.password = password;\r\n    }\r\n\r\n    public String getCreationDate() {\r\n        return creationDate;\r\n    }\r\n\r\n    public void setCreationDate(String creationDate) {\r\n        this.creationDate = creationDate;\r\n    }\r\n\r\n    public Long getRoles() {\r\n        return roles;\r\n    }\r\n\r\n    public void setRoles(Long roles) {\r\n        this.roles = roles;\r\n    }\r\n\r\n    public String getScopes() {\r\n        return scopes;\r\n    }\r\n\r\n    public void setScopes(String scopes) {\r\n        this.scopes = scopes;\r\n    }\r\n\r\n    public boolean isAccountActivated() {\r\n        return isAccountActivated;\r\n    }\r\n\r\n    public void setAccountActivated(boolean accountActivated) {\r\n        this.isAccountActivated = accountActivated;\r\n    }\r\n\r\n    // Constructor\r\n    public Identity() {\r\n        this.id = UUID.randomUUID().toString();\r\n        this.isAccountActivated = false;\r\n    }\r\n\r\n    public Identity(String id, String username, String password, String creationDate, Long roles, boolean isAccountActivated) {\r\n        this.id = id;\r\n        this.username = username;\r\n        this.password = password;\r\n        this.creationDate = creationDate;\r\n        this.roles = roles;\r\n        this.isAccountActivated = isAccountActivated;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"Identity{\" +\r\n                \"_id='\" + id + '\\'' +\r\n                \", username='\" + username + '\\'' +\r\n                \", password='\" + password + '\\'' +\r\n                \", creationDate=\" + creationDate +\r\n                \", roles=\" + roles +\r\n                \", scopes=\" + scopes +\r\n                \", accountActivated=\" + isAccountActivated +\r\n                '}';\r\n    }\r\n\r\n    @Override\r\n    public String getName() {\r\n        return username;\r\n    }\r\n\r\n    // Password hashing utility method\r\n    public void hashPassword(String password, Argon2Utility argonUtility) {\r\n        this.password = argonUtility.hash(password.toCharArray());\r\n    }\r\n}",
+      "info": {
+        "size": 3344,
+        "last_modified": "2026-01-07T16:14:19.4385121",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\entities\\RootEntity.java",
+      "content": "package me.soilmonitoring.iam.entities;\n\nimport java.io.Serializable;\n\npublic interface RootEntity<ID extends Serializable> extends Serializable {\n    ID getId();\n    void setId(ID id);\n    long getVersion();\n    void setVersion(long version);\n}\n",
+      "info": {
+        "size": 246,
+        "last_modified": "2026-01-07T16:14:19.4430437",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\entities\\Tenant.java",
+      "content": "package me.soilmonitoring.iam.entities;\r\n\r\n\r\nimport jakarta.nosql.Column;\r\nimport jakarta.nosql.Entity;\r\nimport jakarta.nosql.Id;\r\n\r\n@Entity\r\npublic class Tenant implements RootEntity<String> {\r\n    @Id\r\n    private String id;\r\n    @Column\r\n    private long version=0L;\r\n\r\n    @Column\r\n    private String name;\r\n    @Column\r\n    private String secret;\r\n    @Column\r\n    private String redirectUri;\r\n\r\n    @Column\r\n    private Long allowedRoles;\r\n\r\n    @Column\r\n    private String requiredScopes;\r\n\r\n    @Column\r\n    private String supportedGrantTypes;\r\n\r\n    public long getVersion() {\r\n        return version;\r\n    }\r\n\r\n    public void setVersion(long version) {\r\n        if (this.version !=version ){\r\n            throw new IllegalStateException();\r\n\r\n        }\r\n\r\n        ++this.version;\r\n    }\r\n\r\n    public String getId() {\r\n        return id;\r\n    }\r\n\r\n    public void setId(String id) {\r\n        this.id = id;\r\n    }\r\n\r\n    public String getName() {\r\n        return name;\r\n    }\r\n\r\n    public void setName(String name) {\r\n        this.name = name;\r\n    }\r\n\r\n    public String getSecret() {\r\n        return secret;\r\n    }\r\n\r\n    public void setSecret(String secret) {\r\n        this.secret = secret;\r\n    }\r\n\r\n    public String getRedirectUri() {\r\n        return redirectUri;\r\n    }\r\n\r\n    public void setRedirectUri(String redirectUri) {\r\n        this.redirectUri = redirectUri;\r\n    }\r\n\r\n    public Long getAllowedRoles() {\r\n        return allowedRoles;\r\n    }\r\n\r\n    public void setAllowedRoles(Long allowedRoles) {\r\n        this.allowedRoles = allowedRoles;\r\n    }\r\n\r\n    public String getRequiredScopes() {\r\n        return requiredScopes;\r\n    }\r\n\r\n    public void setRequiredScopes(String requiredScopes) {\r\n        this.requiredScopes = requiredScopes;\r\n    }\r\n\r\n    public String getSupportedGrantTypes() {\r\n        return supportedGrantTypes;\r\n    }\r\n\r\n    public void setSupportedGrantTypes(String supportedGrantTypes) {\r\n        this.supportedGrantTypes = supportedGrantTypes;\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 2004,
+        "last_modified": "2026-01-07T16:14:19.4460475",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\enums\\Role.java",
+      "content": "package me.soilmonitoring.iam.enums;\r\n\r\nimport org.eclipse.microprofile.config.ConfigProvider;\r\n\r\nimport java.util.LinkedHashMap;\r\nimport java.util.List;\r\nimport java.util.Map;\r\nimport java.util.concurrent.atomic.AtomicInteger;\r\nimport java.util.concurrent.atomic.AtomicLong;\r\nimport java.util.function.Function;\r\nimport java.util.stream.Collectors;\r\n\r\npublic enum Role {\r\n    GUEST(0L),\r\n    R_P00(1L), R_P01(1L << 1L), R_P02(1L << 2L), R_P03(1L << 3L), R_P04(1L << 4L), R_P05(1L << 5L),\r\n    R_P06(1L << 6L), R_P07(1L << 7L), R_P08(1L << 8L), R_P09(1L << 9L), R_P10(1L << 10L),\r\n    R_P11(1L << 11L), R_P12(1L << 12L), R_P13(1L << 13L), R_P14(1L << 14L), R_P15(1L << 15L),\r\n    R_P16(1L << 16L), R_P17(1L << 17L), R_P18(1L << 18L), R_P19(1L << 19L), R_P20(1L << 20L),\r\n    R_P21(1L << 21L), R_P22(1L << 22L), R_P23(1L << 23L), R_P24(1L << 24L), R_P25(1L << 25L),\r\n    R_P26(1L << 26L), R_P27(1L << 27L), R_P28(1L << 28L), R_P29(1L << 29L), R_P30(1L << 30L),\r\n    R_P31(1L << 31L), R_P32(1L << 32L), R_P33(1L << 33L), R_P34(1L << 34L), R_P35(1L << 35L),\r\n    R_P36(1L << 36L), R_P37(1L << 37L), R_P38(1L << 38L), R_P39(1L << 39L), R_P40(1L << 40L),\r\n    R_P41(1L << 41L), R_P42(1L << 42L), R_P43(1L << 43L), R_P44(1L << 44L), R_P45(1L << 45L),\r\n    R_P46(1L << 46L), R_P47(1L << 47L), R_P48(1L << 48L), R_P49(1L << 49L), R_P50(1L << 50L),\r\n    R_P51(1L << 51L), R_P52(1L << 52L), R_P53(1L << 53L), R_P54(1L << 54L), R_P55(1L << 55L),\r\n    R_P56(1L << 56L), R_P57(1L << 57L), R_P58(1L << 58L), R_P59(1L << 59L), R_P60(1L << 60L),\r\n    R_P61(1L << 61L), R_P62(1L << 62L), ROOT(Long.MAX_VALUE);\r\n\r\n    private final long value;\r\n\r\n    Role(long value) {\r\n        this.value = value;\r\n    }\r\n\r\n    public long getValue() {\r\n        return value;\r\n    }\r\n\r\n    private static final Map<Long, String> ids = new LinkedHashMap<>();\r\n    private static final Map<String, Role> byIds = new LinkedHashMap<>();\r\n\r\n    static {\r\n        final AtomicLong id = new AtomicLong(1L);\r\n        List<String> customRoles = ConfigProvider.getConfig().getValues(\"roles\", String.class);\r\n        if (customRoles.stream().anyMatch(r -> r.equalsIgnoreCase(GUEST.name()) || r.equalsIgnoreCase(ROOT.name()))\r\n                || customRoles.size() > 62) {\r\n            throw new IllegalArgumentException(\"Illegal config value for roles\");\r\n        }\r\n        ids.putAll(customRoles.stream().collect(Collectors.toMap(x -> id.getAndUpdate(y -> 2L * y), Function.identity())));\r\n        ids.put(GUEST.value, GUEST.name().toLowerCase());\r\n        ids.put(ROOT.value, ROOT.name().toLowerCase());\r\n        final AtomicInteger ordinal = new AtomicInteger(1);\r\n        final Role[] values = Role.values();\r\n        byIds.put(GUEST.name().toLowerCase(), GUEST);\r\n        byIds.put(ROOT.name().toLowerCase(), ROOT);\r\n        byIds.putAll(customRoles.stream().collect(Collectors.toMap(Function.identity(), x -> values[ordinal.getAndIncrement()])));\r\n    }\r\n\r\n    public final String id() {\r\n        return ids.get(value);\r\n    }\r\n\r\n    public static String byValue(Long value) {\r\n        return ids.get(value);\r\n    }\r\n\r\n    public static Role byId(String id) {\r\n        return byIds.get(id);\r\n    }\r\n}",
+      "info": {
+        "size": 3163,
+        "last_modified": "2026-01-07T16:14:19.4515602",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\IamApplication.java",
+      "content": "package me.soilmonitoring.iam;\r\n\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\nimport jakarta.enterprise.context.Dependent;\r\nimport jakarta.enterprise.inject.Disposes;\r\nimport jakarta.enterprise.inject.Produces;\r\nimport jakarta.enterprise.inject.spi.InjectionPoint;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.inject.Named;\r\nimport jakarta.ws.rs.ApplicationPath;\r\nimport jakarta.ws.rs.core.Application;\r\nimport org.eclipse.microprofile.config.inject.ConfigProperty;\r\n\r\nimport java.util.HashSet;\r\nimport java.util.Set;\r\nimport java.util.logging.Logger;\r\n\r\n@ApplicationPath(\"/iam\")\r\npublic class IamApplication extends Application {\r\n    @Override\r\n    public Set<Class<?>> getClasses() {\r\n        return new HashSet<>();  // Empty set enables auto-scanning\r\n    }\r\n    @ApplicationScoped\r\n    public static final class CDIConfigurator {  /*pour configurer l'application*/\r\n        @Inject\r\n        @ConfigProperty(name = \"jwt.realm\") /*variable d'environnement JWT_REALM*/\r\n        private String realm;\r\n\r\n        @Produces\r\n        @Named(value = \"realm\")    /*bbd de securité realm*/\r\n        public String getRealm(){\r\n            return realm;\r\n        }\r\n\r\n        @Produces\r\n        @Dependent\r\n        public Logger getLogger(InjectionPoint injectionPoint){\r\n            return Logger.getLogger(injectionPoint.getBean().getBeanClass().getName());\r\n        }\r\n\r\n        public void disposeLogger(@Disposes Logger logger){\r\n            logger.info(\"logger disposed!\");\r\n        }\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 1509,
+        "last_modified": "2026-01-07T16:14:19.4545718",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\security\\Argon2Utility.java",
+      "content": "package me.soilmonitoring.iam.security;\r\n\r\nimport de.mkammerer.argon2.Argon2;\r\nimport de.mkammerer.argon2.Argon2Factory;\r\nimport jakarta.security.enterprise.identitystore.PasswordHash;\r\nimport org.eclipse.microprofile.config.Config;\r\nimport org.eclipse.microprofile.config.ConfigProvider;\r\n\r\npublic class Argon2Utility implements PasswordHash {\r\n\r\n    private static final int DEFAULT_SALT_LENGTH = 16;\r\n    private static final int DEFAULT_HASH_LENGTH = 32;\r\n    private static final int DEFAULT_ITERATIONS = 2;\r\n    private static final int DEFAULT_MEMORY = 65536;\r\n    private static final int DEFAULT_THREADS = 1;\r\n\r\n    private final int saltLength;\r\n    private final int hashLength;\r\n    private final int iterations;\r\n    private final int memory;\r\n    private final int threads;\r\n\r\n    public Argon2Utility() {\r\n        Config config = ConfigProvider.getConfig();\r\n\r\n        this.saltLength = config.getOptionalValue(\"argon2.saltLength\", Integer.class)\r\n                .orElse(DEFAULT_SALT_LENGTH);\r\n\r\n        this.hashLength = config.getOptionalValue(\"argon2.hashLength\", Integer.class)\r\n                .orElse(DEFAULT_HASH_LENGTH);\r\n\r\n        this.iterations = config.getOptionalValue(\"argon2.iterations\", Integer.class)\r\n                .orElse(DEFAULT_ITERATIONS);\r\n\r\n        this.memory = config.getOptionalValue(\"argon2.memory\", Integer.class)\r\n                .orElse(DEFAULT_MEMORY);\r\n\r\n        this.threads = config.getOptionalValue(\"argon2.threads\", Integer.class)\r\n                .orElse(DEFAULT_THREADS);\r\n    }\r\n\r\n    public String hash(char[] clientHash) {\r\n        Argon2 argon2 = Argon2Factory.create(\r\n                Argon2Factory.Argon2Types.ARGON2id,\r\n                saltLength,\r\n                hashLength\r\n        );\r\n\r\n        try {\r\n            return argon2.hash(iterations, memory, threads, clientHash);\r\n        } finally {\r\n            argon2.wipeArray(clientHash);\r\n        }\r\n    }\r\n\r\n    public boolean check(String serverHash, char[] clientHash) {\r\n        Argon2 argon2 = Argon2Factory.create(\r\n                Argon2Factory.Argon2Types.ARGON2id,\r\n                saltLength,\r\n                hashLength\r\n        );\r\n\r\n        try {\r\n            return argon2.verify(serverHash, clientHash);\r\n        } finally {\r\n            argon2.wipeArray(clientHash);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public String generate(char[] password) {\r\n        return hash(password.clone());\r\n    }\r\n\r\n    @Override\r\n    public boolean verify(char[] password, String hashedPassword) {\r\n        return check(hashedPassword, password.clone());\r\n    }\r\n\r\n}\r\n",
+      "info": {
+        "size": 2587,
+        "last_modified": "2026-01-07T16:14:19.4575718",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\security\\AuthenticationFilter.java",
+      "content": "package me.soilmonitoring.iam.security;\r\n\r\nimport jakarta.annotation.Priority;\r\nimport jakarta.ejb.EJBException;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.json.Json;\r\nimport jakarta.json.JsonString;\r\nimport jakarta.security.enterprise.CallerPrincipal;\r\nimport jakarta.ws.rs.Priorities;\r\nimport jakarta.ws.rs.container.ContainerRequestContext;\r\nimport jakarta.ws.rs.container.ContainerRequestFilter;\r\nimport jakarta.ws.rs.core.HttpHeaders;\r\nimport jakarta.ws.rs.core.Response;\r\nimport jakarta.ws.rs.core.SecurityContext;\r\nimport jakarta.ws.rs.ext.Provider;\r\nimport org.eclipse.microprofile.config.Config;\r\n\r\nimport javax.naming.InitialContext;\r\nimport javax.naming.NamingException;\r\nimport java.io.StringReader;\r\nimport java.security.Principal;\r\nimport java.util.Arrays;\r\n\r\n@Secured\r\n@Provider\r\n@Priority(Priorities.AUTHENTICATION)\r\npublic class AuthenticationFilter implements ContainerRequestFilter {\r\n\r\n    private final Config config;\r\n    private final JwtManager jwtManager;\r\n\r\n    private static final String AUTHENTICATION_SCHEME = \"Bearer\";\r\n\r\n    @Inject\r\n    public AuthenticationFilter(Config config, JwtManager jwtManager) {\r\n        this.config = config;\r\n        this.jwtManager = jwtManager;\r\n    }\r\n\r\n    @Override\r\n    public void filter(ContainerRequestContext requestContext) {\r\n        String authorizationHeader = requestContext.getHeaderString(HttpHeaders.AUTHORIZATION);\r\n\r\n        if (!isTokenBasedAuthentication(authorizationHeader)) {\r\n            abortWithUnauthorized(requestContext);\r\n            return;\r\n        }\r\n\r\n        String token = authorizationHeader.substring(AUTHENTICATION_SCHEME.length()).trim();\r\n\r\n        try {\r\n            var claims = jwtManager.verifyToken(token);\r\n            if (!claims.isEmpty()) {\r\n                String[] roles = Json.createReader(new StringReader(claims.get(config.getValue(\"jwt.claim.roles\", String.class))))\r\n                        .readArray()\r\n                        .getValuesAs(JsonString.class)\r\n                        .stream()\r\n                        .map(JsonString::getString)\r\n                        .toArray(String[]::new);\r\n\r\n                Principal userPrincipal = new CallerPrincipal(claims.get(\"sub\"));\r\n                boolean isSecure = requestContext.getSecurityContext().isSecure();\r\n\r\n                requestContext.setSecurityContext(new SecurityContext() {\r\n                    @Override\r\n                    public Principal getUserPrincipal() {\r\n                        return userPrincipal;\r\n                    }\r\n\r\n                    @Override\r\n                    public boolean isUserInRole(String role) {\r\n                        return Arrays.asList(roles).contains(role);\r\n                    }\r\n\r\n                    @Override\r\n                    public boolean isSecure() {\r\n                        return isSecure;\r\n                    }\r\n\r\n                    @Override\r\n                    public String getAuthenticationScheme() {\r\n                        return AUTHENTICATION_SCHEME;\r\n                    }\r\n                });\r\n            }\r\n        } catch (Exception e) {\r\n            abortWithUnauthorized(requestContext);\r\n        }\r\n    }\r\n\r\n    private boolean isTokenBasedAuthentication(String authorizationHeader) {\r\n        return authorizationHeader != null && authorizationHeader.toLowerCase()\r\n                .startsWith(AUTHENTICATION_SCHEME.toLowerCase() + \" \");\r\n    }\r\n\r\n    private void abortWithUnauthorized(ContainerRequestContext requestContext) {\r\n        requestContext.abortWith(\r\n                Response.status(Response.Status.UNAUTHORIZED)\r\n                        .header(HttpHeaders.WWW_AUTHENTICATE, AUTHENTICATION_SCHEME + \" realm=\\\"\" + config.getValue(\"mp.jwt.realm\", String.class) + \"\\\"\")\r\n                        .build());\r\n    }\r\n}",
+      "info": {
+        "size": 3800,
+        "last_modified": "2026-01-07T16:14:19.4610782",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\security\\AuthorizationCode.java",
+      "content": "package me.soilmonitoring.iam.security;\r\n\r\nimport javax.crypto.KeyGenerator;\r\nimport javax.crypto.SecretKey;\r\nimport javax.crypto.Cipher;\r\nimport javax.crypto.spec.IvParameterSpec;\r\nimport jakarta.json.Json;\r\nimport jakarta.json.JsonObject;\r\nimport java.nio.ByteBuffer;\r\nimport java.nio.charset.StandardCharsets;\r\nimport java.security.GeneralSecurityException;\r\nimport java.security.MessageDigest;\r\nimport java.security.SecureRandom;\r\nimport java.util.Base64;\r\nimport java.util.UUID;\r\n\r\npublic record AuthorizationCode(String tenantName, String identityUsername,\r\n                                String approvedScopes, Long expirationDate,\r\n                                String redirectUri) {\r\n\r\n    private static final SecretKey key;\r\n    private static final String codePrefix = \"urn:phoenix:code\";\r\n    private static final String SEPARATOR = \".\";\r\n\r\n    static {\r\n        try {\r\n            key = KeyGenerator.getInstance(\"CHACHA20\").generateKey();\r\n        } catch (GeneralSecurityException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Generate authorization code with PKCE\r\n     * @param codeChallenge The SHA-256 hash of the code_verifier (base64url encoded)\r\n     */\r\n    public String getCode(String codeChallenge) throws Exception {\r\n        String codeId = UUID.randomUUID().toString();\r\n\r\n        JsonObject payloadJson = Json.createObjectBuilder()\r\n                .add(\"tenantName\", tenantName)\r\n                .add(\"identityUsername\", identityUsername)\r\n                .add(\"approvedScopes\", approvedScopes)\r\n                .add(\"expirationDate\", expirationDate)\r\n                .add(\"redirectUri\", redirectUri)\r\n                .build();\r\n\r\n        String payloadB64 = Base64.getUrlEncoder().withoutPadding()\r\n                .encodeToString(payloadJson.toString().getBytes(StandardCharsets.UTF_8));\r\n\r\n        // Encrypt the code_challenge (NOT the code_verifier)\r\n        byte[] encryptedChallenge = ChaCha20Poly1305.encrypt(\r\n                codeChallenge.getBytes(StandardCharsets.UTF_8), key\r\n        );\r\n        String encryptedChallengeB64 = Base64.getUrlEncoder().withoutPadding()\r\n                .encodeToString(encryptedChallenge);\r\n\r\n        return codePrefix + SEPARATOR + codeId + SEPARATOR + payloadB64 + SEPARATOR + encryptedChallengeB64;\r\n    }\r\n\r\n    /**\r\n     * Decode and validate authorization code with PKCE\r\n     * @param authorizationCode The authorization code\r\n     * @param codeVerifier The original code_verifier (unhashed)\r\n     */\r\n    public static AuthorizationCode decode(String authorizationCode, String codeVerifier) throws Exception {\r\n        String[] parts = authorizationCode.split(\"\\\\Q\" + SEPARATOR + \"\\\\E\");\r\n        if (parts.length != 4) {\r\n            throw new IllegalArgumentException(\"Invalid encoded code format\");\r\n        }\r\n\r\n        // Decrypt the stored code_challenge\r\n        String encryptedChallengeB64 = parts[3];\r\n        byte[] decryptedChallenge = ChaCha20Poly1305.decrypt(\r\n                Base64.getUrlDecoder().decode(encryptedChallengeB64), key);\r\n        String storedCodeChallenge = new String(decryptedChallenge, StandardCharsets.UTF_8);\r\n\r\n        // Hash the provided code_verifier using SHA-256\r\n        String computedCodeChallenge = computeCodeChallenge(codeVerifier);\r\n\r\n        // Compare the computed challenge with the stored challenge\r\n        if (!storedCodeChallenge.equals(computedCodeChallenge)) {\r\n            throw new IllegalArgumentException(\"Code verifier does not match the code challenge\");\r\n        }\r\n\r\n        // Decode the payload\r\n        String payloadB64 = parts[2];\r\n        String payloadJsonStr = new String(Base64.getUrlDecoder().decode(payloadB64), StandardCharsets.UTF_8);\r\n        JsonObject payload = Json.createReader(new java.io.StringReader(payloadJsonStr)).readObject();\r\n\r\n        return new AuthorizationCode(\r\n                payload.getString(\"tenantName\"),\r\n                payload.getString(\"identityUsername\"),\r\n                payload.getString(\"approvedScopes\"),\r\n                payload.getJsonNumber(\"expirationDate\").longValue(),\r\n                payload.getString(\"redirectUri\")\r\n        );\r\n    }\r\n\r\n    /**\r\n     * Compute SHA-256 code challenge from code verifier (S256 method)\r\n     */\r\n    private static String computeCodeChallenge(String codeVerifier) throws Exception {\r\n        MessageDigest digest = MessageDigest.getInstance(\"SHA-256\");\r\n        byte[] hash = digest.digest(codeVerifier.getBytes(StandardCharsets.UTF_8));\r\n        return Base64.getUrlEncoder().withoutPadding().encodeToString(hash);\r\n    }\r\n\r\n    private static class ChaCha20Poly1305 {\r\n        private static final String ENCRYPT_ALGO = \"ChaCha20-Poly1305\";\r\n        private static final int NONCE_LEN = 12;\r\n\r\n        public static byte[] encrypt(byte[] pText, SecretKey key) throws Exception {\r\n            byte[] nonce = getNonce();\r\n            Cipher cipher = Cipher.getInstance(ENCRYPT_ALGO);\r\n            IvParameterSpec iv = new IvParameterSpec(nonce);\r\n            cipher.init(Cipher.ENCRYPT_MODE, key, iv);\r\n            byte[] encryptedText = cipher.doFinal(pText);\r\n\r\n            ByteBuffer bb = ByteBuffer.allocate(encryptedText.length + NONCE_LEN)\r\n                    .put(encryptedText)\r\n                    .put(nonce);\r\n            return bb.array();\r\n        }\r\n\r\n        public static byte[] decrypt(byte[] cText, SecretKey key) throws Exception {\r\n            ByteBuffer bb = ByteBuffer.wrap(cText);\r\n            byte[] encryptedText = new byte[cText.length - NONCE_LEN];\r\n            byte[] nonce = new byte[NONCE_LEN];\r\n            bb.get(encryptedText);\r\n            bb.get(nonce);\r\n\r\n            Cipher cipher = Cipher.getInstance(ENCRYPT_ALGO);\r\n            IvParameterSpec iv = new IvParameterSpec(nonce);\r\n            cipher.init(Cipher.DECRYPT_MODE, key, iv);\r\n\r\n            return cipher.doFinal(encryptedText);\r\n        }\r\n\r\n        private static byte[] getNonce() {\r\n            byte[] nonce = new byte[NONCE_LEN];\r\n            new SecureRandom().nextBytes(nonce);\r\n            return nonce;\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 6109,
+        "last_modified": "2026-01-07T16:14:19.4640831",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\security\\AuthorizationFilter.java",
+      "content": "package me.soilmonitoring.iam.security;\r\n\r\nimport jakarta.annotation.Priority;\r\nimport jakarta.annotation.security.DenyAll;\r\nimport jakarta.annotation.security.PermitAll;\r\nimport jakarta.annotation.security.RolesAllowed;\r\nimport jakarta.ws.rs.Priorities;\r\nimport jakarta.ws.rs.WebApplicationException;\r\nimport jakarta.ws.rs.container.ContainerRequestContext;\r\nimport jakarta.ws.rs.container.ContainerRequestFilter;\r\nimport jakarta.ws.rs.container.ResourceInfo;\r\nimport jakarta.ws.rs.core.Context;\r\nimport jakarta.ws.rs.core.Response;\r\nimport jakarta.ws.rs.ext.Provider;\r\n\r\nimport java.lang.reflect.Method;\r\n\r\n@Provider\r\n@Priority(Priorities.AUTHORIZATION)\r\npublic class AuthorizationFilter implements ContainerRequestFilter {\r\n    @Context\r\n    private ResourceInfo resourceInfo;\r\n\r\n    @Override\r\n    public void filter(ContainerRequestContext requestContext) {\r\n        Method method = resourceInfo.getResourceMethod();\r\n\r\n        // @DenyAll on the method takes precedence over @RolesAllowed and @PermitAll\r\n        if (method.isAnnotationPresent(DenyAll.class)) {\r\n            refuseRequest();\r\n        }\r\n\r\n        // @RolesAllowed on the method takes precedence over @PermitAll\r\n        RolesAllowed rolesAllowed = method.getAnnotation(RolesAllowed.class);\r\n        if (rolesAllowed != null) {\r\n            performAuthorization(rolesAllowed.value(), requestContext);\r\n            return;\r\n        }\r\n\r\n        // @PermitAll on the method takes precedence over @RolesAllowed on the class\r\n        if (method.isAnnotationPresent(PermitAll.class)) {\r\n            // Do nothing\r\n            return;\r\n        }\r\n\r\n        // @PermitAll must not be attached to classes\r\n\r\n        // @RolesAllowed on the class takes precedence over @PermitAll on the class\r\n        rolesAllowed =\r\n                resourceInfo.getResourceClass().getAnnotation(RolesAllowed.class);\r\n        if (rolesAllowed != null) {\r\n            performAuthorization(rolesAllowed.value(), requestContext);\r\n            return;\r\n        }\r\n\r\n        // @DenyAll on the class\r\n        if (resourceInfo.getResourceClass().isAnnotationPresent(DenyAll.class)) {\r\n            refuseRequest();\r\n        }\r\n\r\n        // Authorization is not required for non-annotated methods\r\n    }\r\n\r\n    /**\r\n     * Perform authorization based on roles.\r\n     *\r\n     * @param rolesAllowed the allowed roles\r\n     * @param requestContext the request context\r\n     */\r\n    private void performAuthorization(String[] rolesAllowed,\r\n                                      ContainerRequestContext requestContext) {\r\n\r\n        if (rolesAllowed.length > 0 && !isAuthenticated(requestContext)) {\r\n            refuseRequest();\r\n        }\r\n\r\n        for (final String role : rolesAllowed) {\r\n            if (requestContext.getSecurityContext().isUserInRole(role)) {\r\n                return;\r\n            }\r\n        }\r\n\r\n        refuseRequest();\r\n    }\r\n\r\n    private boolean isAuthenticated(final ContainerRequestContext requestContext) {\r\n        // Return true if the user is authenticated or false otherwise\r\n        return requestContext.getSecurityContext().getUserPrincipal() != null;\r\n    }\r\n\r\n    private void refuseRequest() {\r\n        throw new WebApplicationException(\"You don't have permissions to perform this action.\", Response.Status.UNAUTHORIZED);\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 3311,
+        "last_modified": "2026-01-07T16:14:19.4685919",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\security\\IdentityUtility.java",
+      "content": "package me.soilmonitoring.iam.security;\r\n\r\nimport java.util.Set;\r\npublic class IdentityUtility {\r\n    private static final ThreadLocal<String> username = new ThreadLocal<>();\r\n    private static final ThreadLocal<Set<String>> roles = new ThreadLocal<>();\r\n\r\n    private static final ThreadLocal<String> tenant = new ThreadLocal<>();\r\n\r\n    public static void iAm(String username){\r\n        IdentityUtility.username.set(username);\r\n    }\r\n\r\n    public static String whoAmI(){\r\n        return username.get();\r\n    }\r\n\r\n    public static void setRoles(Set<String> roles){\r\n        IdentityUtility.roles.set(roles);\r\n    }\r\n\r\n    public static Set<String> getRoles(){\r\n        return IdentityUtility.roles.get();\r\n    }\r\n\r\n    public static void tenantWithName(String tenant){\r\n        IdentityUtility.tenant.set(tenant);\r\n    }\r\n\r\n    public static String whichTenant(){\r\n        return IdentityUtility.tenant.get();\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 925,
+        "last_modified": "2026-01-07T16:14:19.4710981",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\security\\JwtManager.java",
+      "content": "package me.soilmonitoring.iam.security;\r\n\r\nimport jakarta.annotation.PostConstruct;\r\nimport jakarta.ejb.EJBException;\r\nimport jakarta.ejb.LocalBean;\r\nimport jakarta.ejb.Singleton;\r\nimport jakarta.ejb.Startup;\r\nimport jakarta.json.Json;\r\nimport jakarta.json.JsonObject;\r\n\r\nimport java.io.StringReader;\r\nimport java.nio.charset.StandardCharsets;\r\nimport java.security.*;\r\nimport java.time.Instant;\r\nimport java.util.*;\r\n\r\n@Startup\r\n@Singleton\r\n@LocalBean\r\npublic class JwtManager {\r\n\r\n    private static final String CURVE = \"Ed25519\";\r\n    private static final KeyPairGenerator keyPairGenerator;\r\n    private static final Signature signatureAlgorithm;\r\n\r\n    static {\r\n        try {\r\n            keyPairGenerator = KeyPairGenerator.getInstance(CURVE);\r\n            signatureAlgorithm = Signature.getInstance(CURVE);\r\n        } catch (NoSuchAlgorithmException e) {\r\n            throw new EJBException(e);\r\n        }\r\n    }\r\n\r\n    private final Map<String, KeyPair> cachedKeyPairs = new HashMap<>();\r\n    private final Map<String, Long> keyPairExpires = new HashMap<>();\r\n    private final long keyPairLifeTime = 10800; // seconds\r\n    private final long jwtLifeTime = 1020; // seconds\r\n    private final long maxCacheSize = 3;\r\n    private final Set<String> audiences = Set.of(\r\n            \"urn:cot-app-sec:www\",\r\n            \"urn:cot-app-sec:admin\",\r\n            \"urn:cot-app-sec:api\"\r\n    );\r\n    private final String issuer = \"urn:cot-app-sec:iam\";\r\n\r\n    @PostConstruct\r\n    public void init() {\r\n        while (cachedKeyPairs.entrySet().stream().filter(this::privateKeyHasNotExpired).count() < maxCacheSize) {\r\n            generateKeyPair();\r\n        }\r\n    }\r\n\r\n    private void generateKeyPair() {\r\n        String kid = UUID.randomUUID().toString();\r\n        keyPairExpires.put(kid, Instant.now().getEpochSecond() + keyPairLifeTime);\r\n        cachedKeyPairs.put(kid, keyPairGenerator.generateKeyPair());\r\n    }\r\n\r\n    Optional<Map.Entry<String, KeyPair>> getKeyPair() {\r\n        cachedKeyPairs.entrySet().removeIf(e -> isPublicKeyExpired(e.getKey()));\r\n        while (cachedKeyPairs.entrySet().stream().filter(this::privateKeyHasNotExpired).count() < maxCacheSize) {\r\n            generateKeyPair();\r\n        }\r\n        return cachedKeyPairs.entrySet().stream().filter(this::privateKeyHasNotExpired).findAny();\r\n    }\r\n\r\n    private boolean isPublicKeyExpired(String kid) {\r\n        return Instant.now().getEpochSecond() > (keyPairExpires.get(kid) + jwtLifeTime);\r\n    }\r\n\r\n    private boolean privateKeyHasNotExpired(Map.Entry<String, KeyPair> entry) {\r\n        String kid = entry.getKey();\r\n        return Instant.now().getEpochSecond() <= keyPairExpires.get(kid);\r\n    }\r\n\r\n    public String generateToken(String tenantId, String subject, String approvedScopes, String[] roles) {\r\n        try {\r\n            Map.Entry<String, KeyPair> keyPairEntry = getKeyPair().orElseThrow();\r\n            PrivateKey privateKey = keyPairEntry.getValue().getPrivate();\r\n            signatureAlgorithm.initSign(privateKey);\r\n\r\n            JsonObject header = Json.createObjectBuilder()\r\n                    .add(\"typ\", \"JWT\")\r\n                    .add(\"alg\", privateKey.getAlgorithm())\r\n                    .add(\"kid\", keyPairEntry.getKey())\r\n                    .build();\r\n\r\n            var now = Instant.now();\r\n            var rolesArray = Json.createArrayBuilder();\r\n            for (String role : roles) rolesArray.add(role);\r\n\r\n            var audiencesArray = Json.createArrayBuilder();\r\n            for (String audience : audiences) audiencesArray.add(audience);\r\n\r\n            JsonObject payload = Json.createObjectBuilder()\r\n                    .add(\"iss\", issuer)\r\n                    .add(\"aud\", audiencesArray)\r\n                    .add(\"tenant-id\", tenantId)\r\n                    .add(\"sub\", subject)\r\n                    .add(\"upn\", subject)\r\n                    .add(\"scope\", approvedScopes)\r\n                    .add(\"groups\", rolesArray)\r\n                    .add(\"exp\", now.getEpochSecond() + jwtLifeTime)\r\n                    .add(\"iat\", now.getEpochSecond())\r\n                    .add(\"nbf\", now.getEpochSecond())\r\n                    .add(\"jti\", UUID.randomUUID().toString())\r\n                    .build();\r\n\r\n            String toSign = Base64.getUrlEncoder().withoutPadding().encodeToString(header.toString().getBytes(StandardCharsets.UTF_8))\r\n                    + \".\"\r\n                    + Base64.getUrlEncoder().withoutPadding().encodeToString(payload.toString().getBytes(StandardCharsets.UTF_8));\r\n\r\n            signatureAlgorithm.update(toSign.getBytes(StandardCharsets.UTF_8));\r\n            String signature = Base64.getUrlEncoder().withoutPadding().encodeToString(signatureAlgorithm.sign());\r\n\r\n            return toSign + \".\" + signature;\r\n\r\n        } catch (Exception e) {\r\n            throw new EJBException(e);\r\n        }\r\n    }\r\n\r\n    public Map<String, String> verifyToken(String token) {\r\n        try {\r\n            String[] parts = token.split(\"\\\\.\");\r\n            if (parts.length != 3) return Collections.emptyMap();\r\n\r\n            String headerJson = new String(Base64.getUrlDecoder().decode(parts[0]), StandardCharsets.UTF_8);\r\n            JsonObject header = Json.createReader(new StringReader(headerJson)).readObject();\r\n            String kid = header.getString(\"kid\", null);\r\n            if (kid == null) return Collections.emptyMap();\r\n\r\n            KeyPair keyPair = cachedKeyPairs.get(kid);\r\n            if (keyPair == null) return Collections.emptyMap();\r\n\r\n            signatureAlgorithm.initVerify(keyPair.getPublic());\r\n            signatureAlgorithm.update((parts[0] + \".\" + parts[1]).getBytes(StandardCharsets.UTF_8));\r\n            if (!signatureAlgorithm.verify(Base64.getUrlDecoder().decode(parts[2]))) {\r\n                return Collections.emptyMap();\r\n            }\r\n\r\n            String payloadJson = new String(Base64.getUrlDecoder().decode(parts[1]), StandardCharsets.UTF_8);\r\n            JsonObject payload = Json.createReader(new StringReader(payloadJson)).readObject();\r\n\r\n            var exp = payload.getJsonNumber(\"exp\");\r\n            if (exp == null || Instant.ofEpochSecond(exp.longValue()).isBefore(Instant.now())) {\r\n                return Collections.emptyMap();\r\n            }\r\n\r\n            return Map.of(\r\n                    \"tenant-id\", payload.getString(\"tenant-id\", \"\"),\r\n                    \"sub\", payload.getString(\"sub\", \"\"),\r\n                    \"upn\", payload.getString(\"upn\", \"\"),\r\n                    \"scope\", payload.getString(\"scope\", \"\"),\r\n                    \"groups\", payload.getJsonArray(\"groups\").toString()\r\n            );\r\n\r\n        } catch (Exception e) {\r\n            return Collections.emptyMap();\r\n        }\r\n    }\r\n\r\n    public JsonObject getPublicKeyAsJWK(String kid) {\r\n        KeyPair keyPair = cachedKeyPairs.get(kid);\r\n        if (keyPair == null) throw new EJBException(\"Invalid kid\");\r\n\r\n        String encoded = Base64.getUrlEncoder().withoutPadding().encodeToString(keyPair.getPublic().getEncoded());\r\n        return Json.createObjectBuilder()\r\n                .add(\"kty\", \"EC\")\r\n                .add(\"crv\", CURVE)\r\n                .add(\"kid\", kid)\r\n                .add(\"x\", encoded.substring(Math.min(16, encoded.length())))\r\n                .build();\r\n    }\r\n}\r\n",
+      "info": {
+        "size": 7268,
+        "last_modified": "2026-01-07T16:14:19.4741096",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\security\\Secured.java",
+      "content": "package me.soilmonitoring.iam.security;\r\n\r\nimport jakarta.ws.rs.NameBinding;\r\n\r\nimport java.lang.annotation.Retention;\r\nimport java.lang.annotation.Target;\r\n\r\nimport static java.lang.annotation.ElementType.METHOD;\r\nimport static java.lang.annotation.ElementType.TYPE;\r\nimport static java.lang.annotation.RetentionPolicy.RUNTIME;\r\n\r\n@NameBinding\r\n@Retention(RUNTIME)\r\n@Target({TYPE, METHOD})\r\npublic @interface Secured {\r\n}\r\n",
+      "info": {
+        "size": 424,
+        "last_modified": "2026-01-07T16:14:19.4771084",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\services\\AuthorizationService.java",
+      "content": "package me.soilmonitoring.iam.services;\r\n\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\nimport jakarta.inject.Inject;\r\nimport me.soilmonitoring.iam.controllers.managers.PhoenixIAMManager;\r\nimport me.soilmonitoring.iam.entities.Grant;\r\nimport me.soilmonitoring.iam.entities.GrantPK;\r\nimport me.soilmonitoring.iam.entities.Identity;\r\nimport me.soilmonitoring.iam.entities.Tenant;\r\nimport me.soilmonitoring.iam.security.AuthorizationCode;\r\n\r\nimport java.time.Instant;\r\nimport java.time.LocalDateTime;\r\nimport java.time.temporal.ChronoUnit;\r\nimport java.util.Arrays;\r\nimport java.util.HashSet;\r\nimport java.util.LinkedHashSet;\r\nimport java.util.Set;\r\nimport java.util.logging.Logger;\r\n\r\n@ApplicationScoped\r\npublic class AuthorizationService {\r\n\r\n    @Inject\r\n    private Logger logger;\r\n\r\n    @Inject\r\n    private PhoenixIAMManager manager;\r\n\r\n    /**\r\n     * Generate OAuth2 authorization code with PKCE\r\n     */\r\n    public String generateAuthorizationCode(String clientId, String username,\r\n                                            String approvedScopes, String codeChallenge,\r\n                                            String redirectUri) throws Exception {\r\n        long expirationTime = Instant.now().plus(2, ChronoUnit.MINUTES).getEpochSecond();\r\n        AuthorizationCode authCode = new AuthorizationCode(\r\n                clientId,\r\n                username,\r\n                approvedScopes,\r\n                expirationTime,\r\n                redirectUri\r\n        );\r\n        return authCode.getCode(codeChallenge);\r\n    }\r\n\r\n    /**\r\n     * Check which requested scopes the user has access to\r\n     */\r\n    public String filterScopes(String userScopes, String requestedScopes) {\r\n        Set<String> allowedScopes = new LinkedHashSet<>();\r\n        Set<String> requested = new HashSet<>(Arrays.asList(requestedScopes.split(\" \")));\r\n        Set<String> userHas = new HashSet<>(Arrays.asList(userScopes.split(\" \")));\r\n\r\n        for (String scope : requested) {\r\n            if (userHas.contains(scope)) {\r\n                allowedScopes.add(scope);\r\n            }\r\n        }\r\n\r\n        return String.join(\" \", allowedScopes);\r\n    }\r\n\r\n    /**\r\n     * Save user's consent grant\r\n     */\r\n    public void saveGrant(String clientId, String username, String approvedScopes) {\r\n        try {\r\n            Identity identity = manager.findIdentityByUsername(username);\r\n            Tenant tenant = manager.findTenantByName(clientId);\r\n\r\n            Grant grant = new Grant();\r\n            GrantPK grantPK = new GrantPK();\r\n            grantPK.setTenantId(tenant.getId());\r\n            grantPK.setIdentityId(identity.getId());\r\n            grant.setId(grantPK);\r\n            grant.setApprovedScopes(approvedScopes);\r\n            grant.setIssuanceDateTime(LocalDateTime.now());\r\n\r\n            manager.saveGrant(grant);\r\n            logger.info(\"✅ Grant saved for user: \" + username + \", client: \" + clientId);\r\n\r\n        } catch (Exception e) {\r\n            logger.severe(\"Failed to save grant: \" + e.getMessage());\r\n            throw new RuntimeException(\"Failed to save grant\", e);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Validate OAuth2 authorization request parameters\r\n     */\r\n    public void validateAuthorizationRequest(String clientId, String redirectUri,\r\n                                             String responseType, String codeChallenge,\r\n                                             String codeChallengeMethod) {\r\n        if (clientId == null || redirectUri == null || responseType == null) {\r\n            throw new IllegalArgumentException(\"Missing required OAuth2 parameters\");\r\n        }\r\n\r\n        if (!\"code\".equals(responseType)) {\r\n            throw new IllegalArgumentException(\"Only 'code' response_type is supported\");\r\n        }\r\n\r\n        if (codeChallenge == null || !\"S256\".equals(codeChallengeMethod)) {\r\n            throw new IllegalArgumentException(\"PKCE with S256 is required\");\r\n        }\r\n        logger.info(\"Checking client exists for clientId: \" + clientId);\r\n        Tenant client = manager.findTenantByName(clientId);\r\n        logger.info(\"Comparing redirectUri: \" + redirectUri + \" vs registered: \" + client.getRedirectUri());\r\n        logger.info(\"Validating responseType: \" + responseType);\r\n        logger.info(\"Validating codeChallengeMethod: \" + codeChallengeMethod);\r\n\r\n        logger.info(\"Raw code challenge: \" + codeChallenge);\r\n\r\n\r\n        // Validate client exists\r\n        try {\r\n            manager.findTenantByName(clientId);\r\n        } catch (IllegalArgumentException e) {\r\n            throw new IllegalArgumentException(\"Invalid client_id: \" + clientId);\r\n        }\r\n    }\r\n}",
+      "info": {
+        "size": 4641,
+        "last_modified": "2026-01-07T16:14:19.4811239",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\services\\EmailService.java",
+      "content": "package me.soilmonitoring.iam.services;\r\n\r\nimport jakarta.ejb.EJBException;\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\nimport jakarta.mail.*;\r\nimport jakarta.mail.internet.InternetAddress;\r\nimport jakarta.mail.internet.MimeMessage;\r\nimport org.eclipse.microprofile.config.Config;\r\nimport org.eclipse.microprofile.config.ConfigProvider;\r\n\r\nimport java.util.Properties;\r\nimport java.util.logging.Level;\r\nimport java.util.logging.Logger;\r\n\r\n@ApplicationScoped\r\npublic class EmailService {\r\n\r\n    private static final Logger LOGGER = Logger.getLogger(EmailService.class.getName());\r\n    private static final Config CONFIG = ConfigProvider.getConfig();\r\n\r\n    private static final String SMTP_HOST_KEY = \"smtp.host\";\r\n    private static final String SMTP_PORT_KEY = \"smtp.port\";\r\n    private static final String SMTP_USERNAME_KEY = \"smtp.username\";\r\n    private static final String SMTP_PASSWORD_KEY = \"smtp.password\";\r\n    private static final String SMTP_STARTTLS_KEY = \"smtp.starttls.enable\";\r\n\r\n    private final String smtpHost = getConfigValue(SMTP_HOST_KEY, String.class);\r\n    private final int smtpPort = getConfigValue(SMTP_PORT_KEY, Integer.class);\r\n    private final String smtpUser = getConfigValue(SMTP_USERNAME_KEY, String.class);\r\n    private final String smtpPassword = getConfigValue(SMTP_PASSWORD_KEY, String.class);\r\n    private final boolean startTlsEnabled = getConfigValue(SMTP_STARTTLS_KEY, Boolean.class);\r\n\r\n    public void sendEmail(String from, String to, String subject, String content) {\r\n        Properties properties = new Properties();\r\n        properties.put(\"mail.smtp.host\", smtpHost);\r\n        properties.put(\"mail.smtp.port\", smtpPort);\r\n        properties.put(\"mail.smtp.auth\", \"true\");\r\n        properties.put(\"mail.smtp.starttls.enable\", String.valueOf(startTlsEnabled));\r\n\r\n        Session session = Session.getInstance(properties, new Authenticator() {\r\n            @Override\r\n            protected PasswordAuthentication getPasswordAuthentication() {\r\n                return new PasswordAuthentication(smtpUser, smtpPassword);\r\n            }\r\n        });\r\n\r\n        try {\r\n            Message message = createEmailMessage(session, from, to, subject, content);\r\n            Transport.send(message);\r\n            LOGGER.info(\"Email sent successfully to: \" + to);\r\n        } catch (MessagingException e) {\r\n            LOGGER.log(Level.SEVERE, \"Failed to send email to: \" + to, e);\r\n            throw new RuntimeException(\"Failed to send email. Please check the configuration and recipient details.\", e);\r\n        }\r\n    }\r\n\r\n    private Message createEmailMessage(Session session, String from, String to, String subject, String content) throws MessagingException {\r\n        Message message = new MimeMessage(session);\r\n        message.setFrom(new InternetAddress(from));\r\n        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));\r\n        message.setSubject(subject);\r\n        message.setText(content);\r\n        return message;\r\n    }\r\n\r\n    private <T> T getConfigValue(String propertyName, Class<T> propertyType) {\r\n        return CONFIG.getOptionalValue(propertyName, propertyType).orElseThrow(() ->\r\n                new IllegalArgumentException(\"Missing required configuration: \" + propertyName));\r\n    }\r\n}",
+      "info": {
+        "size": 3286,
+        "last_modified": "2026-01-07T16:14:19.4839117",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\services\\HtmlTemplateService.java",
+      "content": "package me.soilmonitoring.iam.services;\r\n\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\n\r\n@ApplicationScoped\r\npublic class HtmlTemplateService {\r\n\r\n    public String buildLoginPage(String clientId, String scope, String error) {\r\n        String errorHtml = \"\";\r\n        if (error != null) {\r\n            errorHtml = \"<div id='error' class='error' style='display:block;'>Invalid username or password</div>\";\r\n        }\r\n\r\n        String scopeDisplay = scope != null ? scope : \"profile, email\";\r\n\r\n        return \"<!DOCTYPE html>\" +\r\n                \"<html>\" +\r\n                \"<head>\" +\r\n                \"    <title>Login - Soil Monitoring IAM</title>\" +\r\n                \"    <style>\" +\r\n                \"        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }\" +\r\n                \"        .login-container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 400px; }\" +\r\n                \"        h1 { text-align: center; color: #333; margin-bottom: 10px; }\" +\r\n                \"        .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 30px; }\" +\r\n                \"        .form-group { margin-bottom: 20px; }\" +\r\n                \"        label { display: block; margin-bottom: 5px; color: #555; font-weight: 500; }\" +\r\n                \"        input[type='text'], input[type='password'] { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; box-sizing: border-box; }\" +\r\n                \"        input:focus { outline: none; border-color: #667eea; }\" +\r\n                \"        button { width: 100%; padding: 12px; background: #667eea; color: white; border: none; border-radius: 5px; font-size: 16px; font-weight: 600; cursor: pointer; }\" +\r\n                \"        button:hover { background: #5568d3; }\" +\r\n                \"        .error { background: #fee; border: 1px solid #fcc; color: #c00; padding: 10px; border-radius: 5px; margin-bottom: 20px; display: none; }\" +\r\n                \"        .info { background: #e3f2fd; padding: 10px; border-radius: 5px; margin-bottom: 20px; font-size: 13px; }\" +\r\n                \"    </style>\" +\r\n                \"</head>\" +\r\n                \"<body>\" +\r\n                \"    <div class='login-container'>\" +\r\n                \"        <h1>🌱 Soil Monitoring</h1>\" +\r\n                \"        <p class='subtitle'>Sign in to continue</p>\" +\r\n                \"        <div class='info'>\" +\r\n                \"            <strong>Application:</strong> \" + clientId + \"<br>\" +\r\n                \"            <strong>Requested access:</strong> \" + scopeDisplay +\r\n                \"        </div>\" +\r\n                \"        \" + errorHtml +\r\n                \"        <form method='POST' action='/iam/login/authorization'>\" +\r\n                \"            <div class='form-group'>\" +\r\n                \"                <label for='username'>Username</label>\" +\r\n                \"                <input type='text' id='username' name='username' required autofocus>\" +\r\n                \"            </div>\" +\r\n                \"            <div class='form-group'>\" +\r\n                \"                <label for='password'>Password</label>\" +\r\n                \"                <input type='password' id='password' name='password' required>\" +\r\n                \"            </div>\" +\r\n                \"            <button type='submit'>Sign In</button>\" +\r\n                \"        </form>\" +\r\n                \"    </div>\" +\r\n                \"</body>\" +\r\n                \"</html>\";\r\n    }\r\n\r\n    public String buildConsentPage(String clientId, String scope, String username) {\r\n        return \"<!DOCTYPE html>\" +\r\n                \"<html>\" +\r\n                \"<head>\" +\r\n                \"    <title>Grant Access - Soil Monitoring IAM</title>\" +\r\n                \"    <style>\" +\r\n                \"        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }\" +\r\n                \"        .consent-container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); max-width: 500px; }\" +\r\n                \"        h1 { text-align: center; color: #333; }\" +\r\n                \"        .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 30px; }\" +\r\n                \"        .user-info { background: #f5f5f5; padding: 15px; border-radius: 5px; margin-bottom: 25px; }\" +\r\n                \"        .permission-item { padding: 10px; margin: 10px 0; background: #f8f9fa; border-left: 3px solid #667eea; }\" +\r\n                \"        .button-group { display: flex; gap: 10px; margin-top: 30px; }\" +\r\n                \"        button { flex: 1; padding: 12px; border: none; border-radius: 5px; font-size: 16px; font-weight: 600; cursor: pointer; }\" +\r\n                \"        .btn-approve { background: #667eea; color: white; }\" +\r\n                \"        .btn-approve:hover { background: #5568d3; }\" +\r\n                \"        .btn-deny { background: #e0e0e0; color: #333; }\" +\r\n                \"    </style>\" +\r\n                \"</head>\" +\r\n                \"<body>\" +\r\n                \"    <div class='consent-container'>\" +\r\n                \"        <h1>🌱 Grant Access</h1>\" +\r\n                \"        <p class='subtitle'>\" + clientId + \" wants to access your account</p>\" +\r\n                \"        <div class='user-info'><strong>Logged in as:</strong> \" + username + \"</div>\" +\r\n                \"        <div class='permissions'>\" +\r\n                \"            <p><strong>This application will be able to:</strong></p>\" +\r\n                \"            <div class='permission-item'>✓ View your profile information</div>\" +\r\n                \"            <div class='permission-item'>✓ Access your email address</div>\" +\r\n                \"            <div class='permission-item'>✓ Manage your fields and sensors</div>\" +\r\n                \"        </div>\" +\r\n                \"        <form method='POST' action='/iam/consent'>\" +\r\n                \"            <input type='hidden' name='approved_scope' value='\" + scope + \"'>\" +\r\n                \"            <input type='hidden' name='username' value='\" + username + \"'>\" +\r\n                \"            <div class='button-group'>\" +\r\n                \"                <button type='submit' name='approval_status' value='YES' class='btn-approve'>✓ Allow Access</button>\" +\r\n                \"                <button type='submit' name='approval_status' value='NO' class='btn-deny'>✗ Deny</button>\" +\r\n                \"            </div>\" +\r\n                \"        </form>\" +\r\n                \"    </div>\" +\r\n                \"</body>\" +\r\n                \"</html>\";\r\n    }\r\n\r\n    public String buildErrorPage(String error, String description) {\r\n        return \"<!DOCTYPE html>\" +\r\n                \"<html>\" +\r\n                \"<head>\" +\r\n                \"    <title>Error - Soil Monitoring IAM</title>\" +\r\n                \"    <style>\" +\r\n                \"        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f5f5f5; }\" +\r\n                \"        .error-container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }\" +\r\n                \"        h1 { color: #c00; }\" +\r\n                \"    </style>\" +\r\n                \"</head>\" +\r\n                \"<body>\" +\r\n                \"    <div class='error-container'>\" +\r\n                \"        <h1>❌ Error</h1>\" +\r\n                \"        <p><strong>\" + error + \"</strong></p>\" +\r\n                \"        <p>\" + description + \"</p>\" +\r\n                \"    </div>\" +\r\n                \"</body>\" +\r\n                \"</html>\";\r\n    }\r\n}",
+      "info": {
+        "size": 8022,
+        "last_modified": "2026-01-07T16:14:19.4868743",
+        "mime_type": "text/html",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "java\\me\\soilmonitoring\\iam\\services\\IdentityService.java",
+      "content": "package me.soilmonitoring.iam.services;\r\n\r\nimport jakarta.ejb.EJBException;\r\nimport jakarta.enterprise.context.ApplicationScoped;\r\nimport jakarta.inject.Inject;\r\nimport org.apache.commons.lang3.tuple.Pair;\r\nimport me.soilmonitoring.iam.entities.Identity;\r\nimport me.soilmonitoring.iam.enums.Role;\r\nimport me.soilmonitoring.iam.controllers.repositories.IdentityRepository;\r\nimport me.soilmonitoring.iam.security.Argon2Utility;\r\n\r\nimport java.security.SecureRandom;\r\nimport java.time.LocalDateTime;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\n\r\n@ApplicationScoped\r\npublic class IdentityService {\r\n\r\n    @Inject\r\n    IdentityRepository identityRepository;\r\n    @Inject\r\n    Argon2Utility argon2Utils;\r\n    @Inject\r\n    EmailService emailService;\r\n\r\n    private final Map<String, Pair<String, LocalDateTime>> activationCodes = new HashMap<>();\r\n\r\n    public void registerIdentity(String username, String password, String email) {\r\n        if (identityRepository.findByUsername(username).isPresent()) {\r\n            throw new EJBException(\"Identity with username \" + username + \" already exists\");\r\n        }\r\n        if (identityRepository.findByEmail(email).isPresent()) {\r\n            throw new EJBException(\"Identity with email \" + email + \" already exists\");\r\n        }\r\n\r\n        Identity identity = new Identity();\r\n        identity.setUsername(username);\r\n        identity.setPassword(password);\r\n        identity.setEmail(email);\r\n        identity.setCreationDate(LocalDateTime.now().toLocalDate().toString());\r\n        identity.setRoles(Role.R_P00.getValue());\r\n        identity.setScopes(\"resource:read,resource:write\");\r\n        identity.hashPassword(identity.getPassword(), argon2Utils);\r\n        identityRepository.save(identity);\r\n\r\n        String activationCode = generateActivationCode();\r\n        LocalDateTime expirationTime = LocalDateTime.now().plusMinutes(5);\r\n        activationCodes.put(activationCode, Pair.of(identity.getEmail(), expirationTime));\r\n\r\n        String message = \"Welcome to Soil Monitoring! Activate your account now. Here is your Activation Code: \" + activationCode;\r\n        emailService.sendEmail(\"no-reply@soilmonitoring.com\", identity.getEmail(), \"Activate Account\", message);\r\n    }\r\n\r\n    public void activateIdentity(String code) {\r\n        if (activationCodes.containsKey(code)) {\r\n            Pair<String, LocalDateTime> codeDetails = activationCodes.get(code);\r\n            LocalDateTime expirationTime = codeDetails.getRight();\r\n            String email = codeDetails.getLeft();\r\n            Identity identity = identityRepository.findByEmail(email).orElse(null);\r\n\r\n            if (LocalDateTime.now().isAfter(expirationTime)) {\r\n                activationCodes.remove(code);\r\n                if (identity != null) {\r\n                    identityRepository.delete(identity);\r\n                }\r\n                throw new EJBException(\"Activation code expired\");\r\n            }\r\n\r\n            if (identity != null) {\r\n                identity.setAccountActivated(true);\r\n                identityRepository.save(identity);\r\n                activationCodes.remove(code);\r\n            } else {\r\n                throw new EJBException(\"Identity not found.\");\r\n            }\r\n        } else {\r\n            throw new EJBException(\"Activation code not found\");\r\n        }\r\n    }\r\n\r\n    private String generateActivationCode() {\r\n        var characters = \"0123456789\";\r\n        var codeBuilder = new StringBuilder();\r\n        var secureRandom = new SecureRandom();\r\n        for (var i = 0; i < 6; i++) {\r\n            var randomIndex = secureRandom.nextInt(characters.length());\r\n            codeBuilder.append(characters.charAt(randomIndex));\r\n        }\r\n        return codeBuilder.toString();\r\n    }\r\n}",
+      "info": {
+        "size": 3749,
+        "last_modified": "2026-01-07T16:14:19.4932779",
+        "mime_type": "text/x-java-source",
+        "extension": ".java"
+      }
+    },
+    {
+      "path": "resources\\META-INF\\microprofile-config.properties",
+      "content": "jnosql.document=document\r\njnosql.document.database=soilmonitoring_db\r\njnosql.mongodb.url=${JNOSQL_MONGODB_URL}\r\ndocument.provider=org.eclipse.jnosql.databases.mongodb.communication.MongoDBDocumentConfiguration\r\n\r\n# JWT Configuration\r\njwt.realm=soilmonitoring\r\njwt.lifetime.duration=1020\r\njwt.claim.roles=groups\r\n\r\n# Roles (required by IAM)\r\nroles=Admin,Farmer\r\n\r\n# SMTP Email Configuration\r\nsmtp.host=smtp.gmail.com\r\nsmtp.port=587\r\nsmtp.username=fatma.benhlel02@gmail.com\r\nsmtp.password=${SMTP_PASSWORD}\r\nsmtp.starttls.enable=true",
+      "info": {
+        "size": 530,
+        "last_modified": "2026-01-07T16:14:19.5013202",
+        "mime_type": "text/x-java-properties",
+        "extension": ".properties"
+      }
+    },
+    {
+      "path": "webapp\\WEB-INF\\beans.xml",
+      "content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<beans xmlns=\"https://jakarta.ee/xml/ns/jakartaee\"\r\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n       xsi:schemaLocation=\"https://jakarta.ee/xml/ns/jakartaee\r\n                           https://jakarta.ee/xml/ns/jakartaee/beans_4_0.xsd\"\r\n       version=\"4.0\"\r\n       bean-discovery-mode=\"all\">\r\n\r\n    <!-- Enable all CDI features including repository discovery -->\r\n</beans>",
+      "info": {
+        "size": 433,
+        "last_modified": "2026-01-07T16:14:19.5054432",
+        "mime_type": "application/xml",
+        "extension": ".xml"
+      }
+    },
+    {
+      "path": "webapp\\WEB-INF\\jboss-web.xml",
+      "content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<jboss-web xmlns=\"http://www.jboss.com/xml/ns/javaee\" version=\"10.0\">\r\n    <context-root>/</context-root>\r\n    <virtual-host>iam-host</virtual-host> <!-- iam-host configured in wildfly iam.domain.me -->\r\n\r\n</jboss-web>",
+      "info": {
+        "size": 258,
+        "last_modified": "2026-01-07T16:14:19.5084433",
+        "mime_type": "application/xml",
+        "extension": ".xml"
+      }
+    }
+  ]
+}
