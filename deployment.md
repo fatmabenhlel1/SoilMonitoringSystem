@@ -750,9 +750,9 @@ Check:
 
 ## License
 
+MIT License
 
 ---
 
 **Last Updated:** January 11, 2026  
-**Deployed By:** fatma ezzahra ben helal
 **SSL Rating:** A+ (SSL Labs)
