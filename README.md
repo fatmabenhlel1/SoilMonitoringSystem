@@ -976,13 +976,6 @@ SOFTWARE.
 
 ---
 
-## 📧 Contact
-
-**Project Maintainer**: fatma ezzahra ben helal 
-**Email**: fatmaezzahra.benhelal@supcom.tn
-**GitHub**: fatmabenhlel1
-
----
 
 ## 🙏 Acknowledgments
 
