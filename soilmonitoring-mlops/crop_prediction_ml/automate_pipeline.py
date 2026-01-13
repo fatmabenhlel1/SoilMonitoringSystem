@@ -63,32 +63,3 @@ print(f"   - La règle '{RULE_NAME}' est active")
 print(f"   - Le pipeline '{PIPELINE_NAME}' s'exécutera automatiquement chaque lundi à 09h00 UTC")
 print(f"\n🔗 Voir dans la console EventBridge:")
 print(f"https://console.aws.amazon.com/events/home?region={REGION}#/rules/{RULE_NAME}")
-```
-
----
-
-## 📂 ORGANISATION DES FICHIERS SUR SAGEMAKER
-
-Voici **exactement comment organiser vos fichiers** dans votre notebook SageMaker :
-
-### Structure du Répertoire
-```
-/home/ec2-user/SageMaker/crop-mlops-pipeline/
-│
-├── code/                              # ← DOSSIER avec tous les scripts Python
-│   ├── export_and_merge.py
-│   ├── train.py
-│   ├── inference.py
-│   ├── evaluate.py
-│   ├── compare_metrics.py
-│   ├── deploy.py
-│   └── split_data.py                 # (généré automatiquement par build_pipeline.py)
-│
-├── build_pipeline.py                 # ← Script principal pour créer le pipeline
-├── create_weekly_rule.py             # ← Script pour l'automatisation
-│
-├── data/                             # ← Données initiales
-│   └── base.csv                      # Dataset Kaggle préparé
-│
-├── requirements.txt                  # ← Dépendances Python
-└── README.md                         # ← Documentation
