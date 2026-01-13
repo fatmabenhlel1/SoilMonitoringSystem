@@ -101,21 +101,6 @@ The system is implemented as an automated MLOps workflow.
 
 ---
 
-## Folder Structure
-
-Same structure is used for both **fertilizer** and **crop** pipelines.
-
-```text
-
-  fertilizer(crop)/
-    pipeline/
-      build_pipeline.py
-    code/
-      export_and_merge.py
-      train.py
-      evaluate.py
-      compare_metrics.py
-      inference.py
-    schedules/
-      weekly_rule.py        
+     
   
+
